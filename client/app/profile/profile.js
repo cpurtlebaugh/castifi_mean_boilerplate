@@ -15,7 +15,7 @@ angular.module('castifiApp')
         templateUrl: 'app/profile/profile-detail.html',
         controller: 'ProfileCtrl'
       })
-      // basic info and contact (stand-in experience, set-coordinator experience)
+      // basic info and contact (union, stand-in, set-coordinator)
       .state('profile.basic', {
         url: '/basic',
         templateUrl: 'app/profile/profile-basic.html',
@@ -27,7 +27,13 @@ angular.module('castifiApp')
         templateUrl: 'app/profile/profile-appearance.html',
         controller: 'ProfileCtrl'
       })  
-        //skills i.e. bartender
+       //looks //costumes
+      .state('profile.looks', {
+        url: '/looks',
+        templateUrl: 'app/profile/profile-looks.html',
+        controller: 'ProfileCtrl'
+      })    
+      //skills i.e. bartender
         .state('profile.skills', {
         url: '/skills',
         templateUrl: 'app/profile/profile-skills.html',
@@ -39,7 +45,7 @@ angular.module('castifiApp')
         templateUrl: 'app/profile/profile-property.html',
         controller: 'ProfileCtrl'
       })  
-        //sports //dance// music instruments //costumes
+        //sports //dance// music instruments 
         .state('profile.talents', {
         url: '/talents',
         templateUrl: 'app/profile/profile-talents.html',

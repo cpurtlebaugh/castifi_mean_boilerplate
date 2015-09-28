@@ -15,7 +15,7 @@ angular.module('castifiApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/profile/edit');
+          $location.path('/profile');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
