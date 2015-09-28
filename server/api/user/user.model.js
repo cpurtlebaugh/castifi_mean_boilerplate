@@ -32,7 +32,7 @@ var UserSchema = new Schema({
   salt: String,
   facebook: {},
   google: {},
-  github: {}
+  github: {},
   info:      {legalFirstName: String, legalMiddleName: String,
               legalLastName: String, unionFirstName: String,
               unionMiddleName: String, unionLastName: String,
