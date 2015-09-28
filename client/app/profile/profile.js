@@ -3,19 +3,48 @@
 angular.module('castifiApp')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+      //basic view for nested profile views
       .state('profile', {
         url: '/profile',
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileCtrl'
       })
+      //shows the completed profile
       .state('profile.detail', {
         url: '/detail',
         templateUrl: 'app/profile/profile-detail.html',
         controller: 'ProfileCtrl'
       })
-      .state('profile.edit', {
-        url: '/edit',
-        templateUrl: 'app/profile/profile-edit.html',
+      // basic info and contact (stand-in experience, set-coordinator experience)
+      .state('profile.basic', {
+        url: '/basic',
+        templateUrl: 'app/profile/profile-basic.html',
         controller: 'ProfileCtrl'
-      });
+      })
+      //appearance and measurements
+        .state('profile.appearance', {
+        url: '/appearance',
+        templateUrl: 'app/profile/profile-appearance.html',
+        controller: 'ProfileCtrl'
+      })  
+        //skills i.e. bartender
+        .state('profile.skills', {
+        url: '/skills',
+        templateUrl: 'app/profile/profile-skills.html',
+        controller: 'ProfileCtrl'
+      })
+      //property //pets //cars  
+       .state('profile.property', {
+        url: '/property',
+        templateUrl: 'app/profile/profile-property.html',
+        controller: 'ProfileCtrl'
+      })  
+        //sports //dance// music instruments //costumes
+        .state('profile.talents', {
+        url: '/talents',
+        templateUrl: 'app/profile/profile-talents.html',
+        controller: 'ProfileCtrl'
+      });   
+
+       $urlRouterProvider.otherwise('/profile');  
   });

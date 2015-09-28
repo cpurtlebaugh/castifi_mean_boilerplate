@@ -10,7 +10,7 @@ angular.module('castifiApp')
       'link': '/profile/detail'},
       {
       'title': 'Edit Profile',
-      'link': '/profile/edit'}
+      'link': '/profile/basic'}
     ];
 
     $scope.isCollapsed = true;
