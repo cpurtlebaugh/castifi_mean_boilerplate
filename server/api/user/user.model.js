@@ -75,7 +75,6 @@ var UserSchema = new Schema({
               fireman: Boolean, gunHandler: Boolean,
               juggler: Boolean
               }
->>>>>>> 6890cfb591221a2ff2926b5610fb8034c6eee137
 });
 
 /**
