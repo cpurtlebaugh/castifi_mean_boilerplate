@@ -5,6 +5,21 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
+// var UserSchema = new Schema({
+//   name: String,
+//   email: { type: String, lowercase: true },
+//   role: {
+//     type: String,
+//     default: 'user'
+//   },
+//   hashedPassword: String,
+//   provider: String,
+//   salt: String,
+//   facebook: {},
+//   google: {},
+//   github: {}
+// });
+
 var UserSchema = new Schema({
   name: String,
   email: { type: String, lowercase: true },
@@ -18,10 +33,49 @@ var UserSchema = new Schema({
   facebook: {},
   google: {},
   github: {},
-  legalMiddleName: String,
-  info: {legalFirstName: String, legalMiddleName: String, legalLastName: String, 
-          unionFirstName: String, unionMiddleName: String, unionLastName: String,
-          dob: Date, gender: String, union: Boolean, nudity: Boolean}
+  info:      {legalFirstName: String, legalMiddleName: String,
+              legalLastName: String, unionFirstName: String,
+              unionMiddleName: String, unionLastName: String,
+              dob: Date, gender: String, union: Boolean,
+              nudity: Boolean
+             },
+
+  contact:   {cell: Number, homeNum: Number, address: String,
+              aptNum: String, city: String, state: String,
+              zipCode: Number, emergencyFirstName: String,
+              emergencyNum: Number
+             },
+
+  appearance: {height: Number, weight: Number,
+               portrayAgeMin: Number, ethnicLook: Array,
+               portrayAgeMax: Number, eyeColor: String,
+               hairColor: String, hairStyle: String,
+               facialHair: {present: Boolean, type: String},
+               piercing: {present: Boolean, location: Array}
+              },
+
+  measurements: {men:
+                    {coat: String, neck: String, sleeve: String,
+                      waist: String, inseam: String, shoes: String},
+                 women:
+                    {bra: String, waist: String, hips: String,
+                      dress: String, pants: String, shoes: String}
+              },
+
+  property:   {vehicle: {present: Boolean, type: Array},
+               pets: {present: Boolean, type: Array},
+              },
+
+  skills:     {hasSkills: Boolean, aerobic: Boolean,
+              artist: Boolean, ballonSculpting: Boolean,
+              bartender: Boolean, batonTwirler: Boolean,
+              caligraphyArtist: Boolean, cardDealer: Boolean,
+              cheerleader: Boolean, contortionist: Boolean,
+              fireBreather: Boolean, fireEater: Boolean,
+              fireman: Boolean, gunHandler: Boolean,
+              juggler: Boolean
+              }
+>>>>>>> 6890cfb591221a2ff2926b5610fb8034c6eee137
 });
 
 /**
