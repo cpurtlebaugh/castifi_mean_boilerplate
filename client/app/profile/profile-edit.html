@@ -1,9 +1,7 @@
-<!-- <div ng-include="'components/navbar/navbar.html'"></div> -->
-
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Sign up</h1>
+      <h1>New Profile</h1>
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
@@ -37,43 +35,36 @@
           </p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
-                                            'has-error': form.password.$invalid && submitted }">
-          <label>Password</label>
+          <div class="form-group" ng-class="{ 'has-success': form.middle.$valid && submitted,
+                                            'has-error': form.middle.$invalid && submitted }">
+          <label>Middle Name</label>
 
-          <input type="password" name="password" class="form-control" ng-model="user.password"
-                 ng-minlength="3"
-                 required
-                 mongoose-error/>
-          <p class="help-block"
-             ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
-            Password must be at least 3 characters.
-          </p>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ errors.password }}
+          <input type="text" name="middle" class="form-control" ng-model="user.legalMiddleName"
+                 required/>
+          <p class="help-block" ng-show="form.middle.$error.required && submitted">
+            A middle name is required
           </p>
         </div>
 
+        <div class="form-group" ng-class="{ 'has-success': form.first.$valid && submitted,
+                                            'has-error': form.first.$invalid && submitted }">
+          <label>Legal First Name</label>
+
+          <input type="text" name="first" class="form-control" ng-model="user.info.legalFirstName"
+                 required/>
+          <p class="help-block" ng-show="form.first.$error.required && submitted">
+            A legal first name is required
+          </p>
+        </div>
+
+
         <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
-            Sign up
+          <button class="btn btn-lg btn-primary" type="submit">
+            Save
           </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
-            Login
-          </a>
         </div>
 
-        <hr>
-        <div>
-          <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
-            <i class="fa fa-facebook"></i> Connect with Facebook
-          </a>
-          <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
-            <i class="fa fa-google-plus"></i> Connect with Google+
-          </a>
-        </div>
       </form>
     </div>
   </div>
-  <hr>
 </div>

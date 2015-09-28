@@ -5,7 +5,13 @@ angular.module('castifiApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }];
+    },{
+      'title': 'Profile',
+      'link': '/profile/detail'},
+      {
+      'title': 'Edit Profile',
+      'link': '/profile/edit'}
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

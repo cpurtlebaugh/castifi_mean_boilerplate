@@ -17,7 +17,11 @@ var UserSchema = new Schema({
   salt: String,
   facebook: {},
   google: {},
-  github: {}
+  github: {},
+  legalMiddleName: String,
+  info: {legalFirstName: String, legalMiddleName: String, legalLastName: String, 
+          unionFirstName: String, unionMiddleName: String, unionLastName: String,
+          dob: Date, gender: String, union: Boolean, nudity: Boolean}
 });
 
 /**
