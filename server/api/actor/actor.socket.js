@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Profile = require('./profile.model');
+var Actor = require('./actor.model');
 
 exports.register = function(socket) {
-  Profile.schema.post('save', function (doc) {
+  Actor.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Profile.schema.post('remove', function (doc) {
+  Actor.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('profile:save', doc);
+  socket.emit('actor:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('profile:remove', doc);
+  socket.emit('actor:remove', doc);
 }
