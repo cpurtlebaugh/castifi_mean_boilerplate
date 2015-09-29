@@ -1,66 +1,43 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>New Profile</h1>
+      <h1>Basic</h1>
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
-
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
-
-          <input type="text" name="name" class="form-control" ng-model="user.name"
+          <label>First Name</label>
+          <input type="text" name="name" class="form-control" ng-model="user.firstName"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && submitted">
             A name is required
           </p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
-                                            'has-error': form.email.$invalid && submitted }">
-          <label>Email</label>
-
-          <input type="email" name="email" class="form-control" ng-model="user.email"
-                 required
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.email.$error.email && submitted">
-            Doesn't look like a valid email.
-          </p>
-          <p class="help-block" ng-show="form.email.$error.required && submitted">
-            What's your email address?
-          </p>
-          <p class="help-block" ng-show="form.email.$error.mongoose">
-            {{ errors.email }}
-          </p>
-        </div>
-
           <div class="form-group" ng-class="{ 'has-success': form.middle.$valid && submitted,
-                                            'has-error': form.middle.$invalid && submitted }">
+                                             'has-error': form.middle.$invalid && submitted }">
           <label>Middle Name</label>
-
-          <input type="text" name="middle" class="form-control" ng-model="user.legalMiddleName"
+          <input type="text" name="middle" class="form-control" ng-model="user.middleName"
                  required/>
           <p class="help-block" ng-show="form.middle.$error.required && submitted">
             A middle name is required
           </p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.first.$valid && submitted,
+         <div class="form-group" ng-class="{ 'has-success': form.first.$valid && submitted,
                                             'has-error': form.first.$invalid && submitted }">
-          <label>Legal First Name</label>
-
-          <input type="text" name="first" class="form-control" ng-model="user.info.legalFirstName"
+          <label>Last Name</label>
+          <input type="text" name="first" class="form-control" ng-model="user.lastName"
                  required/>
           <p class="help-block" ng-show="form.first.$error.required && submitted">
             A legal first name is required
           </p>
         </div>
 
-
         <div>
           <button class="btn btn-lg btn-primary" type="submit">
-            Save
+            Next Step
           </button>
         </div>
 

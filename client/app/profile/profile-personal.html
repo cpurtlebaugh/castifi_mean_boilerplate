@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Personal</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+
+        <label>Gender</label>
+        <br>
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Male'">Male</label>
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Female'">Female</label>
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Neutral'">Neutral</label>
+        </div>
+        <br>
+        <br>
+        <div class="form-group" ng-class="{ 'has-success': form.dob.$valid && submitted,
+                                            'has-error': form.dob.$invalid && submitted }">
+          <label>Birthday</label>
+          <input type="text" name="dob" class="form-control" ng-model="user.dob"
+                 required/>
+          <p class="help-block" ng-show="form.dob.$error.required && submitted">
+            A date of birth is required
+          </p>
+        </div>
+
+
+        <div>
+          <button class="btn btn-lg btn-primary" type="submit">
+            Save
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+

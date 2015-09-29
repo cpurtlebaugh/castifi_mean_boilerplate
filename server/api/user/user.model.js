@@ -34,100 +34,13 @@ var UserSchema = new Schema({
   google: {},
   github: {},
   info:      {legalFirstName: String, legalMiddleName: String,
-              legalLastName: String, unionFirstName: String,
-              unionMiddleName: String, unionLastName: String,
-              dob: Date, gender: String, union: Boolean,
-              nudity: Boolean
+              legalLastName: String, dob: Date, gender: String
              },
 
   contact:   {cell: Number, homeNum: Number, address: String,
               aptNum: String, city: String, state: String,
-              zipCode: Number, emergencyFirstName: String,
-              emergencyNum: Number
-             },
-
-  appearance: {height: Number, weight: Number,
-               portrayAgeMin: Number, ethnicLook: Array,
-               portrayAgeMax: Number, eyeColor: String,
-               hairColor: String, hairStyle: String,
-               facialHair: {present: Boolean, type: String},
-               piercing: {present: Boolean, belly: Boolean,
-                brow: Boolean, nose: Boolean, septum: Boolean,
-                ear: Boolean, nipple: Boolean, tongue: Boolean,
-                monroe: Boolean, upperEar: Boolean,
-                snakeBite: Boolean, labret: Boolean}
-              },
-
-  measurements: {men:
-                    {coat: String, neck: String, sleeve: String,
-                      waist: String, inseam: String, shoes: String},
-                 women:
-                    {bra: String, waist: String, hips: String,
-                      dress: String, pants: String, shoes: String}
-              },
-
-  property:   {vehicle1: {present: Boolean, make: String, year: String,
-               color: String},
-               vehicle2: {present: Boolean, make: String, year: String,
-               color: String},
-               pets: {present: Boolean, type: Array},
-              },
-
-  skills:     {hasSkills: Boolean, aerobic: Boolean,
-               artist: Boolean, ballonSculpting: Boolean,
-               bartender: Boolean, batonTwirler: Boolean,
-               caligraphyArtist: Boolean, cardDealer: Boolean,
-               cheerleader: Boolean, contortionist: Boolean,
-               fireBreather: Boolean, fireEater: Boolean,
-               fireman: Boolean, gunHandler: Boolean,
-               juggler: Boolean, lifeguard: Boolean,
-               magician: Boolean, manicurist: Boolean,
-               massage: Boolean, militaryTraining: Boolean,
-               mime: Boolean, footModel: Boolean,
-               handModel: Boolean, legModel: Boolean, nurse: Boolean,
-               paramedic: Boolean, signLanguage: Boolean,
-               sketchArtist: Boolean, stenographer: Boolean,
-               stiltwalker: Boolean, unicyclist: Boolean,
-               welder: Boolean, yoga: Boolean
-              },
-
-  looks:      {looksUnder18: Boolean, bodyBuilder: Boolean,
-               business: Boolean, character: Boolean,
-               dragQueen: Boolean, freckles: Boolean,
-               punk: Boolean, multiplePiercings: Boolean,
-               tattos: {present: Boolean, sleeves: Boolean,
-                        visible: Boolean},
-               amputee: {present: Boolean, location: String},
-               twins: Boolean, triplets: Boolean, upscale: Boolean,
-               wheelChairUser: Boolean
-              },
-
-  sports:     {basketball: Boolean, baseball: Boolean,
-               soccer: Boolean, karate: Boolean,
-               skateBoarding: Boolean, swimming: Boolean,
-               football: Boolean, running: Boolean,
-               hockey: Boolean, tennis: Boolean,
-               tableTennis: Boolean,
-              },
-
-  music:      {guitar: Boolean, bass: Boolean, drums: Boolean,
-               horns: Boolean, saxaphone: Boolean, keys: Boolean,
-               dj: Boolean, banjo: Boolean, harmonica: Boolean,
-               violin: Boolean,
-              },
-
-  dance:      {ballet: Boolean, salsa: Boolean, ballroom: Boolean,
-               swing: Boolean, hipHop: Boolean, flamingo: Boolean,
-               contemporary: Boolean, tapDance: Boolean,
-               irishDance: Boolean, bellyDance: Boolean,
-               bollyWood: Boolean, breakDance: Boolean
-              },
-
-  costumes:   {formalWear: Boolean, casual: Boolean},
-
-  setCoordinator: {present: Boolean, pastExperience: String},
-
-  standInExperience: {present: Boolean, pastExperience: String}
+              zipCode: Number
+             }
 
 });
 

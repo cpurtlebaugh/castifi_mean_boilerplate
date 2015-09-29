@@ -32,21 +32,21 @@ angular.module('castifiApp')
 
 
 
-     $scope.updateThing = function() {
-      var newProfile = { user: $scope.awesome,
-                         name: $scope.awesome.name,
-                         email: $scope.awesome.email}
-      $http.post('/api/profiles/', newProfile);
-      console.log(newProfile)
-    };
+    //  $scope.updateThing = function() {
+    //   var newProfile = { user: $scope.awesome,
+    //                      name: $scope.awesome.name,
+    //                      email: $scope.awesome.email}
+    //   $http.post('/api/profiles/', newProfile);
+    //   console.log(newProfile)
+    // };
 
 
-      $scope.getCurrentUser = Auth.getCurrentUser;
-      var user_id = $scope.getCurrentUser()._id;
+    //   $scope.getCurrentUser = Auth.getCurrentUser;
+    //   var user_id = $scope.getCurrentUser()._id;
 
-     $scope.updateUser = function() {
-      $http.put('/api/users/' + user_id, {name: "TED"} );
-    };
+    //  $scope.updateUser = function() {
+    //   $http.put('/api/users/' + user_id, {name: "TED"} );
+    // };
 
 
     $scope.deleteThing = function(thing) {
