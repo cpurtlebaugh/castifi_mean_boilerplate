@@ -6,21 +6,18 @@ angular.module('castifiApp')
       $scope.user = User.get();
       $scope.getCurrentUser = Auth.getCurrentUser;
       var user_id = $scope.getCurrentUser()._id;
+      $scope.submitted = false;
 
-     $scope.register = function register(form) {
-       $scope.submitted = true;
+       $scope.register = function register(form) {
+            $scope.submitted = true;
 
-       $http.put('/api/users/' + user_id, $scope.user )
-          .success(function() {
-                $state.go('profile.detail')
-            });
-      };
-
-  
-    //   $http.get('/api/users/me').success(function(data) {
-    //   $scope.user = data;
-    //   socket.syncUpdates('users', $scope.user);
-    // });
-  
+         $http.put('/api/users/' + user_id, $scope.user )
+            .success(function() {
+                  if($state.is('profile.basic')){ $state.go('profile.personal')};
+                  if($state.is('profile.personal')){ $state.go('profile.address')};  
+                  if($state.is('profile.address')){ $state.go('profile.confirmation')};    
+              });
+        
+        };  
 
   });

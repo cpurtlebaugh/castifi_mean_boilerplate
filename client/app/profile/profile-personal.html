@@ -6,12 +6,22 @@
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
+         <div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
+                                            'has-error': form.phone.$invalid && submitted }">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" class="form-control" ng-model="user.contact.mainPhoneNum"
+                 required/>
+          <p class="help-block" ng-show="form.phone.$error.required && submitted">
+            A phone number is required
+          </p>
+        </div>
+
         <label>Gender</label>
         <br>
         <div class="btn-group">
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Male'">Male</label>
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Female'">Female</label>
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Neutral'">Neutral</label>
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'male'">Male</label>
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'female'">Female</label>
+          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'neutral'">Neutral</label>
         </div>
         <br>
         <br>
@@ -28,7 +38,7 @@
 
         <div>
           <button class="btn btn-lg btn-primary" type="submit">
-            Save
+            Next Step
           </button>
         </div>
 

@@ -1,7 +1,25 @@
+<br>
+<br>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 well">
-      <h1>Confirmation</h1>
+    <div class="col-sm-12 well text-center">
+      <h1>Confirmation!</h1>
+      <!-- Name -->
+      <h2>{{user.legalFirstName}} {{user.legalMiddleName}} {{user.legalLastName}}</h2>
+      <!-- Address -->
+      <h2>{{user.contact.address}} {{user.contact.state}}</h2>
+       <!-- icon Birthday -->
+      <h4>{{user.dob | date}}</h4>
+      <!-- Phone Number -->
+      <h4>{{user.contact.mainPhoneNum}}</h4>
+      <!-- icon Number -->
+      <h4>{{user.email}}</h4>
+      <!-- Get Started Button -->
+      <div>
+          <button class="btn btn-lg btn-primary" type="submit">
+            Get Started
+          </button>
+      </div>
     </div>
   </div>
 </div>

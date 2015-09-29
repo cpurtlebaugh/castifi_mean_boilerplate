@@ -1,4 +1,4 @@
-span.step {
+span.circle {
   background: #cccccc;
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;
@@ -10,4 +10,8 @@ span.step {
   margin-right: 5px;
   text-align: center;
   width: 1.6em; 
+}
+
+.active-circle span.circle {
+  background:dodgerblue;
 }
