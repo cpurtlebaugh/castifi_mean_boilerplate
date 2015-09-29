@@ -6,6 +6,17 @@ var mongoose = require('mongoose'),
 var ActorSchema = new Schema({
   name: String,
 
+  ownedBy:    {
+               type: mongoose.Schema.Types.ObjectId,
+               ref: 'User'
+              },
+
+  media:      {imageOne: String, imageTwo: String,
+              imageThree: String, video: String
+              },
+
+
+
   info:       {legalFirstName: String, legalMiddleName: String,
                legalLastName: String, unionFirstName: String,
                unionMiddleName: String, unionLastName: String,
