@@ -5,24 +5,19 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
-// var UserSchema = new Schema({
-//   name: String,
-//   email: { type: String, lowercase: true },
-//   role: {
-//     type: String,
-//     default: 'user'
-//   },
-//   hashedPassword: String,
-//   provider: String,
-//   salt: String,
-//   facebook: {},
-//   google: {},
-//   github: {}
-// });
-
 var UserSchema = new Schema({
   name: String,
+  legalFirstName: String,
+  legalMiddleName: String,
+  legalLastName: String,
   email: { type: String, lowercase: true },
+  gender: String,
+  dob: Date,
+  active: Boolean,
+  contact: {cell: String, mainNum: String, address: String,
+            aptNum: String, city: String, state: String,
+            zipCode: String
+           },
   role: {
     type: String,
     default: 'user'
@@ -32,16 +27,8 @@ var UserSchema = new Schema({
   salt: String,
   facebook: {},
   google: {},
-  github: {},
-  info:      {legalFirstName: String, legalMiddleName: String,
-              legalLastName: String, dob: Date, gender: String
-             },
-
-  contact:   {cell: Number, homeNum: Number, address: String,
-              aptNum: String, city: String, state: String,
-              zipCode: Number
-             }
-
+  github: {}
+  
 });
 
 /**
