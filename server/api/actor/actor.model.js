@@ -15,12 +15,8 @@ var ActorSchema = new Schema({
               imageThree: String, video: String
               },
 
-
-
-  info:       {legalFirstName: String, legalMiddleName: String,
-               legalLastName: String, unionFirstName: String,
-               unionMiddleName: String, unionLastName: String,
-               gender: String, union: Boolean,
+  info:       {unionFirstName: String, unionMiddleName: String,
+               unionLastName: String, union: Boolean,
                nudity: Boolean
               },
 
