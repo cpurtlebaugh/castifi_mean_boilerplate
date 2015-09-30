@@ -6,7 +6,7 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
-  name: {type: String, required: true, lowercase: true, unique: true,
+  name: {type: String, required: true, lowercase: true, 
         validate:{
           validator: function(name) {
             return name.length >= 5;
