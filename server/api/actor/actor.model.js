@@ -18,26 +18,42 @@ var ActorSchema = new Schema({
                unionLastName: String, union: Boolean, bio: String
               },
 
+// appearance //
+  ethnicLook: {
+                caucasian: Boolean, africanAmerican: Boolean,
+                nativeAmerican: Boolean, pacificIslander: Boolean,
+                asian: Boolean, easternIndian: Boolean,
+                middleEastern: Boolean, hispanic: Boolean
+               },
+
   appearance: {heightFeet: Number, heightInches:Number, weight: Number,
                portrayAgeMin: Number, portrayAgeMax: Number,
-               ethnicLook: String, nationality: String,
-               complexion: String, eyeColor: String,
-               hairColor: String, hairStyle: String,
-               hairLength: String, 
-               facialHair: {present:Boolean, facialHairType:String},
-               piercing: {present: Boolean, piercingCount: Number,
-                          locationOne: String, locationTwo: String
-                         },
-               tattoos: {present: Boolean, sleeves: Boolean,
-                        visible: Boolean, tattooCountRange: String
-                      },
+               nationality: String, complexion: String,
+               eyeColor: String, hairColor: String,
+               hairStyle: String,hairLength: String,
+               facialHairPresent:Boolean, facialHairType:String,
                twins: Boolean, triplets: Boolean, pregnant: Boolean,
-               amputee: {present: Boolean, locationOne: String,
-                         locationTwo: String, extraInfo: String
-                       },
-               disabled: { present:Boolean, blind: Boolean, mute: Boolean, deaf: Boolean,
-               impairedHearing: Boolean, usesWheelChair: Boolean},
               },
+
+  piercings:  {present: Boolean, piercingCount: Number,
+               locationOne: String, locationTwo: String
+              },
+
+  tattoos:    {
+               present: Boolean, sleeves: Boolean,
+               visible: Boolean, tattooCountRange: String
+              },
+
+  amputee:    {
+               present: Boolean, locationOne: String,
+               locationTwo: String, extraInfo: String
+              },
+
+  disabled:   {
+              present:Boolean, blind: Boolean, mute: Boolean, deaf: Boolean,
+              impairedHearing: Boolean, usesWheelChair: Boolean
+              },
+
 
   clothingSizes: {men:
                     {coat: String, neck: String, sleeve: String,

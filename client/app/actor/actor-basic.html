@@ -3,16 +3,16 @@
     <div class="col-sm-12">
       <h1>Actor Basic</h1>
     </div>
-   
+
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
 
         <div>
           <label>Are You a Member of SAG or AFTRA?</label>
-          <input type="checkbox" name="union" ng-model="actor.info.union"/>
+          <input type="checkbox" ng-model="actor.info.union"/>
         </div>
-      
+
         <!-- union names -->
         <div ng-if="actor.info.union">
             <div class="form-group">
@@ -43,28 +43,28 @@
         <!-- appearance -->
         <!-- height, weight -->
         <div class="row">
-          
+
           <div class="col-sm-2">
              <div class="form-group">
               <label>Height Feet</label>
               <input type="number" class="form-control" ng-model="actor.appearance.heightFeet"/>
             </div>
           </div>
-        
+
         <div class="col-sm-2">
              <div class="form-group">
               <label>Height Inches</label>
               <input type="number" class="form-control" ng-model="actor.appearance.heightInches"/>
             </div>
           </div>
-         
+
           <div class="col-sm-2">
              <div class="form-group">
               <label>Weight</label>
               <input type="number" class="form-control" ng-model="actor.appearance.weight"/>
             </div>
           </div>
-         
+
          <div class="col-sm-2"></div>
           <!-- min age, max age -->
           <div class="col-sm-2">
@@ -73,55 +73,86 @@
               <input type="number" min="12" max="120" class="form-control" ng-model="actor.appearance.portrayAgeMin"/>
             </div>
           </div>
-          
+
           <div class="col-sm-2">
              <div class="form-group">
               <label>Max Portrayable Age</label>
               <input type="number" min="12" max="120" class="form-control" ng-model="actor.appearance.portrayAgeMax"/>
             </div>
           </div>
-         
-         </div> 
-      
+
+      </div>
+
 
         <!-- ethnic look(s), complexion, nationality -->
         <div class="row">
-          <div class="col-sm-3">
-          
+       <!--  left side of the screen -->
+          <div class="col-sm-6">
+            <label>Ethnic Looks (pick up to 3)</label>
+            <div class="row">
+            <!-- ethnic looks -->
+              <div class="col-sm-6 col-xs-6">
+                  <input type="checkbox" ng-model="actor.ethnicLook.asian"/>
+                  <label>Asian</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.africanAmerican"/>
+                  <label>African American</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.caucasian"/>
+                  <label>Caucasian</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.easternIndian"/>
+                  <label>East Indian</label><br>
+
+              </div>
+            <!-- ethnic looks -->
+              <div class="col-sm-6 col-xs-6">
+                  <input type="checkbox" ng-model="actor.ethnicLook.hispanic"/>
+                  <label>Hispanic</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.middleEastern"/>
+                  <label>Middle Eastern</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.nativeAmerican"/>
+                  <label>Native American</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
+                  <label>Pacific Islander</label><br>
+              </div>
+           </div>
+         </div>
+<!--           right side of the screen -->
+          <br>
+          <div class="col-sm-6">
             <div class="form-group">
-                <label>Ethnic Look</label>
-              <select class="form-control" ng-model="actor.appearance.ethnicLook">
-                <option>Caucasian</option>
-                <option>Native American</option>
-                <option>Hispanic</option>
-                <option>Asian</option>
-                <option></option>
-                <option>3</option>
-                <option>1</option>
-                <option>2</option>
+              <label>Complexion</label>
+              <select class="form-control" ng-model="actor.appearance.complexion">
+                <option value="dark">dark</option>
+                <option value="fair">fair</option>
+                <option value="olive">olive</option>
+                <option value="light">light</option>
+                <option value="ruddy">ruddy</option>
+                <option value="tan">tan</option>
               </select>
             </div>
-          
+
+             <!-- <div class="form-group">
+              <label>Nationality</label>
+              <select class="form-control" ng-model="actor.appearance.nationality">
+                <option value="dark">dark</option>
+                <option value="fair">fair</option>
+                <option value="olive">olive</option>
+                <option value="light">light</option>
+                <option value="ruddy">ruddy</option>
+                <option value="tan">tan</option>
+              </select>
+            </div> -->
           </div>
-          <div class="col-sm-3"></div>
-          <div class="col-sm-3"></div>
-        </div>
 
+      </div>
 
-        <!-- hair length, hair color, hair style -->
-        <!-- facial hair(present), type -->
-        <!-- piercings(present), count, locationOne, locationTwo -->
-        <!-- tattoos (present), sleeves, visible, sliders?  -->
         <!-- twins, triplets, pregnant checkboxes  -->
         <!-- amputee(present) locationOne, locationTwo, extraInfo -->
         <!-- disabled(present) blind, mute, deaf, hearing-impaired, wheelchair -->
         <!-- end appearance -->
 
-        <div>
           <button class="btn btn-lg btn-primary" type="submit">
             Next Step
           </button>
-        </div>
 
       </form>
     </div>
