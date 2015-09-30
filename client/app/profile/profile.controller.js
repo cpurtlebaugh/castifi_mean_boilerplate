@@ -14,10 +14,11 @@ angular.module('castifiApp')
          $http.put('/api/users/' + user_id, $scope.user )
             .success(function() {
                   if($state.is('profile.basic')){ $state.go('profile.personal')};
-                  if($state.is('profile.personal')){ $state.go('profile.address')};  
-                  if($state.is('profile.address')){ $state.go('profile.confirmation')};    
+                  if($state.is('profile.personal')){ $state.go('profile.address')};
+                  if($state.is('profile.address')){ $state.go('profile.confirmation')};
+                  if($state.is('profile.confirmation')){$scope.finished = true};
               });
-        
-        };  
+
+        };
 
   });

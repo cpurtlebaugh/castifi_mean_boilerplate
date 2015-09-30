@@ -6,17 +6,46 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
-  name: String, //username
-  legalFirstName: String,
-  legalMiddleName: String,
-  legalLastName: String,
-  email: { type: String, lowercase: true },
+  name: {type: String, required: true, lowercase: true, unique: true,
+        validate:{
+          validator: function(name) {
+            return name.length >= 5;
+           },
+            message: 'username should be 5 characters or more'
+        }
+      }, //username
+  legalFirstName: {type: String, lowercase: true},
+  legalMiddleName: {type: String, lowercase: true},
+  legalLastName: {type: String, lowercase: true},
+  email: {type: String, lowercase: true, required: true,
+           unique: true, match: /.+\@.+\..+/},
   gender: String,
   dob: Date,
   active: Boolean,
-  contact: {cellNum: String, mainPhoneNum: String, address: String,
-            aptNum: String, city: String, state: String,
-            zipCode: String, country: String
+  contact: {
+            cellNum: {type: String,
+              validate: {
+                validator: function(cellNum){
+                  return cellNum.length === 10;
+                },
+              message: 'cell number needs to be exactly 10 characters'
+              }
+            },
+
+            mainPhoneNum: {type: String,
+              validate: {
+                validator: function(mainPhoneNum){
+                  return mainPhoneNum.length === 10;
+                },
+              message: 'phone number needs to be exactly 10 characters'
+              }
+             },
+            address: {type: String, lowercase: true},
+            aptNum: Number,
+            city: {type: String, lowercase: true},
+            state: {type: String, lowercase: true},
+            zipCode: Number,
+            country: {type: String, lowercase: true},
            },
   role: {
     type: String,
@@ -28,7 +57,7 @@ var UserSchema = new Schema({
   facebook: {},
   google: {},
   github: {}
-  
+
 });
 
 /**

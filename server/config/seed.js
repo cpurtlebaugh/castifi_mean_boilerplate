@@ -33,13 +33,27 @@ Thing.find({}).remove(function() {
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
-    name: 'Test User',
+    name: 'test user',
     email: 'test@test.com',
-    password: 'test'
-  }, {
+    legalFirstName: 'test',
+    legalMiddleName: 'test',
+    legalLastName: 'test',
+    password: 'test',
+    contact: {
+            cellNum: 8057548101,
+            mainPhoneNum: 8057548101,
+            address: '1000 main st',
+            aptNum: 105,
+            city: 'hollywood',
+            state: 'ca',
+            zipCode: 90028,
+            country: 'united states',
+           },
+  },
+  {
     provider: 'local',
     role: 'admin',
-    name: 'Admin',
+    name: 'admin',
     email: 'admin@admin.com',
     password: 'admin'
   }, function() {
