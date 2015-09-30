@@ -4,4 +4,108 @@
 <!-- piercings(present), count, locationOne, locationTwo -->
 <!-- tattoos (present), sleeves, visible, sliders?  -->
 
+<div class="container">
+  <div class="row">
+   
+
+
+    <div class="col-sm-12">
+    	   <h1>Actor Figure</h1>
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+      	<!-- hair and eyes -->
+      	<div class="row">
+      		<div class="col-sm-3">
+      			<div class="form-group">
+	              <label>Hair Length</label>
+	              <select class="form-control" ng-model="actor.appearance.hairLength">
+	                <option value="dark">dark</option>
+	                <option value="fair">fair</option>
+	                <option value="olive">olive</option>
+	                <option value="light">light</option>
+	                <option value="ruddy">ruddy</option>
+	                <option value="tan">tan</option>
+	              </select>
+	            </div>
+      		</div>
+
+      		<div class="col-sm-3">
+      			<div class="form-group">
+	              <label>Hair Color</label>
+	              <select class="form-control" ng-model="actor.appearance.hairColor">
+	                <option value="dark">dark</option>
+	                <option value="fair">fair</option>
+	                <option value="olive">olive</option>
+	                <option value="light">light</option>
+	                <option value="ruddy">ruddy</option>
+	                <option value="tan">tan</option>
+	              </select>
+	            </div>
+      		</div>
+      		
+      		<div class="col-sm-3">
+      			<div class="form-group">
+	              <label>Hair Style</label>
+	              <select class="form-control" ng-model="actor.appearance.hairStyle">
+	                <option value="buzzed">buzzed</option>
+	                <option value="fair">fair</option>
+	                <option value="olive">olive</option>
+	                <option value="light">light</option>
+	                <option value="ruddy">ruddy</option>
+	                <option value="tan">tan</option>
+	              </select>
+	            </div>
+      		</div>
+      		
+      		<div class="col-sm-3">
+      			<div class="form-group">
+	              <label>Eye Color</label>
+	              <select class="form-control" ng-model="actor.appearance.eyeColor">
+	                <option value="dark">dark</option>
+	                <option value="fair">fair</option>
+	                <option value="olive">olive</option>
+	                <option value="light">light</option>
+	                <option value="ruddy">ruddy</option>
+	                <option value="tan">tan</option>
+	              </select>
+	            </div>
+      		</div>
+      	
+      	</div>
+      	<!-- end hair and eyes -->
+      	<!-- piercings -->
+      	<div class="row">
+      		<div class="col-sm-4">	
+		        <div>
+		          <label>Do You Have Any Tattoos?</label>
+		          <input type="checkbox" ng-model="actor.piercings.present"/>
+		        </div>
+      		</div>
+        <!-- ng-if tattoos present-->
+        <div ng-if="actor.piercings.present">
+      		<div class="col-sm-4">
+      			<input type="checkbox" ng-model="actor.ethnicLook.hispanic"/>
+                  <label>Hispanic</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.middleEastern"/>
+                  <label>Middle Eastern</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.nativeAmerican"/>
+                  <label>Native American</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
+                  <label>Pacific Islander</label><br>
+                   <label>Native American</label><br>
+                  <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
+                  <label>Pacific Islander</label><br>
+      		</div>
+      		<div class="col-sm-4"></div>
+      	</div>		
+      	<!-- ng-if -->
+      	</div>
+      	<!-- end piercings -->
+     </form>
+    </div>
+  
+
+  </div>
+</div>
+
+
 

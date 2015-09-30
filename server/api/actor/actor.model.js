@@ -36,12 +36,15 @@ var ActorSchema = new Schema({
               },
 
   piercings:  {present: Boolean, piercingCount: Number,
-               locationOne: String, locationTwo: String
+               ear:Boolean, nose:Boolean, eyebrow: Boolean,
+               lip: Boolean, tongue: Boolean, navel:Boolean
               },
 
   tattoos:    {
-               present: Boolean, sleeves: Boolean,
-               visible: Boolean, tattooCountRange: String
+               present: Boolean, tattooCountRange: String,
+               forearm: Boolean, upperArm:Boolean, neck:Boolean,
+               face: Boolean, chest: Boolean, stomach: Boolean,
+               back: Boolean, hand: Boolean, leg: Boolean, foot: Boolean 
               },
 
   amputee:    {
