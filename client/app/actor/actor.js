@@ -19,6 +19,12 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-basic.html',
         controller: 'ActorCtrl'
       })
+      //basic: union info, bio and appearance
+      .state('actor.figure', {
+        url: '/figure',
+        templateUrl: 'app/actor/actor-figure.html',
+        controller: 'ActorCtrl'
+      })
       //wardrobe: measurements and costumes
        .state('actor.wardrobe', {
         url: '/wardrobe',
