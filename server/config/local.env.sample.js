@@ -9,11 +9,11 @@ module.exports = {
   DOMAIN:           'http://localhost:9000',
   SESSION_SECRET:   'castifi-secret',
 
-  FACEBOOK_ID:      'app-id',
-  FACEBOOK_SECRET:  'secret',
+  FACEBOOK_ID: '178065179196089',
+  FACEBOOK_SECRET: '330b5b5fa1041bd53b95430efb2150a8',
 
-  GOOGLE_ID:        'app-id',
-  GOOGLE_SECRET:    'secret',
+  GOOGLE_ID: '809494367838-j9jakg9i4v37vhubblbi99kmadi889ne.apps.googleusercontent.com',
+  GOOGLE_SECRET: 'lvsyDZd-1PoZaKBA2k14uqkF',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
