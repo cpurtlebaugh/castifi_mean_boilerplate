@@ -15,28 +15,28 @@ var ActorSchema = new Schema({
               },
 
   info:       {unionFirstName: String, unionMiddleName: String,
-               unionLastName: String, union: Boolean
+               unionLastName: String, union: Boolean, bio: String
               },
 
-  appearance: {height: Number, weight: Number,
+  appearance: {heightFeet: Number, heightInches:Number, weight: Number,
                portrayAgeMin: Number, portrayAgeMax: Number,
-               ethnicLook: Array, nationality: String,
-               complexion: Boolean, eyeColor: String,
+               ethnicLook: String, nationality: String,
+               complexion: String, eyeColor: String,
                hairColor: String, hairStyle: String,
-               hairLength: String,
-               facialHair: {present: Boolean, type: String},
+               hairLength: String, 
+               facialHair: {present:Boolean, facialHairType:String},
                piercing: {present: Boolean, piercingCount: Number,
-                          location: String
+                          locationOne: String, locationTwo: String
                          },
-               tattos: {hasTattos: Boolean, sleeves: Boolean,
+               tattoos: {present: Boolean, sleeves: Boolean,
                         visible: Boolean, tattooCountRange: String
                       },
-               twins: Boolean, triplets: Boolean, pregnant: String,
+               twins: Boolean, triplets: Boolean, pregnant: Boolean,
                amputee: {present: Boolean, locationOne: String,
                          locationTwo: String, extraInfo: String
                        },
-               blind: Boolean, mute: Boolean, deaf: Boolean,
-               impairedHearing: Boolean, usesWheelChair: Boolean
+               disabled: { present:Boolean, blind: Boolean, mute: Boolean, deaf: Boolean,
+               impairedHearing: Boolean, usesWheelChair: Boolean},
               },
 
   clothingSizes: {men:
@@ -142,26 +142,3 @@ var ActorSchema = new Schema({
 });
 
 module.exports = mongoose.model('Actor', ActorSchema);
-
-               // belly: Boolean,
-               // brow: Boolean, nose: Boolean, septum: Boolean,
-               // ear: Boolean, nipple: Boolean, tongue: Boolean,
-               // monroe: Boolean, upperEar: Boolean,
-               // snakeBite: Boolean, labret: Boolean
-
-  // hairLength: {hasHair: Boolean, baldTop: Boolean, receding: Boolean,
-  //              buzzed: Boolean, shortHair: Boolean, earLength: Boolean,
-  //              cheekLength: Boolean, chinLength: Boolean,
-  //              shoulderLength: Boolean, midBackLength: Boolean,
-  //              hipLength: Boolean, dreadlocks: Boolean,
-  //              cornRows: Boolean
-  //             },
-
-
-  // hairColor:  {blonde: Boolean, brown: Boolean,
-  //              black: Boolean, grey: Boolean, saltPepper: Boolean,
-  //              auburn: Boolean, red: Boolean, white: Boolean,
-  //              blue: Boolean, pink: Boolean, green: Boolean
-  //             },
-
-  // hairType:   {straight: Boolean, wavy: Boolean, curly: Boolean},
