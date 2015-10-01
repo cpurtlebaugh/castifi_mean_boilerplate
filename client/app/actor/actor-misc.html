@@ -1,6 +1,47 @@
-<!-- i am willing to...nudity, kissing, change hair, eat meat-->
+<div class="container">
+  <div class="row">
 
-<!-- end i am willing to...nudity, kissing, change hair, eat meat-->
+
+
+    <div class="col-sm-12">
+         <h1>Actor Misc.</h1>
+          <label>Are you comfortable with...</label>
+
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+<!-- i am willing to...nudity, kissing, change hair -->
+
+        <div class="row">
+  <!-- nudity -->
+          <div class="col-sm-4">
+            <div>
+              <input type="checkbox" ng-model="actor.willing.kissing"/>
+              <label>Kissing</label><br>
+              <input type="checkbox" ng-model="actor.willing.partialNudity"/>
+              <label>Partial Nudity</label><br>
+              <input type="checkbox" ng-model="actor.willing.fullNudity"/>
+              <label>Full Nudity</label><br>
+            </div>
+          </div>
+  <!-- end nudity -->
+  <!-- change hair -->
+          <div class="col-sm-4">
+              <input type="checkbox" ng-model="actor.willing.cutHair"/>
+              <label>Cutting Hair</label><br>
+              <input type="checkbox" ng-model="actor.willing.colorHair"/>
+              <label>Coloring Hair</label><br>
+          </div>
+  <!-- end hair -->
+  <!-- meat -->
+          <div class="col-sm-4">
+            <input type="checkbox" ng-model="actor.willing.eatMeat"/>
+            <label>Eating Meat</label><br>
+          </div>
+  <!-- end meat -->
+
+    </div>
+<!-- end i am willing to...nudity, kissing, change hair -->
+
+
 <!-- disabled -->
 <!-- end disabled -->
 <!-- amputee -->
@@ -10,3 +51,7 @@
 <!-- twin or triplet -->
 <!-- end twin or triplet -->
 
+      </form>
+    </div>
+ </div>
+</div>
