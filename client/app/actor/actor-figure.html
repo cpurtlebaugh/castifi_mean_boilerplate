@@ -6,24 +6,23 @@
 
 <div class="container">
   <div class="row">
-   
+
 
 
     <div class="col-sm-12">
     	   <h1>Actor Figure</h1>
       <form class="form" name="form" ng-submit="register(form)" novalidate>
-      	<!-- hair and eyes -->
+      	<!-- hair length, color, style-->
       	<div class="row">
       		<div class="col-sm-3">
       			<div class="form-group">
 	              <label>Hair Length</label>
 	              <select class="form-control" ng-model="actor.appearance.hairLength">
-	                <option value="dark">dark</option>
-	                <option value="fair">fair</option>
-	                <option value="olive">olive</option>
-	                <option value="light">light</option>
-	                <option value="ruddy">ruddy</option>
-	                <option value="tan">tan</option>
+	                <option value="buzzed">Buzzed</option>
+	                <option value="short">Short</option>
+	                <option value="shoulder">Shoulder</option>
+	                <option value="long">Long</option>
+	                <option value="bald">Bald</option>
 	              </select>
 	            </div>
       		</div>
@@ -32,77 +31,168 @@
       			<div class="form-group">
 	              <label>Hair Color</label>
 	              <select class="form-control" ng-model="actor.appearance.hairColor">
-	                <option value="dark">dark</option>
-	                <option value="fair">fair</option>
-	                <option value="olive">olive</option>
-	                <option value="light">light</option>
-	                <option value="ruddy">ruddy</option>
-	                <option value="tan">tan</option>
+	                <option value="auburn">Auburn</option>
+	                <option value="red">Red</option>
+	                <option value="white">White</option>
+	                <option value="blonde">Blonde</option>
+	                <option value="brown">Brown</option>
+                  <option value="black">Black</option>
+                  <option value="grey">Grey</option>
+	                <option value="saltpepper">Salt/Pepper</option>
 	              </select>
 	            </div>
       		</div>
-      		
+
       		<div class="col-sm-3">
       			<div class="form-group">
 	              <label>Hair Style</label>
 	              <select class="form-control" ng-model="actor.appearance.hairStyle">
-	                <option value="buzzed">buzzed</option>
-	                <option value="fair">fair</option>
-	                <option value="olive">olive</option>
-	                <option value="light">light</option>
-	                <option value="ruddy">ruddy</option>
-	                <option value="tan">tan</option>
+	                <option value="dreads">Dreads</option>
+	                <option value="cornrows">Cornrows</option>
+	                <option value="mohawk">Mohawk</option>
+	                <option value="shaggy">Shaggy</option>
+	                <option value="manbun">Manbun</option>
 	              </select>
 	            </div>
       		</div>
-      		
-      		<div class="col-sm-3">
-      			<div class="form-group">
-	              <label>Eye Color</label>
-	              <select class="form-control" ng-model="actor.appearance.eyeColor">
-	                <option value="dark">dark</option>
-	                <option value="fair">fair</option>
-	                <option value="olive">olive</option>
-	                <option value="light">light</option>
-	                <option value="ruddy">ruddy</option>
-	                <option value="tan">tan</option>
-	              </select>
-	            </div>
-      		</div>
-      	
+
+      		<div class="col-sm-3"></div>
+
       	</div>
-      	<!-- end hair and eyes -->
-      	<!-- piercings -->
+      	<!-- end hair length, color, style-->
+        <hr>
+        <!-- facial hair and eye color -->
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+                <label>Facial Hair</label>
+                <select class="form-control" ng-model="actor.appearance.facialHairType">
+                  <option value="none">None</option>
+                  <option value="mustache">Mustache</option>
+                  <option value="goatee">Goatee</option>
+                  <option value="cleanshaven">Clean Shaven</option>
+                  <option value="shortbeard">Short Beard</option>
+                  <option value="longbeard">Long Beard</option>
+                  <option value="soulpatch">Soul Patch</option>
+                </select>
+              </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+                <label>Eye Color</label>
+                <select class="form-control" ng-model="actor.appearance.eyeColor">
+                  <option value="brown">Brown</option>
+                  <option value="blue">Blue</option>
+                  <option value="black">Black</option>
+                  <option value="hazel">Hazel</option>
+                  <option value="green">Green</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <!-- end facial hair and eye color -->
+
+
+
+        <hr>
+      	<!-- tattoos -->
       	<div class="row">
-      		<div class="col-sm-4">	
+      		<div class="col-sm-3">
 		        <div>
 		          <label>Do You Have Any Tattoos?</label>
-		          <input type="checkbox" ng-model="actor.piercings.present"/>
+		          <input type="checkbox" ng-model="actor.tattoos.present"/>
 		        </div>
       		</div>
         <!-- ng-if tattoos present-->
-        <div ng-if="actor.piercings.present">
-      		<div class="col-sm-4">
-      			<input type="checkbox" ng-model="actor.ethnicLook.hispanic"/>
-                  <label>Hispanic</label><br>
-                  <input type="checkbox" ng-model="actor.ethnicLook.middleEastern"/>
-                  <label>Middle Eastern</label><br>
-                  <input type="checkbox" ng-model="actor.ethnicLook.nativeAmerican"/>
-                  <label>Native American</label><br>
-                  <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
-                  <label>Pacific Islander</label><br>
-                   <label>Native American</label><br>
-                  <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
-                  <label>Pacific Islander</label><br>
+          <div ng-if="actor.tattoos.present">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Number</label>
+                <input type="number" class="form-control" min="1" max="99" ng-model="actor.tattoos.tattooCountRange"/>
+              </div>
+          </div>
+
+      		<div class="col-sm-3">
+      			<input type="checkbox" ng-model="actor.tattoos.forearm"/>
+            <label>Forearm</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.upperArm"/>
+            <label>Upper Arm</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.neck"/>
+            <label>Neck</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.face"/>
+            <label>Face</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.chest"/>
+            <label>Chest</label><br>
       		</div>
-      		<div class="col-sm-4"></div>
-      	</div>		
+
+          <div class="col-sm-3">
+            <input type="checkbox" ng-model="actor.tattoos.stomach"/>
+            <label>Stomach</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.back"/>
+            <label>Back</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.hand"/>
+            <label>Hand</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.leg"/>
+            <label>Leg</label><br>
+            <input type="checkbox" ng-model="actor.tattoos.foot"/>
+            <label>Foot</label><br>
+          </div>
+
+      	</div>
       	<!-- ng-if -->
       	</div>
-      	<!-- end piercings -->
+      	<!-- end tattoos -->
+
+        <hr>
+        <!-- piercings -->
+        <div class="row">
+          <div class="col-sm-3">
+            <div>
+              <label>Do You Have Any Piercings?</label>
+              <input type="checkbox" ng-model="actor.piercings.present"/>
+            </div>
+          </div>
+        <!-- ng-if piercings present-->
+          <div ng-if="actor.piercings.present">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Piercing Count</label>
+                <input type="number" class="form-control" min="1" max="99" ng-model="actor.piercings.piercingCount"/>
+              </div>
+          </div>
+
+          <div class="col-sm-3">
+            <input type="checkbox" ng-model="actor.piercings.ear"/>
+            <label>Ear</label><br>
+            <input type="checkbox" ng-model="actor.piercings.nose"/>
+            <label>Nose</label><br>
+            <input type="checkbox" ng-model="actor.piercings.eyebrow"/>
+            <label>Eyebrow</label><br>
+          </div>
+
+          <div class="col-sm-3">
+            <input type="checkbox" ng-model="actor.piercings.lip"/>
+            <label>Lip</label><br>
+            <input type="checkbox" ng-model="actor.piercings.tongue"/>
+            <label>Tongue</label><br>
+            <input type="checkbox" ng-model="actor.piercings.navel"/>
+            <label>Navel</label><br>
+          </div>
+
+        </div>
+        <!-- ng-if -->
+        </div>
+
+        <!-- end piercings -->
+        <hr>
+
+          <button class="btn btn-lg btn-primary" type="submit">
+            Next Step
+          </button>
      </form>
     </div>
-  
+
 
   </div>
 </div>

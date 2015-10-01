@@ -25,6 +25,12 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-figure.html',
         controller: 'ActorCtrl'
       })
+      //misc: disabled, pregnant, willing to(nudity, kissing, change hair, eat meat)
+      .state('actor.misc', {
+        url: '/misc',
+        templateUrl: 'app/actor/actor-misc.html',
+        controller: 'ActorCtrl'
+      })
       //wardrobe: measurements and costumes
        .state('actor.wardrobe', {
         url: '/wardrobe',

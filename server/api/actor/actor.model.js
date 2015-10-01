@@ -28,11 +28,11 @@ var ActorSchema = new Schema({
 
   appearance: {heightFeet: Number, heightInches:Number, weight: Number,
                portrayAgeMin: Number, portrayAgeMax: Number,
-               nationality: String, complexion: String,
+               nationality: String, bodyType: String, complexion: String,
                eyeColor: String, hairColor: String,
-               hairStyle: String,hairLength: String,
-               facialHairPresent:Boolean, facialHairType:String,
-               twins: Boolean, triplets: Boolean, pregnant: Boolean,
+               hairStyle: String, hairLength: String,
+               facialHairType:String, twins: Boolean,
+               triplets: Boolean, pregnant: Boolean,
               },
 
   piercings:  {present: Boolean, piercingCount: Number,
@@ -44,19 +44,24 @@ var ActorSchema = new Schema({
                present: Boolean, tattooCountRange: String,
                forearm: Boolean, upperArm:Boolean, neck:Boolean,
                face: Boolean, chest: Boolean, stomach: Boolean,
-               back: Boolean, hand: Boolean, leg: Boolean, foot: Boolean 
+               back: Boolean, hand: Boolean, leg: Boolean, foot: Boolean
+              },
+
+  willing:    {
+                partialNudity: Boolean, fullNudity: Boolean,
+                kissing: Boolean, cutHair: Boolean, colorHair: Boolean,
+                eatMeat: Boolean
               },
 
   amputee:    {
-               present: Boolean, locationOne: String,
-               locationTwo: String, extraInfo: String
+               present: Boolean, hand: Boolean, foot: Boolean,
+               arm: Boolean, leg: Boolean, finger: Boolean
               },
 
   disabled:   {
               present:Boolean, blind: Boolean, mute: Boolean, deaf: Boolean,
               impairedHearing: Boolean, usesWheelChair: Boolean
               },
-
 
   clothingSizes: {men:
                     {coat: String, neck: String, sleeve: String,
@@ -104,8 +109,7 @@ var ActorSchema = new Schema({
                           petTwoLicense: String}
               },
 
-  skills:     {aerobic: Boolean, nudity: Boolean,
-               partialNudity: Boolean, martialArts: Boolean,
+  skills:     {aerobic: Boolean, martialArts: Boolean,
                martialArtsWeapon: Boolean, militaryTraining: Boolean,
                stageCombat: Boolean, generalWeaponsTraining: Boolean,
                artist: Boolean, ballonSculpting: Boolean,

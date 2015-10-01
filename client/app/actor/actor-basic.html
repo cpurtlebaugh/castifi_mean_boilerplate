@@ -31,13 +31,13 @@
             </div>
         </div>
         <!-- end union names -->
-
+        <hr>
         <!-- bio -->
-        <div class="form-group">
+        <!-- <div class="form-group">
               <label>Bio</label>
               <textarea class="form-control" rows="3" ng-model="actor.info.bio"></textarea>
-             <!--  <input type="textarea" name="first" class="form-control" ng-model="actor.info.unionLastName"/> -->
-        </div>
+              <input type="textarea" name="first" class="form-control" ng-model="actor.info.unionLastName"/>
+        </div> -->
         <!-- end bio -->
 
         <!-- appearance -->
@@ -82,13 +82,13 @@
           </div>
 
       </div>
-
-
+        <!-- end height / weight -->
+        <hr>
         <!-- ethnic look(s), complexion, nationality -->
         <div class="row">
        <!--  left side of the screen -->
           <div class="col-sm-6">
-            <label>Ethnic Looks (pick up to 3)</label>
+            <label>Ethnic Appearance (pick up to 3)</label>
             <div class="row">
             <!-- ethnic looks -->
               <div class="col-sm-6 col-xs-6">
@@ -119,28 +119,29 @@
           <br>
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Complexion</label>
-              <select class="form-control" ng-model="actor.appearance.complexion">
-                <option value="dark">dark</option>
-                <option value="fair">fair</option>
-                <option value="olive">olive</option>
-                <option value="light">light</option>
-                <option value="ruddy">ruddy</option>
-                <option value="tan">tan</option>
+              <label>Body Type</label>
+              <select class="form-control" ng-model="actor.appearance.bodyType">
+                <option value="bodybuilder">Bodybuilder</option>
+                <option value="athletic">Athletic</option>
+                <option value="lanky">Lanky</option>
+                <option value="thin">Thin</option>
+                <option value="overweight">Overweight</option>
+                <option value="obese">Obese</option>
               </select>
             </div>
 
-             <!-- <div class="form-group">
-              <label>Nationality</label>
-              <select class="form-control" ng-model="actor.appearance.nationality">
-                <option value="dark">dark</option>
-                <option value="fair">fair</option>
-                <option value="olive">olive</option>
-                <option value="light">light</option>
-                <option value="ruddy">ruddy</option>
-                <option value="tan">tan</option>
+            <div class="form-group">
+              <label>Complexion</label>
+              <select class="form-control" ng-model="actor.appearance.complexion">
+                <option value="dark">Dark</option>
+                <option value="fair">Fair</option>
+                <option value="olive">Olive</option>
+                <option value="light">Light</option>
+                <option value="ruddy">Ruddy</option>
+                <option value="tan">Tan</option>
               </select>
-            </div> -->
+            </div>
+
           </div>
 
       </div>
@@ -149,6 +150,7 @@
         <!-- amputee(present) locationOne, locationTwo, extraInfo -->
         <!-- disabled(present) blind, mute, deaf, hearing-impaired, wheelchair -->
         <!-- end appearance -->
+        <hr>
 
           <button class="btn btn-lg btn-primary" type="submit">
             Next Step
