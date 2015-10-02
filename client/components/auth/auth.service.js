@@ -6,7 +6,7 @@ angular.module('castifiApp')
     if($cookieStore.get('token')) {
       currentUser = User.get();
     }
-
+ 
     return {
 
       /**

@@ -1,20 +1,21 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state) {
+  .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state, Actor) {
 		
 	 $scope.actor = {};
 	 $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
 
+     console.log(Actor.query())
      // console.log(Actor)
      //initial post create actor profile object id
      //we need to get profile actor id associated with the user_id of current user
-     $http.get('/api/actors', {ownedBy:user_id})
-     	.success(function(data){
-     		console.log(data); 
-     	});
+     // $http.get('/api/actors', {ownedBy:user_id})
+     // 	.success(function(data){
+     // 		console.log(data); 
+     // 	});
      //subsequent updates will reference that id
 	
 	 // console.log($scope.actor) 

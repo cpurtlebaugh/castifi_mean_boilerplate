@@ -2,6 +2,9 @@
 
 angular.module('castifiApp')
   .factory('Actor', function ($http, Auth, $resource) {
+    var getCurrentUser = Auth.getCurrentUser;
+    var user_id = getCurrentUser()._id;
+    return $resource('api/actors', {ownedBy:user_id});
     // var getCurrentUser = Auth.getCurrentUser;
     // var user_id = getCurrentUser()._id;
     // var actor_id;
