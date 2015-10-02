@@ -1,1 +1,66 @@
-<h1>Wardrobe</h1>
+<div class="container">
+  <div class="row">
+
+
+
+    <div class="col-sm-12">
+      <h1>Wardrobe</h1>
+
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+    <!-- basic wardrobe -->
+      <label>Basic Items</label>
+        <div class="row">
+
+          <div class="col-sm-6">
+              <input type="checkbox" ng-model="actor.wardrobe.tux"/>
+              <label>Tux</label><br>
+              <input type="checkbox" ng-model="actor.wardrobe.fullSuit"/>
+              <label>Full Suit</label><br>
+              <input type="checkbox" ng-model="actor.wardrobe.businessSuit"/>
+              <label>Business Suit</label><br>
+          </div>
+
+          <div class="col-sm-6">
+              <input type="checkbox" ng-model="actor.wardrobe.bathingSuit"/>
+              <label>Bathing Suit</label><br>
+              <input type="checkbox" ng-model="actor.wardrobe.cocktailDress"/>
+              <label>Cocktail Dress</label><br>
+              <input type="checkbox" ng-model="actor.wardrobe.lingerie"/>
+              <label>Lingerie</label><br>
+          </div>
+
+        </div>
+    <!-- end wardrobe -->
+      <hr>
+    <!-- uniforms -->
+      <label>Uniforms</label>
+
+        <div class="row">
+
+          <div class="col-sm-6">
+              <input type="checkbox" ng-model="actor.costume.doctor"/>
+              <label>Doctor</label><br>
+              <input type="checkbox" ng-model="actor.costume.emt"/>
+              <label>EMT</label><br>
+              <input type="checkbox" ng-model="actor.costume.nurse"/>
+              <label>Nurse</label><br>
+          </div>
+
+          <div class="col-sm-6">
+              <input type="checkbox" ng-model="actor.costume.paramedic"/>
+              <label>Paramedic</label><br>
+              <input type="checkbox" ng-model="actor.costume.fireDept"/>
+              <label>Fire Dept.</label><br>
+              <input type="checkbox" ng-model="actor.costume.police"/>
+              <label>Police</label><br>
+          </div>
+
+        </div>
+    <!-- end uniforms -->
+<!-- misc wardrobe -->
+<!-- end misc wardrobe -->
+
+      </form>
+     </div>
+    </div>
+  </div>

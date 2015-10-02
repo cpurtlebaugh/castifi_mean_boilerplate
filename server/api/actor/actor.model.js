@@ -50,7 +50,7 @@ var ActorSchema = new Schema({
 
   willing:    {
                 partialNudity: Boolean, fullNudity: Boolean,
-                kissing: Boolean, kissingSameSex: Boolean, 
+                kissing: Boolean, kissingSameSex: Boolean,
                 drag: Boolean, cutHair: Boolean, colorHair: Boolean,
                 eatMeat: Boolean
               },
@@ -77,20 +77,20 @@ var ActorSchema = new Schema({
                     }
                 },
 
-  wardrobe:   {basics: {tux: Boolean, fullSuit: Boolean, bathingSuit: Boolean,
-                        businessSuit: Boolean, cocktailDress: Boolean,
-                        lingerie: Boolean
-                       },
-               costumes: {doctor: Boolean, emt: Boolean, fireDept: Boolean,
-                          nurse: Boolean, paramedic: Boolean, police: Boolean,
-                          dragQueen: Boolean, clownSuit: Boolean
-                       },
-
-               ethnicClothing: {african: Boolean, arabic: Boolean,
-                                chinese: Boolean, eastIndian: Boolean,
-                                hasidic: Boolean, japanese: Boolean
-                              }
+  wardrobe:   {tux: Boolean, fullSuit: Boolean, bathingSuit: Boolean,
+               businessSuit: Boolean, cocktailDress: Boolean,
+               lingerie: Boolean
               },
+
+  costumes:   {doctor: Boolean, emt: Boolean, fireDept: Boolean,
+               nurse: Boolean, paramedic: Boolean, police: Boolean,
+               dragQueen: Boolean, clownSuit: Boolean
+              },
+
+  ethnicClothing: {african: Boolean, arabic: Boolean,
+                   chinese: Boolean, eastIndian: Boolean,
+                   hasidic: Boolean, japanese: Boolean
+                  },
 
 
   looks:      {bodyBuilder: Boolean,
