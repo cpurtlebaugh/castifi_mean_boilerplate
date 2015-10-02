@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+
+
+
+    <div class="col-sm-12">
+         <h1>Actor Niche</h1>
+          <label>Are you comfortable with...</label>
+
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+<!-- i am willing to...nudity, kissing, change hair -->
+
+        <div class="row">
+  <!-- nudity -->
+          <div class="col-sm-6">
+            <div>
+              <input type="checkbox" ng-model="actor.willing.kissing"/>
+              <label>Kissing</label><br>
+              <input type="checkbox" ng-model="actor.willing.kissingSameSex"/>
+              <label>Same-sex Kissing</label><br>
+              <input type="checkbox" ng-model="actor.willing.partialNudity"/>
+              <label>Partial Nudity</label><br>
+              <input type="checkbox" ng-model="actor.willing.fullNudity"/>
+              <label>Full Nudity</label><br>
+            </div>
+          </div>
+  <!-- end nudity -->
+  <!-- change hair -->
+          <div class="col-sm-6">
+          	   <input type="checkbox" ng-model="actor.willing.drag"/>
+              <label>Cross-dressing</label><br>
+              <input type="checkbox" ng-model="actor.willing.cutHair"/>
+              <label>Cutting Hair</label><br>
+              <input type="checkbox" ng-model="actor.willing.colorHair"/>
+              <label>Coloring Hair</label><br>
+              <input type="checkbox" ng-model="actor.willing.eatMeat"/>
+               <label>Eating Meat</label><br>
+          </div>
+  <!-- end hair -->
+    </div>
+<!-- end i am willing to...nudity, kissing, change hair -->
+<hr>
+<!-- disabled -->
+    <!-- disabled -->
+      	<div class="row">
+      		<div class="col-sm-6">
+		        <input type="checkbox" ng-model="actor.disabled.present"/>
+		        <label>Do You Have Any Disabilities?</label>
+        <!-- ng-if disabled present-->
+          <div ng-if="actor.disabled.present">
+      	     <input type="checkbox" ng-model="actor.disabled.blind"/>
+            <label>Blind</label><br>
+             <input type="checkbox" ng-model="actor.disabled.impairedHearing"/>
+            <label>Hearing Impaired</label><br>
+            <input type="checkbox" ng-model="actor.disabled.deaf"/>
+            <label>Deaf</label><br>
+             <input type="checkbox" ng-model="actor.disabled.mute"/>
+            <label>Mute</label><br>
+            <input type="checkbox" ng-model="actor.disabled.usesWheelchair"/>
+            <label>Wheelchair</label><br>
+          </div>
+          <!-- end ng-if -->
+          </div>  
+          <!-- end disabled -->
+
+          <!-- start amputee -->
+          <div class="col-sm-6">
+		      <input type="checkbox" ng-model="actor.amputee.present"/>
+		      <label>Are You An Amputee?</label>
+        <!-- ng-if amputee present-->
+          <div ng-if="actor.amputee.present">
+      	     <input type="checkbox" ng-model="actor.amputee.arm"/>
+            <label>Arm</label><br>
+             <input type="checkbox" ng-model="actor.amputee.hand"/>
+            <label>Hand</label><br>
+            <input type="checkbox" ng-model="actor.amputee.finger"/>
+            <label>Finger</label><br>
+             <input type="checkbox" ng-model="actor.amputee.leg"/>
+            <label>Leg</label><br>
+            <input type="checkbox" ng-model="actor.amputee.foot"/>
+            <label>Foot</label><br>
+          </div>
+          <!-- end ng-if -->
+          </div>
+          <!-- end amputee -->
+      	</div>
+   		<hr>
+<!-- twin or triplet -->
+        <div class="row">
+      		<div class="col-sm-6">
+      			<input type="checkbox" ng-model="actor.appearance.twins"/>
+                <label>Are You a Twin?</label><br>
+      		</div>
+      		<div class="col-sm-6">
+      			<input type="checkbox" ng-model="actor.appearance.triplets"/>
+                <label>Are You a Triplet?</label><br>
+      		</div>
+      	</div>
+<!-- end twin or triplet -->
+     <hr>
+<!-- pregnant /smoker-->
+       <div class="row">
+      		<div class="col-sm-6">
+      			<input type="checkbox" ng-model="actor.appearance.pregnant"/>
+                <label>Are You Pregnant?</label><br>
+	      			<div ng-if="actor.appearance.pregnant">
+	      				<div class="form-group">
+	      					<label>Due Date</label>
+	      					<input class="form-control" type="date" ng-model="actor.appearance.pregnantDueDate">
+	      				</div>
+	      			</div>
+      		</div>
+      		<div class="col-sm-6">
+      			<input type="checkbox" ng-model="actor.appearance.smoker"/>
+                <label>Are You a Smoker?</label><br>
+      		</div>
+      	</div>
+<!-- end pregnant /smoker -->
+      </form>
+    </div>
+ </div>
+</div>

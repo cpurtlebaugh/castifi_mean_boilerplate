@@ -33,6 +33,7 @@ var ActorSchema = new Schema({
                hairStyle: String, hairLength: String,
                facialHairType:String, twins: Boolean,
                triplets: Boolean, pregnant: Boolean,
+               pregnantDueDate: Date, smoker:Boolean
               },
 
   piercings:  {present: Boolean, piercingCount: Number,
@@ -49,7 +50,8 @@ var ActorSchema = new Schema({
 
   willing:    {
                 partialNudity: Boolean, fullNudity: Boolean,
-                kissing: Boolean, cutHair: Boolean, colorHair: Boolean,
+                kissing: Boolean, kissingSameSex: Boolean, 
+                drag: Boolean, cutHair: Boolean, colorHair: Boolean,
                 eatMeat: Boolean
               },
 

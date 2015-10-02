@@ -20,15 +20,21 @@ angular.module('castifiApp')
         controller: 'ActorCtrl'
       })
       //basic: union info, bio and appearance
-      .state('actor.figure', {
-        url: '/figure',
-        templateUrl: 'app/actor/actor-figure.html',
+      .state('actor.facial', {
+        url: '/facial',
+        templateUrl: 'app/actor/actor-facial.html',
+        controller: 'ActorCtrl'
+      })
+      //tattoos and piercings
+      .state('actor.enhancements', {
+        url: '/enhancements',
+        templateUrl: 'app/actor/actor-enhancements.html',
         controller: 'ActorCtrl'
       })
       //misc: disabled, pregnant, willing to(nudity, kissing, change hair, eat meat)
-      .state('actor.misc', {
-        url: '/misc',
-        templateUrl: 'app/actor/actor-misc.html',
+      .state('actor.niche', {
+        url: '/niche',
+        templateUrl: 'app/actor/actor-niche.html',
         controller: 'ActorCtrl'
       })
       //wardrobe: measurements and costumes
