@@ -65,17 +65,29 @@ var ActorSchema = new Schema({
               impairedHearing: Boolean, usesWheelChair: Boolean
               },
 
-  clothingSizes: {men:
-                    {coat: String, neck: String, sleeve: String,
-                      waist: String, inseam: String, shoes: String,
-                      gloveSize: String, hatSize: String
+  clothingMenSizes: { 
+                      coatLength: String,
+                      coatSize: String, 
+                      shirtNeck: String, 
+                      shirtSleeve: String,
+                      pantWaist: String, 
+                      pantInseam: String, 
+                      shoe: String,
+                      glove: String, 
+                      hat: String
                     },
-                 women:
-                    {bra: String, waist: String, hips: String,
-                      dress: String, pants: String, shoes: String,
-                      gloveSize: String, hatSize: String
-                    }
-                },
+
+  clothingWomenSizes: {  
+                        bustSize: String,
+                        cupSize: String, 
+                        pantWaist: String, 
+                        pantInseam: String,
+                        hips: String,
+                        dress: String, 
+                        shoe: String,
+                        glove: String, 
+                        hat: String
+                    },
 
   wardrobe:   {tux: Boolean, fullSuit: Boolean, bathingSuit: Boolean,
                businessSuit: Boolean, cocktailDress: Boolean,

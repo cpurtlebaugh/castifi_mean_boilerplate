@@ -43,6 +43,12 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-wardrobe.html',
         controller: 'ActorCtrl'
       })
+       //male and female clothing measurements
+        .state('actor.measurements', {
+        url: '/measurements',
+        templateUrl: 'app/actor/actor-measurements.html',
+        controller: 'ActorCtrl'
+      })
       //photos
         .state('actor.photos', {
         url: '/photos',
