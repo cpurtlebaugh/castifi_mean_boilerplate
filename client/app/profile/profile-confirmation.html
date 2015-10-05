@@ -2,21 +2,24 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 well text-center">
-      <h1>Confirmation!</h1>
+    <div class="col-md-4 col-md-offset-4 well text-center">
+      <h1><strong>Confirmation!{{confirmClass}}</strong></h1>
       <!-- Name -->
-      <h2>{{user.legalFirstName}} {{user.legalMiddleName}} {{user.legalLastName}}</h2>
+      <h2>{{user.legalFirstName | capitalize }} {{user.legalMiddleName | capitalize}} {{user.legalLastName | capitalize}}</h2>
       <!-- Address -->
-      <h2>{{user.contact.address}} {{user.contact.state}}</h2>
+      <h3>{{user.contact.address | uppercase}}<br> 
+        {{user.contact.city | uppercase}}, {{user.contact.state | uppercase}}<br>
+      </h3>
        <!-- icon Birthday -->
       <h4>{{user.dob | date}}</h4>
       <!-- Phone Number -->
-      <h4>{{user.contact.mainPhoneNum}}</h4>
+      <h4>{{user.contact.mainPhoneNum | tel}}</h4>
       <!-- icon Number -->
-      <h4>{{user.email}}</h4>
+      <h4>{{user.email | capitalize}}</h4>
       <!-- Get Started Button -->
       <div>
-          <button class="btn btn-lg btn-primary" type="submit">
+        <br>
+          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
             Get Started
           </button>
       </div>

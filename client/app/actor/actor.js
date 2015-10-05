@@ -6,7 +6,14 @@ angular.module('castifiApp')
       .state('actor', {
         url: '/actor',
         templateUrl: 'app/actor/actor.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorCtrl',
+        resolve:{
+             currentActor:  function ($http, Auth) {
+                  var getCurrentUser = Auth.getCurrentUser;
+                  var user_id = getCurrentUser()._id
+                  return $http.get('/api/actors/', {ownedBy: user_id});
+            },
+        }
       })
        .state('actor.home', {
         url: '/home',

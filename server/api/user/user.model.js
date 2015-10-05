@@ -22,6 +22,9 @@ var UserSchema = new Schema({
   gender: String,
   dob: Date,
   active: Boolean,
+  profileId: {type: mongoose.Schema.Types.ObjectId,
+               ref: 'Profile'
+              },
   contact: {
             cellNum: {type: String,
               validate: {

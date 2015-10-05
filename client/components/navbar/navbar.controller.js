@@ -6,14 +6,11 @@ angular.module('castifiApp')
       'title': 'Home',
       'link': '/'
     },{
-      'title': 'Profile',
-      'link': '/profile/detail'},
-      {
-      'title': 'Edit Profile',
+      'title': 'Edit Contact',
       'link': '/profile/basic'},
        {
-      'title': 'Actor',
-      'link': '/actor'
+      'title': 'Edit Profile',
+      'link': '/actor/home'
        }
     ];
 

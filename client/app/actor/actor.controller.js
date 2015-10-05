@@ -1,37 +1,42 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state, Actor) {
+  .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state, 
+    Actor, currentActor, $filter) {
 		
-	 $scope.actor = {};
-	 $scope.user = User.get();
+	   // $scope.actor = currentActor.data;
+	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
+     // $scope.profileId = currentActor.data[0]._id
+     // console.log(currentActor)
 
-     console.log(Actor.query())
-     // console.log(Actor)
-     //initial post create actor profile object id
-     //we need to get profile actor id associated with the user_id of current user
-     // $http.get('/api/actors', {ownedBy:user_id})
-     // 	.success(function(data){
-     // 		console.log(data); 
-     // 	});
-     //subsequent updates will reference that id
-	
-	 // console.log($scope.actor) 
-	 // console.log($scope.actor.id)    	   	
+     var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
+     console.log(currentActor.data[0])
+     $scope.actorId = actor[0]._id;
+     console.log($scope.actorId)
+     $scope.actor = actor[0]
 
-       $scope.register = function register(form) {
-       		 $scope.actor.ownedBy = user_id;
-            $scope.submitted = true;
-            console.log(form)
-	         $http.post('/api/actors/', $scope.actor)
-	            .success(function() {
-	                  if($state.is('actor.basic')){ $state.go('actor.facial')};
-	                  if($state.is('actor.facial')){ $state.go('actor.enhancements')};
-	                  if($state.is('actor.enhancements')){ $state.go('actor.niche')};	                 
-	              });
-
+     $scope.register = function register(form) {
+       		 //if there is no actor.ownedBy then create
+           //how will I get actor info
+           //Actor.get()
+           //else
+           $scope.submitted = true;
+	         
+	          Actor.update({id: $scope.actorId }, $scope.actor, 
+              function success(data){
+                console.log(data)
+               if($state.is('actor.basic')){ $state.go('actor.facial')};
+               if($state.is('actor.facial')){ $state.go('actor.enhancements')};
+               if($state.is('actor.enhancements')){ $state.go('actor.niche')};   
+               if($state.is('actor.niche')){ $state.go('actor.wardrobe')};  
+               if($state.is('actor.wardrobe')){ $state.go('actor.measurements')}; 
+               if($state.is('actor.measurements')){ $state.go('actor.home')};      
+            }),
+            function error(){
+              $state.go('actor.home')
+            }  
         };
 
 

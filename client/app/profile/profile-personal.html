@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
       <h1>Personal</h1>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-md-4 col-md-offset-4">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
          <div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
@@ -28,7 +28,7 @@
         <div class="form-group" ng-class="{ 'has-success': form.dob.$valid && submitted,
                                             'has-error': form.dob.$invalid && submitted }">
           <label>Birthday</label>
-          <input type="date" name="dob" class="form-control" ng-model="user.dob"
+          <input type="date" name="dob"  placeholder="yyyy-MM-dd" class="form-control" ng-model="user.dob"
                  required/>
           <p class="help-block" ng-show="form.dob.$error.required && submitted">
             A date of birth is required
@@ -36,7 +36,7 @@
         </div>
 
 
-        <div>
+        <div class="text-center">
           <button class="btn btn-lg btn-primary" type="submit">
             Next Step
           </button>
