@@ -6,6 +6,16 @@
 'use strict';
 
 var User = require('../api/user/user.model');
+var Actor = require('../api/actor/actor.model');
+
+Actor.find({}).remove(function() {
+  Actor.create({
+    name: 'booyah',
+  }, function() {
+      console.log('finished populating actors');
+    }
+  );
+});
 
 User.find({}).remove(function() {
   User.create({
@@ -38,3 +48,6 @@ User.find({}).remove(function() {
     }
   );
 });
+
+
+

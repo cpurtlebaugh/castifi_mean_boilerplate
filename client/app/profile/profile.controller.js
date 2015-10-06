@@ -7,6 +7,7 @@ angular.module('castifiApp')
       $scope.getCurrentUser = Auth.getCurrentUser;
       $scope.user = $scope.getCurrentUser();
       $scope.user.dob = new Date($scope.getCurrentUser().dob)
+      
       var user_id = $scope.getCurrentUser()._id;
       var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
       var actor = actor[0]

@@ -4,24 +4,20 @@ angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state, 
     Actor, currentActor, $filter) {
 		
-	   // $scope.actor = currentActor.data;
 	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
-     // $scope.profileId = currentActor.data[0]._id
-     // console.log(currentActor)
+     // var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
+     // $scope.actor = actor[0]
 
-     var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
-     console.log(currentActor.data[0])
-     $scope.actorId = actor[0]._id;
-     console.log($scope.actorId)
-     $scope.actor = actor[0]
+     $scope.actor = currentActor;
+     if($scope.actor.length !== 0){
+        $scope.actorId = $scope.actor._id;
+         console.log($scope.actorId)
+      }    
+
 
      $scope.register = function register(form) {
-       		 //if there is no actor.ownedBy then create
-           //how will I get actor info
-           //Actor.get()
-           //else
            $scope.submitted = true;
 	         
 	          Actor.update({id: $scope.actorId }, $scope.actor, 

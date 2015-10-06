@@ -8,10 +8,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
-             currentActor:  function ($http, Auth) {
-                  var getCurrentUser = Auth.getCurrentUser;
-                  var user_id = getCurrentUser()._id
-                  return $http.get('/api/actors/', {ownedBy: user_id});
+            currentActor: function(currentActor){
+                return currentActor.user();
             },
         }
       })

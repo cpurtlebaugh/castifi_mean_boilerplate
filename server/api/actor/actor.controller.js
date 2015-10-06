@@ -20,6 +20,18 @@ exports.show = function(req, res) {
   });
 };
 
+// Get a single actor
+exports.user = function(req, res) {
+  var userId = req.user._id;
+  Actor.findOne({
+    ownedBy: userId
+  }, function(err, user) {
+      if(err) { return handleError(res, err); }
+      if(!user) { return res.json({}); }
+      return res.json(user);
+  });
+};
+
 // Creates a new actor in the DB.
 exports.create = function(req, res) {
   Actor.create(req.body, function(err, actor) {
