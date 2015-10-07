@@ -13,8 +13,17 @@ angular.module('castifiApp')
      $scope.actor = currentActor;
      if($scope.actor.length !== 0){
         $scope.actorId = $scope.actor._id;
-         console.log($scope.actorId)
-      }    
+      } 
+
+     $scope.checkData = function checkData(form) {
+               
+             $http.put('/api/users/' + user_id, {actor: $scope.actor} )
+                .success(function() {
+                      console.log("doin' it")
+                  });
+        };
+
+     console.log($scope.user)   
 
 
      $scope.register = function register(form) {

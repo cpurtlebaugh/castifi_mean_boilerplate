@@ -37,18 +37,18 @@ angular.module('castifiApp')
         //function to create the extended actor profile
         $scope.createProfile = function createProfile(){
               //need to disable once they have created a new profile
-                if(actor === undefined){
+                // if(actor === undefined){
                   new Actor({ownedBy: user_id})
                       .$save(function(data){
-                          // $http.put('/api/users/' + user_id, {profileId: data._id})
+                          $http.put('/api/users/' + user_id, {actorId: data._id})
                           console.log(data)
                           $state.go('actor.home');
                       });
-                 }
-                 else{
-                   $state.go('actor.home')
-                   console.log("booyah")
-                 }
+                 // }
+                 // else{
+                 //   $state.go('actor.home')
+                 //   console.log("booyah")
+                 // }
         }
 
   });

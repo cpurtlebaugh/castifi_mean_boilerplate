@@ -7,12 +7,6 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 var actorSchema = require('../actor/actor.model');
 // var ActorSchema = require('mongoose').model('Actor');
 
-var Comment = new Schema({
-    title: String, 
-    body: String, 
-    date: Date
-});
-
 
 var UserSchema = new Schema({
   name: {type: String, required: true, lowercase: true, 
@@ -31,8 +25,9 @@ var UserSchema = new Schema({
   gender: String,
   dob: Date,
   active: Boolean,
-  profileId: {type: mongoose.Schema.Types.ObjectId,
-               ref: 'Profile'
+  actor: {},
+  actorId: {type: mongoose.Schema.Types.ObjectId,
+               ref: 'Actor'
               },
   contact: {
             cellNum: {type: String,

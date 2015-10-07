@@ -12,11 +12,25 @@ exports.index = function(req, res) {
 };
 
 // Get a single actor
+// exports.show = function(req, res) {
+//   Actor
+//     .findById(req.params.id, 
+//       function (err, actor) {
+//     if(err) { return handleError(res, err); }
+//     if(!actor) { return res.status(404).send('Not Found'); }
+//     return res.json(actor);
+//   });
+// };
+
+
 exports.show = function(req, res) {
-  Actor.findById(req.params.id, function (err, actor) {
-    if(err) { return handleError(res, err); }
-    if(!actor) { return res.status(404).send('Not Found'); }
-    return res.json(actor);
+  Actor
+  .findById(req.params.id)
+  .populate('ownedBy')
+  .exec(function(err, actor) {
+      if(err) { return handleError(res, err); }
+      if(!actor) { return res.status(404).send('Not Found'); }
+      return res.json(actor);
   });
 };
 
