@@ -11,6 +11,7 @@ angular.module('castifiApp')
       var user_id = $scope.getCurrentUser()._id;
       var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
       var actor = actor[0]
+      $scope.actor = {ownedBy: user_id}
       //need to grab currentActor to make sure they haven't created a profile
       //Actor is the resource service
    
@@ -38,7 +39,7 @@ angular.module('castifiApp')
         $scope.createProfile = function createProfile(){
               //need to disable once they have created a new profile
                 // if(actor === undefined){
-                  new Actor({ownedBy: user_id})
+                  new Actor($scope.actor)
                       .$save(function(data){
                           $http.put('/api/users/' + user_id, {actorId: data._id})
                           console.log(data)
