@@ -8,9 +8,9 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
-            currentActor: function(currentActor){
-                return currentActor.user();
-            },
+          currentPerson: function(User){
+            return User.get();
+          }   
         }
       })
        .state('actor.home', {

@@ -5,21 +5,21 @@
     <div class="col-md-4 col-md-offset-4 well text-center">
       <h1><strong>Confirmation!{{confirmClass}}</strong></h1>
       <!-- Name -->
-      <h2>{{user.legalFirstName | capitalize }} {{user.legalMiddleName | capitalize}} {{user.legalLastName | capitalize}}</h2>
+      <h2>{{actor.legalFirstName | capitalize }} {{actor.legalMiddleName | capitalize}} {{actor.legalLastName | capitalize}}</h2>
       <!-- Address -->
-      <h3>{{user.contact.address | uppercase}}<br> 
-        {{user.contact.city | uppercase}}, {{user.contact.state | uppercase}}<br>
+      <h3>{{actor.contact.address | uppercase}}<br> 
+        {{actor.contact.city | uppercase}}, {{actor.contact.state | uppercase}}<br>
       </h3>
        <!-- icon Birthday -->
-      <h4>{{user.dob | date}}</h4>
+      <h4>{{actor.dob | date}}</h4>
       <!-- Phone Number -->
-      <h4>{{user.contact.mainPhoneNum | tel}}</h4>
+      <h4>{{actor.contact.mainPhoneNum | tel}}</h4>
       <!-- icon Number -->
-      <h4>{{user.email | capitalize}}</h4>
+      <h4>{{actor.email | capitalize}}</h4>
       <!-- Get Started Button -->
       <div>
         <br>
-          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
+          <button class="btn btn-lg btn-primary" ui-sref="actor.home">
             Get Started
           </button>
       </div>

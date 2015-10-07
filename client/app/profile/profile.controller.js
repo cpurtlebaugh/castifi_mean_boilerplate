@@ -2,54 +2,43 @@
 
 angular.module('castifiApp')
   .controller('ProfileCtrl', function ($scope, $http, socket, Auth, User, $state, 
-    Actor, currentActor, $filter) {
+    Actor, $filter) {
 
+      $scope.actor = {}
       $scope.getCurrentUser = Auth.getCurrentUser;
       $scope.user = $scope.getCurrentUser();
-      $scope.user.dob = new Date($scope.getCurrentUser().dob)
-      
       var user_id = $scope.getCurrentUser()._id;
-      var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
-      var actor = actor[0]
-      $scope.actor = {ownedBy: user_id}
-      //need to grab currentActor to make sure they haven't created a profile
-      //Actor is the resource service
    
-    
       $scope.submitted = false;
+      if($scope.user.actorId !== undefined){
+        $scope.actor = $scope.user.actorId;
+        $scope.actor.dob = new Date($scope.user.actorId.dob) 
+      }
 
-      // console.log($scope.getCurrentUser().dob)
-      // console.log(typeof($scope.getCurrentUser().dob))
-       
-       //function to update the basic user information
-       $scope.register = function register(form) {
-            $scope.submitted = true;
-               
-             $http.put('/api/users/' + user_id, $scope.user )
-                .success(function() {
-                      if($state.is('profile.basic')){ $state.go('profile.personal')};
-                      if($state.is('profile.personal')){ $state.go('profile.address')};
-                      if($state.is('profile.address')){ $state.go('profile.confirmation')};
-                  });
-        };
-
-
-        // console.log(actor.id)
         //function to create the extended actor profile
         $scope.createProfile = function createProfile(){
               //need to disable once they have created a new profile
-                // if(actor === undefined){
-                  new Actor($scope.actor)
-                      .$save(function(data){
-                          $http.put('/api/users/' + user_id, {actorId: data._id})
-                          console.log(data)
-                          $state.go('actor.home');
-                      });
-                 // }
-                 // else{
-                 //   $state.go('actor.home')
-                 //   console.log("booyah")
-                 // }
-        }
+                if($scope.user.actorId === undefined){
+                      new Actor($scope.actor)
+                          .$save(function(data){
+                              $http.put('/api/users/' + user_id, {actorId: data._id})
+                              console.log(data)
+                              if($state.is('profile.basic')){ $state.go('profile.personal')};
+                          });
+                 }
+                 else{
+                        Actor.update({id: $scope.actor._id }, $scope.actor, 
+                                function success(data){
+                                  console.log(data)
+                                  console.log($state.$current)
+                                   if($state.is('profile.basic')){ $state.go('profile.personal')};
+                                   if($state.is('profile.personal')){ $state.go('profile.address')};
+                                   if($state.is('profile.address')){ $state.go('profile.confirmation')};
+                                }),
+                                function error(){
+                                   console.log("update error")
+                                }                   
+                 }
+          }
 
   });

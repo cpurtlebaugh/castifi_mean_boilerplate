@@ -40,7 +40,6 @@ exports.create = function (req, res, next) {
  */
 exports.show = function (req, res, next) {
   var userId = req.params.id;
-
   User.findById(userId, function (err, user) {
     if (err) return next(err);
     if (!user) return res.status(401).send('Unauthorized');
@@ -95,20 +94,9 @@ exports.update = function(req, res) {
 /**
  * Get my info
  */
-// exports.me = function(req, res, next) {
-//   var userId = req.user._id;
-//   User.findOne({
-//     _id: userId
-//   }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
-//     if (err) return next(err);
-//     if (!user) return res.status(401).send('Unauthorized');
-//     res.json(user);
-//   });
-// };
 
 exports.me = function(req, res, next) {
   var userId = req.user._id;
-
   User
    .findOne({ _id: userId}, '-salt -hashedPassword')
    .populate('actorId')
@@ -118,17 +106,6 @@ exports.me = function(req, res, next) {
       return res.json(user);
     });
 };
-
-// exports.show = function(req, res) {
-//   Actor
-//   .findById(req.params.id)
-//   .populate('ownedBy')
-  // .exec(function(err, actor) {
-  //     if(err) { return handleError(res, err); }
-  //     if(!actor) { return res.status(404).send('Not Found'); }
-  //     return res.json(actor);
-  // });
-// };
 
 /**
  * Authentication callback

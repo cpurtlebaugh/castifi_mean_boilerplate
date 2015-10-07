@@ -2,34 +2,17 @@
 
 angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state, 
-    Actor, currentActor, $filter) {
+    Actor, $filter, currentPerson) {
 		
+     $scope.actor = currentPerson.actorId;
 	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
-     // var actor = $filter('filter')(currentActor.data, { ownedBy: user_id});
-     // $scope.actor = actor[0]
-
-     $scope.actor = currentActor;
-     if($scope.actor.length !== 0){
-        $scope.actorId = $scope.actor._id;
-      } 
-
-     $scope.checkData = function checkData(form) {
-               
-             $http.put('/api/users/' + user_id, {actor: $scope.actor} )
-                .success(function() {
-                      console.log("doin' it")
-                  });
-        };
-
-     console.log($scope.user)   
-
 
      $scope.register = function register(form) {
            $scope.submitted = true;
 	         
-	          Actor.update({id: $scope.actorId }, $scope.actor, 
+	          Actor.update({id: $scope.actor._id }, $scope.actor, 
               function success(data){
                 console.log(data)
                if($state.is('actor.basic')){ $state.go('actor.facial')};

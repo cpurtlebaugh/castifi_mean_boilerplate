@@ -5,6 +5,36 @@ var mongoose = require('mongoose'),
 
 var ActorSchema = new Schema({
   name: String,
+  legalFirstName: {type: String, lowercase: true},
+  legalMiddleName: {type: String, lowercase: true},
+  legalLastName: {type: String, lowercase: true},
+  gender: String,
+  dob: Date,
+  contact: {
+            cellNum: {type: String,
+              validate: {
+                validator: function(cellNum){
+                  return cellNum.length === 10;
+                },
+              message: 'cell number needs to be exactly 10 characters'
+              }
+            },
+
+            mainPhoneNum: {type: String,
+              validate: {
+                validator: function(mainPhoneNum){
+                  return mainPhoneNum.length === 10;
+                },
+              message: 'phone number needs to be exactly 10 characters'
+              }
+             },
+            address: {type: String, lowercase: true},
+            aptNum: Number,
+            city: {type: String, lowercase: true},
+            state: {type: String, lowercase: true},
+            zipCode: Number,
+            country: {type: String, lowercase: true},
+           },
 
   ownedBy:    {type: mongoose.Schema.Types.ObjectId,
                ref: 'User'

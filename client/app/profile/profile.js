@@ -8,13 +8,7 @@ angular.module('castifiApp')
         url: '/profile',
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileCtrl',
-        resolve:{
-             currentActor:  function ($http, Auth) {
-                  var getCurrentUser = Auth.getCurrentUser;
-                  var user_id = getCurrentUser()._id
-                  return $http.get('/api/actors/', {ownedBy: user_id});
-            },
-        }
+        resolve:{}
       })
       // basic info //phone #, email (photo)
       .state('profile.basic', {

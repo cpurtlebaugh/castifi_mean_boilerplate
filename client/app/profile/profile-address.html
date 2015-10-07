@@ -12,7 +12,7 @@
               <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
                                                   'has-error': form.address.$invalid && submitted }">
                 <label>Address</label>
-                <input type="text" name="address" class="form-control" ng-model="user.contact.address"
+                <input type="text" name="address" class="form-control" ng-model="actor.contact.address"
                        required/>
                 <p class="help-block" ng-show="form.address.$error.required && submitted">
                   An address is required
@@ -25,7 +25,7 @@
             <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
                                                   'has-error': form.apartment.$invalid && submitted }">
                 <label>Apartment</label>
-                <input type="text" name="apartment" class="form-control" ng-model="user.contact.aptNum"
+                <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"
                        required/>
                 <p class="help-block" ng-show="form.apartment.$error.required && submitted">
                   An apartment is required
@@ -39,7 +39,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.city.$valid && submitted,
                                              'has-error': form.city.$invalid && submitted }">
           <label>City</label>
-          <input type="text" name="city" class="form-control" ng-model="user.contact.city"
+          <input type="text" name="city" class="form-control" ng-model="actor.contact.city"
                  required/>
           <p class="help-block" ng-show="form.city.$error.required && submitted">
             A city is required
@@ -52,7 +52,7 @@
            <div class="form-group" ng-class="{ 'has-success': form.state.$valid && submitted,
                                                'has-error': form.state.$invalid && submitted }">
             <label>State</label>
-            <input type="text" name="state" class="form-control" ng-model="user.contact.state"
+            <input type="text" name="state" class="form-control" ng-model="actor.contact.state"
                    required/>
             <p class="help-block" ng-show="form.state.$error.required && submitted">
               A state is required
@@ -65,7 +65,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.zipcode.$valid && submitted,
                                                'has-error': form.zipcode.$invalid && submitted }">
             <label>Zipcode</label>
-            <input type="text" name="zipcode" class="form-control" ng-model="user.contact.zipCode"
+            <input type="text" name="zipcode" class="form-control" ng-model="actor.contact.zipCode"
                    required/>
             <p class="help-block" ng-show="form.zipcode.$error.required && submitted">
               A zipcode is required
@@ -79,7 +79,7 @@
          <div class="form-group" ng-class="{ 'has-success': form.country.$valid && submitted,
                                             'has-error': form.country.$invalid && submitted }">
           <label>Country</label>
-          <input type="text" name="country" class="form-control" ng-model="user.contact.country"
+          <input type="text" name="country" class="form-control" ng-model="actor.contact.country"
                  required/>
           <p class="help-block" ng-show="form.country.$error.required && submitted">
             A country is required
@@ -87,7 +87,7 @@
         </div>
 
         <div class="text-center">
-          <button class="btn btn-lg btn-primary" type="submit">
+          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
             Next Step
           </button>
         </div>

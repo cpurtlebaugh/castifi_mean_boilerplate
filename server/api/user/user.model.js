@@ -17,43 +17,12 @@ var UserSchema = new Schema({
             message: 'username should be 5 characters or more'
         }
       }, //username
-  legalFirstName: {type: String, lowercase: true},
-  legalMiddleName: {type: String, lowercase: true},
-  legalLastName: {type: String, lowercase: true},
   email: {type: String, lowercase: true, required: true,
            unique: true, match: /.+\@.+\..+/},
-  gender: String,
-  dob: Date,
   active: Boolean,
-  actor: {},
   actorId: {type: mongoose.Schema.Types.ObjectId,
                ref: 'Actor'
               },
-  contact: {
-            cellNum: {type: String,
-              validate: {
-                validator: function(cellNum){
-                  return cellNum.length === 10;
-                },
-              message: 'cell number needs to be exactly 10 characters'
-              }
-            },
-
-            mainPhoneNum: {type: String,
-              validate: {
-                validator: function(mainPhoneNum){
-                  return mainPhoneNum.length === 10;
-                },
-              message: 'phone number needs to be exactly 10 characters'
-              }
-             },
-            address: {type: String, lowercase: true},
-            aptNum: Number,
-            city: {type: String, lowercase: true},
-            state: {type: String, lowercase: true},
-            zipCode: Number,
-            country: {type: String, lowercase: true},
-           },
   role: {
     type: String,
     default: 'user'

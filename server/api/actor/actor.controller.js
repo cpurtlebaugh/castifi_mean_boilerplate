@@ -12,17 +12,6 @@ exports.index = function(req, res) {
 };
 
 // Get a single actor
-// exports.show = function(req, res) {
-//   Actor
-//     .findById(req.params.id, 
-//       function (err, actor) {
-//     if(err) { return handleError(res, err); }
-//     if(!actor) { return res.status(404).send('Not Found'); }
-//     return res.json(actor);
-//   });
-// };
-
-
 exports.show = function(req, res) {
   Actor
   .findById(req.params.id)
@@ -31,18 +20,6 @@ exports.show = function(req, res) {
       if(err) { return handleError(res, err); }
       if(!actor) { return res.status(404).send('Not Found'); }
       return res.json(actor);
-  });
-};
-
-// Get a single actor
-exports.user = function(req, res) {
-  var userId = req.user._id;
-  Actor.findOne({
-    ownedBy: userId
-  }, function(err, user) {
-      if(err) { return handleError(res, err); }
-      if(!user) { return res.json({}); }
-      return res.json(user);
   });
 };
 

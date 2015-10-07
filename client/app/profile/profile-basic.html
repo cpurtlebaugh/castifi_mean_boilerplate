@@ -8,7 +8,7 @@
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
           <label>First Name</label>
-          <input type="text" name="name" class="form-control" ng-model="user.legalFirstName"
+          <input type="text" name="name" class="form-control" ng-model="actor.legalFirstName"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && submitted">
             A first name is required
@@ -18,7 +18,7 @@
           <div class="form-group" ng-class="{ 'has-success': form.middle.$valid && submitted,
                                              'has-error': form.middle.$invalid && submitted }">
           <label>Middle Name</label>
-          <input type="text" name="middle" class="form-control" ng-model="user.legalMiddleName"
+          <input type="text" name="middle" class="form-control" ng-model="actor.legalMiddleName"
                  required/>
           <p class="help-block" ng-show="form.middle.$error.required && submitted">
             A middle name is required
@@ -28,7 +28,7 @@
          <div class="form-group" ng-class="{ 'has-success': form.first.$valid && submitted,
                                             'has-error': form.first.$invalid && submitted }">
           <label>Last Name</label>
-          <input type="text" name="first" class="form-control" ng-model="user.legalLastName"
+          <input type="text" name="first" class="form-control" ng-model="actor.legalLastName"
                  required/>
           <p class="help-block" ng-show="form.first.$error.required && submitted">
             A last name is required
@@ -36,12 +36,8 @@
         </div>
 
         <div class="text-center">
-          <button class="btn btn-lg btn-primary" type="submit">
-            Next Step
-          </button>
-
-            <button class="btn btn-lg btn-info" ng-click="createProfile()">
-            Create Profile
+            <button class="btn btn-lg btn-primary" ng-click="createProfile()">
+              Create Profile
           </button>
         </div>
 

@@ -9,7 +9,7 @@
          <div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
                                             'has-error': form.phone.$invalid && submitted }">
           <label>Phone Number</label>
-          <input type="tel" name="phone" class="form-control" ng-model="user.contact.mainPhoneNum"
+          <input type="tel" name="phone" class="form-control" ng-model="actor.contact.mainPhoneNum"
                  required/>
           <p class="help-block" ng-show="form.phone.$error.required && submitted">
             A phone number is required
@@ -19,16 +19,16 @@
         <label>Gender</label>
         <br>
         <div class="btn-group">
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'male'">Male</label>
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'female'">Female</label>
-          <label class="btn btn-primary" ng-model="user.gender" btn-radio="'neutral'">Neutral</label>
+          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'male'">Male</label>
+          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'female'">Female</label>
+          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'neutral'">Neutral</label>
         </div>
         <br>
         <br>
         <div class="form-group" ng-class="{ 'has-success': form.dob.$valid && submitted,
                                             'has-error': form.dob.$invalid && submitted }">
           <label>Birthday</label>
-          <input type="date" name="dob"  placeholder="yyyy-MM-dd" class="form-control" ng-model="user.dob"
+          <input type="date" name="dob"  placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.dob"
                  required/>
           <p class="help-block" ng-show="form.dob.$error.required && submitted">
             A date of birth is required
@@ -37,7 +37,7 @@
 
 
         <div class="text-center">
-          <button class="btn btn-lg btn-primary" type="submit">
+          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
             Next Step
           </button>
         </div>
