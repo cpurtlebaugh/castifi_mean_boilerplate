@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
-var actorSchema = require('../actor/actor.model');
-// var ActorSchema = require('mongoose').model('Actor');
 
+//need to add createdAt/updatedAt Date.now()
+//need to embed this each time
 
 var UserSchema = new Schema({
   name: {type: String, required: true, lowercase: true, 

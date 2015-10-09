@@ -3,6 +3,9 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+//need to add createdAt and updatedAt
+//also createdBy    
+
 var ActorSchema = new Schema({
   name: String,
   legalFirstName: {type: String, lowercase: true},

@@ -58,7 +58,7 @@ angular.module('castifiApp')
         .state('actor.photos', {
         url: '/photos',
         templateUrl: 'app/actor/actor-photos.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorUploadCtrl'
       });
 
   });
