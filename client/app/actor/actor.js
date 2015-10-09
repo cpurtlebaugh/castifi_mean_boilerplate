@@ -10,7 +10,7 @@ angular.module('castifiApp')
         resolve:{
           currentPerson: function(User){
             return User.get();
-          }   
+          }
         }
       })
        .state('actor.home', {
@@ -58,7 +58,7 @@ angular.module('castifiApp')
         .state('actor.photos', {
         url: '/photos',
         templateUrl: 'app/actor/actor-photos.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorUploadCtrl'
       });
 
   });
