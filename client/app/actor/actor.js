@@ -10,7 +10,7 @@ angular.module('castifiApp')
         resolve:{
           currentPerson: function(User){
             return User.get();
-          }   
+          }
         }
       })
        .state('actor.home', {
