@@ -31,6 +31,7 @@ angular.module('castifiApp')
     var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
     
     if($scope.file) {
+        console.log($scope.file)
         // Perform File Size Check First
         var fileSize = Math.round(parseInt($scope.file.size));
         if (fileSize > $scope.sizeLimit) {
@@ -40,7 +41,12 @@ angular.module('castifiApp')
         // Prepend Unique String To Prevent Overwrites
         var uniqueFileName = $scope.uniqueString() + '-' + $scope.file.name;
         console.log(uniqueFileName)
-        var params = { Key: uniqueFileName, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+        
+        var params = { 
+          Key: uniqueFileName, 
+          ContentType: $scope.file.type, 
+          Body: $scope.file, 
+          ServerSideEncryption: 'AES256' };
 
         bucket.putObject(params, function(err, data) {
           console.log(params)
@@ -54,6 +60,7 @@ angular.module('castifiApp')
           else {
             // Upload Successfully Finished
             console.log('File Uploaded Successfully', 'Done');
+            //bucket.getObject(params, function(err, data){})
 
             // Reset The Progress Bar
             setTimeout(function() {

@@ -4,7 +4,7 @@
       <h1>Address</h1>
     </div>
     <div class="col-sm-12 col-md-4 col-md-offset-4">
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
+      <form class="form" name="form" ng-submit="createProfile(form)" novalidate>
         
         <div class="row">
            <div class="col-sm-8"> 
@@ -25,11 +25,7 @@
             <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
                                                   'has-error': form.apartment.$invalid && submitted }">
                 <label>Apartment</label>
-                <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"
-                       required/>
-                <p class="help-block" ng-show="form.apartment.$error.required && submitted">
-                  An apartment is required
-                </p>
+                <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
               </div>
 
           </div>  
@@ -87,7 +83,7 @@
         </div>
 
         <div class="text-center">
-          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
+          <button class="btn btn-lg btn-primary" type="submit">
             Next Step
           </button>
         </div>

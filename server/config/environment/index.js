@@ -54,7 +54,13 @@ var all = {
     clientID:     process.env.GOOGLE_ID || 'id',
     clientSecret: process.env.GOOGLE_SECRET || 'secret',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
-  }
+  },
+
+  // amazon: {
+  //   accessKey:  process.env.AMZ_ACCESS_KEY_ID || 'id',
+  //   accessSecret: process.env.AMZ_ACCESS_SECRET_KEY || 'secret'
+  // },
+
 };
 
 // Export the config object based on the NODE_ENV

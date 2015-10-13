@@ -10,7 +10,7 @@ angular.module('castifiApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          // name: $scope.user.name,
           email: $scope.user.email,
           password: $scope.user.password
         })
@@ -19,6 +19,7 @@ angular.module('castifiApp')
           $location.path('/profile/basic');
         })
         .catch( function(err) {
+          console.log(err)
           err = err.data;
           $scope.errors = {};
 

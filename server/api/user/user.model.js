@@ -5,18 +5,7 @@ var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
-//need to add createdAt/updatedAt Date.now()
-//need to embed this each time
-
 var UserSchema = new Schema({
-  name: {type: String, required: true, lowercase: true, 
-        validate:{
-          validator: function(name) {
-            return name.length >= 5;
-           },
-            message: 'username should be 5 characters or more'
-        }
-      }, //username
   email: {type: String, lowercase: true, required: true,
            unique: true, match: /.+\@.+\..+/},
   active: Boolean,
@@ -32,7 +21,8 @@ var UserSchema = new Schema({
   salt: String,
   facebook: {},
   google: {},
-  github: {}
+  github: {},
+  createdAt: {type: Date, default: Date.now()}
 });
 
 /**

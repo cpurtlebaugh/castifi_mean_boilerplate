@@ -41,5 +41,5 @@ angular.module('castifiApp')
         controller: 'ProfileCtrl'
       });  
 
-       $urlRouterProvider.otherwise('/profile');  
+       $urlRouterProvider.otherwise('/');  
   });

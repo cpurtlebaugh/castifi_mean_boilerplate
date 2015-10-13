@@ -22,20 +22,7 @@ User.find({}).remove(function() {
     provider: 'local',
     name: 'test user',
     email: 'test@test.com',
-    legalFirstName: 'test',
-    legalMiddleName: 'test',
-    legalLastName: 'test',
     password: 'test',
-    contact: {
-            cellNum: 8057548101,
-            mainPhoneNum: 8057548101,
-            address: '1000 main st',
-            aptNum: 105,
-            city: 'hollywood',
-            state: 'ca',
-            zipCode: 90028,
-            country: 'united states',
-           },
   },
   {
     provider: 'local',
@@ -48,6 +35,3 @@ User.find({}).remove(function() {
     }
   );
 });
-
-
-

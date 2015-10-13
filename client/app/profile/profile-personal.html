@@ -4,15 +4,21 @@
       <h1>Personal</h1>
     </div>
     <div class="col-sm-12 col-md-4 col-md-offset-4">
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
+      <form class="form" name="form" ng-submit="createProfile(form)" novalidate>
 
          <div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
-                                            'has-error': form.phone.$invalid && submitted }">
+                                             'has-error': form.phone.$invalid && submitted }">
           <label>Phone Number</label>
           <input type="tel" name="phone" class="form-control" ng-model="actor.contact.mainPhoneNum"
-                 required/>
+                 required
+                 ng-minlength="10"
+                 ng-maxlength="10"/>
           <p class="help-block" ng-show="form.phone.$error.required && submitted">
             A phone number is required
+          </p>
+            <p class="help-block"
+             ng-show="(form.phone.$error.minlength || form.phone.$error.maxlength) && submitted">
+            Phone number must be 10 numbers.
           </p>
         </div>
 
@@ -28,7 +34,7 @@
         <div class="form-group" ng-class="{ 'has-success': form.dob.$valid && submitted,
                                             'has-error': form.dob.$invalid && submitted }">
           <label>Birthday</label>
-          <input type="date" name="dob"  placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.dob"
+          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.dob"
                  required/>
           <p class="help-block" ng-show="form.dob.$error.required && submitted">
             A date of birth is required
@@ -37,7 +43,7 @@
 
 
         <div class="text-center">
-          <button class="btn btn-lg btn-primary" ng-click="createProfile()">
+          <button class="btn btn-lg btn-primary" type="submit">
             Next Step
           </button>
         </div>

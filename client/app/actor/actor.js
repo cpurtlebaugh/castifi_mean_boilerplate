@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('castifiApp')
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('actor', {
         url: '/actor',
@@ -60,5 +60,7 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-photos.html',
         controller: 'ActorUploadCtrl'
       });
+
+      $urlRouterProvider.otherwise('/');    
 
   });

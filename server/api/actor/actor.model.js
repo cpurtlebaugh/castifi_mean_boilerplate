@@ -206,8 +206,9 @@ var ActorSchema = new Schema({
 
   setCoordinator: {present: Boolean, pastExperience: String},
 
-  standInExperience: {present: Boolean, pastExperience: String}
+  standInExperience: {present: Boolean, pastExperience: String},
 
+  createdAt: {type: Date, default: Date.now()}
 
 });
 
