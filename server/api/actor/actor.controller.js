@@ -3,9 +3,9 @@
 var _ = require('lodash');
 var Actor = require('./actor.model');
 var AWS = require('aws-sdk');
-var AWS_ACCESS_KEY = 'AKIAIISRGLXO4APRQGFQ';
-var AWS_SECRET_KEY = '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';
-var S3_BUCKET      = 'actortest';
+var AWS_ACCESS_KEY = '';
+var AWS_SECRET_KEY = '';
+var S3_BUCKET      = '';
 var fs = require('fs');
 
 
