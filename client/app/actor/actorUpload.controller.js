@@ -9,7 +9,17 @@ angular.module('castifiApp')
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
 
-     $scope.message ="pizza"
+ $scope.uniqueString = function() {
+          var text     = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for( var i=0; i < 8; i++ ) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+          }
+          return text;
+        }
+    
+
 
   $scope.submit = function() {
      if (form.file.$valid && $scope.file && !$scope.file.$error) {
@@ -19,6 +29,7 @@ angular.module('castifiApp')
 
   $scope.uploadFiles = function(file, errFiles) {
         console.log(file)
+          // file.name = file.name + '-' + $scope.uniqueString()
           $scope.f = file;
           $scope.errFile = errFiles && errFiles[0];
           if (file) {
@@ -39,6 +50,19 @@ angular.module('castifiApp')
                                            evt.loaded / evt.total));
               });
           }
+      
+          //watch for changes on photo attribute and update view
+           Actor.update({id: $scope.actor._id }, {photo: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name},
+              function success(data){
+                console.log(data)
+                $state.go('actor.photos',{reload:true})
+              }),
+              function error(){
+      
+              }
+
+
+
       }
 
 

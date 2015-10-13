@@ -6,6 +6,8 @@ public
 .DS_store
 client/bower_components
 dist
+/server/config/environment/local.env.js
+/server/config/environment/local.env.sample.js
 /server/config/local.env.js
 /server/config/local.env.sample.js
 npm-debug.log

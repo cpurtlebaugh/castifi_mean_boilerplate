@@ -13,6 +13,7 @@ var ActorSchema = new Schema({
   legalLastName: {type: String, lowercase: true},
   gender: String,
   dob: Date,
+  photo: String,
   contact: {
             cellNum: {type: String,
               validate: {

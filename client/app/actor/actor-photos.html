@@ -2,7 +2,8 @@
 
   <h4>Upload on file select</h4>
   <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+          accept="image/*">
+          <!-- ngf-max-height="1000" ngf-max-size="1MB" -->
       Select File</button>
   <br><br>
   File:
@@ -39,4 +40,4 @@
     </div> -->
 </div>
 
-<img ng-src="{{photo}}" style="width:50%">
+<img ng-src="{{actor.photo}}" style="width:20%">
