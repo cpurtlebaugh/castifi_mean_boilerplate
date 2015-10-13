@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var path = require('path');
 var Actor = require('./actor.model');
 var AWS = require('aws-sdk');
 var AWS_ACCESS_KEY = '';
@@ -55,6 +56,7 @@ exports.update = function(req, res) {
 exports.uploadFile = function(req, res) {
       var file = req.files.file;
   fs.readFile(file.path, function (err, data) {
+    console.log(data)
     if (err) throw err; // Something went wrong!
       var bucket = new AWS.S3({ params: { Bucket: 'actortest' } });
       console.log(file)
@@ -64,9 +66,9 @@ exports.uploadFile = function(req, res) {
        var params = {
            Key: file.originalFilename,
            Bucket: 'actortest',
-           Body: data
+           Body: data,
            // Expires: 60,
-           // ContentType: file.type,
+           ContentType: file.type
            // ACL: 'public-read'
        };
 
