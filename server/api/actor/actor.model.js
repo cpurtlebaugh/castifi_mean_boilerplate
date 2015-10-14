@@ -109,6 +109,7 @@ var ActorSchema = new Schema({
               },
 
   clothingMenSizes: {
+                      present: Boolean,
                       coatLength: String,
                       coatSize: String,
                       shirtNeck: String,
@@ -121,6 +122,7 @@ var ActorSchema = new Schema({
                     },
 
   clothingWomenSizes: {
+                        present: Boolean,
                         bustSize: String,
                         cupSize: String,
                         pantWaist: String,
