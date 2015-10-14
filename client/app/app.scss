@@ -3,6 +3,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 /**
  * App-wide Styles
@@ -17,8 +18,23 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 }
 
 .navbar-default {
-    background-color: white;
+    background-color: #3db39e;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+    border-color: #3db39e;
+
+    .navbar-text {
+    	color: black;
+	}
+
 }
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+
+// body{
+// 	font-family:;
+// }
 
 // Component styles are injected through grunt
 // injector

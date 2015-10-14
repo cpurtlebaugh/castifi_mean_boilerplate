@@ -1,0 +1,306 @@
+	<div class="row">
+		<div class="col-sm-1">
+			<br>
+			<img src="assets/images/actor/document.svg" style="width:50px">
+		</div>
+		<div class="col-sm-10">
+			<h3>Basic Information</h3>
+			<h5>We Need Your Basic Info So We Can Stalk You!</h5> 
+		</div>
+	</div>
+	<br>
+	<br>
+     <!-- start form -->
+	 <form class="form" name="form" ng-submit="createProfile(form)" novalidate>
+	<!-- names -->
+	<div class="row">
+		<div class="col-sm-4">
+				<div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+	                                            'has-error': form.name.$invalid && submitted }">
+	          <label>First Name</label>
+	          <input type="text" name="name" class="form-control" ng-model="actor.legalFirstName"
+	                 required/>
+	          <p class="help-block" ng-show="form.name.$error.required && submitted">
+	            A first name is required
+	          </p>
+	        </div>
+		</div>
+		<div class="col-sm-4">
+
+	         <div class="form-group" ng-class="{ 'has-success': form.first.$valid && submitted,
+	                                            'has-error': form.first.$invalid && submitted }">
+	          <label>Last Name</label>
+	          <input type="text" name="first" class="form-control" ng-model="actor.legalLastName"
+	                 required/>
+	          <p class="help-block" ng-show="form.first.$error.required && submitted">
+	            A last name is required
+	          </p>
+	        </div>
+
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group" ng-class="{ 'has-success': form.middle.$valid && submitted,
+	                                             'has-error': form.middle.$invalid && submitted }">
+	          <label>Middle Name</label>
+	          <input type="text" name="middle" class="form-control" ng-model="actor.legalMiddleName"
+	                 required/>
+	          <p class="help-block" ng-show="form.middle.$error.required && submitted">
+	            A middle name is required
+	          </p>
+	        </div>
+
+		</div>
+	</div>
+	<!-- end names -->
+	<!-- dob and gender -->
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group" ng-class="{ 'has-success': form.dob.$valid && submitted,
+                                            'has-error': form.dob.$invalid && submitted }">
+          <label>Birthday</label>
+          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.dob"
+                 required/>
+          <p class="help-block" ng-show="form.dob.$error.required && submitted">
+            A date of birth is required
+          </p>
+        </div>
+
+		</div>
+		<div class="col-sm-6">
+		<label>Gender</label>
+        <br>
+	        <div class="btn-group">
+	          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'male'">Male</label>
+	          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'female'">Female</label>
+	          <label class="btn btn-primary" ng-model="actor.gender" btn-radio="'neutral'">Neutral</label>
+	        </div>
+		</div>
+	</div>
+	<br>
+	<!-- end dob and gender -->
+	<!-- phone number -->
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
+                                             'has-error': form.phone.$invalid && submitted }">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" class="form-control" ng-model="actor.contact.mainPhoneNum"
+                 required
+                 ng-minlength="10"
+                 ng-maxlength="10"/>
+          <p class="help-block" ng-show="form.phone.$error.required && submitted">
+            A phone number is required
+          </p>
+            <p class="help-block"
+             ng-show="(form.phone.$error.minlength || form.phone.$error.maxlength) && submitted">
+            Phone number must be 10 numbers.
+          </p>
+        </div>
+
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+	<!-- end phone number -->
+	<!-- address apt num -->
+	<div class="row">
+		<div class="col-sm-9">
+
+              <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
+                                                  'has-error': form.address.$invalid && submitted }">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control" ng-model="actor.contact.address"
+                       required/>
+                <p class="help-block" ng-show="form.address.$error.required && submitted">
+                  An address is required
+                </p>
+              </div>
+
+		</div>
+		<div class="col-sm-3">
+			 <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
+                                                  'has-error': form.apartment.$invalid && submitted }">
+                <label>Apartment</label>
+                <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
+              </div>
+		</div>
+	</div>
+	<!-- end address apt num -->
+	<!-- city state zip country -->
+	<div class="row">
+		<div class="col-sm-4">
+			  <div class="form-group" ng-class="{ 'has-success': form.city.$valid && submitted,
+                                             'has-error': form.city.$invalid && submitted }">
+		          <label>City</label>
+		          <input type="text" name="city" class="form-control" ng-model="actor.contact.city"
+		                 required/>
+		          <p class="help-block" ng-show="form.city.$error.required && submitted">
+		            A city is required
+		          </p>
+		        </div>
+		</div>
+		<div class="col-sm-2">
+			 <div class="form-group" ng-class="{ 'has-success': form.state.$valid && submitted,
+                                               'has-error': form.state.$invalid && submitted }">
+            <label>State</label>
+            <input type="text" name="state" class="form-control" ng-model="actor.contact.state"
+                   required/>
+            <p class="help-block" ng-show="form.state.$error.required && submitted">
+              A state is required
+            </p>
+          </div>
+
+		</div>
+		<div class="col-sm-3">
+			 <div class="form-group" ng-class="{ 'has-success': form.zipcode.$valid && submitted,
+                                               'has-error': form.zipcode.$invalid && submitted }">
+            <label>Zipcode</label>
+            <input type="text" name="zipcode" class="form-control" ng-model="actor.contact.zipCode"
+                   required/>
+            <p class="help-block" ng-show="form.zipcode.$error.required && submitted">
+              A zipcode is required
+            </p>
+          </div>
+		</div>
+		<div class="col-sm-3">
+			 <div class="form-group" ng-class="{ 'has-success': form.country.$valid && submitted,
+                                            'has-error': form.country.$invalid && submitted }">
+          <label>Country</label>
+          <input type="text" name="country" class="form-control" ng-model="actor.contact.country"
+                 required/>
+          <p class="help-block" ng-show="form.country.$error.required && submitted">
+            A country is required
+          </p>
+        </div>
+
+		</div>
+	</div>
+	<!-- end city state zip country -->
+	<!-- union or non union -->
+	<div class="row">
+		<div class="col-sm-10">
+			<label>Non Union or Union</label>
+        	<br>
+	        <div class="btn-group">
+	          <label class="btn btn-primary" ng-model="actor.info.union" btn-radio="false">Non-Union</label>
+	          <label class="btn btn-primary" ng-model="actor.info.union" btn-radio="true">SAG-AFTRA</label>
+	        </div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	<!-- end union or non inion -->
+	<!-- same union legal name -->
+	<br>
+	<div class="row">
+		<div class="col-sm-10">
+			<label>My Union Name Is The Same As Legal Name</label>
+        	<br>
+	        <div class="btn-group">
+	          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="true">Yes</label>
+	          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="false">No</label>
+	        </div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	<!-- end same union legal name -->
+	<!-- union name -->
+	<div ng-if="!actor.info.unionSameLegalName">
+	<br>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+              <label>Union First Name</label>
+              <input type="text" name="name" class="form-control" ng-model="actor.info.unionFirstName"/>
+            </div>
+		</div>
+		<div class="col-sm-4">
+             <div class="form-group">
+              <label>Union Last Name</label>
+              <input type="text" name="first" class="form-control" ng-model="actor.info.unionLastName"/>
+            </div>
+		</div>
+		<div class="col-sm-4">
+            <div class="form-group">
+              <label>Union Middle Name</label>
+              <input type="text" name="middle" class="form-control" ng-model="actor.info.unionMiddleName"/>
+            </div>
+		</div>		
+	</div>
+	</div>
+	<br>
+	<!-- end union name -->
+	<!-- acting since -->
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+          <label>Acting Since</label>
+          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.info.actingSince"/>
+        </div>
+
+		</div>
+		<div class="col-sm-8"></div>
+	</div>
+	<!-- end acting since -->
+	<!-- aboutme and movie quote -->
+	<div class="row">
+		<div class="col-sm-6">
+			 <div class="form-group">
+	              <label>About Me</label>
+	              <textarea class="form-control" rows="3" ng-model="actor.info.aboutMe"></textarea>
+        	</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group">
+	              <label>Favorite Movie Quote/Line</label>
+	              <textarea class="form-control" rows="3" ng-model="actor.info.movieQuote"></textarea>
+        	</div>
+
+		</div>
+	</div>
+	<!-- end aboutme and movieqoute -->
+	<!-- show us what you look like/photos -->
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Show Us What You Look Like</h3>
+			<h5>We need a Headshot, Bodyshot, Real Life Photo, and a Video of you. (No Nudity Please)</h5>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="col-sm-4">	
+			<img src="assets/images/actor/mirrorbox.svg">
+			   <h5>Headshot</h5>
+		</div>
+		<div class="col-sm-4">
+			<img src="assets/images/actor/mirrorbox.svg">
+			  <h5>Head to Toe</h5>
+		</div>
+		<div class="col-sm-4">
+		     <img src="assets/images/actor/mirrorbox.svg">
+		       <h5>Real Life</h5>
+		</div>
+	</div>
+	<!-- end photos -->
+	<!-- video -->
+	<div class="row">
+		<div class="col-sm-4">
+			<img src="assets/images/actor/mirrorbox.svg">
+			<h5>Video</h5>
+		</div>
+	</div>	
+	<!-- end video -->
+	<!-- submit button -->
+	<div class="row">
+		<div class="col-sm-1"></div>
+	    <div class="col-sm-3"></div>        
+        	<div class="col-sm-4 text-center">
+	            <button class="btn btn-lg btn-success" type="submit">
+	              Save & Continue
+	            </button>
+        	</div>
+    	<div class="col-sm-2"></div>
+    	<div class="col-sm-2">
+    		<h6>Need Help? 	<img src="assets/images/help.svg" style="width:40px"></h6>
+    	</div>        
+    </div>
+	<!-- end submit button -->
+	</form>
+	<!-- end form -->

@@ -4,7 +4,9 @@
       <h1>Basic</h1>
     </div>
     <div class="col-sm-12 col-md-4 col-md-offset-4">
+      
       <form class="form" name="form" ng-submit="createProfile(form)" novalidate>
+        
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
           <label>First Name</label>
@@ -42,6 +44,7 @@
         </div>
 
       </form>
+   
     </div>
   </div>
 </div>

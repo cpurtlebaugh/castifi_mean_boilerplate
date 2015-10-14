@@ -13,11 +13,21 @@ angular.module('castifiApp')
           }
         }
       })
+      //NEED TO ADD NAVBAR
        .state('actor.home', {
         url: '/home',
         templateUrl: 'app/actor/actor-home.html',
         controller: 'ActorCtrl'
       })
+
+       //OVERVIEW
+        .state('actor.overview', {
+        url: '/overview',
+        templateUrl: 'app/actor/actor-overview.html',
+        controller: 'ActorCtrl'
+      })
+      
+       //PHYSICAL APPEARANCE
       //basic: union info, bio and appearance
       .state('actor.basic', {
         url: '/basic',
@@ -42,6 +52,9 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-niche.html',
         controller: 'ActorCtrl'
       })
+      
+
+      //WARDROBE
       //wardrobe: measurements and costumes
        .state('actor.wardrobe', {
         url: '/wardrobe',
@@ -54,6 +67,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-measurements.html',
         controller: 'ActorCtrl'
       })
+     
+
       //photos
         .state('actor.photos', {
         url: '/photos',

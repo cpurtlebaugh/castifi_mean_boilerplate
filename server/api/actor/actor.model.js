@@ -44,12 +44,20 @@ var ActorSchema = new Schema({
                ref: 'User'
               },
 
-  media:      {imageOne: String, imageTwo: String,
-              imageThree: String, video: String
+  media:      { headShot: String, 
+                headToToe: String,
+                realLife: String, 
+                video: String
               },
 
   info:       {unionFirstName: String, unionMiddleName: String,
-               unionLastName: String, union: Boolean, bio: String
+               unionLastName: String, 
+               union: Boolean, 
+               unionSameLegalName:Boolean,
+               bio: String,
+               actingSince: Date,
+               aboutMe: String,
+               movieQuote: String
               },
 
 // appearance //
