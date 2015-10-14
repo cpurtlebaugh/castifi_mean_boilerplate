@@ -2,9 +2,9 @@
 
 angular.module('castifiApp')
   .controller('ActorUploadCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, Upload, $timeout, currentPerson) {
+    Actor, $filter, Upload, $timeout, currentUser) {
 
-     $scope.actor = currentPerson.actorId;
+     $scope.actor = currentUser.actorId;
 	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
