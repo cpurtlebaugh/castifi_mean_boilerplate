@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 //need to add createdAt and updatedAt
-//also createdBy    
+//also createdBy
 
 var ActorSchema = new Schema({
   name: String,
@@ -44,15 +44,15 @@ var ActorSchema = new Schema({
                ref: 'User'
               },
 
-  media:      { headShot: String, 
+  media:      { headShot: String,
                 headToToe: String,
-                realLife: String, 
+                realLife: String,
                 video: String
               },
 
   info:       {unionFirstName: String, unionMiddleName: String,
-               unionLastName: String, 
-               union: Boolean, 
+               unionLastName: String,
+               union: Boolean,
                unionSameLegalName:Boolean,
                bio: String,
                actingSince: Date,
@@ -73,7 +73,8 @@ var ActorSchema = new Schema({
                nationality: String, bodyType: String, complexion: String,
                eyeColor: String, hairColor: String,
                hairStyle: String, hairLength: String,
-               facialHairType:String, twins: Boolean,
+               facialHairType: String, facialHairColor: String,
+               facialHairPresent: Boolean, twins: Boolean,
                triplets: Boolean, pregnant: Boolean,
                pregnantDueDate: Date, smoker:Boolean
               },
@@ -107,27 +108,27 @@ var ActorSchema = new Schema({
               impairedHearing: Boolean, usesWheelChair: Boolean
               },
 
-  clothingMenSizes: { 
+  clothingMenSizes: {
                       coatLength: String,
-                      coatSize: String, 
-                      shirtNeck: String, 
+                      coatSize: String,
+                      shirtNeck: String,
                       shirtSleeve: String,
-                      pantWaist: String, 
-                      pantInseam: String, 
+                      pantWaist: String,
+                      pantInseam: String,
                       shoe: String,
-                      glove: String, 
+                      glove: String,
                       hat: String
                     },
 
-  clothingWomenSizes: {  
+  clothingWomenSizes: {
                         bustSize: String,
-                        cupSize: String, 
-                        pantWaist: String, 
+                        cupSize: String,
+                        pantWaist: String,
                         pantInseam: String,
                         hips: String,
-                        dress: String, 
+                        dress: String,
                         shoe: String,
-                        glove: String, 
+                        glove: String,
                         hat: String
                     },
 

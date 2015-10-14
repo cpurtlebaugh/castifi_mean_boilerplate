@@ -1,9 +1,27 @@
+
+// Colors
+$brand-primary:         #f2c400  !default;
+$brand-success:         #22cacc  !default;
+$brand-info:            #3db39e  !default;
+$brand-warning:         #ff6a6a  !default;
+$brand-danger:          #d9534f  !default;
+
+$body-bg:               #3db39e  !default;
+
+$font-family-sans-serif:  'Montserrat', sans-serif;
+
+$border-radius-base:        11.5px !default;
+$border-radius-large:       11.5px !default;
+
+
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+
 
 /**
  * App-wide Styles
