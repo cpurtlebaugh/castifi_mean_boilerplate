@@ -1,14 +1,27 @@
 .navbar-actor{
+	.nav > li > a {
+	    padding: 15px 55px;
+	    color: black;
+	}
 	background-color:white;
 	border-radius: 11.5px;
-	 .col-sm-2{
-	 	margin-top: 15px;
-	 }
-	  a{
-		color: black;
-		padding-top: 15px;
-    	padding-bottom: 15px;
-	}
+}
+
+.navbar-actor li{
+	border-right: 1px solid black;
+}
+
+.navbar-actor li:last-child{
+	border-right: 0px solid red;
+}
+
+.navbar-actor li:first-child{
+	border-radius: 11.5px 0px 0px 11.5px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: $brand-info;
 }
 
 .actor-container{

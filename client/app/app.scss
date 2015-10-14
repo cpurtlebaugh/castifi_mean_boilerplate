@@ -18,9 +18,9 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 }
 
 .navbar-default {
-    background-color: #3db39e;
+    background-color: $brand-info;
     box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
-    border-color: #3db39e;
+    border-color: $brand-info;
 
     .navbar-text {
     	color: black;

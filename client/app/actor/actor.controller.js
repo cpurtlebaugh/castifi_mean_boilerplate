@@ -2,28 +2,43 @@
 
 angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, currentPerson) {
+    Actor, $filter, currentUser) {
 
-     $scope.actor = currentPerson.actorId;
+     $scope.actor = currentUser.actorId;
 	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
 
+      if(currentUser.actorId  !== undefined){
+        $scope.actor.dob = new Date($scope.actor.dob) 
+      }
+
      $scope.register = function register(form) {
            $scope.submitted = true;
+	         if(form.$valid){ 
 
-	          Actor.update({id: $scope.actor._id }, $scope.actor,
-              function success(data){
-                console.log(data)
-               if($state.is('actor.basic')){ $state.go('actor.facial')};
-               if($state.is('actor.facial')){ $state.go('actor.enhancements')};
-               if($state.is('actor.enhancements')){ $state.go('actor.niche')};
-               if($state.is('actor.niche')){ $state.go('actor.wardrobe')};
-               if($state.is('actor.wardrobe')){ $state.go('actor.measurements')};
-               if($state.is('actor.measurements')){ $state.go('actor.home')};
-            }),
-            function error(){
-              $state.go('actor.home')
+                if(currentUser.actorId === undefined){
+                        new Actor($scope.actor)
+                            .$save(function(data){
+                                $http.put('/api/users/' + user_id, {actorId: data._id})
+                                if($state.is('actor.overview')){ $state.go('actor.physical')};
+                                if($state.is('actor.physical')){ $state.go('actor.wardrobe')};
+                                if($state.is('actor.wardrobe')){ $state.go('actor.confirmation')};
+                            });
+                   }
+                   else{
+                          Actor.update({id: $scope.actor._id }, $scope.actor,
+                            function success(data){
+                              console.log(data)
+                               if($state.is('actor.overview')){ $state.go('actor.physical')};
+                               if($state.is('actor.physical')){ $state.go('actor.wardrobe')};
+                                if($state.is('actor.wardrobe')){ $state.go('actor.confirmation')};
+                          }),
+                          function error(){
+                            $state.go('actor.overview')
+                          }
+                    }
+
             }
         };
 

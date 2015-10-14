@@ -7,7 +7,7 @@ angular.module('castifiApp')
       'link': '/actor/overview'
     },{
       'title': 'Physical Appearance',
-      'link': '/actor/basic'},
+      'link': '/actor/physical'},
        {
       'title': 'Wardrobe',
       'link': '/actor/wardrobe'

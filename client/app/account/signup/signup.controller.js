@@ -16,7 +16,7 @@ angular.module('castifiApp')
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/profile/basic');
+          $location.path('/actor/overview');
         })
         .catch( function(err) {
           console.log(err)

@@ -3,14 +3,8 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    },{
-      'title': 'Edit Contact',
-      'link': '/profile/basic'},
-       {
       'title': 'Edit Profile',
-      'link': '/actor/home'
+      'link': '/actor/overview'
        }
     ];
 

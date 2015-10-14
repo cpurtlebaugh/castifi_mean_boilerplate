@@ -8,7 +8,7 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
-          currentPerson: function(User){
+          currentUser: function(User){
             return User.get();
           }
         }
@@ -28,6 +28,13 @@ angular.module('castifiApp')
       })
       
        //PHYSICAL APPEARANCE
+       .state('actor.physical', {
+        url: '/physical',
+        templateUrl: 'app/actor/actor-physical.html',
+        controller: 'ActorCtrl'
+      })
+
+
       //basic: union info, bio and appearance
       .state('actor.basic', {
         url: '/basic',
@@ -74,8 +81,16 @@ angular.module('castifiApp')
         url: '/photos',
         templateUrl: 'app/actor/actor-photos.html',
         controller: 'ActorUploadCtrl'
-      });
+      })
 
-      $urlRouterProvider.otherwise('/');    
+      //CONFIRMATION
+      .state('actor.confirmation', {
+        url: '/confirmation',
+        templateUrl: 'app/actor/actor-confirmation.html',
+        controller: 'ActorUploadCtrl'
+      });
+         
+
+      $urlRouterProvider.otherwise('/actor/overview');    
 
   });
