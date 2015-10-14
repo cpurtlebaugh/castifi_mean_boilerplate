@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-sm-10">
 			<h3>Basic Information</h3>
-			<h5>We Need Your Basic Info So We Can Stalk You!</h5> 
+			<h5>We Need Your Basic Info So We Can Stalk You!</h5>
 		</div>
 	</div>
 	<br>
@@ -218,7 +218,7 @@
               <label>Union Middle Name</label>
               <input type="text" name="middle" class="form-control" ng-model="actor.info.unionMiddleName"/>
             </div>
-		</div>		
+		</div>
 	</div>
 	</div>
 	<br>
@@ -233,17 +233,63 @@
 
 		</div>
 		<div class="col-sm-8"></div>
-	</div>
+  </div>
 	<!-- end acting since -->
+
+ <!-- are you willing  -->
+   <div class="row">
+
+
+
+    <div class="col-sm-12">
+          <label>Are you comfortable with...</label>
+
+
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
+<!-- i am willing to...nudity, kissing, change hair -->
+
+        <div class="row">
+
+  <!-- nudity -->
+          <div class="col-sm-4">
+            <div>
+              <input type="checkbox" ng-model="actor.willing.kissing"/>
+              <label>Kissing</label><br>
+              <input type="checkbox" ng-model="actor.willing.kissingSameSex"/>
+              <label>Same-sex Kissing</label><br>
+              <input type="checkbox" ng-model="actor.willing.partialNudity"/>
+              <label>Partial Nudity</label><br>
+              <input type="checkbox" ng-model="actor.willing.fullNudity"/>
+              <label>Full Nudity</label><br>
+            </div>
+          </div>
+  <!-- end nudity -->
+  <!-- change hair -->
+          <div class="col-sm-4">
+               <input type="checkbox" ng-model="actor.willing.drag"/>
+              <label>Cross-dressing</label><br>
+              <input type="checkbox" ng-model="actor.willing.cutHair"/>
+              <label>Cutting Hair</label><br>
+              <input type="checkbox" ng-model="actor.willing.colorHair"/>
+              <label>Coloring Hair</label><br>
+              <input type="checkbox" ng-model="actor.willing.eatMeat"/>
+               <label>Eating Meat</label><br>
+          </div>
+  <!-- end hair -->
+    </div>
+<!-- end i am willing to...nudity, kissing, change hair -->
+ <!-- end are you willing  -->
+</div>
+
 	<!-- aboutme and movie quote -->
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-6"> <br>
 			 <div class="form-group">
 	              <label>About Me</label>
 	              <textarea class="form-control" rows="3" ng-model="actor.info.aboutMe"></textarea>
         	</div>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-6"> <br>
 			<div class="form-group">
 	              <label>Favorite Movie Quote/Line</label>
 	              <textarea class="form-control" rows="3" ng-model="actor.info.movieQuote"></textarea>
@@ -259,8 +305,8 @@
 			<h5>We need a Headshot, Bodyshot, Real Life Photo, and a Video of you. (No Nudity Please)</h5>
 		</div>
 	</div>
-	<div class="row">	
-		<div class="col-sm-4">	
+	<div class="row">
+		<div class="col-sm-4">
 			<img src="assets/images/actor/mirrorbox.svg">
 			   <h5>Headshot</h5>
 		</div>
@@ -280,12 +326,15 @@
 			<img src="assets/images/actor/mirrorbox.svg">
 			<h5>Video</h5>
 		</div>
-	</div>	
+	</div>
 	<!-- end video -->
+
+
+
 	<!-- submit button -->
 	<div class="row">
 		<div class="col-sm-1"></div>
-	    <div class="col-sm-3"></div>        
+	    <div class="col-sm-3"></div>
         	<div class="col-sm-4 text-center">
 	            <button class="btn btn-lg btn-success" type="submit">
 	              Save & Continue
@@ -294,7 +343,7 @@
     	<div class="col-sm-2"></div>
     	<div class="col-sm-2">
     		<h6>Need Help? 	<img src="assets/images/help.svg" style="width:40px"></h6>
-    	</div>        
+    	</div>
     </div>
 	<!-- end submit button -->
 	</form>
