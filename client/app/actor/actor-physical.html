@@ -224,7 +224,7 @@
   </div>
 </div>
 <!-- end twin or triplet-->
-
+<br>
 <!-- are you pregnant, due date -->
 <div class="row">
   <div class="col-sm-2">
@@ -243,7 +243,7 @@
   </div>
 </div>
 <!-- end are you pregnant, due date -->
-
+<br>
 
 <!-- tattoos and piercings -->
 <div class="row">
@@ -326,8 +326,64 @@
     </div>
   </div>
 </div>
-        <!-- end ng-if piercings -->
-
-
-        <!-- end piercings -->
+<br>
+    <!-- end ng-if piercings -->
+  <!-- end piercings -->
 <!-- end tattoos and piercings -->
+
+<!-- amputee and disabilities -->
+  <div class="row">
+    <div class="col-sm-6">
+      <label>Do You Have Any Disabilities?</label> <br>
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="actor.disabled.present" btn-radio="false">No</label>
+        <label class="btn btn-primary" ng-model="actor.disabled.present" btn-radio="true">Yes</label>
+      </div>
+
+  <!-- ng-if disabled present-->
+    <div ng-if="actor.disabled.present">
+      <br>
+      <input type="checkbox" ng-model="actor.disabled.blind"/>
+      <label>Blind</label><br>
+      <input type="checkbox" ng-model="actor.disabled.impairedHearing"/>
+      <label>Hearing Impaired</label><br>
+      <input type="checkbox" ng-model="actor.disabled.deaf"/>
+      <label>Deaf</label><br>
+      <input type="checkbox" ng-model="actor.disabled.mute"/>
+      <label>Mute</label><br>
+      <input type="checkbox" ng-model="actor.disabled.usesWheelchair"/>
+      <label>Wheelchair</label><br>
+    </div>
+    <!-- end ng-if -->
+    </div>
+    <!-- end disabled -->
+
+    <!-- start amputee -->
+    <div class="col-sm-6">
+     <label>Are you an amputee?</label><br>
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="actor.amputee.present" btn-radio="false">No</label>
+          <label class="btn btn-primary" ng-model="actor.amputee.present" btn-radio="true">Yes</label>
+       </div>
+
+  <!-- ng-if amputee present-->
+      <div ng-if="actor.amputee.present">
+        <br>
+        <input type="checkbox" ng-model="actor.amputee.arm"/>
+        <label>Arm</label><br>
+        <input type="checkbox" ng-model="actor.amputee.hand"/>
+        <label>Hand</label><br>
+        <input type="checkbox" ng-model="actor.amputee.finger"/>
+        <label>Finger</label><br>
+        <input type="checkbox" ng-model="actor.amputee.leg"/>
+        <label>Leg</label><br>
+        <input type="checkbox" ng-model="actor.amputee.foot"/>
+        <label>Foot</label><br>
+      </div>
+    <!-- end ng-if -->
+    </div>
+    <!-- end amputee -->
+  </div>
+<!-- end amputee and disabilities -->
+<br>
+
