@@ -13,7 +13,6 @@ var ActorSchema = new Schema({
   legalLastName: {type: String, lowercase: true},
   gender: String,
   dob: Date,
-  photo: String,
   contact: {
             cellNum: {type: String,
               validate: {
@@ -44,11 +43,12 @@ var ActorSchema = new Schema({
                ref: 'User'
               },
 
-  media:      { headShot: String,
-                headToToe: String,
-                realLife: String,
-                video: String
-              },
+  // actor photos + video
+          headShot: String,
+          headToToe: String,
+          realLife: String,
+          video: String,
+  // end actor photos + video
 
   info:       {unionFirstName: String, unionMiddleName: String,
                unionLastName: String,

@@ -13,6 +13,11 @@ $font-family-sans-serif:  'Montserrat', sans-serif;
 $border-radius-base:        11.5px !default;
 $border-radius-large:       11.5px !default;
 
+input[type="file"] {
+  display: block;
+  color: $brand-info;
+}
+
 
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";

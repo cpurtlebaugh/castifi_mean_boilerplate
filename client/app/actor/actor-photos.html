@@ -1,22 +1,46 @@
 <div class="container">
-
-  <h4>Upload on file select</h4>
-  <input type="file" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles)"
-          accept="image/*">
-          <!-- ngf-max-height="1000" -->
-      Select File</input>
-  <br><br>
-  File:
-  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-      <span class="progress" ng-show="f.progress >= 0">
-          <div style="width:{{f.progress}}%"
-               ng-bind="f.progress + '%'"></div>
-      </span>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Show Us What You Look Like</h3>
+      <h5>We need a Headshot, Bodyshot, Real Life Photo, and a Video of you. (No Nudity Please)</h5>
+      <br>
+    </div>
   </div>
-  {{errorMsg}}
-<div>
-<img ng-src="{{actor.photo}}" style="width:20%">
-</div>
+  <div class="row">
+    <div class="col-sm-4"   >
+     <img ngf-thumbnail="headShot || actor.headShot || 'assets/images/actor/mirrorbox.svg'" style="width:80%">
+         <h5>Headshot</h5>
+          <input type="file" ng-model="headShot" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
+          </input>
+    </div>
+
+    <div class="col-sm-4">
+     <img ngf-thumbnail="headToToe || actor.headToToe || 'assets/images/actor/mirrorbox.svg'" style="width:80%">
+        <h5>Head to Toe</h5>
+          <input type="file" ng-model="headToToe" ngf-max-size="2MB" ngf-select="uploadFiles(   $file, $invalidFiles, 'headToToe')" accept="jpg,.jpeg, .png">
+          </input>
+    </div>
+
+    <div class="col-sm-4">
+        <img ngf-thumbnail="realLife || actor.realLife || 'assets/images/actor/mirrorbox.svg'" style="width:80%">
+           <h5>Real Life</h5>
+             <input type="file" ng-model="realLife" ngf-max-size="2MB" ngf-select="uploadFiles(   $file, $invalidFiles, 'realLife')"
+              accept="jpg,.jpeg, .png">
+          </input>
+    </div>
+
+  </div>
+  <br>
+  <!-- end photos -->
+  <!-- video -->
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="assets/images/actor/mirrorbox.svg">
+      <h5>Video</h5>
+    </div>
+  </div>
+  <!-- end video -->
+
 </div>
 
 

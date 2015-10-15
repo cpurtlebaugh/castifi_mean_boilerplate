@@ -47,7 +47,7 @@ angular.module('castifiApp')
           }
         }
       })
-      
+
        //PHYSICAL APPEARANCE
        .state('actor.physical', {
         url: '/physical',
@@ -85,7 +85,7 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-niche.html',
         controller: 'ActorCtrl'
       })
-      
+
 
       //WARDROBE
       //wardrobe: measurements and costumes
@@ -105,13 +105,18 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-measurements.html',
         controller: 'ActorCtrl'
       })
-     
+
 
       //photos
         .state('actor.photos', {
         url: '/photos',
         templateUrl: 'app/actor/actor-photos.html',
-        controller: 'ActorUploadCtrl'
+        controller: 'ActorUploadCtrl',
+          resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
 
       //CONFIRMATION
@@ -125,8 +130,8 @@ angular.module('castifiApp')
           }
         }
       });
-         
 
-      $urlRouterProvider.otherwise('/actor/overview');    
+
+      $urlRouterProvider.otherwise('/actor/overview');
 
   });

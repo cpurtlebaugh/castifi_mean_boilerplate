@@ -2,24 +2,31 @@
 
 angular.module('castifiApp')
   .controller('ActorNavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
+    $scope.menu = [
+    {
+      'title': 'Photos',
+      'link': '/actor/photos'
+    },
+    {
       'title': 'Overview',
       'link': '/actor/overview'
-    },{
-      'title': 'Physical Appearance',
-      'link': '/actor/physical'},
-       {
+    },
+    {
+      'title': 'Appearance',
+      'link': '/actor/physical'
+    },
+    {
       'title': 'Wardrobe',
       'link': '/actor/wardrobe'
-       },
-        {
+    },
+    {
       'title': 'Skills',
       'link': ''
-       },
-       {
+     },
+     {
       'title': 'Props',
       'link': ''
-       }
+     }
     ];
 
     $scope.isCollapsed = true;

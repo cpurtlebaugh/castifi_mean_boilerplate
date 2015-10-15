@@ -18,13 +18,27 @@ angular.module('castifiApp')
                 }
                 return text;
         }
-    
-  
-          $scope.uploadFiles = function(file, errFiles) {
-                  console.log("file")
-                  console.log(file)
+
+
+          $scope.uploadFiles = function(file, errFiles, type) {
+            console.log('first')
+                  // console.log("file")
+                  // console.log(file)
+                  // console.log($scope.headShot)
+                  // console.log(type)
+                  if (type === 'headShot'){
+                    $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                  }
+                  else if (type === 'headToToe'){
+                    $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                  }
+                  else if (type === 'realLife'){
+                    $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                  }
+                  console.log($scope.type)
                   // file.name = file.name + '-' + $scope.uniqueString()
                   $scope.f = file;
+
                   $scope.errFile = errFiles && errFiles[0];
                   if (file) {
                       file.upload = Upload.upload({
@@ -44,16 +58,18 @@ angular.module('castifiApp')
                                                    evt.loaded / evt.total));
                       });
                   }
-              
+
                   //updates the Actor model with photo
                   //watch for changes on photo attribute and update view
-                   Actor.update({id: $scope.actor._id }, {photo: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name},
+
+                   Actor.update({id: $scope.actor._id },
+                    $scope.type,
                       function success(data){
                         console.log(data)
                         $state.go('actor.photos',{reload:true})
                       }),
                       function error(){
-              
+
                       }
 
 
