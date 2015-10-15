@@ -8,6 +8,22 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
+           currentActor: function($http){
+            $http.get('api/users/me');
+          },
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })
+      .state('welcome', {
+        url: '/welcome',
+        templateUrl: 'app/actor/actor-welcome.html',
+        controller: 'ActorCreateCtrl',
+        resolve:{
+           currentActor: function($http){
+            $http.get('api/users/me');
+          },
           currentUser: function(User){
             return User.get();
           }
@@ -24,14 +40,24 @@ angular.module('castifiApp')
         .state('actor.overview', {
         url: '/overview',
         templateUrl: 'app/actor/actor-overview.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
       
        //PHYSICAL APPEARANCE
        .state('actor.physical', {
         url: '/physical',
         templateUrl: 'app/actor/actor-physical.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
 
 
@@ -66,7 +92,12 @@ angular.module('castifiApp')
        .state('actor.wardrobe', {
         url: '/wardrobe',
         templateUrl: 'app/actor/actor-wardrobe.html',
-        controller: 'ActorCtrl'
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
        //male and female clothing measurements
         .state('actor.measurements', {
@@ -87,7 +118,12 @@ angular.module('castifiApp')
       .state('actor.confirmation', {
         url: '/confirmation',
         templateUrl: 'app/actor/actor-confirmation.html',
-        controller: 'ActorUploadCtrl'
+        controller: 'ActorUploadCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       });
          
 

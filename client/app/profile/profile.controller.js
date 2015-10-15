@@ -15,6 +15,9 @@ angular.module('castifiApp')
         $scope.actor.dob = new Date($scope.user.actorId.dob) 
       }
 
+      console.log("scope user actorId")
+      console.log($scope.user.actorId)
+
         //function to create the extended actor profile
         $scope.createProfile = function createProfile(form){
                $scope.submitted = true
