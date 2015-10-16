@@ -1,26 +1,37 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('ActorCreateCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, currentUser, currentActor) {
+  .controller('ActorCreateCtrl', function ($scope, $http, Auth, User, $state,
+    Actor, currentUser, currentActor) {
 
 
-     $scope.actor = currentUser.actorId;
-	   $scope.user = User.get();
+	   // $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      $scope.user = $scope.getCurrentUser();
      var user_id = $scope.getCurrentUser()._id;
 
-      
-     $scope.createActor = function createActor() {
-            console.log("register")          
+     // console.log('user')
+     // console.log($scope.user)
+     // console.log('getCurrentUser')
+     // console.log($scope.getCurrentUser())
+     // console.log('currentUser')
+     // console.log(currentUser)
+     // console.log('currentActor Id')
+     // console.log(currentActor.data._id)
+     // console.log(user_id)
+     // console.log($scope.user._id)
+     // console.log($scope.getCurrentUser()._id)
+
+     
+     $scope.createActor = function createActor() {         
             if(currentUser.actorId === undefined){
                     new Actor($scope.actor)
                         .$save(function(data){
-                              $http.put('/api/users/' + user_id, {actorId: data._id})
-                              localStorage.setItem("actorLocal", data._id)
-                              $state.go('actor.overview')
-                              console.log("working")
+                              console.log("data")
+                              console.log(data)
+                              $http.put('/api/users/' + user_id, {actorId: data._id});
+                              localStorage.setItem("actorLocal", data._id);
+                              $state.go('actor.photos')
                         });
             }
             else{

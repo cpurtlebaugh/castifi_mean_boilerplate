@@ -22,12 +22,6 @@ angular.module('castifiApp')
         }
 
         var actorLocal = localStorage.getItem("actorLocal");
-        console.log(actorLocal)
-
-        console.log("scope user")
-        console.log($scope.user.actorId)
-        console.log("scope actor")
-        console.log($scope.actor)
 
          $scope.register = function register(form) {
                $scope.submitted = true;
@@ -35,13 +29,11 @@ angular.module('castifiApp')
                     if(actorLocal){
                           Actor.update({id: actorLocal }, $scope.actor,
                                 function success(data){
-                                  console.log(data)
                                    if($state.is('actor.overview')){ $state.go('actor.physical')};
                                    if($state.is('actor.physical')){ $state.go('actor.wardrobe')};
                                    if($state.is('actor.wardrobe')){ $state.go('actor.confirmation')};
                               }),
                               function error(){
-                                console.log("error")
                                 $state.go('actor.overview')
                               }
                             

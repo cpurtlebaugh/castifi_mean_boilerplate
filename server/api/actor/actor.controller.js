@@ -55,9 +55,6 @@ exports.update = function(req, res) {
 //upload file
 exports.uploadFile = function(req, res) {
   var file = req.files.file;
-  console.log(AWS_ACCESS_KEY)
-  console.log(AWS_S3_BUCKET)
-  console.log(AWS_SECRET_KEY)
   fs.readFile(file.path, function (err, data) {
     if (err) throw err;
        AWS.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
