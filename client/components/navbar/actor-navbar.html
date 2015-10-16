@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top navbar-actor" ng-controller="ActorNavbarCtrl">
+<div class="navbar navbar-default navbar-static-top navbar-actor hidden-xs" ng-controller="ActorNavbarCtrl">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-show="isLoggedIn()" ng-href="{{item.link}}">{{item.title}}</a>
@@ -6,14 +6,10 @@
       </ul>
 </div>
 
-<!-- <div class="navbar navbar-default navbar-static-top navbar-actor" ng-controller="ActorNavbarCtrl">
-<div class="row">
-	<div class="col-sm-1"></div>	
-		<div ng-repeat="item in menu">
-			<div class="col-sm-2 text-center">
-					 <a ng-show="isLoggedIn()" ng-href="{{item.link}}">{{item.title}}</a>
-			</div>
-		</div>
-	<div class="col-sm-1"></div>	
+<div class="navbar navbar-default navbar-static-top navbar-actor-small hidden-sm hidden-md hidden-lg" ng-controller="ActorNavbarCtrl">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+            <a ng-show="isLoggedIn()" ng-href="{{item.link}}">{{item.title}}</a>
+        </li>
+      </ul>
 </div>
-</div> -->

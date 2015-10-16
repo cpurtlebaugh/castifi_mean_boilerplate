@@ -123,7 +123,7 @@ angular.module('castifiApp')
       })
 
       //CONFIRMATION
-      .state('actor.confirmation', {
+      .state('confirmation', {
         url: '/confirmation',
         templateUrl: 'app/actor/actor-confirmation.html',
         controller: 'ActorUploadCtrl',
@@ -135,6 +135,6 @@ angular.module('castifiApp')
       });
 
 
-      $urlRouterProvider.otherwise('/actor/overview');
+      $urlRouterProvider.otherwise('/actor/welcome');
 
   });

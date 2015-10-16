@@ -19,14 +19,14 @@ angular.module('castifiApp')
       'title': 'Wardrobe',
       'link': '/actor/wardrobe'
     },
-    {
-      'title': 'Skills',
-      'link': ''
-     },
-     {
-      'title': 'Props',
-      'link': ''
-     }
+    // {
+    //   'title': 'Skills',
+    //   'link': ''
+    //  },
+    //  {
+    //   'title': 'Props',
+    //   'link': ''
+    //  }
     ];
 
     $scope.isCollapsed = true;

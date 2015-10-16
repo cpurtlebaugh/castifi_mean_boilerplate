@@ -31,7 +31,7 @@ angular.module('castifiApp')
                                 function success(data){
                                    if($state.is('actor.overview')){ $state.go('actor.physical')};
                                    if($state.is('actor.physical')){ $state.go('actor.wardrobe')};
-                                   if($state.is('actor.wardrobe')){ $state.go('actor.confirmation')};
+                                   if($state.is('actor.wardrobe')){ $state.go('confirmation')};
                               }),
                               function error(){
                                 $state.go('actor.overview')

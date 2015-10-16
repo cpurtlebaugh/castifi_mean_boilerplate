@@ -5,6 +5,16 @@
 	}
 	background-color:white;
 	border-radius: 11.5px;
+	padding-left: 300px;
+}
+
+.navbar-actor-small{
+	.nav > li > a {
+	    padding: 15px 35px;
+	    color: black;
+	}
+	background-color:white;
+	border-radius: 11.5px;
 }
 
 .navbar-actor li{
@@ -12,11 +22,12 @@
 }
 
 .navbar-actor li:last-child{
-	border-right: 0px solid red;
+	border-right: 1px solid black;
 }
 
 .navbar-actor li:first-child{
-	border-radius: 11.5px 0px 0px 11.5px;
+	border-left: 1px solid black;
+	// border-radius: 11.5px 0px 0px 11.5px;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
