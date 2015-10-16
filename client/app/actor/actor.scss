@@ -2,15 +2,16 @@
 	.nav > li > a {
 	    padding: 15px 35px;
 	    color: black;
+	    width:100%
 	}
 	background-color:white;
 	border-radius: 11.5px;
-	padding-left: 300px;
+	// padding: 0 25%;
 }
 
 .navbar-actor-small{
 	.nav > li > a {
-	    padding: 15px 35px;
+	    padding: 15px 25px;
 	    color: black;
 	}
 	background-color:white;
@@ -29,6 +30,15 @@
 	border-left: 1px solid black;
 	// border-radius: 11.5px 0px 0px 11.5px;
 }
+
+.navbar-actor .navbar-nav {
+    width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: white;
