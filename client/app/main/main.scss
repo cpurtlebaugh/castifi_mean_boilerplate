@@ -1,5 +1,33 @@
-.thing-form {
-    margin: 20px 0;
+.btn-learn{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 30px;
+    &:hover{
+        color: $brand-info;
+        background-color: white;
+        border: 1px solid white;
+    }
+}
+
+.btn-create{
+    background-color: $brand-primary;
+    color: white;
+    border: 1px solid $brand-primary;
+    padding: 10px 30px;
+    &:hover{
+        color: white;
+        background-color: $brand-primary;
+        border: 1px solid white;
+    }
+}
+
+.landing-footer{
+    background-color: white;
+    padding: 15px 0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #banner {

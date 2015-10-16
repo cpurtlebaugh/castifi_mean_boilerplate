@@ -32,6 +32,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+body{
+    background-image: url("../../assets/images/background.png");
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+
+h1{
+    color: $brand-info;
+}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -55,27 +64,26 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 	color: white;
 }
 
-#banner.hero-unit, body {
- background-image: url("../../assets/images/background.png");
- background-repeat: repeat;
+#banner.hero-unit {
+  background-color: $brand-info;
+}
+
+#banner.hero-unit {
+    .container{
+        margin-top: 200px;
+        margin-bottom: 400px;
+    }
 }
 
 .account-container {
- color: white;
+    h1{
+     color: white;
+    }
 }
 
-// #banner.hero-unit {
-//  background-image: url("../../assets/images/background.png");
-//  background-repeat: repeat;
-// }
 
-// .well-welcome{
-//     padding: 19p
-// }
 
-// body{
-// 	font-family:;
-// }
+
 
 // Component styles are injected through grunt
 // injector
