@@ -32,3 +32,13 @@
 .navbar-text {
   margin-left: 15px;
 }
+
+a {
+ color: $brand-info;
+ text-decoration: none;
+}
+
+a:hover {
+ text-decoration: none;
+ color: $brand-primary;
+}
