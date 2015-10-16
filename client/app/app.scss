@@ -55,6 +55,20 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 	color: white;
 }
 
+#banner.hero-unit, body {
+ background-image: url("../../assets/images/background.png");
+ background-repeat: repeat;
+}
+
+.account-container {
+ color: white;
+}
+
+// #banner.hero-unit {
+//  background-image: url("../../assets/images/background.png");
+//  background-repeat: repeat;
+// }
+
 // .well-welcome{
 //     padding: 19p
 // }
