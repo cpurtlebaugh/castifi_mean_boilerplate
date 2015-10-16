@@ -2,12 +2,22 @@
 
 angular.module('castifiApp')
   .controller('ActorUploadCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, Upload, $timeout, currentUser) {
+    Actor, $filter, Upload, $timeout, currentUser, currentActor) {
 
      $scope.actor = currentUser.actorId;
 	   $scope.user = User.get();
      $scope.getCurrentUser = Auth.getCurrentUser;
      var user_id = $scope.getCurrentUser()._id;
+     var actorLocal = localStorage.getItem("actorLocal");
+     if($scope.actor === undefined){
+         $scope.actorId = localStorage.getItem("actorLocal");
+     }
+     else{
+       $scope.actorId = $scope.actor._id
+     }
+    
+      console.log($scope.actorId)
+      // console.log($scope.actor._id)
 
        $scope.uniqueString = function() {
                 var text     = "";
@@ -22,10 +32,6 @@ angular.module('castifiApp')
 
           $scope.uploadFiles = function(file, errFiles, type) {
             console.log('first')
-                  // console.log("file")
-                  // console.log(file)
-                  // console.log($scope.headShot)
-                  // console.log(type)
                   if (type === 'headShot'){
                     $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
                   }
@@ -36,7 +42,6 @@ angular.module('castifiApp')
                     $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
                   }
                   console.log($scope.type)
-                  // file.name = file.name + '-' + $scope.uniqueString()
                   $scope.f = file;
 
                   $scope.errFile = errFiles && errFiles[0];
@@ -62,7 +67,7 @@ angular.module('castifiApp')
                   //updates the Actor model with photo
                   //watch for changes on photo attribute and update view
 
-                   Actor.update({id: $scope.actor._id },
+                   Actor.update({id: $scope.actorId },
                     $scope.type,
                       function success(data){
                         console.log(data)

@@ -8,8 +8,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
-           currentActor: function($http){
-            $http.get('api/users/me');
+           currentActor: function(User){
+            return User.get()._id;
           },
           currentUser: function(User){
             return User.get();
@@ -21,9 +21,9 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-welcome.html',
         controller: 'ActorCreateCtrl',
         resolve:{
-           currentActor: function($http){
-            $http.get('api/users/me');
-          },
+          currentActor: function($http){
+            return $http.get('api/users/me');
+            },
           currentUser: function(User){
             return User.get();
           }
@@ -113,6 +113,9 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-photos.html',
         controller: 'ActorUploadCtrl',
           resolve:{
+            currentActor: function($http){
+            return $http.get('api/users/me');
+            },
           currentUser: function(User){
             return User.get();
           }
