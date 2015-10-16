@@ -16,7 +16,7 @@ angular.module('castifiApp')
        $scope.actorId = $scope.actor._id
      }
     
-      console.log($scope.actorId)
+      // console.log($scope.actorId)
       // console.log($scope.actor._id)
 
        $scope.uniqueString = function() {

@@ -27,8 +27,8 @@ angular.module('castifiApp')
             if(currentUser.actorId === undefined){
                     new Actor($scope.actor)
                         .$save(function(data){
-                              console.log("data")
-                              console.log(data)
+                              // console.log("data")
+                              // console.log(data)
                               $http.put('/api/users/' + user_id, {actorId: data._id});
                               localStorage.setItem("actorLocal", data._id);
                               $state.go('actor.photos')
