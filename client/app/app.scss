@@ -64,35 +64,34 @@ h1{
 	color: white;
 }
 
+.navbar-nav > li > .dropdown-menu {
+    z-index: 2001;
+}
+
+.dropdown-menu{
+    padding: 10px 0px;
+}
+
+.dropdown-menu > li > a {
+    padding: 10px 20px;
+}
+
 #banner.hero-unit {
   background-color: $brand-info;
   padding-top: 10%;
   padding-bottom: 40%;
 }
 
-// #banner.hero-unit {
-//     .container{
-//         margin-top: 200px;
-//         margin-bottom: 200px;
-//     }
-// }
-
 .account-container {
     h1{
      color: white;
     }
 }
-
-
-
-
-
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
 @import 'actor/actor.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
-@import 'profile/profile.scss';
 @import 'modal/modal.scss';
 // endinjector

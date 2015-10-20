@@ -4,6 +4,17 @@ angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state,
     Actor, $filter, currentUser, currentActor) {
 
+    //navbar profile/edit profile
+    //needs to take actor or producer to their profile
+    //know the difference//grab the same profileId//but return different objects
+    //but go to different forms
+    //or just change navbar link view based on "role" like "admin"
+    //currentUser.profession === 'actor'
+
+    //create Actor object, attach currentUser id in ownedBy
+
+    //get User id and put into $stateParams
+    //use the params to grab ownedBy on the backend
 
        // $scope.user = User.get();
        $scope.getCurrentUser = Auth.getCurrentUser;

@@ -16,98 +16,13 @@ angular.module('castifiApp')
           }
         }
       })
-      .state('welcome', {
-        url: '/welcome',
-        templateUrl: 'app/actor/actor-welcome.html',
-        controller: 'ActorCreateCtrl',
-        resolve:{
-          currentActor: function($http){
-            return $http.get('api/users/me');
-            },
-          currentUser: function(User){
-            return User.get();
-          }
-        }
-      })
-      //NEED TO ADD NAVBAR
-       .state('actor.home', {
-        url: '/home',
-        templateUrl: 'app/actor/actor-home.html',
-        controller: 'ActorCtrl'
-      })
-
-       //OVERVIEW
-        .state('actor.overview', {
-        url: '/overview',
-        templateUrl: 'app/actor/actor-overview.html',
+      //EDIT
+        .state('actor.edit', {
+        url: '/edit',
+        templateUrl: 'app/actor/actor-edit.html',
         controller: 'ActorCtrl',
-        resolve:{
-          currentUser: function(User){
-            return User.get();
-          }
-        }
       })
-
-       //PHYSICAL APPEARANCE
-       .state('actor.physical', {
-        url: '/physical',
-        templateUrl: 'app/actor/actor-physical.html',
-        controller: 'ActorCtrl',
-        resolve:{
-          currentUser: function(User){
-            return User.get();
-          }
-        }
-      })
-
-
-      //basic: union info, bio and appearance
-      .state('actor.basic', {
-        url: '/basic',
-        templateUrl: 'app/actor/actor-basic.html',
-        controller: 'ActorCtrl'
-      })
-      //basic: union info, bio and appearance
-      .state('actor.facial', {
-        url: '/facial',
-        templateUrl: 'app/actor/actor-facial.html',
-        controller: 'ActorCtrl'
-      })
-      //tattoos and piercings
-      .state('actor.enhancements', {
-        url: '/enhancements',
-        templateUrl: 'app/actor/actor-enhancements.html',
-        controller: 'ActorCtrl'
-      })
-      //misc: disabled, pregnant, willing to(nudity, kissing, change hair, eat meat)
-      .state('actor.niche', {
-        url: '/niche',
-        templateUrl: 'app/actor/actor-niche.html',
-        controller: 'ActorCtrl'
-      })
-
-
-      //WARDROBE
-      //wardrobe: measurements and costumes
-       .state('actor.wardrobe', {
-        url: '/wardrobe',
-        templateUrl: 'app/actor/actor-wardrobe.html',
-        controller: 'ActorCtrl',
-        resolve:{
-          currentUser: function(User){
-            return User.get();
-          }
-        }
-      })
-       //male and female clothing measurements
-        .state('actor.measurements', {
-        url: '/measurements',
-        templateUrl: 'app/actor/actor-measurements.html',
-        controller: 'ActorCtrl'
-      })
-
-
-      //photos
+      //PHOTOS
         .state('actor.photos', {
         url: '/photos',
         templateUrl: 'app/actor/actor-photos.html',
@@ -121,7 +36,53 @@ angular.module('castifiApp')
           }
         }
       })
-
+       //OVERVIEW
+        .state('actor.overview', {
+        url: '/overview',
+        templateUrl: 'app/actor/actor-overview.html',
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })
+       //PHYSICAL APPEARANCE
+       .state('actor.physical', {
+        url: '/physical',
+        templateUrl: 'app/actor/actor-physical.html',
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })
+      //WARDROBE
+       .state('actor.wardrobe', {
+        url: '/wardrobe',
+        templateUrl: 'app/actor/actor-wardrobe.html',
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })
+       //WELCOME
+       .state('welcome', {
+        url: '/welcome',
+        templateUrl: 'app/actor/actor-welcome.html',
+        controller: 'ActorCreateCtrl',
+        resolve:{
+          currentActor: function($http){
+            return $http.get('api/users/me');
+            },
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })
       //CONFIRMATION
       .state('confirmation', {
         url: '/confirmation',
