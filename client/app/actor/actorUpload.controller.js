@@ -71,7 +71,7 @@ angular.module('castifiApp')
                     $scope.type,
                       function success(data){
                         console.log(data)
-                        $state.go('actor.photos',{reload:true})
+                        $state.go('actor.edit.photos',{reload:true})
                       }),
                       function error(){
 

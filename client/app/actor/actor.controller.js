@@ -40,12 +40,13 @@ angular.module('castifiApp')
                     if(actorLocal){
                           Actor.update({id: actorLocal }, $scope.actor,
                                 function success(data){
-                                   if($state.is('actor.overview')){ $state.go('actor.physical')};
-                                   if($state.is('actor.physical')){ $state.go('actor.wardrobe')};
-                                   if($state.is('actor.wardrobe')){ $state.go('confirmation')};
+                                   if($state.is('actor.edit.overview')){ $state.go('actor.edit.photos')};
+                                   if($state.is('actor.edit.photos')){ $state.go('actor.edit.physical')};
+                                   if($state.is('actor.edit.physical')){ $state.go('actor.edit.wardrobe')};
+                                   if($state.is('actor.edit.wardrobe')){ $state.go('confirmation')};
                               }),
                               function error(){
-                                $state.go('actor.overview')
+                                $state.go('actor.edit.overview')
                               }
                             
                        }

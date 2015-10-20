@@ -31,7 +31,7 @@ angular.module('castifiApp')
                               // console.log(data)
                               $http.put('/api/users/' + user_id, {actorId: data._id});
                               localStorage.setItem("actorLocal", data._id);
-                              $state.go('actor.photos')
+                              $state.go('actor.edit.overview')
                         });
             }
             else{

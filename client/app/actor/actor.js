@@ -16,16 +16,33 @@ angular.module('castifiApp')
           }
         }
       })
-      //EDIT
+      //BASIC ACTOR PROFILE VIEW
+        .state('actor.profile', {
+        url: '/profile',
+        templateUrl: 'app/actor/actor-profile.html',
+        controller: 'ActorCtrl',
+      })
+      //EDIT NESTED VIEW WITH ACTOR NAVBAR
         .state('actor.edit', {
         url: '/edit',
         templateUrl: 'app/actor/actor-edit.html',
         controller: 'ActorCtrl',
       })
-      //PHOTOS
-        .state('actor.photos', {
+       //OVERVIEW EDIT
+        .state('actor.edit.overview', {
+        url: '/overview',
+        templateUrl: 'app/actor/actor-edit-overview.html',
+        controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
+      })  
+      //PHOTOS EDIT
+        .state('actor.edit.photos', {
         url: '/photos',
-        templateUrl: 'app/actor/actor-photos.html',
+        templateUrl: 'app/actor/actor-edit-photos.html',
         controller: 'ActorUploadCtrl',
           resolve:{
             currentActor: function($http){
@@ -36,21 +53,10 @@ angular.module('castifiApp')
           }
         }
       })
-       //OVERVIEW
-        .state('actor.overview', {
-        url: '/overview',
-        templateUrl: 'app/actor/actor-overview.html',
-        controller: 'ActorCtrl',
-        resolve:{
-          currentUser: function(User){
-            return User.get();
-          }
-        }
-      })
-       //PHYSICAL APPEARANCE
-       .state('actor.physical', {
+       //PHYSICAL APPEARANCE EDIT
+       .state('actor.edit.physical', {
         url: '/physical',
-        templateUrl: 'app/actor/actor-physical.html',
+        templateUrl: 'app/actor/actor-edit-physical.html',
         controller: 'ActorCtrl',
         resolve:{
           currentUser: function(User){
@@ -58,10 +64,10 @@ angular.module('castifiApp')
           }
         }
       })
-      //WARDROBE
-       .state('actor.wardrobe', {
+      //WARDROBE EDIT
+       .state('actor.edit.wardrobe', {
         url: '/wardrobe',
-        templateUrl: 'app/actor/actor-wardrobe.html',
+        templateUrl: 'app/actor/actor-edit-wardrobe.html',
         controller: 'ActorCtrl',
         resolve:{
           currentUser: function(User){
@@ -83,7 +89,7 @@ angular.module('castifiApp')
           }
         }
       })
-      //CONFIRMATION
+      //CONFIRMATION 
       .state('confirmation', {
         url: '/confirmation',
         templateUrl: 'app/actor/actor-confirmation.html',

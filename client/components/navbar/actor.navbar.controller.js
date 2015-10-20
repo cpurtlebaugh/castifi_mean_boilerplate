@@ -4,20 +4,20 @@ angular.module('castifiApp')
   .controller('ActorNavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [
     {
-      'title': 'Photos',
-      'link': '/actor/photos'
+      'title': 'Overview',
+      'link': '/actor/edit/overview'
     },
     {
-      'title': 'Overview',
-      'link': '/actor/overview'
+      'title': 'Photos',
+      'link': '/actor/edit/photos'
     },
     {
       'title': 'Appearance',
-      'link': '/actor/physical'
+      'link': '/actor/edit/physical'
     },
     {
       'title': 'Wardrobe',
-      'link': '/actor/wardrobe'
+      'link': '/actor/edit/wardrobe'
     },
     // {
     //   'title': 'Skills',
