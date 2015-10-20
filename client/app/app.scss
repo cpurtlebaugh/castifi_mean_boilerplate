@@ -66,14 +66,16 @@ h1{
 
 #banner.hero-unit {
   background-color: $brand-info;
+  padding-top: 10%;
+  padding-bottom: 40%;
 }
 
-#banner.hero-unit {
-    .container{
-        margin-top: 200px;
-        margin-bottom: 400px;
-    }
-}
+// #banner.hero-unit {
+//     .container{
+//         margin-top: 200px;
+//         margin-bottom: 200px;
+//     }
+// }
 
 .account-container {
     h1{
