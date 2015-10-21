@@ -14,12 +14,11 @@ angular.module('castifiApp')
           email: $scope.user.email,
           password: $scope.user.password
         })
-        .then( function() {
+        .then( function(data) {
           // Account created, redirect to home
           $location.path('/welcome');
         })
         .catch( function(err) {
-          console.log(err)
           err = err.data;
           $scope.errors = {};
 

@@ -4,20 +4,12 @@ angular.module('castifiApp')
   .controller('ActorUploadCtrl', function ($scope, $http, socket, Auth, User, $state,
     Actor, $filter, Upload, $timeout, currentUser, currentActor) {
 
-     $scope.actor = currentUser.actorId;
-	   $scope.user = User.get();
-     $scope.getCurrentUser = Auth.getCurrentUser;
-     var user_id = $scope.getCurrentUser()._id;
-     var actorLocal = localStorage.getItem("actorLocal");
-     if($scope.actor === undefined){
-         $scope.actorId = localStorage.getItem("actorLocal");
-     }
-     else{
-       $scope.actorId = $scope.actor._id
-     }
+       $scope.getCurrentUser = Auth.getCurrentUser;
+       $scope.user = $scope.getCurrentUser();
+       var user_id = $scope.getCurrentUser()._id;
+       $scope.actor = $scope.user.actorId
+       console.log($scope.actor)
     
-      // console.log($scope.actorId)
-      // console.log($scope.actor._id)
 
        $scope.uniqueString = function() {
                 var text     = "";
@@ -30,8 +22,30 @@ angular.module('castifiApp')
         }
 
 
+        $scope.takeFiles = function(file, errFiles, type) {
+            //assign to $scope
+            $scope.file = file;
+            $scope.errFiles = errFiles;
+            $scope.photoType = type
+            console.log(file)
+            console.log(errFiles)
+            console.log(type)
+          }
+
+
           $scope.uploadFiles = function(file, errFiles, type) {
-            console.log('first')
+            // $scope.file.$ngfDataUrl = file
+            // $scope.file.type = "image/png"
+            console.log(file)
+            // console.log($scope.file)
+            // console.log($scope.errFiles)
+            // console.log($scope.type)
+            // console.log(Upload.dataUrltoBlob(file))
+            // console.log($scope.file.$ngfBlobUrl)
+            // var file = $scope.file;
+            // var errFiles = $scope.errFiles;
+            // var type = $scope.photoType;
+
                   if (type === 'headShot'){
                     $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
                   }
@@ -67,7 +81,7 @@ angular.module('castifiApp')
                   //updates the Actor model with photo
                   //watch for changes on photo attribute and update view
 
-                   Actor.update({id: $scope.actorId },
+                   Actor.update({id: $scope.actor._id },
                     $scope.type,
                       function success(data){
                         console.log(data)
