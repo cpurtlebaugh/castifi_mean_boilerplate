@@ -13,12 +13,16 @@
           <input type="file" ng-model="headShot" ngf-resize="{width:2000, height:2000}" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
           </input>
           <br>
+            <button class="btn btn-sm btn-primary" ng-click="removePhoto('headShot')" ng-show="headShot || actor.headShot">Remove</button>
+          <br>
     </div>
     <div class="col-sm-4">
      <img ngf-thumbnail="headToToe || actor.headToToe || 'assets/images/actor/mirrorbox.svg'" style="width:80%">
         <h5>Head to Toe</h5>
           <input type="file" ng-model="headToToe" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headToToe')" accept="jpg,.jpeg, .png">
           </input>
+          <br>
+          <button class="btn btn-sm btn-primary" ng-click="removePhoto('headToToe')" ng-show="headToToe || actor.headToToe">Remove</button>
           <br>
     </div>
     <div class="col-sm-4">
@@ -27,15 +31,23 @@
              <input type="file" ng-model="realLife" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'realLife')"
               accept="jpg,.jpeg, .png">
           </input>
+          <br>
+          <button class="btn btn-sm btn-primary" ng-click="removePhoto('realLife')" ng-show="realLife || actor.realLife">Remove</button>
     </div>
 
   </div>
   <br>
   <!-- end photos -->            
   <!-- video -->
-  <div class="row">
-    <div class="col-sm-4">
-  <!--                 <div>Crop Image and Upload</div>
+<!--   <div class="row">
+    <div class="col-sm-4"> -->
+ <!--              <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                accept="image/*" ngf-max-size="20MB" ngf-resize="{width:100, height:100}"></input>
+                <div style="height:100px; width:100px">
+                  <img ngf-thumbnail="file || 'assets/images/actor/mirrorbox.svg'" ngf-resize="{width:500, height500}" style="width:100%">
+                </div>
+              <button type="submit" ng-click="submit()">submit</button> -->
+               <!--    <div>Crop Image and Upload</div>
                   <button ngf-select="takeFiles($file, $invalidFiles, 'realLife')" ng-model="picFile" accept="image/*">
                       Select Picture</button>
                   <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
@@ -48,8 +60,8 @@
                   <button ng-click="uploadFiles(croppedDataUrl)">Submit</button>  -->
   <!--     <img src="assets/images/actor/mirrorbox.svg">
       <h5>Video</h5> -->
-    </div>
-  </div>
+ <!--    </div>
+  </div> -->
   <!-- end video -->
   <!-- submit button -->
   <div class="row">

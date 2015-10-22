@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('ActorCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, currentUser, currentActor) {
+  .controller('ActorCtrl', function ($scope, Auth, User, $state,
+    Actor, currentUser) {
 
        $scope.getCurrentUser = Auth.getCurrentUser;
        $scope.user = $scope.getCurrentUser();
        var user_id = $scope.getCurrentUser()._id;
        $scope.actor = $scope.user.actorId
-       // $scope.actor.dob = new Date($scope.actor.dob) 
-       console.log($scope.actor)
+       
+       if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)} 
+       if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)} 
+       if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)} 
 
          $scope.register = function register(form) {
                $scope.submitted = true;

@@ -11,17 +11,17 @@
 	<!-- 3 photos -->
 	<div class="row">
 	    <div class="col-sm-4" >
-	     <img ng-src="{{actor.headShot}}" style="width:80%">
+	     <img ng-src="{{actor.headShot || 'assets/images/actor/mirrorbox.svg'}}" style="width:80%">
 	         <h5>Headshot</h5>
 	          <br>
 	    </div>
 	    <div class="col-sm-4">
-	     	<img ng-src="{{actor.headToToe}}" style="width:80%">
+	     	<img ng-src="{{actor.headToToe || 'assets/images/actor/mirrorbox.svg'}}" style="width:80%">
 	         <h5>Head To Toe</h5>
 	          <br>
 	    </div>
 	    <div class="col-sm-4">
-	        <img ng-src="{{actor.realLife}}" style="width:80%">
+	        <img ng-src="{{actor.realLife || 'assets/images/actor/mirrorbox.svg'}}" style="width:80%">
 	         <h5>Real Life</h5>
 	          <br>
 	    </div>

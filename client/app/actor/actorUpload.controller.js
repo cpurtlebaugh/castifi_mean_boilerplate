@@ -2,7 +2,7 @@
 
 angular.module('castifiApp')
   .controller('ActorUploadCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, $filter, Upload, $timeout, currentUser, currentActor) {
+    Actor, Upload, $timeout, currentUser) {
 
        $scope.getCurrentUser = Auth.getCurrentUser;
        $scope.user = $scope.getCurrentUser();
@@ -21,6 +21,36 @@ angular.module('castifiApp')
                 return text;
         }
 
+        $scope.removePhoto = function removePhoto(type){
+              console.log(type)
+               if (type === 'headShot'){
+                    $scope.type = {headShot: null}
+                    $scope.actor.headShot = null;
+                    $scope.headShot = null;
+                  }
+                  else if (type === 'headToToe'){
+                    $scope.type = {headToToe: null}
+                    $scope.actor.headToToe = null;
+                    $scope.headToToe = null;
+                  }
+                  else if (type === 'realLife'){
+                    $scope.type = {realLife: null}
+                    $scope.actor.realLife = null;
+                    $scope.realLife = null;
+                  }
+                  console.log($scope.type)
+            
+                  Actor.update({id: $scope.actor._id }, $scope.type,
+                          function success(data){
+                            console.log("working")
+                            console.log(data)
+                            $state.go('actor.edit.photos',{reload:true})
+                          }),
+                          function error(){
+
+                          }
+          }
+
 
         $scope.takeFiles = function(file, errFiles, type) {
             //assign to $scope
@@ -31,6 +61,13 @@ angular.module('castifiApp')
             console.log(errFiles)
             console.log(type)
           }
+
+         // $scope.submit = function() {
+         //    if ($scope.file) {
+         //      console.log($scope.file);
+         //      $scope.uploadFiles($scope.file, [], 'realLife')
+         //    }
+         //  };
 
 
           $scope.uploadFiles = function(file, errFiles, type) {

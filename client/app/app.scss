@@ -76,11 +76,21 @@ h1{
     padding: 10px 20px;
 }
 
+
 #banner.hero-unit {
+  // background-image: url("../assets/images/lalaland.svg");
+  // background-repeat: no-repeat;
+  // background-size: contain;
   background-color: $brand-info;
   padding-top: 10%;
   padding-bottom: 30%;
 }
+
+// .hero-background{
+//   background-color: $brand-info;
+//   height:100%;
+//   padding-top: 45px;
+// }
 
 .account-container {
     h1{
