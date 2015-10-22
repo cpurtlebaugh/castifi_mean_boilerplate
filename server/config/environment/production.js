@@ -22,7 +22,7 @@ module.exports = {
             'mongodb://castifiReadWrite:castifiReadWrite@ec2-52-8-34-169.us-west-1.compute.amazonaws.com:27017/castifiProdOne'
   }
 
-
+};
 // 'mongodb://{NEW USERNAME}:{NEW PASSWORD}@{EC2 URL}:{PORT}/dummyDB'
 // 'mongodb://castifiReadWrite:castifiReadWrite@ec2-52-8-34-169.us-west-1.compute.amazonaws.com:27017/castifiProdOne'
 // mongo ec2-52-8-34-169.us-west-1.compute.amazonaws.com/castifiProdOne -u castifiReadWrite -p 'castifiReadWrite'
