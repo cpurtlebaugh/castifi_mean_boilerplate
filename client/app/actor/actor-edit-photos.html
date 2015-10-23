@@ -2,6 +2,8 @@
     <div class="col-sm-12">
       <h3>Show Us What You Look Like</h3>
       <h5>Upload your most up to date headshot, full body shot, and casual real life shot (Selfies are ok too!)</h5>
+      <h4 class="text-danger">2MB maximum file size allowed</h4>
+
       <br>
     </div>
   </div>
@@ -10,7 +12,7 @@
      <img ngf-thumbnail="headShot || actor.headShot || 'assets/images/actor/mirrorbox.svg'" 
           style="width:80%" ngf-resize="{width:2000, height:2000}">
          <h5>Headshot</h5>
-          <input type="file" ng-model="headShot" ngf-resize="{width:2000, height:2000}" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
+          <input type="file" ng-model="headShot" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
           </input>
           <br>
             <button class="btn btn-sm btn-primary" ng-click="removePhoto('headShot')" ng-show="headShot || actor.headShot">Remove</button>
@@ -39,29 +41,6 @@
   <br>
   <!-- end photos -->            
   <!-- video -->
-<!--   <div class="row">
-    <div class="col-sm-4"> -->
- <!--              <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-                accept="image/*" ngf-max-size="20MB" ngf-resize="{width:100, height:100}"></input>
-                <div style="height:100px; width:100px">
-                  <img ngf-thumbnail="file || 'assets/images/actor/mirrorbox.svg'" ngf-resize="{width:500, height500}" style="width:100%">
-                </div>
-              <button type="submit" ng-click="submit()">submit</button> -->
-               <!--    <div>Crop Image and Upload</div>
-                  <button ngf-select="takeFiles($file, $invalidFiles, 'realLife')" ng-model="picFile" accept="image/*">
-                      Select Picture</button>
-                  <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
-                       class="cropArea">
-                      <img-crop image="picFile  | ngfDataUrl" area-type="square"                 
-                      result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
-                      </img-crop>
-                  </div>
-                  {{croppedDataUrl}}
-                  <button ng-click="uploadFiles(croppedDataUrl)">Submit</button>  -->
-  <!--     <img src="assets/images/actor/mirrorbox.svg">
-      <h5>Video</h5> -->
- <!--    </div>
-  </div> -->
   <!-- end video -->
   <!-- submit button -->
   <div class="row">

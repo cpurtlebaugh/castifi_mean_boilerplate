@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   } catch(e) {
     localConfig = {};
   }
+  //use production.env if env production
 
   // Load grunt tasks automatically, when needed
   require('jit-grunt')(grunt, {
