@@ -8,9 +8,6 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
         resolve:{
-           currentActor: function(User){
-            return User.get()._id;
-          },
           currentUser: function(User){
             return User.get();
           }
@@ -21,12 +18,22 @@ angular.module('castifiApp')
         url: '/profile',
         templateUrl: 'app/actor/actor-profile.html',
         controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
       //EDIT NESTED VIEW WITH ACTOR NAVBAR
         .state('actor.edit', {
         url: '/edit',
         templateUrl: 'app/actor/actor-edit.html',
         controller: 'ActorCtrl',
+        resolve:{
+          currentUser: function(User){
+            return User.get();
+          }
+        }
       })
        //OVERVIEW EDIT
         .state('actor.edit.overview', {
@@ -44,10 +51,7 @@ angular.module('castifiApp')
         url: '/photos',
         templateUrl: 'app/actor/actor-edit-photos.html',
         controller: 'ActorUploadCtrl',
-          resolve:{
-            currentActor: function($http){
-            return $http.get('api/users/me');
-            },
+        resolve:{
           currentUser: function(User){
             return User.get();
           }
@@ -79,26 +83,11 @@ angular.module('castifiApp')
        .state('welcome', {
         url: '/welcome',
         templateUrl: 'app/actor/actor-welcome.html',
-        controller: 'ActorCreateCtrl',
-        resolve:{
-          currentActor: function($http){
-            return $http.get('api/users/me');
-            },
-          currentUser: function(User){
-            return User.get();
-          }
-        }
       })
       //CONFIRMATION 
       .state('confirmation', {
         url: '/confirmation',
         templateUrl: 'app/actor/actor-confirmation.html',
-        controller: 'ActorUploadCtrl',
-        resolve:{
-          currentUser: function(User){
-            return User.get();
-          }
-        }
       });
 
 
