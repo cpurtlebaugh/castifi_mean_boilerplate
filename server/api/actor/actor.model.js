@@ -54,6 +54,7 @@ var ActorSchema = new Schema({
   info:       {unionFirstName: String, unionMiddleName: String,
                unionLastName: String,
                union: Boolean,
+               sagEligible: Boolean,
                unionSameLegalName:Boolean,
                bio: String,
                actingSince: Date,
