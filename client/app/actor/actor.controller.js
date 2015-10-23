@@ -9,9 +9,11 @@ angular.module('castifiApp')
        var user_id = $scope.getCurrentUser()._id;
        $scope.actor = $scope.user.actorId
        
-       // if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)} 
-       // if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)} 
-       // if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)} 
+       if($scope.actor !== undefined){
+           if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)} 
+           if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)} 
+           if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)} 
+       }
 
          $scope.register = function register(form) {
                $scope.submitted = true;
