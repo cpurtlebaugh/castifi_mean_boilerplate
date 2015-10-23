@@ -8,16 +8,16 @@ angular.module('castifiApp')
        $scope.user = $scope.getCurrentUser();
        var user_id = $scope.getCurrentUser()._id;
        $scope.actor = $scope.user.actorId
-       
+
        if($scope.actor !== undefined){
-           if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)} 
-           if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)} 
-           if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)} 
+           if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)}
+           if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)}
+           if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)}
        }
 
          $scope.register = function register(form) {
                $scope.submitted = true;
-               if(form.$valid){                 
+               if(form.$valid){
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,
                                 function success(data){
@@ -29,9 +29,9 @@ angular.module('castifiApp')
                               function error(){
                                 $state.go('actor.edit.overview')
                               }
-                            
+
                        }
-                    
+
 
                 }
             };
