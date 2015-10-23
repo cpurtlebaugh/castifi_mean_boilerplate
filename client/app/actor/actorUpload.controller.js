@@ -8,7 +8,6 @@ angular.module('castifiApp')
        $scope.user = $scope.getCurrentUser();
        var user_id = $scope.getCurrentUser()._id;
        $scope.actor = $scope.user.actorId
-       console.log($scope.actor)
     
 
        $scope.uniqueString = function() {
@@ -22,7 +21,6 @@ angular.module('castifiApp')
         }
 
         $scope.removePhoto = function removePhoto(type){
-              console.log(type)
                if (type === 'headShot'){
                     $scope.type = {headShot: null}
                     $scope.actor.headShot = null;
@@ -38,12 +36,9 @@ angular.module('castifiApp')
                     $scope.actor.realLife = null;
                     $scope.realLife = null;
                   }
-                  console.log($scope.type)
             
                   Actor.update({id: $scope.actor._id }, $scope.type,
                           function success(data){
-                            console.log("working")
-                            console.log(data)
                             $state.go('actor.edit.photos',{reload:true})
                           }),
                           function error(){
@@ -52,37 +47,8 @@ angular.module('castifiApp')
           }
 
 
-        $scope.takeFiles = function(file, errFiles, type) {
-            //assign to $scope
-            $scope.file = file;
-            $scope.errFiles = errFiles;
-            $scope.photoType = type
-            console.log(file)
-            console.log(errFiles)
-            console.log(type)
-          }
-
-         // $scope.submit = function() {
-         //    if ($scope.file) {
-         //      console.log($scope.file);
-         //      $scope.uploadFiles($scope.file, [], 'realLife')
-         //    }
-         //  };
-
 
           $scope.uploadFiles = function(file, errFiles, type) {
-            // $scope.file.$ngfDataUrl = file
-            // $scope.file.type = "image/png"
-            console.log(file)
-            // console.log($scope.file)
-            // console.log($scope.errFiles)
-            // console.log($scope.type)
-            // console.log(Upload.dataUrltoBlob(file))
-            // console.log($scope.file.$ngfBlobUrl)
-            // var file = $scope.file;
-            // var errFiles = $scope.errFiles;
-            // var type = $scope.photoType;
-
                   if (type === 'headShot'){
                     $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
                   }
@@ -92,9 +58,8 @@ angular.module('castifiApp')
                   else if (type === 'realLife'){
                     $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
                   }
-                  console.log($scope.type)
-                  $scope.f = file;
 
+                  $scope.f = file;
                   $scope.errFile = errFiles && errFiles[0];
                   if (file) {
                       file.upload = Upload.upload({
@@ -121,7 +86,6 @@ angular.module('castifiApp')
                    Actor.update({id: $scope.actor._id },
                     $scope.type,
                       function success(data){
-                        console.log(data)
                         $state.go('actor.edit.photos',{reload:true})
                       }),
                       function error(){

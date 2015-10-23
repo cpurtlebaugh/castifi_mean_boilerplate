@@ -37,7 +37,6 @@ exports.create = function (req, res, next) {
       //save actorId to currentUser
       var updated = _.merge(user, {actorId: actor._id});
       updated.save(function (err) {
-         console.log(err)
       })
     })
 
