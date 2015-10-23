@@ -172,7 +172,7 @@
 	<!-- end city state zip country -->
 	<!-- union or non union -->
 	<div class="row">
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<label>Non Union or Union</label>
         	<br>
 	        <div class="btn-group">
@@ -180,7 +180,14 @@
 	          <label class="btn btn-primary" ng-model="actor.info.union" btn-radio="true">SAG-AFTRA</label>
 	        </div>
 		</div>
-		<div class="col-sm-2"></div>
+		<div class="col-sm-6">
+      <label>Are you SAG eligible?</label>
+          <br>
+          <div class="btn-group">
+            <label class="btn btn-primary" ng-model="actor.info.sagEligible" btn-radio="false">No</label>
+            <label class="btn btn-primary" ng-model="actor.info.sagEligible" btn-radio="true">Yes</label>
+          </div>
+    </div>
 	</div>
 	<!-- end union or non inion -->
 	<!-- same union legal name -->
