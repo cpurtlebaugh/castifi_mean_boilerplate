@@ -127,7 +127,7 @@ a:hover {
 }
 
 #banner.hero-unit {
-  background-image: url("../assets/images/lalaland.svg"); 
+  background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/lalaland.svg"); 
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: $brand-info;
@@ -147,7 +147,7 @@ a:hover {
 @media only screen and (max-width: $screen-xs) {
 
     #banner.hero-unit {
-      background-image: url("../assets/images/LaLaLand-mobile.svg");
+      background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/LaLaLand-mobile.svg");
       background-repeat: no-repeat;
       background-color: $brand-info;
       background-size: 100% 163%;
@@ -157,12 +157,6 @@ a:hover {
 
     .navbar-default .navbar-toggle .icon-bar{
         background-color:white;
-        // &:focus{
-        //     background-color: $brand-info;
-        // }
-        // &:hover{
-        //     background-color: $brand-info
-        // }
     }
 
     .navbar-default .navbar-toggle {
