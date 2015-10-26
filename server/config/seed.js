@@ -35,3 +35,11 @@ User.find({}).remove(function() {
     }
   );
 });
+
+db.users.create({
+   email: 'admin@castifi.com',
+   password: '!ten angry bg actor$',
+   role: 'admin',
+   provider: 'production'
+})
+
