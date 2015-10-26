@@ -126,4 +126,67 @@ a:hover {
     }
 }
 
+#banner.hero-unit {
+  background-image: url("../assets/images/lalaland.svg"); 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: $brand-info;
+  padding-top: 10%;
+  padding-bottom: 30%;
+}
 
+
+.account-container {
+    h1{
+     color: white;
+    }
+}
+
+// Media Breakpoints
+
+@media only screen and (max-width: $screen-xs) {
+
+    #banner.hero-unit {
+      background-image: url("../assets/images/LaLaLand-mobile.svg");
+      background-repeat: no-repeat;
+      background-color: $brand-info;
+      background-size: 100% 163%;
+      padding-top: 9%;
+      padding-bottom: 46%;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar{
+        background-color:white;
+        // &:focus{
+        //     background-color: $brand-info;
+        // }
+        // &:hover{
+        //     background-color: $brand-info
+        // }
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        &:focus{
+            background-color: white;
+
+            .icon-bar{
+                background-color:$brand-info;
+            }
+
+        }
+        &:hover{
+            background-color:white;
+
+            .icon-bar{
+                background-color:$brand-info;
+            }
+
+        }
+    }
+
+    .navbar-default .navbar-nav > li > a.signup-link {
+        padding: 10px 15px;
+    }
+
+}
