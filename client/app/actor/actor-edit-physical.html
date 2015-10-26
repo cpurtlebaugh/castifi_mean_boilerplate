@@ -171,7 +171,7 @@
    <!-- end hair -->
 </div>
 <!-- end ethnic appearance and hair -->
-
+<br>
 <!-- facial hair, facial hair color, facial hair style -->
 <div class="row">
   <div class="col-sm-4">
@@ -184,7 +184,7 @@
   </div>
 
   <div class="col-sm-4">
-      <div class="form-group">
+      <div class="form-group" ng-if="actor.appearance.facialHairPresent">
         <label>Facial Hair Color</label>
         <select class="form-control" ng-model="actor.appearance.facialHairColor">
             <option value="auburn">Auburn</option>
@@ -200,10 +200,11 @@
   </div>
 
   <div class="col-sm-4">
-    <div class="form-group">
+    <div class="form-group" ng-if="actor.appearance.facialHairPresent">
         <label>Facial Hair Style</label>
         <select class="form-control" ng-model="actor.appearance.facialHairStyle">
           <option value="none">None</option>
+          <option value="stubble">Stubble</option>
           <option value="mustache">Mustache</option>
           <option value="goatee">Goatee</option>
           <option value="cleanshaven">Clean Shaven</option>
@@ -215,7 +216,7 @@
   </div>
 </div>
 <!-- end facial hair, facial hair color, facial hair style -->
-
+<br>
 <!-- twin or triplet-->
 <div class="row">
   <div class="col-sm-2">
@@ -247,7 +248,7 @@
   </div>
 
   <div class="col-sm-4">
-    <div class="form-group">
+    <div class="form-group" ng-if="actor.appearance.pregnant">
       <label>Due Date</label>
       <input class="form-control" type="date" ng-model="actor.appearance.pregnantDueDate">
     </div>
@@ -317,7 +318,7 @@
           <br>
           <div class="col-sm-3">
             <input type="checkbox" ng-model="actor.piercings.ear"/>
-            <label>Ear</label><br>
+            <label>Ears</label><br>
             <input type="checkbox" ng-model="actor.piercings.nose"/>
             <label>Nose</label><br>
             <input type="checkbox" ng-model="actor.piercings.eyebrow"/>

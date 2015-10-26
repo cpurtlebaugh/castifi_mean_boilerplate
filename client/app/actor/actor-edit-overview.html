@@ -205,7 +205,7 @@
 	</div>
 	<!-- end same union legal name -->
 	<!-- union name -->
-	<div ng-if="!actor.info.unionSameLegalName">
+	<div ng-if="actor.info.unionSameLegalName === false">
 	<br>
 	<div class="row">
 		<div class="col-sm-4">
@@ -232,21 +232,32 @@
 	<!-- end union name -->
 	<!-- acting since -->
 	<div class="row">
-		<div class="col-sm-4">
-			<div class="form-group">
-          <label>Acting Since</label>
-          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.info.actingSince"/>
-        </div>
-
+		<div class="col-sm-10">
+			<label>Are you new to background acting?</label>
+        	<br>
+	        <div class="btn-group">
+	          <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="true">Yes</label>
+	          <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="false">No</label>
+	        </div>
 		</div>
-		<div class="col-sm-8"></div>
-  </div>
+		<div class="col-sm-2"></div>
+	</div>
+	<!-- ng-if -->
+	<div ng-if="actor.info.newActor === false">
+	<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+		          <label>Acting Since</label>
+		          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.info.actingSince"/>
+		        </div>
+			</div>	
+		</div>
+	</div>	
+	<!-- ng-if -->
+	<br>	
 	<!-- end acting since -->
-
- <!-- are you willing  -->
    <div class="row">
-
-
 
     <div class="col-sm-12">
           <label>Are you comfortable with...</label>
@@ -258,31 +269,37 @@
         <div class="row">
 
   <!-- nudity -->
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div>
               <input type="checkbox" ng-model="actor.willing.kissing"/>
               <label>Kissing</label><br>
               <input type="checkbox" ng-model="actor.willing.kissingSameSex"/>
-              <label>Same-sex Kissing</label><br>
+              <label>Same-Sex Kissing</label><br>
               <input type="checkbox" ng-model="actor.willing.partialNudity"/>
               <label>Partial Nudity</label><br>
-              <input type="checkbox" ng-model="actor.willing.fullNudity"/>
-              <label>Full Nudity</label><br>
+              
             </div>
           </div>
   <!-- end nudity -->
   <!-- change hair -->
-          <div class="col-sm-4">
-               <input type="checkbox" ng-model="actor.willing.drag"/>
-              <label>Cross-dressing</label><br>
+          <div class="col-sm-3">
+           	<input type="checkbox" ng-model="actor.willing.fullNudity"/>
+              <label>Full Nudity</label><br>
               <input type="checkbox" ng-model="actor.willing.cutHair"/>
               <label>Cutting Hair</label><br>
               <input type="checkbox" ng-model="actor.willing.colorHair"/>
               <label>Coloring Hair</label><br>
-              <input type="checkbox" ng-model="actor.willing.eatMeat"/>
-               <label>Eating Meat</label><br>
+
           </div>
   <!-- end hair -->
+  		  <div class="col-sm-3">
+  		  	   <input type="checkbox" ng-model="actor.willing.drag"/>
+                <label>Cross-Dressing</label><br>
+  		  		<input type="checkbox" ng-model="actor.willing.eatMeat"/>
+               <label>Eating Meat</label><br>
+               	<input type="checkbox" ng-model="actor.willing.travel"/>
+               <label>Traveling</label><br>
+  		  </div>
     </div>
 <!-- end i am willing to...nudity, kissing, change hair -->
  <!-- end are you willing  -->

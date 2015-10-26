@@ -57,6 +57,7 @@ var ActorSchema = new Schema({
                sagEligible: Boolean,
                unionSameLegalName:Boolean,
                bio: String,
+               newActor: Boolean,
                actingSince: Date,
                aboutMe: String,
                movieQuote: String
@@ -97,7 +98,7 @@ var ActorSchema = new Schema({
                 partialNudity: Boolean, fullNudity: Boolean,
                 kissing: Boolean, kissingSameSex: Boolean,
                 drag: Boolean, cutHair: Boolean, colorHair: Boolean,
-                eatMeat: Boolean
+                eatMeat: Boolean, travel: Boolean
               },
 
   amputee:    {
