@@ -1,5 +1,12 @@
 'use strict';
 
+//need to resolve on each page refresh
+//need to seperate profile and actor states
+//different controllers for each state
+//different states
+//need to keep parent state with navbar
+//each state needs to resolve independently
+
 angular.module('castifiApp')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -9,18 +16,18 @@ angular.module('castifiApp')
         controller: 'ActorCtrl',
         resolve:{
           currentUser: function(User){
-            return User.get();
+            return User.get().$promise;
           }
         }
       })
       //BASIC ACTOR PROFILE VIEW
-        .state('actor.profile', {
+        .state('profile', {
         url: '/profile',
         templateUrl: 'app/actor/actor-profile.html',
-        controller: 'ActorCtrl',
+        controller: 'ActorProfileCtrl',
         resolve:{
           currentUser: function(User){
-            return User.get();
+            return User.get().$promise;
           }
         }
       })
@@ -30,8 +37,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-edit.html',
         controller: 'ActorCtrl',
         resolve:{
-          currentUser: function(User){
-            return User.get();
+          currentUser: function(currentUser){
+            return currentUser
           }
         }
       })
@@ -41,8 +48,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-edit-overview.html',
         controller: 'ActorCtrl',
         resolve:{
-          currentUser: function(User){
-            return User.get();
+          currentUser: function(currentUser){
+            return currentUser;
           }
         }
       })  
@@ -52,8 +59,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-edit-photos.html',
         controller: 'ActorUploadCtrl',
         resolve:{
-          currentUser: function(User){
-            return User.get();
+          currentUser: function(currentUser){
+            return currentUser
           }
         }
       })
@@ -63,8 +70,8 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-edit-physical.html',
         controller: 'ActorCtrl',
         resolve:{
-          currentUser: function(User){
-            return User.get();
+          currentUser: function(currentUser){
+            return currentUser;
           }
         }
       })
@@ -74,20 +81,20 @@ angular.module('castifiApp')
         templateUrl: 'app/actor/actor-edit-wardrobe.html',
         controller: 'ActorCtrl',
         resolve:{
-          currentUser: function(User){
-            return User.get();
+          currentUser: function(currentUser){
+            return currentUser;
           }
         }
       })
        //WELCOME
        .state('welcome', {
         url: '/welcome',
-        templateUrl: 'app/actor/actor-welcome.html',
+        templateUrl: 'app/actor/actor-welcome.html'
       })
       //CONFIRMATION 
       .state('confirmation', {
         url: '/confirmation',
-        templateUrl: 'app/actor/actor-confirmation.html',
+        templateUrl: 'app/actor/actor-confirmation.html'
       });
 
 

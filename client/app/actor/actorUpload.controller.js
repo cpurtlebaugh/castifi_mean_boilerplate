@@ -2,13 +2,12 @@
 
 angular.module('castifiApp')
   .controller('ActorUploadCtrl', function ($scope, $http, socket, Auth, User, $state,
-    Actor, Upload, $timeout, currentUser) {
+    Actor, Upload, $timeout, currentUser, $rootScope) {
 
-       $scope.getCurrentUser = Auth.getCurrentUser;
-       $scope.user = $scope.getCurrentUser();
-       var user_id = $scope.getCurrentUser()._id;
+       $scope.user = currentUser;
        $scope.actor = $scope.user.actorId
-    
+       console.log($scope.user)
+       console.log($scope.actor)
 
        $scope.uniqueString = function() {
                 var text     = "";
@@ -51,12 +50,15 @@ angular.module('castifiApp')
           $scope.uploadFiles = function(file, errFiles, type) {
                   if (type === 'headShot'){
                     $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                    $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
                   }
                   else if (type === 'headToToe'){
                     $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                    $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
                   }
                   else if (type === 'realLife'){
                     $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                    $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
                   }
 
                   $scope.f = file;
@@ -86,14 +88,14 @@ angular.module('castifiApp')
                    Actor.update({id: $scope.actor._id },
                     $scope.type,
                       function success(data){
-                        $state.go('actor.edit.photos',{reload:true})
+                        // $state.go('actor.edit.photos',{reload:true})
                       }),
                       function error(){
 
                       }
-
-
-
               }
+
+        
+
 
   });

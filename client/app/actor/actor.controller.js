@@ -2,11 +2,9 @@
 
 angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, Auth, User, $state,
-    Actor, currentUser) {
+    Actor, currentUser, $rootScope) {
 
-       $scope.getCurrentUser = Auth.getCurrentUser;
-       $scope.user = $scope.getCurrentUser();
-       var user_id = $scope.getCurrentUser()._id;
+       $scope.user = currentUser 
        $scope.actor = $scope.user.actorId
 
        if($scope.actor !== undefined){
