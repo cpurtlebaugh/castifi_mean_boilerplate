@@ -13,6 +13,11 @@ angular.module('castifiApp')
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupCtrl'
       })
+      .state('signuptest', {
+        url: '/signuptest',
+        templateUrl: 'app/account/signup/signup-test.html',
+        controller: 'SignupCtrl'
+      })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
