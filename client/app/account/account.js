@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('castifiApp')
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('login', {
         url: '/login',
@@ -24,4 +24,6 @@ angular.module('castifiApp')
         controller: 'SettingsCtrl',
         authenticate: true
       });
+
+      // $urlRouterProvider.otherwise('/welcome');
   });
