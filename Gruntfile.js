@@ -391,7 +391,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:castifi-app-staging.git',
+          remote: 'heroku',
           branch: 'master'
         }
       },
