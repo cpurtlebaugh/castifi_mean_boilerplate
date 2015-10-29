@@ -13,6 +13,7 @@ angular.module('castifiApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
+
     $scope.user = $scope.getCurrentUser();
     $scope.actor = $scope.user.actorId
 

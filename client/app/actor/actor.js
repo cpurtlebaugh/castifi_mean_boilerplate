@@ -52,7 +52,7 @@ angular.module('castifiApp')
             return currentUser;
           }
         }
-      })  
+      })
       //PHOTOS EDIT
         .state('actor.edit.photos', {
         url: '/photos',
@@ -91,13 +91,13 @@ angular.module('castifiApp')
         url: '/welcome',
         templateUrl: 'app/actor/actor-welcome.html'
       })
-      //CONFIRMATION 
+      //CONFIRMATION
       .state('confirmation', {
         url: '/confirmation',
         templateUrl: 'app/actor/actor-confirmation.html'
       });
 
 
-      $urlRouterProvider.otherwise('/actor/welcome');
+      $urlRouterProvider.otherwise('/welcome');
 
   });

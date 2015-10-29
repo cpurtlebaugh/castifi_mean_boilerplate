@@ -26,4 +26,7 @@ angular.module('castifiApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
-  });
+});
+
+
+
