@@ -7,10 +7,9 @@ echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
 if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "staging" ]]
   then 
     gem install heroku
-    git remote add heroku git@heroku.com:castifi-app-staging.git 
-    ssh -vT git@heroku.com
     heroku keys:clear
     echo yes | heroku keys:add
+    ssh -vT git@heroku.com
     grunt build
     echo yes | grunt buildcontrol:heroku
     heroku keys:clear
