@@ -381,18 +381,21 @@ module.exports = function (grunt) {
       }
     },
 
+  
     buildcontrol: {
       options: {
-        dir: 'dist',
-        commit: true,
-        push: true,
-        connectCommits: false,
+        dir: 'dist', //send to dist folder
+        commit: true,  //commit true only if something changed
+        push: true, //pushes branch to remote
+        connectCommits: false, //makes sure every commit on build code branch matches commit on the main project branch
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       heroku: {
         options: {
-          remote: 'heroku',
-          branch: 'master'
+          remote: 'heroku', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
+          branch: 'master' //branch to commit to
+          // login: 'hello@castifi.com',
+          // token: 'a6668647-145b-4f67-8719-50c35acccd33'
         }
       },
       openshift: {
