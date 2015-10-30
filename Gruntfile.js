@@ -381,26 +381,35 @@ module.exports = function (grunt) {
       }
     },
 
+  
     buildcontrol: {
       options: {
-        dir: 'dist',
-        commit: true,
-        push: true,
+        dir: 'dist', //send to dist folder
+        commit: true,  //commit true only if something changed
+        push: true, //pushes branch to remote
         connectCommits: false,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        force: true, //makes sure every commit on build code branch matches commit on the main project branch
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+        login: 'hello@castifi.com'
       },
       heroku: {
         options: {
-          remote: 'heroku',
-          branch: 'master'
+          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
+          branch: 'master', //branch to commit to
         }
       },
-      openshift: {
+      herokuProd: {
         options: {
-          remote: 'openshift',
-          branch: 'master'
+          remote: 'git@heroku.com:castifi-app.git', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
+          branch: 'master', //branch to commit to
         }
-      }
+      },
+      // openshift: {
+      //   options: {
+      //     remote: 'openshift',
+      //     branch: 'master'
+      //   }
+      // }
     },
 
     // Run some tasks in parallel to speed up the build process
