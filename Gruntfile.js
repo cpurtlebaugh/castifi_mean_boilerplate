@@ -389,7 +389,8 @@ module.exports = function (grunt) {
         push: true, //pushes branch to remote
         connectCommits: false,
         force: true, //makes sure every commit on build code branch matches commit on the main project branch
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+        login: 'hello@castifi.com'
       },
       heroku: {
         options: {
@@ -397,12 +398,12 @@ module.exports = function (grunt) {
           branch: 'master', //branch to commit to
         }
       },
-      openshift: {
-        options: {
-          remote: 'openshift',
-          branch: 'master'
-        }
-      }
+      // openshift: {
+      //   options: {
+      //     remote: 'openshift',
+      //     branch: 'master'
+      //   }
+      // }
     },
 
     // Run some tasks in parallel to speed up the build process
