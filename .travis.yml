@@ -4,7 +4,7 @@ node_js:
   - '0.11'
 before_script:
   - npm install -g bower grunt-cli
-  - rvm use 2.2.0 --install
+  # - rvm use 2.2.0 --install
   - gem install sass
   - bower install
 services: mongodb

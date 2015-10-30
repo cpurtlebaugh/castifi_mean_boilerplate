@@ -6,7 +6,8 @@ echo "   CheckHostIP no" >> ~/.ssh/config;
 echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
 if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "staging" ]]
   then 
-    gem install heroku
+    # gem install heroku
+    wget -O- https://toolbelt.heroku.com/install.sh | sh
     ssh -vT git@heroku.com
     heroku keys:clear
     echo yes | heroku keys:add
