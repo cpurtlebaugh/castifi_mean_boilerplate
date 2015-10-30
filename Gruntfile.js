@@ -395,7 +395,6 @@ module.exports = function (grunt) {
         options: {
           remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
           branch: 'master', //branch to commit to
-          login: 'hello@castifi.com',
         }
       },
       openshift: {
