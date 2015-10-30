@@ -7,6 +7,7 @@ echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
 if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "staging" ]]
   then 
     gem install heroku
+    ssh -vT git@heroku.com
     heroku keys:clear
     echo yes | heroku keys:add
     grunt build
