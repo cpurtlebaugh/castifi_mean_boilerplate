@@ -6,8 +6,7 @@ echo "   CheckHostIP no" >> ~/.ssh/config;
 echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
 if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "staging" ]]
   then 
-    # gem install heroku
-    sudo wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    gem install heroku
     git remote add heroku git@heroku.com:castifi-app-staging.git 
     ssh -vT git@heroku.com
     heroku keys:clear
