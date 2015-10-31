@@ -4,12 +4,14 @@
 
 .btn-learn{
     background-color: transparent;
-    color: white;
-    border: 1px solid white;
+    margin-left: 10px;
+    color: $brand-info;
+    border: 1px solid $brand-info;
     padding: 10px 30px;
+    margin-top: 5px;
     &:hover{
-        color: $brand-info;
-        background-color: white;
+        color: white;
+        background-color: $brand-info;
         border: 1px solid white;
     }
 }
@@ -40,6 +42,10 @@
     }
 }
 
+.hero-first-text{
+    text-shadow: 1px 2px rgba(0,0,0,0.5);
+}
+
 .top-well{
     margin-bottom: 30px;
 }
@@ -57,6 +63,7 @@
     bottom: 0px;
     width: 100%;
     overflow: visible;
+    letter-spacing: 0px;
 }
 
 #banner {
@@ -127,12 +134,14 @@ a:hover {
 }
 
 #banner.hero-unit {
-  background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/lalaland.svg"); 
+  background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/Heroconic-desktop.svg"); 
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: $brand-info;
   padding-top: 10%;
-  padding-bottom: 30%;
+  padding-bottom: 27%;
+  background-position: 0px 55px;
+  letter-spacing: 1px;
 }
 
 
@@ -147,12 +156,13 @@ a:hover {
 @media only screen and (max-width: $screen-xs) {
 
     #banner.hero-unit {
-      background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/LaLaLand-mobile.svg");
+      background-image: url("https://s3-us-west-1.amazonaws.com/castifistaticassets/Heroconic-mobile.svg");
       background-repeat: no-repeat;
       background-color: $brand-info;
       background-size: 100% 163%;
       padding-top: 9%;
       padding-bottom: 46%;
+      background-position: 0px 0px;
     }
 
     .navbar-default .navbar-toggle .icon-bar{
