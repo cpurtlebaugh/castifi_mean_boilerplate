@@ -9,7 +9,7 @@ if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "staging" ]]
     gem install heroku
     heroku keys:clear
     echo yes | heroku keys:add
-    ssh -vT git@heroku.com
+    # ssh -vT git@heroku.com
     grunt build
     echo yes | grunt buildcontrol:heroku
     heroku keys:clear
@@ -19,7 +19,7 @@ if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "production" ]]
     gem install heroku
     heroku keys:clear
     echo yes | heroku keys:add
-    ssh -vT git@heroku.com
+    # ssh -vT git@heroku.com
     grunt build
     echo yes | grunt buildcontrol:herokuProd
     heroku keys:clear

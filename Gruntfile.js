@@ -394,13 +394,13 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
+          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to 'heroku' 
           branch: 'master', //branch to commit to
         }
       },
       herokuProd: {
         options: {
-          remote: 'git@heroku.com:castifi-app.git', //remote to push to / 'heroku' / git@heroku.com:castifi-app-staging.git /http://git.heroku.com/castifi-app-staging.git
+          remote: 'git@heroku.com:castifi-app.git', //remote to push to 'heroku' 
           branch: 'master', //branch to commit to
         }
       },
