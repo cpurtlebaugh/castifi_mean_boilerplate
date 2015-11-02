@@ -100,34 +100,6 @@
 
 <!-- ethnic appearance and hair -->
 <div class="row">
-  <div class="col-sm-4">
-    <label>Ethnic Appearance (pick up to 3)</label>
-    <div class="row">
-    <!-- ethnic looks -->
-      <div class="col-sm-6 col-xs-6">
-          <input type="checkbox" ng-model="actor.ethnicLook.asian"/>
-          <label>Asian</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.africanAmerican"/>
-          <label>African American</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.caucasian"/>
-          <label>Caucasian</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.easternIndian"/>
-          <label>East Indian</label><br>
-
-      </div>
-    <!-- ethnic looks -->
-      <div class="col-sm-6 col-xs-6">
-          <input type="checkbox" ng-model="actor.ethnicLook.hispanic"/>
-          <label>Hispanic</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.middleEastern"/>
-          <label>Middle Eastern</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.nativeAmerican"/>
-          <label>Native American</label><br>
-          <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
-          <label>Pacific Islander</label><br>
-      </div>
-   </div>
-  </div>
 
   <!-- hair -->
    <div class="col-sm-4">
@@ -156,20 +128,11 @@
             <option value="saltpepper">Salt/Pepper</option>
           </select>
       </div>
-
-      <!-- <div class="form-group">
-          <label>Hair Style</label>
-          <select class="form-control" ng-model="actor.appearance.hairStyle">
-            <option value="dreads">Dreads</option>
-            <option value="cornrows">Cornrows</option>
-            <option value="mohawk">Mohawk</option>
-            <option value="shaggy">Shaggy</option>
-            <option value="manbun">Manbun</option>
-          </select>
-      </div> -->
    </div>
+ </div>
+
    <!-- end hair -->
-</div>
+   
 <!-- end ethnic appearance and hair -->
 <br>
 <!-- facial hair, facial hair color, facial hair style -->
@@ -217,9 +180,39 @@
 </div>
 <!-- end facial hair, facial hair color, facial hair style -->
 <br>
+<!-- ethnic appearance -->
+<div class="row">
+    <div class="col-sm-12">
+        <label>Ethnic Appearance (pick up to 3)</label>
+    </div>
+    <!-- ethnic looks -->
+      <div class="col-sm-6 col-xs-6">
+          <input type="checkbox" ng-model="actor.ethnicLook.asian"/>
+          <label>Asian</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.africanAmerican"/>
+          <label>African American</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.caucasian"/>
+          <label>Caucasian</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.easternIndian"/>
+          <label>East Indian</label><br>
+      </div>
+    <!-- ethnic looks -->
+      <div class="col-sm-6 col-xs-6">
+          <input type="checkbox" ng-model="actor.ethnicLook.hispanic"/>
+          <label>Hispanic</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.middleEastern"/>
+          <label>Middle Eastern</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.nativeAmerican"/>
+          <label>Native American</label><br>
+          <input type="checkbox" ng-model="actor.ethnicLook.pacificIslander"/>
+          <label>Pacific Islander</label><br>
+      </div>
+  </div>
+<!-- end ethnic appearance -->
+<br>
 <!-- twin or triplet-->
 <div class="row">
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-6">
     <label>Are You a Twin?</label><br>
       <div class="btn-group">
         <label class="btn btn-primary" ng-model="actor.appearance.twins" btn-radio="false">No</label>
@@ -227,7 +220,7 @@
       </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-6">
     <label>Are You a Triplet?</label><br>
       <div class="btn-group">
         <label class="btn btn-primary" ng-model="actor.appearance.triplet" btn-radio="false">No</label>
@@ -239,7 +232,7 @@
 <br>
 <!-- are you pregnant, due date -->
 <div class="row">
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-6">
     <label>Are You Pregnant?</label><br>
       <div class="btn-group">
         <label class="btn btn-primary" ng-model="actor.appearance.pregnant" btn-radio="false">No</label>
@@ -247,7 +240,7 @@
       </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6 col-md-6">
     <div class="form-group" ng-if="actor.appearance.pregnant">
       <label>Due Date</label>
       <input class="form-control" type="date" ng-model="actor.appearance.pregnantDueDate">

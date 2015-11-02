@@ -2,10 +2,16 @@
   <div class="actor-well">	
 	<!-- name and quote -->
 	<div class="row">
-		<div class="col-sm-12 text-center">
+		<div class="col-sm-2">
+			<a ui-sref="actor.edit.overview" class="edit-profile">
+				<h6><img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/edit.svg"> edit</h6>
+			</a>
+		</div>	
+		<div class="col-sm-8 text-center">
 			<h2>{{actor.legalFirstName | capitalize }} {{actor.legalLastName | capitalize}}</h2>
 			<h4><small>{{actor.info.movieQuote}}</small></h4>
 		</div>
+		<div class="col-sm-2"></div>	
 	</div>
 	<!-- end name and quote -->
 	<br>
@@ -44,8 +50,8 @@
 	<!-- end left -->
 	<!-- right, bio and professions -->
 	<div class="col-sm-6">
-		<h6>About Me:</h6>
-		<h6>{{actor.info.aboutMe}}</h6>
+		<h5 class="profile">About Me:</h5>
+		<h5 class="profile">{{actor.info.aboutMe}}</h5>
 <!-- 		<h6>Professions:</h6>
 		<h6>{{actor.info.aboutMe}}</h6> -->
 	</div>

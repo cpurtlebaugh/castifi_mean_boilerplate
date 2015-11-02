@@ -6,13 +6,13 @@
 		<div class="col-sm-10">
 			<h3>Basic Information</h3>
 			<h5>Tell us a bit about yourself!</h5>
-      <h6 class="text-danger">* Indicates a required field.</h6>
+      <h6 class="text-danger"><span class="glyphicon glyphicon-asterisk text-danger"></span> Indicates a required field.</h6>
 		</div>
 	</div>
 	<br>
 	<br>
      <!-- start form -->
-	 <form class="form div-capitalize" name="form" ng-submit="register(form)" novalidate>
+	 <form class="form actor-overview" name="form" ng-submit="register(form)" novalidate>
 	<!-- names -->
 	<div class="row">
 		<div class="col-sm-4">
@@ -270,15 +270,12 @@
 
     <div class="col-sm-12">
           <label>Are you comfortable with...</label>
-
-
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
 <!-- i am willing to...nudity, kissing, change hair -->
 
         <div class="row">
 
   <!-- nudity -->
-          <div class="col-sm-3">
+          <div class="col-sm-4 col-md-3">
             <div>
               <input type="checkbox" ng-model="actor.willing.kissing"/>
               <label>Kissing</label><br>
@@ -291,7 +288,7 @@
           </div>
   <!-- end nudity -->
   <!-- change hair -->
-          <div class="col-sm-3">
+          <div class="col-sm-4 col-md-3">
            	<input type="checkbox" ng-model="actor.willing.fullNudity"/>
               <label>Full Nudity</label><br>
               <input type="checkbox" ng-model="actor.willing.cutHair"/>
@@ -301,7 +298,7 @@
 
           </div>
   <!-- end hair -->
-  		  <div class="col-sm-3">
+  		  <div class="col-sm-4 col-md-3">
   		  	   <input type="checkbox" ng-model="actor.willing.drag"/>
                 <label>Cross-Dressing</label><br>
   		  		<input type="checkbox" ng-model="actor.willing.eatMeat"/>

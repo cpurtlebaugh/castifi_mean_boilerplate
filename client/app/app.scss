@@ -85,6 +85,7 @@ input[type="file"] {
   display: block;
   color: $brand-info;
   font-size: 12px
+}
 
 .help-img {
     width: 20px;
@@ -94,6 +95,12 @@ input[type="file"] {
     position: absolute;
     margin-left: 50px;
     margin-top: 10px;
+}
+
+.actor-overview{
+  .form-control {
+      text-transform: capitalize;
+  }
 }
 
 input[type="checkbox"] {

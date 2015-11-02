@@ -78,6 +78,9 @@
 	img{
 		width: 80%;
 	}
+	.help-img {
+    	width: 20px;
+	}
 }
 
 .actor-navbar-container{
@@ -92,9 +95,11 @@
 	}
 }
 
-// .div-capitalize {
-//   text-transform: capitalize;
-// }
+.edit-profile{
+	img{
+		width:15px;
+	}
+}
 
 .header-icon {
   width: 100px;
@@ -142,6 +147,11 @@
 		margin: 5px 0px 30px 0px;
 }
 
+h5.profile{
+	font-family: 'Montserrat Light', sans-serif;
+}
+
+
 /* Media Breakpoints */
 
 /* Actor Custom Media Breakpoints */
@@ -170,7 +180,7 @@
 	    	width: 100%;
 	    }
 	}
-
+		
 	.navbar-actor-small{
 		.nav > li > a {
 		    padding: 15px 25px;
@@ -192,6 +202,12 @@
 			background-color:white;
 			border-radius: 11.5px;
 		}
+
+		.edit-profile{
+		img{
+			width:15px;
+		}
+}
 
 }
 
