@@ -6,8 +6,8 @@ angular.module('castifiApp')
 
        $scope.user = currentUser;
        $scope.actor = $scope.user.actorId
-       console.log($scope.user)
-       console.log($scope.actor)
+       $scope.errMsg = null;
+       $scope.dynamic = 0;
 
        $scope.uniqueString = function() {
                 var text     = "";
@@ -48,21 +48,44 @@ angular.module('castifiApp')
 
 
           $scope.uploadFiles = function(file, errFiles, type) {
-                  if (type === 'headShot'){
-                    $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                    $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
-                  }
-                  else if (type === 'headToToe'){
-                    $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                    $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
-                  }
-                  else if (type === 'realLife'){
-                    $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                    $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+   
+                  if(file){
+                    if (type === 'headShot'){
+                      $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                       $scope.headShow = true;
+                    }
+                    else if (type === 'headToToe'){
+                      $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                         $scope.toeShow = true
+                    }
+                    else if (type === 'realLife'){
+                      $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
+                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                      $scope.realShow = true;
+                    }
                   }
 
                   $scope.f = file;
                   $scope.errFile = errFiles && errFiles[0];
+                  if(errFiles.length >0){
+                    if (type === 'headShot'){
+                      $scope.headShow = true;
+                    }
+                    else if (type === 'headToToe'){
+                      $scope.toeShow = true
+                    }
+                    else if (type === 'realLife'){
+                      $scope.realShow = true;
+                    }
+                    $scope.errMsg = "Sorry, your file is over 2MB."
+                  }
+                  else{
+                
+                    $scope.errMsg = null;
+                  }
+                  //if there are no errors
                   if (file) {
                       file.upload = Upload.upload({
                           url: 'api/actors/uploads',
@@ -79,13 +102,13 @@ angular.module('castifiApp')
                       }, function (evt) {
                           file.progress = Math.min(100, parseInt(100.0 *
                                                    evt.loaded / evt.total));
+                          $scope.dynamic = file.progress;
                       });
                   }
 
-                  //updates the Actor model with photo
-                  //watch for changes on photo attribute and update view
-
-                   Actor.update({id: $scope.actor._id },
+        
+                  if(file){
+                    Actor.update({id: $scope.actor._id },
                     $scope.type,
                       function success(data){
                         // $state.go('actor.edit.photos',{reload:true})
@@ -93,9 +116,8 @@ angular.module('castifiApp')
                       function error(){
 
                       }
+                  }
               }
-
-        
 
 
   });

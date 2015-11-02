@@ -1,12 +1,5 @@
 'use strict';
 
-//need to resolve on each page refresh
-//need to seperate profile and actor states
-//different controllers for each state
-//different states
-//need to keep parent state with navbar
-//each state needs to resolve independently
-
 angular.module('castifiApp')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

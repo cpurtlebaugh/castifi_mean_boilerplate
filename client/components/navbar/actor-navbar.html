@@ -1,14 +1,12 @@
-<div class="navbar navbar-default navbar-actor hidden-xs" ng-controller="ActorNavbarCtrl">
-	<div class="container">      
+<div class="navbar navbar-actor hidden-xs" ng-controller="ActorNavbarCtrl">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-show="isLoggedIn()" ng-href="{{item.link}}">{{item.title}}</a>
         </li>
       </ul>
-  </div>
 </div>
 
-<div class="navbar navbar-default navbar-actor-small hidden-sm hidden-md hidden-lg" ng-controller="ActorNavbarCtrl">
+<div class="navbar navbar-actor-small hidden-sm hidden-md hidden-lg" ng-controller="ActorNavbarCtrl">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-show="isLoggedIn()" ng-href="{{item.link}}">{{item.title}}</a>

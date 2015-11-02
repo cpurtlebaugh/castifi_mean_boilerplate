@@ -53,7 +53,7 @@
 			<div class="form-group" ng-class="{ 'has-success': form.birthday.$valid && submitted,
                                             'has-error': form.birthday.$invalid && submitted }">
           <label>Birthday</label>
-          <input type="date" name="birthday" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.dob"
+          <input type="date" name="birthday" class="form-control" ng-model="actor.dob"
                  required/>
           <p class="help-block" ng-show="form.birthday.$error.required && submitted">
             A date of birth is required
@@ -249,7 +249,7 @@
 			<div class="col-sm-4">
 				<div class="form-group">
 		          <label>Acting Since</label>
-		          <input type="date" name="dob" placeholder="yyyy-MM-dd" class="form-control" ng-model="actor.info.actingSince"/>
+		          <input type="date" name="dob" class="form-control" ng-model="actor.info.actingSince"/>
 		        </div>
 			</div>	
 		</div>
