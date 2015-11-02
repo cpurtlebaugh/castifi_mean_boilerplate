@@ -4,16 +4,17 @@ angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, Auth, User, $state,
     Actor, currentUser, $rootScope) {
 
-       $scope.user = currentUser 
+       $scope.user = currentUser
        $scope.actor = $scope.user.actorId
+       $scope.onlyNumbers = /^[0-9]+$/;
 
        if($scope.actor !== undefined){
-           if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)}
            if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)}
            if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)}
        }
 
          $scope.register = function register(form) {
+          console.log(form)
                $scope.submitted = true;
                if(form.$valid){
                     if($scope.actor){
