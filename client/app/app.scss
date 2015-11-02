@@ -85,6 +85,15 @@ input[type="file"] {
   display: block;
   color: $brand-info;
   font-size: 12px
+
+.help-img {
+    width: 20px;
+}
+
+.help-text {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 10px;
 }
 
 input[type="checkbox"] {
