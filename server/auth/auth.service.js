@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
+var Actor = require('../api/actor/actor.model');
 var validateJwt = expressJwt({ secret: config.secrets.session });
 
 /**
@@ -57,7 +58,7 @@ function hasRole(roleRequired) {
  * Returns a jwt token signed by the app secret
  */
 function signToken(id) {
-  return jwt.sign({ _id: id }, config.secrets.session, { expiresIn: 60*5 });
+  return jwt.sign({ _id: id }, config.secrets.session, { expiresIn: 60*45 });
 }
 
 /**
@@ -67,6 +68,12 @@ function setTokenCookie(req, res) {
   if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
+  //need to determine if actor or producer //create 'role'-like field
+  //or new or returning user//signup or login
+  //also create actor object with user_id attached to ownedBy and 
+  //update current user object with actor id
+  // console.log("set token user")
+  // console.log(req.user)
   res.redirect('/');
 }
 

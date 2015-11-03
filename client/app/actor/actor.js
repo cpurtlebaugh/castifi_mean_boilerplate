@@ -91,6 +91,6 @@ angular.module('castifiApp')
       });
 
 
-      $urlRouterProvider.otherwise('/welcome');
+      $urlRouterProvider.otherwise('/profile');
 
   });
