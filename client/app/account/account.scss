@@ -11,6 +11,21 @@ $btnGooglePlusBackgroundHighlight:  #c53727;
 $btnGithubBackground:               #fafafa;
 $btnGithubBackgroundHighlight:      #ccc;
 
+.settings-container {
+  padding-left: 90px;
+  padding-right: 90px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.settings-container {
+  .well {
+    position: absolute;
+    left: 25%;
+  }
+}
+
 // Social buttons
 // --------------------------------------------------
 
@@ -23,3 +38,4 @@ $btnGithubBackgroundHighlight:      #ccc;
 .btn-github {
   @include button-variant($btnTextAlt, $btnGithubBackground, $btnGithubBackgroundHighlight);
 }
+
