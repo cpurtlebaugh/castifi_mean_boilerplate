@@ -9,7 +9,7 @@
     <div class="col-sm-12">
       
   <!-- email form -->
-      <form class="form" name="emailForm" ng-submit="changeEmail(emailForm); $event.preventDefault()" novalidate>
+      <form class="form" name="emailForm" ng-submit="changeEmail(emailForm); $event.stopPropagation(); $event.preventDefault();" novalidate>
 
         <div class="form-group">
       <!-- old email -->
@@ -49,7 +49,7 @@
     <div class="col-sm-12">
       
       <!-- password form -->
-      <form class="form" name="form" ng-submit="changePassword(form); $event.preventDefault()" novalidate>
+      <form class="form" name="form" ng-submit="changePassword(form); $event.stopPropagation(); $event.preventDefault();" novalidate>
 
         <div class="form-group">
  <!-- old password -->
