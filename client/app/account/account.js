@@ -21,13 +21,13 @@ angular.module('castifiApp')
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsCtrl',
         authenticate: true,
-        resolve: {
-            currentUser: function(User){
-              return User.get().$promise;
-            }
-        }
+        // resolve: {
+        //     currentUser: function(User){
+        //       return User.get().$promise;
+        //     }
+        // }
+
       });
 
       // $urlRouterProvider.otherwise('/welcome');
