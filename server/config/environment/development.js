@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/castifi-dev'
   },
 
-  seedDB: false
+  seedDB: true
 };
