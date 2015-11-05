@@ -68,13 +68,14 @@ function setTokenCookie(req, res) {
   if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
-  //need to determine if actor or producer //create 'role'-like field
-  //or new or returning user//signup or login
-  //also create actor object with user_id attached to ownedBy and 
-  //update current user object with actor id
-  // console.log("set token user")
-  // console.log(req.user)
-  res.redirect('/');
+
+  if(req.user.facebookSignup){
+        res.redirect('/welcome');
+    }
+  else{
+       res.redirect('/profile')
+  }
+
 }
 
 exports.isAuthenticated = isAuthenticated;

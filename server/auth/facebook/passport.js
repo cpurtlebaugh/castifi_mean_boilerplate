@@ -23,29 +23,25 @@ exports.setup = function (User, config) {
             email: profile.emails[0].value,
             role: 'user',
             provider: 'facebook',
-            facebook: profile._json
+            facebook: profile._json,
+            facebookSignup: true
           });
           user.save(function(err, user) {
             if (err) return done(err);
-            // console.log(user) 
-            // console.log("user")
-            //signup
             //create actor object on signup
-            //how does it detect them during login
-              // var newActor = new Actor({ownedBy: user._id, email: user.email})
-              // newActor.save(function(err, actor){
-              //   var updated = _.merge(user, {actorId: actor._id});
-              //   updated.save(function (err) {})
-              // })
-
-
-
+              var newActor = new Actor({ownedBy: user._id, email: user.email})
+              newActor.save(function(err, actor){
+                var updated = _.merge(user, {actorId: actor._id});
+                updated.save(function (err) {})
+              })
             done(err, user);
           });
         } else {
-          //login
-          // console.log("bottom user")
-          // console.log(user)
+          //check for user.facebookSignUp true
+          //if true update user facebookSignup to false
+           var updated = _.merge(user, {facebookSignup: false});
+           updated.save(function (err) {})
+
           return done(err, user);
         }
       })
