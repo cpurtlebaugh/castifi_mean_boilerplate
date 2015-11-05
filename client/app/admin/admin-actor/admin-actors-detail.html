@@ -286,39 +286,23 @@
     <div class="col-sm-6">
       <label>Do you have tattoos?: {{actor.tattoos.present}}</label><br>
     </div>
-    <!-- ng-if tattoos present-->
-      <br>
-        <div class="col-sm-3">
 
-            <label>Forearm: {{actor.tattoos.forearm}}</label><br>
-            <label>Upper Arm: {{actor.tattoos.upperArm}}</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.neck"/>
-            <label>Neck</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.face"/>
-            <label>Face</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.chest"/>
-            <label>Chest</label><br>
-          </div>
-
-          <div class="col-sm-3">
-            <input type="checkbox" ng-model="actor.tattoos.stomach"/>
-            <label>Stomach</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.back"/>
-            <label>Back</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.hand"/>
-            <label>Hand</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.leg"/>
-            <label>Leg</label><br>
-            <input type="checkbox" ng-model="actor.tattoos.foot"/>
-            <label>Foot</label><br>
-          </div>
-        </div>
-
-      </div>
-    <!-- end ng-if tattoos-->
+    <div class="col-sm-3">
+        <label>Forearm: {{actor.tattoos.forearm}}</label><br>
+        <label>Upper Arm: {{actor.tattoos.upperArm}}</label><br>
+        <label>Neck: {{actor.tattoos.neck}}</label><br>
+        <label>Face: {{actor.tattoos.face}}</label><br>
+        <label>Chest: {{actor.tattoos.chest}}</label><br>
     </div>
-  <!-- end tattoos -->
 
+    <div class="col-sm-3">
+      <label>Stomach: {{actor.tattoos.stomach}}</label><br>
+      <label>Back: {{actor.tattoos.back}}</label><br>
+      <label>Hand: {{actor.tattoos.hand}}</label><br>
+      <label>Leg: {{actor.tattoos.leg}}</label><br>
+      <label>Foot: {{actor.tattoos.foot}}</label><br>
+    </div>
+</div>
   <!-- piercings -->
 
     <div class="col-sm-6">
