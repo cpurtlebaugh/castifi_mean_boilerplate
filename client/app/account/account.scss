@@ -52,6 +52,14 @@ $btnGithubBackgroundHighlight:      #ccc;
   }
 }
 
+// for mobile devices
+@media only screen and (max-width: $screen-xs) {
+  .signup-container{
+      padding-left: 25px;
+      padding-right: 25px;
+  }
+}
+
 // Social buttons
 // --------------------------------------------------
 
