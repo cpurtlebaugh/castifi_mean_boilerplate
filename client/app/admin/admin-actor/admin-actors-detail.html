@@ -278,16 +278,18 @@
   <div class="col-sm-6 col-md-6">
       <label>Due Date{{actor.appearance.pregnantDueDate}}</label>
   </div>
+</div>
 <!-- end are you pregnant, due date -->
 <br>
-
 <!-- tattoos and piercings -->
 <div class="row">
-    <div class="col-sm-6">
+  <div class="col-sm-12">
       <label>Do you have tattoos?: {{actor.tattoos.present}}</label><br>
-    </div>
-
-    <div class="col-sm-3">
+  </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
         <label>Forearm: {{actor.tattoos.forearm}}</label><br>
         <label>Upper Arm: {{actor.tattoos.upperArm}}</label><br>
         <label>Neck: {{actor.tattoos.neck}}</label><br>
@@ -295,7 +297,7 @@
         <label>Chest: {{actor.tattoos.chest}}</label><br>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <label>Stomach: {{actor.tattoos.stomach}}</label><br>
       <label>Back: {{actor.tattoos.back}}</label><br>
       <label>Hand: {{actor.tattoos.hand}}</label><br>
@@ -303,42 +305,26 @@
       <label>Foot: {{actor.tattoos.foot}}</label><br>
     </div>
 </div>
-  <!-- piercings -->
+<br>
+
+<div class="row">
+    <div class="col-sm-12">
+      <label>Do you have piercings?: {{actor.piercings.present}}</label><br>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+      <label>Ears: {{actor.piercings.ear}}</label><br>
+      <label>Nose: {{actor.piercings.nose}}</label><br>
+      <label>Eyebrow: {{actor.piercings.eyebrow}}</label><br>
+    </div>
 
     <div class="col-sm-6">
-      <label>Do you have piercings?</label><br>
-        <div class="btn-group">
-          <label class="btn btn-primary" ng-model="actor.piercings.present" btn-radio="false">No</label>
-          <label class="btn btn-primary" ng-model="actor.piercings.present" btn-radio="true">Yes</label>
-        </div>
-
-    <!-- ng-if piercings present-->
-
-      <div ng-if="actor.piercings.present">
-
-        <div class="row">
-          <br>
-          <div class="col-sm-3">
-            <input type="checkbox" ng-model="actor.piercings.ear"/>
-            <label>Ears</label><br>
-            <input type="checkbox" ng-model="actor.piercings.nose"/>
-            <label>Nose</label><br>
-            <input type="checkbox" ng-model="actor.piercings.eyebrow"/>
-            <label>Eyebrow</label><br>
-          </div>
-
-          <div class="col-sm-3">
-            <input type="checkbox" ng-model="actor.piercings.lip"/>
-            <label>Lip</label><br>
-            <input type="checkbox" ng-model="actor.piercings.tongue"/>
-            <label>Tongue</label><br>
-            <input type="checkbox" ng-model="actor.piercings.navel"/>
-            <label>Navel</label><br>
-          </div>
-
-        </div>
+      <label>Lip: {{actor.piercings.lip}}</label><br>
+      <label>Tongue: {{actor.piercings.tongue}}</label><br>
+      <label>Navel: {{actor.piercings.navel}}</label><br>
     </div>
-  </div>
 </div>
 <br>
     <!-- end ng-if piercings -->
@@ -346,56 +332,149 @@
 <!-- end tattoos and piercings -->
 
 <!-- amputee and disabilities -->
-  <div class="row">
-    <div class="col-sm-6">
-      <label>Do You Have Any Disabilities?</label> <br>
-      <div class="btn-group">
-        <label class="btn btn-primary" ng-model="actor.disabled.present" btn-radio="false">No</label>
-        <label class="btn btn-primary" ng-model="actor.disabled.present" btn-radio="true">Yes</label>
-      </div>
-
-  <!-- ng-if disabled present-->
-    <div ng-if="actor.disabled.present">
-      <br>
-      <input type="checkbox" ng-model="actor.disabled.blind"/>
-      <label>Blind</label><br>
-      <input type="checkbox" ng-model="actor.disabled.impairedHearing"/>
-      <label>Hearing Impaired</label><br>
-      <input type="checkbox" ng-model="actor.disabled.deaf"/>
-      <label>Deaf</label><br>
-      <input type="checkbox" ng-model="actor.disabled.mute"/>
-      <label>Mute</label><br>
-      <input type="checkbox" ng-model="actor.disabled.usesWheelchair"/>
-      <label>Wheelchair</label><br>
-    </div>
-    <!-- end ng-if -->
-    </div>
-    <!-- end disabled -->
-
-    <!-- start amputee -->
-    <div class="col-sm-6">
-     <label>Are you an amputee?</label><br>
-        <div class="btn-group">
-          <label class="btn btn-primary" ng-model="actor.amputee.present" btn-radio="false">No</label>
-          <label class="btn btn-primary" ng-model="actor.amputee.present" btn-radio="true">Yes</label>
-       </div>
-
-  <!-- ng-if amputee present-->
-      <div ng-if="actor.amputee.present">
-        <br>
-        <input type="checkbox" ng-model="actor.amputee.arm"/>
-        <label>Arm</label><br>
-        <input type="checkbox" ng-model="actor.amputee.hand"/>
-        <label>Hand</label><br>
-        <input type="checkbox" ng-model="actor.amputee.finger"/>
-        <label>Finger</label><br>
-        <input type="checkbox" ng-model="actor.amputee.leg"/>
-        <label>Leg</label><br>
-        <input type="checkbox" ng-model="actor.amputee.foot"/>
-        <label>Foot</label><br>
-      </div>
-    <!-- end ng-if -->
-    </div>
-    <!-- end amputee -->
+<div class="row">
+  <div class="col-sm-6">
+    <label>Do You Have Any Disabilities?: {{actor.disabled.present}}</label> <br>
   </div>
+</div>
+
+<div class="row">
+  <!-- if disabled present-->
+  <div class="col-sm-6">
+    <label>Blind: {{actor.disabled.blind}}</label><br>
+    <label>Hearing Impaired: {{actor.disabled.impairedHearing}}</label><br>
+    <label>Deaf: {{actor.disabled.deaf}}</label><br>
+  </div>
+  <div class="col-sm-6">
+    <label>Mute: {{actor.disabled.mute}}</label><br>
+    <label>Wheelchair: {{actor.disabled.usesWheelchair}}</label><br>
+  </div>
+</div>
+  <!-- end if disabled end-->
+    <!-- end disabled -->
+<br>
+    <!-- start amputee -->
+<div class="row">
+  <div class="col-sm-6">
+    <label>Are you an amputee?: {{actor.amputee.present}}</label><br>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <label>Arm: {{actor.amputee.arm}}</label><br>
+    <label>Hand: {{actor.amputee.hand}}</label><br>
+    <label>Finger: {{actor.amputee.finger}}</label><br>
+  </div>
+
+  <div class="col-sm-6">
+    <label>Leg: {{actor.amputee.leg}}</label><br>
+    <label>Foot: {{actor.amputee.foot}}</label><br>
+  </div>
+    <!-- end ng-if -->
+    <!-- end amputee -->
+</div>
 <!-- end amputee and disabilities -->
+<br>
+
+<h3>Wardrobe</h3>
+<!-- basic wardrobe -->
+<div class="row">
+  <div class="col-sm-12">
+    <label>Do you own any of these basic items?</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <label>Tuxedo: {{actor.wardrobe.tux}}</label><br>
+    <label>Full Suit: {{actor.wardrobe.fullSuit}}</label><br>
+    <label>Business Suit: {{ actor.wardrobe.businessSuit}}</label><br>
+  </div>
+  <div class="col-sm-6">
+    <label>Bathing Suit: {{actor.wardrobe.bathingSuit}}</label><br>
+    <label>Cocktail Dress: {{ actor.wardrobe.cocktailDress}}</label><br>
+    <label>Lingerie: {{actor.wardrobe.lingerie}}</label><br>
+  </div>
+</div>
+    <!-- end wardrobe -->
+<br>
+    <!-- uniforms -->
+<div class="row">
+   <div class="col-sm-6">
+      <label>Do you own any of these uniforms?</label>
+   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <label>Doctor: {{actor.costumes.doctor}}</label><br>
+    <label>EMT: {{actor.costumes.emt}}</label><br>
+    <label>Nurse: {{actor.costumes.nurse}}</label><br>
+  </div>
+
+  <div class="col-sm-6">
+      <label>Paramedic: {{actor.costumes.paramedic}}</label><br>
+      <label>Fire Dept: {{actor.costumes.fireDept}}</label><br>
+      <label>Police: {{actor.costumes.police}}</label><br>
+  </div>
+</div>
+<!-- end uniforms -->
+<br>
+<!-- male and female measurements -->
+
+<h3>Men's Clothing Measurements</h3>
+<!-- if yes men's -->
+<div class="row">
+   <div ng-if="actor.clothingMenSizes.present">
+    <br>
+      <div class="col-sm-3">
+          <label>Coat Length: {{actor.clothingMenSizes.coatLength}}</label><br>
+          <label>Coat Size: {{actor.clothingMenSizes.coatSize}}</label><br>
+          <label>Shirt Sleeve: {{actor.clothingMenSizes.shirtSleeve}}</label><br>
+      </div>
+      <div class="col-sm-3">
+          <label>Shirt Neck: {{actor.clothingMenSizes.shirtNeck}}</label><br>
+          <label>Pant Waist: {{actor.clothingMenSizes.pantWaist}}</label><br>
+      </div>
+      <div class="col-sm-3">
+          <label>Pant Inseam: {{actor.clothingMenSizes.pantInseam}}</label><br>
+          <label>Hat Size: {{actor.clothingMenSizes.hat}}</label><br>
+      </div>
+      <div class="col-sm-3">
+          <label>Glove Size: {{actor.clothingMenSizes.glove}}</label><br>
+          <label>Shoe Size: {{actor.clothingMenSizes.shoe}}</label><br>
+      </div>
+    </div>
+</div>
+<!-- end men's clothing measurements -->
+<br>
+<!-- women's clothing measurements-->
+
+<!-- ng-if women's clothing measurement-->
+<h3>Women's Clothing Measurements</h3>
+<div class="row">
+  <div ng-if="actor.clothingWomenSizes.present">
+      <div class="col-sm-3">
+          <label>Pant Waist: {{actor.clothingWomenSizes.pantWaist}}</label><br>
+          <label>Pant Inseam: {{actor.clothingWomenSizes.pantInseam}}</label><br>
+          <label>Band Size: {{actor.clothingWomenSizes.bustSize}}</label><br>
+      </div>
+      <div class="col-sm-3">
+          <label>Cup Size: {{actor.clothingWomenSizes.cupSize}}</label><br>
+          <label>Hips: {{actor.clothingWomenSizes.hips}}</label><br>
+      </div class="col-sm-3">
+      <div class="col-sm-3">
+          <label>Dress Size: {{actor.clothingWomenSizes.dress}}</label><br>
+          <label>Shoes: {{actor.clothingWomenSizes.shoe}}</label><br>
+      </div>
+      <div class="col-sm-3">
+          <label>Hat: {{actor.clothingWomenSizes.hat}}</label><br>
+          <label>Gloves: {{actor.clothingWomenSizes.glove}}</label><br>
+      </div>
+  </div>
+</div>
+<!-- end if yes women's measurements -->
+
+
+
