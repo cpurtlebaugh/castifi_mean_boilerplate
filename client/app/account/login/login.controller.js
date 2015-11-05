@@ -7,7 +7,7 @@ angular.module('castifiApp')
 
     $scope.login = function(form) {
       $scope.submitted = true;
-
+      console.log($scope.user)
       if(form.$valid) {
         Auth.login({
           email: $scope.user.email,

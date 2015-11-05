@@ -11,12 +11,15 @@ var Actor = require('../api/actor/actor.model');
 Actor.find({}).remove(function() {
   Actor.create({
     name: 'Rodney Hangryfield',
-  }, 
-  {
-    name: 'Tom Cruise'
+    email: 'rodney@rodney.com',
   },
   {
-    name: 'Katie Holmes'
+    name: 'Tom Cruise',
+    email: 'tom@tom.com'
+  },
+  {
+    name: 'Katie Holmes',
+    email: 'katie@katie.com'
   },
   function() {
       console.log('finished populating actors');
