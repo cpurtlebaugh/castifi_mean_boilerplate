@@ -6,12 +6,22 @@ angular.module('castifiApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+         resolve:{
+          currentUsers: function(User){
+            return User.query().$promise;
+          }
+        }
       })
       .state('admin.users', {
         url: '/users',
         templateUrl: 'app/admin/admin-users.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+         resolve:{
+          currentUser: function(currentUsers){
+            return currentUsers;
+          }
+        }
       })
         .state('admin.actors', {
         url: '/actors',

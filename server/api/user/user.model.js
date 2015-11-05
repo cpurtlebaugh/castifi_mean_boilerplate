@@ -22,7 +22,8 @@ var UserSchema = new Schema({
   facebook: {},
   google: {},
   github: {},
-  createdAt: {type: Date, default: Date.now()}
+  createdAt: {type: Date, default: Date.now()},
+  updatedAt: {type: Date}
 });
 
 /**
@@ -110,6 +111,15 @@ UserSchema
     else
       next();
   });
+
+UserSchema
+  .pre('save', function(next) {
+    //if there is no createdat then create
+    //if there is no initial login set to true
+    //if intitial login is true//set it back to false
+  this.updatedAt = new Date();
+  next();
+});
 
 /**
  * Methods

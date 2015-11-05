@@ -72,9 +72,20 @@ function setTokenCookie(req, res) {
   //or new or returning user//signup or login
   //also create actor object with user_id attached to ownedBy and 
   //update current user object with actor id
+  //use user role to navigate
   // console.log("set token user")
   // console.log(req.user)
-  res.redirect('/');
+  // console.log(req.user.createdAt)
+  // console.log(req.user.updatedAt)
+  // console.log(req.user.createdAt.getTime())
+  // console.log(req.user.updatedAt.getTime())
+  // var time = req.user.createdAt.getTime() - req.user.updatedAt.getTime()
+  // var b = time/1000
+  // var c = Math.abs(b)
+  // console.log(b)
+  // console.log(c)
+  //set user attribute within the facebook or seperate
+  res.redirect('/welcome');
 }
 
 exports.isAuthenticated = isAuthenticated;

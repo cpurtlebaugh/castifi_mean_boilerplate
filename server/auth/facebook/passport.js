@@ -27,25 +27,17 @@ exports.setup = function (User, config) {
           });
           user.save(function(err, user) {
             if (err) return done(err);
-            // console.log(user) 
-            // console.log("user")
-            //signup
             //create actor object on signup
-            //how does it detect them during login
-              // var newActor = new Actor({ownedBy: user._id, email: user.email})
-              // newActor.save(function(err, actor){
-              //   var updated = _.merge(user, {actorId: actor._id});
-              //   updated.save(function (err) {})
-              // })
-
-
-
+            //set user.facebookSignup to true
+              var newActor = new Actor({ownedBy: user._id, email: user.email})
+              newActor.save(function(err, actor){
+                var updated = _.merge(user, {actorId: actor._id});
+                updated.save(function (err) {})
+              })
             done(err, user);
           });
         } else {
-          //login
-          // console.log("bottom user")
-          // console.log(user)
+          //check for user.facebookSignUp true
           return done(err, user);
         }
       })

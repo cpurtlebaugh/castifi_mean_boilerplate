@@ -224,8 +224,16 @@ var ActorSchema = new Schema({
 
   standInExperience: {present: Boolean, pastExperience: String},
 
-  createdAt: {type: Date, default: Date.now()}
+  createdAt: {type: Date, default: Date.now()},
+  updatedAt: {type: Date}
 
+});
+
+/* Pre-save hook*/
+ActorSchema
+  .pre('save', function(next) {
+  this.updatedAt = new Date();
+  next();
 });
 
 module.exports = mongoose.model('Actor', ActorSchema);
