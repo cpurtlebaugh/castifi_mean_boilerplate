@@ -29,8 +29,27 @@ $btnGithubBackgroundHighlight:      #ccc;
   }
 }
 
-.sign-up-page {
-  color: white;
+.signup-container{
+    padding-left: 95px;
+    padding-right: 95px;
+}
+
+.signup-well {
+  background-color: white;
+  .btn-signup, .btn-login{
+     background-color: #23cacc;
+     color: white;
+  }
+  p{
+    font-family: 'Montserrat Light', sans-serif;
+  }
+  hr{
+    border-top: 1px solid #979797;
+  }
+  .btn{
+    padding: 10px 50px;
+    font-size: 14px;
+  }
 }
 
 // Social buttons
