@@ -6,12 +6,16 @@ angular.module('castifiApp')
     // Use the User $resource to fetch all users
     $scope.actors = Actor.query();
 
-    // $scope.delete = function(actor) {
-    //   Actor.remove({ id: actor._id });
-    //   angular.forEach($scope.actors, function(u, i) {
-    //     if (u === user) {
-    //       $scope.users.splice(i, 1);
-    //     }
-    //   });
-    // };
+    $scope.delete = function(actor) {
+    console.log(actor)
+      Actor.remove({ id: actor._id });
+      angular.forEach($scope.actors, function(a, i) {
+        if (a === actor) {
+          $scope.actors.splice(i, 1);
+        }
+      });
+      User.remove({ id: actor.ownedBy});
+    }
   });
+
+

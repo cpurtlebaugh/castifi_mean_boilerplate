@@ -22,12 +22,6 @@ angular.module('castifiApp')
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         authenticate: true,
-        // resolve: {
-        //     currentUser: function(User){
-        //       return User.get().$promise;
-        //     }
-        // }
-
       });
 
       // $urlRouterProvider.otherwise('/welcome');
