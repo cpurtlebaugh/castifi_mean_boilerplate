@@ -5,10 +5,10 @@ angular.module('castifiApp')
 
     // Use the User $resource to fetch all users
     $scope.users = User.query();
-    console.log(typeof($scope.users))
-    console.log(currentUsers)
-    console.log(currentUsers.length)
-    console.log(typeof(currentUsers))
+    // console.log(typeof($scope.users))
+    // console.log(currentUsers)
+    // console.log(currentUsers.length)
+    // console.log(typeof(currentUsers))
 
     // User.query()
     //   .then(function(data){
