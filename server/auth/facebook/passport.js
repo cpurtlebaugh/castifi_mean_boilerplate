@@ -23,12 +23,12 @@ exports.setup = function (User, config) {
             email: profile.emails[0].value,
             role: 'user',
             provider: 'facebook',
-            facebook: profile._json
+            facebook: profile._json,
+            facebookSignup: true
           });
           user.save(function(err, user) {
             if (err) return done(err);
             //create actor object on signup
-            //set user.facebookSignup to true
               var newActor = new Actor({ownedBy: user._id, email: user.email})
               newActor.save(function(err, actor){
                 var updated = _.merge(user, {actorId: actor._id});
@@ -38,6 +38,10 @@ exports.setup = function (User, config) {
           });
         } else {
           //check for user.facebookSignUp true
+          //if true update user facebookSignup to false
+           var updated = _.merge(user, {facebookSignup: false});
+           updated.save(function (err) {})
+
           return done(err, user);
         }
       })

@@ -20,6 +20,7 @@ var UserSchema = new Schema({
   provider: String,
   salt: String,
   facebook: {},
+  facebookSignup: {type: Boolean},
   google: {},
   github: {},
   createdAt: {type: Date, default: Date.now()},
