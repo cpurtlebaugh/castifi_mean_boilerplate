@@ -18,6 +18,12 @@ angular.module('castifiApp')
         templateUrl: 'app/account/signup/signup-test.html',
         controller: 'SignupCtrl'
       })
+      .state('forgot', {
+        url: '/forgot',
+        templateUrl: 'app/account/settings/forgot-password.html',
+        controller: 'SettingsCtrl'
+      })
+
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
