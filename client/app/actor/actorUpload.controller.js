@@ -10,14 +10,15 @@ angular.module('castifiApp')
        $scope.dynamic = 0;
 
        $scope.uniqueString = function() {
-                var text     = "";
-                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-                for( var i=0; i < 8; i++ ) {
-                  text += possible.charAt(Math.floor(Math.random() * possible.length));
-                }
-                return text;
-        }
+        var userEmail = $scope.user.email;
+        var userEmailLength = $scope.user.email.length;
+          var userStampTail = "dj9" + userEmail.charAt(userEmailLength - 1) + "_pE33"
+              + userEmail.charAt(userEmailLength - 2) + "30O_" + userEmail.charAt(userEmailLength - 3) + "bV";
+          var userStampHead = "z9r7" + userEmail.charAt(2) + "43" + userEmail.charAt(1)
+              + "_dE" + userEmail.charAt(0) + "pD2";
+        var userStamp = userStampTail + userStampHead
+        return userStamp;
+       }
 
         $scope.removePhoto = function removePhoto(type){
                if (type === 'headShot'){
@@ -35,7 +36,7 @@ angular.module('castifiApp')
                     $scope.actor.realLife = null;
                     $scope.realLife = null;
                   }
-            
+
                   Actor.update({id: $scope.actor._id }, $scope.type,
                           function success(data){
                             $state.go('actor.edit.photos',{reload:true})
@@ -48,21 +49,21 @@ angular.module('castifiApp')
 
 
           $scope.uploadFiles = function(file, errFiles, type) {
-   
+
                   if(file){
                     if (type === 'headShot'){
-                      $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                      $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
+                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                        $scope.headShow = true;
                     }
                     else if (type === 'headToToe'){
-                      $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                      $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString()  + file.name}
+                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                          $scope.toeShow = true
                     }
                     else if (type === 'realLife'){
-                      $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + file.name}
-                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + file.name
+                      $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
+                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                       $scope.realShow = true;
                     }
                   }
@@ -82,7 +83,7 @@ angular.module('castifiApp')
                     $scope.errMsg = "Sorry, your file is over 2MB."
                   }
                   else{
-                
+
                     $scope.errMsg = null;
                   }
                   //if there are no errors
@@ -106,7 +107,7 @@ angular.module('castifiApp')
                       });
                   }
 
-        
+
                   if(file){
                     Actor.update({id: $scope.actor._id },
                     $scope.type,
