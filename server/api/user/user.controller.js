@@ -140,9 +140,8 @@ exports.resetPassword = function(req, res, next) {
       console.log(req.body.email)
       User.findOne({ email: req.body.email }, function(err, user) {
         if (!user) {
-          // req.flash('error', 'No account with that email address exists.');
-          // return res.redirect('/forgot');
           console.log(err)
+          return err;
         }
 
         user.resetPasswordToken = token;
@@ -182,6 +181,12 @@ exports.resetPassword = function(req, res, next) {
     console.log(err)
   });
 };
+
+exports.acceptToken = function(req, res, next){
+  console.log(req.body.password)
+  console.log(req.params.token)
+};
+
 
 /**
  * Authentication callback

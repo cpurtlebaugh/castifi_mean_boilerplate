@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth, $http) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $http, $stateParams, $state) {
     $scope.errors = {};
-
+    console.log($stateParams);
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;
@@ -23,15 +23,33 @@ angular.module('castifiApp')
 		};
 
     $scope.passwordReset = function(form){
-        console.log($scope.user.email)
+        $scope.submitted = true;
         var data = {email: $scope.user.email};
-        $http.post("api/users/forgot", data)
-            // .success(function(data){
-            //       console.log(data)
-            //       //insert message to user 'check your email for reset instructions'
-            // })
-    }   
+        if(form.$valid){
+          $http.post("api/users/forgot", data)
+            .success(function(data){
+              console.log(data)
+            })
+            .error(function(err){
+              $scope.errors = 'That email does no seem to exist';
+              console.log($scope.errors)
+              return $scope.errors;
 
+            })
 
+        }
+    }
 
-  });
+    $scope.newPasswordReset = function(form){
+      $scope.submitted = true;
+      var data = {password: $scope.user.password}
+      console.log(form)
+      console.log(form.$valid)
+      if(form.$valid){
+        $http.post('/api/users/reset/' + $stateParams.token, data)
+      }
+      else {
+        $scope.errors;
+      }
+    }
+});
