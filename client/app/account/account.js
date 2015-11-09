@@ -23,7 +23,19 @@ angular.module('castifiApp')
         templateUrl: 'app/account/settings/forgot-password.html',
         controller: 'SettingsCtrl'
       })
-
+      .state('reset', {
+        url: '/reset',
+        abstract: true,
+        template: '<ui-view></>',
+        controller: 'SettingsCtrl',
+        authenticate: true,
+      })
+      .state('reset.details', {
+        url: '/:token',
+        templateUrl: 'app/account/settings/reset.html',
+        controller: 'SettingsCtrl'
+        // authenticate: true,
+      })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
