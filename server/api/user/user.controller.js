@@ -131,17 +131,12 @@ exports.resetPassword = function(req, res, next) {
     function(done) {
       crypto.randomBytes(20, function(err, buf) {
         var token = buf.toString('hex');
-        // console.log(token)
         done(err, token);
       });
     },
     function(token, done) {
-      // console.log(token)
-      // console.log(req.body.email)
       User.findOne({ email: req.body.email }, function(err, user) {
         if (!user) {
-          console.log(err)
-          console.log("no user error")
           return res.status(404).send('This email is not registered.');
         }
 
@@ -182,15 +177,10 @@ exports.resetPassword = function(req, res, next) {
 };
 
 exports.acceptToken = function(req, res, next){
-  // console.log(req.body.password)
-  // console.log(req.params.token)
   async.waterfall([
     function(done) {
       User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
         if (!user) {
-          // console.log("no user err")
-          // req.flash('error', 'Password reset token is invalid or has expired.');
-          // return res.redirect('back');
           return res.status(404).send('Password reset token is invalid or has expired.');
         }
         else{
@@ -202,9 +192,6 @@ exports.acceptToken = function(req, res, next){
               if(user.authenticate(req.body.password)){
                   done(err, user)
                 }
-              else{
-                 // console.log(err)
-              }
             });
           }
       });
@@ -225,8 +212,6 @@ exports.acceptToken = function(req, res, next){
           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
       };
       transporter.sendMail(mailOptions, function(err) {
-        // req.flash('success', 'Success! Your password has been changed.');
-        // console.log(err)
          return res.status(200).send('Success! Your password has been changed.');
         done(err);
       });

@@ -57,7 +57,6 @@ angular.module('castifiApp')
               $scope.spinner = false;
             })
             .error(function(err){
-              console.log(err)
               $scope.errors.other = err
               $scope.spinner = false;
             })
