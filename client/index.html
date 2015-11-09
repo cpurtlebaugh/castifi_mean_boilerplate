@@ -81,17 +81,19 @@
     </script>
     <!-- end google analytics  -->
 
-    <!-- Hotjar Tracking Code for www.castifi.com -->
-      <script>
-         (function(h,o,t,j,a,r){
-             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-             h._hjSettings={hjid:93103,hjsv:5};
-             a=o.getElementsByTagName('head')[0];
-             r=o.createElement('script');r.async=1;
-             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-             a.appendChild(r);
-         })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-      </script>
+    <!-- script to default to browser datepicker -->
+    // <script>
+    //     if (!Modernizr.touch || !Modernizr.inputtypes.date) {
+    //         $('input[type=date]')
+    //             .attr('type', 'text')
+    //             .datepicker({
+    //                 // Consistent format with the HTML5 picker
+    //                 dateFormat: 'yyyy-MM-dd'
+    //             });
+    //     }
+    // </script>
+    <!-- end script to default to browser datepicker -->
+
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -112,6 +114,7 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
       <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->

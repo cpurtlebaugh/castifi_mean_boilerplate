@@ -8,10 +8,33 @@ angular.module('castifiApp')
        $scope.actor = $scope.user.actorId
        $scope.onlyNumbers = /^[0-9]+$/;
 
-       if($scope.actor !== undefined){
-           if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)}
-           if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)}
-       }
+       $scope.open = function($event) {
+       $event.preventDefault();
+       $event.stopPropagation();
+
+       $scope.opened = true;
+      };
+
+          if($scope.actor !== undefined){
+          if($scope.actor.info !== undefined){
+          //  $scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)
+          // $scope.actor.info.actingSince  = moment($scope.actor.info.actingSince).calendar("yyyy-MM-dd")
+          console.log($scope.actor.info.actingSince)
+
+           // $scope.actor.info.actingSince  = Date.parseExact("2010-11-29", "yyyy-MM-dd")
+         }
+          if($scope.actor.appearance !== undefined){
+           // $scope.actor.appearance.pregnantDueDate = moment($scope.actor.appearance.pregnantDueDate).calendar("yyyy-MM-dd")
+           // $scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)
+                      // $scope.actor.info.actingSince  = Date.parseExact("2010-11-29", "yyyy-MM-dd")
+          console.log($scope.actor.appearance)
+         }
+      }
+
+       // if($scope.actor !== undefined){
+       //     if($scope.actor.info !== undefined){$scope.actor.info.actingSince  = new Date($scope.actor.info.actingSince)}
+       //     if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)}
+       // }
 
          $scope.register = function register(form) {
           // console.log(form)
