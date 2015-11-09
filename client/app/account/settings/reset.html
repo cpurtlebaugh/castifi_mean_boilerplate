@@ -2,6 +2,7 @@
   <div class="row well signup-well text-center">
     <div class="col-sm-12 text-center">
       <h1>Reset Password</h1>
+      <p>Please enter your new password</p>
     </div>
 
 
@@ -11,7 +12,7 @@
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                             'has-error': form.password.$invalid && submitted }">
 
-          <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="Password"
+          <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="New Password"
                  ng-minlength="3"
                  required
                  mongoose-error
@@ -37,14 +38,25 @@
              ng-show="form.confirmPassword.$error.match && submitted">
             Passwords must match.
           </p>
+          <p class="help-block">
+            {{errors.other}}
+            {{successMessage}}
+          </p>
 
         </div>
 
 
 
         <div>
-          <button class="btn btn-signup btn-lg" type="submit" ng-class="{ 'btn-primary': form.$valid }">
-            Sign Up
+          <button class="btn btn-signup btn-lg" type="submit" 
+                  ng-disabled="spinner">
+                  <div ng-if="!spinner">
+                      Submit
+                  </div>
+            
+            <div ng-if="spinner">
+            <i class="fa fa-spinner fa-spin fa-lg"></i>
+          </div>
           </button>
         </div>
 

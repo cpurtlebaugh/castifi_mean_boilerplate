@@ -131,17 +131,18 @@ exports.resetPassword = function(req, res, next) {
     function(done) {
       crypto.randomBytes(20, function(err, buf) {
         var token = buf.toString('hex');
-        console.log(token)
+        // console.log(token)
         done(err, token);
       });
     },
     function(token, done) {
-      console.log(token)
-      console.log(req.body.email)
+      // console.log(token)
+      // console.log(req.body.email)
       User.findOne({ email: req.body.email }, function(err, user) {
         if (!user) {
           console.log(err)
-          return err;
+          console.log("no user error")
+          return res.status(404).send('This email is not registered.');
         }
 
         user.resetPasswordToken = token;
@@ -153,12 +154,11 @@ exports.resetPassword = function(req, res, next) {
       });
     },
     function(token, user, done) {
-      console.log(gmailPassword)
       var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
           user: 'hello@castifi.com',
-          pass: 'castifi123!'
+          pass: gmailPassword
         }
       });
       var mailOptions = {
@@ -171,20 +171,69 @@ exports.resetPassword = function(req, res, next) {
           'If you did not request this, please ignore this email and your password will remain unchanged.\n'
       };
       transporter.sendMail(mailOptions, function(err) {
-        console.log('An e-mail has been sent to ' + user.email + ' with further instructions.');
+        return res.status(200).send('An e-mail has been sent to ' + user.email + ' with further instructions.');
         done(err, 'done');
       });
     }
   ], function(err) {
     if (err) return next(err);
-    // res.redirect('/forgot');
-    console.log(err)
+    res.redirect('/forgot');
   });
 };
 
 exports.acceptToken = function(req, res, next){
-  console.log(req.body.password)
-  console.log(req.params.token)
+  // console.log(req.body.password)
+  // console.log(req.params.token)
+  async.waterfall([
+    function(done) {
+      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if (!user) {
+          // console.log("no user err")
+          // req.flash('error', 'Password reset token is invalid or has expired.');
+          // return res.redirect('back');
+          return res.status(404).send('Password reset token is invalid or has expired.');
+        }
+        else{
+          user.password = req.body.password;
+          user.resetPasswordToken = undefined;
+          user.resetPasswordExpires = undefined;
+
+            user.save(function(err) {
+              if(user.authenticate(req.body.password)){
+                  done(err, user)
+                }
+              else{
+                 // console.log(err)
+              }
+            });
+          }
+      });
+    },
+    function(user, done) {
+      var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'hello@castifi.com',
+          pass: gmailPassword
+        }
+      });
+      var mailOptions = {
+        to: user.email,
+        from: 'hello@castifi.com',
+        subject: 'Your password has been changed',
+        text: 'Hello,\n\n' +
+          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+      };
+      transporter.sendMail(mailOptions, function(err) {
+        // req.flash('success', 'Success! Your password has been changed.');
+        // console.log(err)
+         return res.status(200).send('Success! Your password has been changed.');
+        done(err);
+      });
+    }
+  ], function(err) {
+    res.redirect('/');
+  });
 };
 
 

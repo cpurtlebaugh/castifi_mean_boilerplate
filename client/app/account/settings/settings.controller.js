@@ -3,7 +3,7 @@
 angular.module('castifiApp')
   .controller('SettingsCtrl', function ($scope, User, Auth, $http, $stateParams, $state) {
     $scope.errors = {};
-    console.log($stateParams);
+    $scope.spinner = false;
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;
@@ -22,19 +22,27 @@ angular.module('castifiApp')
       }
 		};
 
+    //scope.submitted = false
+    //ng-if on (submitted)spinner vs. (!submitted)'submit'
+    //ng-disabled=submitted
+    //set default btn ng-disabled to false
+
     $scope.passwordReset = function(form){
         $scope.submitted = true;
         var data = {email: $scope.user.email};
         if(form.$valid){
+           $scope.spinner = true;
+          //start/reveal spinner//set ng-disabled to true
           $http.post("api/users/forgot", data)
-            .success(function(data){
-              console.log(data)
+            .success(function(data, status, headers, config){
+              //stop/hide spinner//set ng-disabled to false
+              console.log("smuggo")
+              $scope.successMessage = data;
+              $scope.spinner = false;
             })
             .error(function(err){
-              $scope.errors = 'That email does no seem to exist';
-              console.log($scope.errors)
-              return $scope.errors;
-
+              $scope.errors.other = err
+              $scope.spinner= false;
             })
 
         }
@@ -43,10 +51,19 @@ angular.module('castifiApp')
     $scope.newPasswordReset = function(form){
       $scope.submitted = true;
       var data = {password: $scope.user.password}
-      console.log(form)
-      console.log(form.$valid)
       if(form.$valid){
+        $scope.spinner = true;
         $http.post('/api/users/reset/' + $stateParams.token, data)
+            .success(function(data, status, headers, config){
+              console.log(data)
+              $scope.successMessage = data;
+              $scope.spinner = false;
+            })
+            .error(function(err){
+              console.log(err)
+              $scope.errors.other = err
+              $scope.spinner= false;
+            })
       }
       else {
         $scope.errors;
