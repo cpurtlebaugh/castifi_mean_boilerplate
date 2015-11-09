@@ -36,7 +36,6 @@ angular.module('castifiApp')
           $http.post("api/users/forgot", data)
             .success(function(data, status, headers, config){
               //stop/hide spinner//set ng-disabled to false
-              console.log("smuggo")
               $scope.successMessage = data;
               $scope.spinner = false;
             })
@@ -44,7 +43,6 @@ angular.module('castifiApp')
               $scope.errors.other = err
               $scope.spinner= false;
             })
-
         }
     }
 
@@ -55,18 +53,18 @@ angular.module('castifiApp')
         $scope.spinner = true;
         $http.post('/api/users/reset/' + $stateParams.token, data)
             .success(function(data, status, headers, config){
-              console.log(data)
               $scope.successMessage = data;
               $scope.spinner = false;
             })
             .error(function(err){
               console.log(err)
               $scope.errors.other = err
-              $scope.spinner= false;
+              $scope.spinner = false;
             })
       }
       else {
-        $scope.errors;
+        $scope.errors.other = 'Sorry, something went wrong, please try again';
+        $scope.spinner = false;
       }
     }
 });

@@ -21,7 +21,7 @@
              ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
             Password must be at least 3 characters.
           </p>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
+          <p class="text-danger" ng-show="form.password.$error.mongoose">
             {{ errors.password }}
           </p>
         </div>
@@ -30,16 +30,18 @@
                                             'has-error': form.confirmPassword.$invalid && submitted }">
 
           <input type="password" name="confirmPassword" class="form-control" ng-model="user.passwordConfirm"
-                 placeholder="Confirm Password"
+                 placeholder="Confirm New Password"
                  required
                  data-match="user.password"/>
-
-          <p class="help-block"
+           <br>      
+          <p class="text-danger"
              ng-show="form.confirmPassword.$error.match && submitted">
             Passwords must match.
           </p>
-          <p class="help-block">
+          <p class="text-danger">
             {{errors.other}}
+          </p>
+          <p class="text-success">
             {{successMessage}}
           </p>
 
