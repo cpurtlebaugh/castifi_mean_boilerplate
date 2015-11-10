@@ -257,9 +257,14 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="form-group">
-		          <label>Acting Since</label>
-		          <input type="date" name="dob" class="form-control" ng-model="actor.info.actingSince"/>
-		        </div>
+		      <label>Acting Since</label>
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="actor.info.actingSince" close-text="close" is-open="$parent.opened"/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+		    </div>
 			</div>
 		</div>
 	</div>
@@ -316,13 +321,13 @@
 		<div class="col-sm-6"> <br>
 			 <div class="form-group">
 	              <label>About Me</label>
-	              <textarea class="form-control" rows="3" ng-model="actor.info.aboutMe"></textarea>
+	              <textarea class="form-control capitalize-override" rows="3" ng-model="actor.info.aboutMe"></textarea>
         	</div>
 		</div>
 		<div class="col-sm-6"> <br>
 			<div class="form-group">
 	              <label>Favorite Movie Quote/Line</label>
-	              <textarea class="form-control" rows="3" ng-model="actor.info.movieQuote"></textarea>
+	              <textarea class="form-control capitalize-override" rows="3" ng-model="actor.info.movieQuote"></textarea>
         	</div>
 
 		</div>

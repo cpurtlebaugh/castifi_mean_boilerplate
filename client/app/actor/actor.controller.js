@@ -8,22 +8,12 @@ angular.module('castifiApp')
        $scope.actor = $scope.user.actorId
        $scope.onlyNumbers = /^[0-9]+$/;
 
-       if($scope.actor !== undefined){
-           if($scope.actor.info !== undefined){
-             var actingSince  = new Date($scope.actor.info.actingSince)
-              console.log(actingSince)
-              console.log(typeof(actingSince))
-              $scope.actor.info.actingSince  = moment(actingSince).format("yyyy-MM-dd")
-              console.log($scope.actor.info.actingSince)
-          }
-           if($scope.actor.appearance !== undefined){
-              var pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)
-              console.log(pregnantDueDate)
-              $scope.actor.appearance.pregnantDueDate  = moment(pregnantDueDate).format("yyyy-MM-dd")
-              console.log( $scope.actor.appearance.pregnantDueDate)
-              // console.log( typeof($scope.actor.appearance.pregnantDueDate))
-          }
-       }
+       $scope.open = function($event) {
+       $event.preventDefault();
+       $event.stopPropagation();
+
+       $scope.opened = true;
+      };
 
          $scope.register = function register(form) {
               console.log(form)

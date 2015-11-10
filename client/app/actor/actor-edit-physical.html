@@ -24,6 +24,7 @@
   <div class="col-sm-3">
     <div class="form-group">
       <label>Max Portrayable Age</label>
+
       <input type="number" min="12" max="120" class="form-control" ng-model="actor.appearance.portrayAgeMax"/>
     </div>
   </div>
@@ -31,6 +32,7 @@
   <div class="col-sm-2">
       <div class="form-group">
       <label>Height Feet</label>
+
       <input type="number" min="1" max="9" class="form-control" ng-model="actor.appearance.heightFeet"/>
     </div>
   </div>
@@ -38,6 +40,7 @@
   <div class="col-sm-2">
       <div class="form-group">
       <label>Height Inches</label>
+
        <input type="number" min="1" max="11"class="form-control" ng-model="actor.appearance.heightInches"/>
       </div>
   </div>
@@ -45,6 +48,7 @@
  <div class="col-sm-2">
    <div class="form-group">
      <label>Weight</label>
+
      <input type="number" min="1" max="600" class="form-control" ng-model="actor.appearance.weight"/>
   </div>
  </div>
@@ -132,7 +136,7 @@
  </div>
 
    <!-- end hair -->
-   
+
 <!-- end ethnic appearance and hair -->
 <br>
 <!-- facial hair, facial hair color, facial hair style -->
@@ -241,10 +245,15 @@
   </div>
 
   <div class="col-sm-6 col-md-6">
-    <div class="form-group" ng-if="actor.appearance.pregnant">
-      <label>Due Date</label>
-      <input class="form-control" type="date" ng-model="actor.appearance.pregnantDueDate">
-    </div>
+      <div class="form-group" ng-if="actor.appearance.pregnant">
+        <label>Due Date</label>
+              <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="actor.appearance.pregnantDueDate" close-text="close" is-open="$parent.opened"/>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+              </p>
+      </div>
   </div>
 </div>
 <!-- end are you pregnant, due date -->
