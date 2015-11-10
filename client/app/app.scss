@@ -101,6 +101,9 @@ input[type="file"] {
   .form-control {
       text-transform: capitalize;
   }
+  .capitalize-override {
+    text-transform: none;
+  }
 }
 
 input[type="checkbox"] {
