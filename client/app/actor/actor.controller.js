@@ -16,11 +16,15 @@ angular.module('castifiApp')
       };
 
          $scope.register = function register(form) {
-              console.log(form)
-               console.log(form.$valid)
+          console.log("form")
+          console.log(form)
+          console.log("form valid")
+          console.log(form.$valid)
                $scope.submitted = true;
                //this might be throwing off the form
                if(form.$valid){
+                   console.log("scope actor")
+                   console.log($scope.actor)
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,
                                 function success(data){

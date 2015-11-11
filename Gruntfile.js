@@ -440,7 +440,8 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'karma.conf.js',
-        singleRun: true
+        background: true,
+        singleRun: false
       }
     },
 
@@ -630,8 +631,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'injector',
         'autoprefixer',
-        // 'karma'
-        //
+        'karma'
       ]);
     }
 

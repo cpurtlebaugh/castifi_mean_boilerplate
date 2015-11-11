@@ -8,7 +8,8 @@ var user = new User({
   provider: 'local',
   name: 'Fake User',
   email: 'test@test.com',
-  password: 'password'
+  password: 'password',
+  // confirmPassword: 'password'
 });
 
 describe('User Model', function() {
@@ -49,6 +50,11 @@ describe('User Model', function() {
       done();
     });
   });
+
+  // it('should validated that password and confirm_password match', function(done){
+  //   //need to access confirm password
+  //   // user.password 
+  // });
 
   it("should authenticate user if password is valid", function() {
     return user.authenticate('password').should.be.true;
