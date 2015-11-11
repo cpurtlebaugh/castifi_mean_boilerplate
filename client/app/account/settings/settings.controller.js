@@ -22,10 +22,6 @@ angular.module('castifiApp')
       }
 		};
 
-    //scope.submitted = false
-    //ng-if on (submitted)spinner vs. (!submitted)'submit'
-    //ng-disabled=submitted
-    //set default btn ng-disabled to false
 
     $scope.passwordReset = function(form){
         $scope.submitted = true;

@@ -390,7 +390,7 @@ module.exports = function (grunt) {
         connectCommits: false,
         force: true, //makes sure every commit on build code branch matches commit on the main project branch
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
-        login: 'hello@castifi.com'
+        login: 'admin@castifi.com'
       },
       heroku: {
         options: {
