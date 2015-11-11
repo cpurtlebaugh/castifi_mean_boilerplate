@@ -55,26 +55,15 @@ exports.update = function(req, res) {
 //upload file
 exports.uploadFile = function(req, res) {
   var file = req.files.file;
-
- function uniqueString() {
-    var userEmail = req.user.email;
-    var userEmailLength = req.user.email.length;
-      var userStampTail = "dj9" + userEmail.charAt(userEmailLength - 1) + "_pE33"
-          + userEmail.charAt(userEmailLength - 2) + "30O_" + userEmail.charAt(userEmailLength - 3) + "bV";
-      var userStampHead = "z9r7" + userEmail.charAt(2) + "43" + userEmail.charAt(1)
-          + "_dE" + userEmail.charAt(0) + "pD2";
-    var userStamp = userStampTail + userStampHead
-    return userStamp;
-  }
+  var unique = req.body.unique
 
   fs.readFile(file.path, function (err, data) {
-
     if (err) throw err;
        AWS.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
        AWS.config.region = 'us-west-1';
        var s3 = new AWS.S3();
        var params = {
-           Key: uniqueString() + file.originalFilename,
+           Key: unique + file.originalFilename,
            Bucket: AWS_S3_BUCKET,
            Body: data,
            ContentType: file.type

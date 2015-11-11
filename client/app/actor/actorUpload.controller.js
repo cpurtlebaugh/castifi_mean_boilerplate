@@ -9,30 +9,26 @@ angular.module('castifiApp')
        $scope.errMsg = null;
        $scope.dynamic = 0;
 
-       $scope.uniqueString = function() {
-        var userEmail = $scope.user.email;
-        var userEmailLength = $scope.user.email.length;
-          var userStampTail = "dj9" + userEmail.charAt(userEmailLength - 1) + "_pE33"
-              + userEmail.charAt(userEmailLength - 2) + "30O_" + userEmail.charAt(userEmailLength - 3) + "bV";
-          var userStampHead = "z9r7" + userEmail.charAt(2) + "43" + userEmail.charAt(1)
-              + "_dE" + userEmail.charAt(0) + "pD2";
-        var userStamp = userStampTail + userStampHead
-        return userStamp;
-       }
+        $scope.uniqueString = function() {
+                var text     = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                for( var i=0; i < 8; i++ ) {
+                  text += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+                return text;
+        }
 
         $scope.removePhoto = function removePhoto(type){
                if (type === 'headShot'){
-                    // $scope.type = {headShot: null}
                     $scope.actor.headShot = null;
                     $scope.headShot = null;
                   }
                   else if (type === 'headToToe'){
-                    // $scope.type = {headToToe: null}
                     $scope.actor.headToToe = null;
                     $scope.headToToe = null;
                   }
                   else if (type === 'realLife'){
-                    // $scope.type = {realLife: null}
                     $scope.actor.realLife = null;
                     $scope.realLife = null;
                   }
@@ -49,21 +45,19 @@ angular.module('castifiApp')
 
 
           $scope.uploadFiles = function(file, errFiles, type) {
-                  console.log(file.name)
+                  var unique = $scope.uniqueString();
+
                   if(file){
                     if (type === 'headShot'){
-                      // $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
-                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
+                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
                        $scope.headShow = true;
                     }
                     else if (type === 'headToToe'){
-                      // $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString()  + file.name}
-                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
+                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
                          $scope.toeShow = true
                     }
                     else if (type === 'realLife'){
-                      // $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
-                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
+                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
                       $scope.realShow = true;
                     }
                   }
@@ -90,7 +84,7 @@ angular.module('castifiApp')
                   if (file) {
                       file.upload = Upload.upload({
                           url: 'api/actors/uploads',
-                          data: {file: file}
+                          data: {file: file, 'unique': unique}
                       });
 
                       file.upload.then(function (response) {
@@ -109,7 +103,6 @@ angular.module('castifiApp')
 
 
                   if(file){
-                    console.log($scope.actor)
                     Actor.update({id: $scope.actor._id },
                     $scope.actor,
                       function success(data){
