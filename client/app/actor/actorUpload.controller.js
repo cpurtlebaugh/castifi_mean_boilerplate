@@ -22,22 +22,22 @@ angular.module('castifiApp')
 
         $scope.removePhoto = function removePhoto(type){
                if (type === 'headShot'){
-                    $scope.type = {headShot: null}
+                    // $scope.type = {headShot: null}
                     $scope.actor.headShot = null;
                     $scope.headShot = null;
                   }
                   else if (type === 'headToToe'){
-                    $scope.type = {headToToe: null}
+                    // $scope.type = {headToToe: null}
                     $scope.actor.headToToe = null;
                     $scope.headToToe = null;
                   }
                   else if (type === 'realLife'){
-                    $scope.type = {realLife: null}
+                    // $scope.type = {realLife: null}
                     $scope.actor.realLife = null;
                     $scope.realLife = null;
                   }
 
-                  Actor.update({id: $scope.actor._id }, $scope.type,
+                  Actor.update({id: $scope.actor._id }, $scope.actor,
                           function success(data){
                             $state.go('actor.edit.photos',{reload:true})
                           }),
@@ -49,20 +49,20 @@ angular.module('castifiApp')
 
 
           $scope.uploadFiles = function(file, errFiles, type) {
-
+                  console.log(file.name)
                   if(file){
                     if (type === 'headShot'){
-                      $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
+                      // $scope.type = {headShot: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
                       $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                        $scope.headShow = true;
                     }
                     else if (type === 'headToToe'){
-                      $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString()  + file.name}
+                      // $scope.type = {headToToe: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString()  + file.name}
                       $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                          $scope.toeShow = true
                     }
                     else if (type === 'realLife'){
-                      $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
+                      // $scope.type = {realLife: "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name}
                       $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + $scope.uniqueString() + file.name
                       $scope.realShow = true;
                     }
@@ -109,8 +109,9 @@ angular.module('castifiApp')
 
 
                   if(file){
+                    console.log($scope.actor)
                     Actor.update({id: $scope.actor._id },
-                    $scope.type,
+                    $scope.actor,
                       function success(data){
                         // $state.go('actor.edit.photos',{reload:true})
                       }),
