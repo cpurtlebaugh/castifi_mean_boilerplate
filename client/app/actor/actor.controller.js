@@ -8,6 +8,13 @@ angular.module('castifiApp')
        $scope.actor = $scope.user.actorId
        $scope.onlyNumbers = /^[0-9]+$/;
 
+       //options ng-repeat
+       $scope.minAgeOptions = _.range(12, 61)
+       $scope.maxAgeOptions = _.range(18, 101)
+       $scope.heightFeetOptions = _.range(0, 8)
+       $scope.heightInchesOptions = _.range(0, 12)
+       $scope.weightOptions = _.range(60, 301)
+
        $scope.open = function($event) {
        $event.preventDefault();
        $event.stopPropagation();

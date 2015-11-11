@@ -151,6 +151,12 @@ h5.profile{
 	font-family: 'Montserrat Light', sans-serif;
 }
 
+.height-label{
+	text-align:right;
+	label{
+		margin-top:10px;
+	}
+}
 
 /* Media Breakpoints */
 
@@ -207,7 +213,15 @@ h5.profile{
 		img{
 			width:15px;
 		}
-}
+	}
+
+	.height-label{
+		text-align:left;
+		label{
+			margin-top:0px;
+		}
+	}
+	
 
 }
 
