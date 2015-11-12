@@ -31,7 +31,7 @@ angular.module('castifiApp')
         controller: 'ActorCtrl',
         resolve:{
           currentUser: function(currentUser){
-            return currentUser
+            return currentUser;
           }
         }
       })
@@ -53,7 +53,7 @@ angular.module('castifiApp')
         controller: 'ActorUploadCtrl',
         resolve:{
           currentUser: function(currentUser){
-            return currentUser
+            return currentUser;
           }
         }
       })

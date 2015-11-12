@@ -2,43 +2,35 @@
 
 angular.module('castifiApp')
   .controller('ActorCtrl', function ($scope, Auth, User, $state,
-    Actor, currentUser, $rootScope) {
+    Actor, currentUser) {
 
-       $scope.user = currentUser
-       $scope.actor = $scope.user.actorId
+       $scope.user = currentUser;
+       $scope.actor = $scope.user.actorId;
        $scope.onlyNumbers = /^[0-9]+$/;
-
-       //options ng-repeat
-       $scope.minAgeOptions = _.range(12, 61)
-       $scope.maxAgeOptions = _.range(18, 101)
-       $scope.heightFeetOptions = _.range(0, 8)
-       $scope.heightInchesOptions = _.range(0, 12)
-       $scope.weightOptions = _.range(60, 301)
+       $scope.minAgeOptions = _.range(12, 61);
+       $scope.maxAgeOptions = _.range(18, 101);
+       $scope.heightFeetOptions = _.range(0, 8);
+       $scope.heightInchesOptions = _.range(0, 12);
+       $scope.weightOptions = _.range(60, 301);
 
        $scope.open = function($event) {
-       $event.preventDefault();
-       $event.stopPropagation();
+           $event.preventDefault();
+           $event.stopPropagation();
 
-       $scope.opened = true;
+            $scope.opened = true;
       };
 
          $scope.register = function register(form) {
-          // console.log("form")
-          // console.log(form)
-          // console.log("form valid")
-          // console.log(form.$valid)
                $scope.submitted = true;
-               //this might be throwing off the form
+
                if(form.$valid){
-                   // console.log("scope actor")
-                   // console.log($scope.actor)
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,
-                                function success(data){
-                                   if($state.is('actor.edit.overview')){ $state.go('actor.edit.photos')};
-                                   if($state.is('actor.edit.photos')){ $state.go('actor.edit.physical')};
-                                   if($state.is('actor.edit.physical')){ $state.go('actor.edit.wardrobe')};
-                                   if($state.is('actor.edit.wardrobe')){ $state.go('profile')};
+                                function success(){
+                                   if($state.is('actor.edit.overview')){ $state.go('actor.edit.photos')}
+                                   if($state.is('actor.edit.photos')){ $state.go('actor.edit.physical')}
+                                   if($state.is('actor.edit.physical')){ $state.go('actor.edit.wardrobe')}
+                                   if($state.is('actor.edit.wardrobe')){ $state.go('profile')}
                               }),
                               function error(){
                                 $state.go('actor.edit.overview')

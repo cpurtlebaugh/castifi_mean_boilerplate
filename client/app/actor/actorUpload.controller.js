@@ -5,19 +5,19 @@ angular.module('castifiApp')
     Actor, Upload, $timeout, currentUser, $rootScope) {
 
        $scope.user = currentUser;
-       $scope.actor = $scope.user.actorId
+       $scope.actor = $scope.user.actorId;
        $scope.errMsg = null;
        $scope.dynamic = 0;
 
         $scope.uniqueString = function() {
-                var text     = "";
-                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var text     = '';
+                var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
                 for( var i=0; i < 8; i++ ) {
                   text += possible.charAt(Math.floor(Math.random() * possible.length));
                 }
                 return text;
-        }
+        };
 
         $scope.removePhoto = function removePhoto(type){
                if (type === 'headShot'){
@@ -35,12 +35,9 @@ angular.module('castifiApp')
 
                   Actor.update({id: $scope.actor._id }, $scope.actor,
                           function success(data){
-                            $state.go('actor.edit.photos',{reload:true})
-                          }),
-                          function error(){
-
-                          }
-          }
+                            $state.go('actor.edit.photos',{reload:true});
+                          });
+          };
 
 
 
@@ -49,15 +46,15 @@ angular.module('castifiApp')
 
                   if(file){
                     if (type === 'headShot'){
-                      $scope.actor.headShot = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
+                      $scope.actor.headShot = 'https://s3-us-west-1.amazonaws.com/actortest/' + unique + file.name;
                        $scope.headShow = true;
                     }
                     else if (type === 'headToToe'){
-                      $scope.actor.headToToe = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
-                         $scope.toeShow = true
+                      $scope.actor.headToToe = 'https://s3-us-west-1.amazonaws.com/actortest/' + unique + file.name;
+                         $scope.toeShow = true;
                     }
                     else if (type === 'realLife'){
-                      $scope.actor.realLife = "https://s3-us-west-1.amazonaws.com/actortest/" + unique + file.name
+                      $scope.actor.realLife = 'https://s3-us-west-1.amazonaws.com/actortest/' + unique + file.name;
                       $scope.realShow = true;
                     }
                   }
@@ -69,12 +66,12 @@ angular.module('castifiApp')
                       $scope.headShow = true;
                     }
                     else if (type === 'headToToe'){
-                      $scope.toeShow = true
+                      $scope.toeShow = true;
                     }
                     else if (type === 'realLife'){
                       $scope.realShow = true;
                     }
-                    $scope.errMsg = "Sorry, your file is over 2MB."
+                    $scope.errMsg = 'Sorry, your file is over 2MB.'
                   }
                   else{
 
@@ -92,25 +89,18 @@ angular.module('castifiApp')
                               file.result = response.data;
                           });
                       }, function (response) {
-                          if (response.status > 0)
+                          if (response.status > 0){
                               $scope.errorMsg = response.status + ': ' + response.data;
+                          }
                       }, function (evt) {
-                          file.progress = Math.min(100, parseInt(100.0 *
-                                                   evt.loaded / evt.total));
+                          file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                           $scope.dynamic = file.progress;
                       });
                   }
 
 
                   if(file){
-                    Actor.update({id: $scope.actor._id },
-                    $scope.actor,
-                      function success(data){
-                        // $state.go('actor.edit.photos',{reload:true})
-                      }),
-                      function error(){
-
-                      }
+                    Actor.update({id: $scope.actor._id }, $scope.actor)
                   }
               }
 

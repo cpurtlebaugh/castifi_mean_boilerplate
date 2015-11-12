@@ -2,10 +2,10 @@
 
 angular.module('castifiApp')
   .controller('ActorProfileCtrl', function ($scope, Auth, User, $state,
-    Actor, currentUser, $rootScope) {
+    Actor, currentUser) {
 
        $scope.user = currentUser;
-       $scope.actor = $scope.user.actorId
+       $scope.actor = $scope.user.actorId;
 
        if($scope.actor !== undefined){
            if($scope.actor.dob !== undefined){$scope.actor.dob = new Date($scope.actor.dob)}

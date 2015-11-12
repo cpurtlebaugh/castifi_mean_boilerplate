@@ -80,6 +80,13 @@ module.exports = function (grunt) {
         ],
         tasks: ['newer:jshint:all', 'karma']
       },
+       karma: {
+        files: [
+          '<%= yeoman.client %>/{app,components}/**/*.spec.js',
+          '<%= yeoman.client %>/{app,components}/**/*.mock.js'
+        ],
+        tasks: ['env:test', 'karma']
+      },
       injectSass: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'],
@@ -124,7 +131,8 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '<%= yeoman.client %>/.jshintrc',
-        reporter: require('jshint-stylish')
+        reporter: require('jshint-stylish'),
+        node: true
       },
       server: {
         options: {
@@ -144,7 +152,8 @@ module.exports = function (grunt) {
       all: [
         '<%= yeoman.client %>/{app,components}/**/*.js',
         '!<%= yeoman.client %>/{app,components}/**/*.spec.js',
-        '!<%= yeoman.client %>/{app,components}/**/*.mock.js'
+        '!<%= yeoman.client %>/{app,components}/**/*.mock.js',
+        'Gruntfile.js'
       ],
       test: {
         src: [
@@ -195,7 +204,7 @@ module.exports = function (grunt) {
       }
     },
 
-    // Use nodemon to run server in debug mode with an initial breakpoint
+    // Use nodemon to run server in debug mode with an initial breakpoint//
     nodemon: {
       debug: {
         script: 'server/app.js',
@@ -440,14 +449,15 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'karma.conf.js',
-        background: true,
-        singleRun: false
+        // background: true,
+        singleRun: true
       }
     },
 
     mochaTest: {
       options: {
-        reporter: 'spec'
+        reporter: 'spec',
+        clearRequireCache: true
       },
       src: ['server/**/*.spec.js']
     },
@@ -652,7 +662,8 @@ module.exports = function (grunt) {
 
     else grunt.task.run([
       'test:server',
-      'test:client'
+      'test:client',
+      'watch'
     ]);
   });
 

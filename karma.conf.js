@@ -22,6 +22,8 @@ module.exports = function(config) {
       'client/bower_components/angular-socket-io/socket.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/ng-file-upload/ng-file-upload.js',
+      'client/bower_components/ng-img-crop/compile/minified/ng-img-crop.js',
+      'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/components/**/*.js',
@@ -55,7 +57,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true, //false
 
 
     // Start these browsers, currently available:

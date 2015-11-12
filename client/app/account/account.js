@@ -42,5 +42,5 @@ angular.module('castifiApp')
         authenticate: true,
       });
 
-      // $urlRouterProvider.otherwise('/welcome');
+      $urlRouterProvider.otherwise('/');
   });

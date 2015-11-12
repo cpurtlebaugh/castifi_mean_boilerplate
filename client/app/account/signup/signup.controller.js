@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window, $http) {
+  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -14,7 +14,7 @@ angular.module('castifiApp')
           email: $scope.user.email,
           password: $scope.user.password
         })
-        .then( function(data) {
+        .then( function() {
           // Account created, redirect to home
           $location.path('/welcome');
         })

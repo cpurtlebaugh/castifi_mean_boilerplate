@@ -33,37 +33,37 @@ angular.module('castifiApp')
         if(form.$valid){
            $scope.spinner = true;
           //start/reveal spinner//set ng-disabled to true
-          $http.post("api/users/forgot", data)
-            .success(function(data, status, headers, config){
+          $http.post('api/users/forgot', data)
+            .success(function(data){
               //stop/hide spinner//set ng-disabled to false
               $scope.successMessage = data;
               $scope.spinner = false;
             })
             .error(function(err){
-              $scope.errors.other = err
+              $scope.errors.other = err;
               $scope.spinner= false;
-            })
+            });
         }
-    }
+    };
 
     $scope.newPasswordReset = function(form){
       $scope.submitted = true;
-      var data = {password: $scope.user.password}
+      var data = {password: $scope.user.password};
       if(form.$valid){
         $scope.spinner = true;
         $http.post('/api/users/reset/' + $stateParams.token, data)
-            .success(function(data, status, headers, config){
+            .success(function(data){
               $scope.successMessage = data;
               $scope.spinner = false;
             })
             .error(function(err){
-              $scope.errors.other = err
+              $scope.errors.other = err;
               $scope.spinner = false;
-            })
+            });
       }
       else {
         $scope.errors.other = 'Sorry, something went wrong, please try again';
         $scope.spinner = false;
       }
-    }
+    };
 });
