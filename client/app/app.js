@@ -48,7 +48,7 @@ angular.module('castifiApp', [
   .run(function ($rootScope, $location, Auth, $state) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
-
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
           event.preventDefault();
