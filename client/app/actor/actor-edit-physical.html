@@ -12,94 +12,74 @@
   <br>
 <!-- start form -->
  <form class="form" name="form" ng-submit="register(form)" novalidate>
+
 <!--  age portrayal, height, weight -->
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-sm-2 col-md-2">
     <div class="form-group">
-       <label>Min Portrayable Age</label>
-<!--        <input type="number" class="form-control" ng-model="actor.appearance.portrayAgeMin"/> -->
+
         <div class="form-group">
-        <!--   <select class="form-control" ng-model="actor.appearance.portrayAgeMin">
-            <option ng-repeat="option in minAgeOptions" value="{{option}}">{{option}}</option>
-          </select> -->
-          <select class="form-control" 
+        <label style="white-space: nowrap">Portrayable Age</label>
+          <select class="form-control"
               ng-model="actor.appearance.portrayAgeMin"
               ng-options="obj as obj for obj in minAgeOptions"
-              placeholder="-- Please Select --"
               >
-
+            <option value="" disabled selected>Min</option>
           </select>
         </div>
     </div>
   </div>
 
-
-
-  <div class="col-sm-3">
+  <div class="col-sm-2 col-md-2">
     <div class="form-group">
-      <label>Max Portrayable Age</label>
-   <!--    <input type="number" class="form-control" ng-model="actor.appearance.portrayAgeMax"/> -->
+      <label style="visibility: hidden">.</label>
         <div class="form-group">
-          <select class="form-control" ng-model="actor.appearance.portrayAgeMax">
-            <option ng-repeat="option in maxAgeOptions" value="{{option}}">{{option}}</option>
+
+          <select class="form-control"
+          ng-model="actor.appearance.portrayAgeMax"
+          ng-options="obj as obj for obj in maxAgeOptions">
+            <option value="" disabled selected>Max</option>
           </select>
         </div>
     </div>
   </div>
 
-  <div class="col-sm-2">
-   <div class="form-group">
-     <label>Weight (lbs.)</label>
-    <!--  <input type="number" class="form-control" ng-model="actor.appearance.weight"/> -->
-      <div class="form-group">
-       <!--    <select class="form-control" ng-model="actor.appearance.weight">
-            <option ng-repeat="option in weightOptions" value="{{option}}">{{option}}</option>
-          </select> -->
-             <select placeholder="-- Please Select --"
-              class="form-control" 
-              ng-model="actor.appearance.weight"
-              ng-options="obj as obj for obj in minAgeOptions"
-              >
-              <option></option>
-          </select>
-        </div>
-  </div>
- </div>
-
-  <div class="col-sm-1 height-label">
-      <br>
-      <label>Height:</label>
-  </div>
-
-  <div class="col-sm-1">
-      <div class="form-group">
-      <label>Feet</label>
-      <!-- <input type="number" class="form-control" ng-model="actor.appearance.heightFeet"/> -->
-       <div class="form-group">
-          <select class="form-control" ng-model="actor.appearance.heightFeet">
-            <option ng-repeat="option in heightFeetOptions" value="{{option}}">{{option}}</option>
-          </select>
+    <div class="col-sm-4 col-md-4">
+     <div class="form-group">
+       <label>Weight (lbs.)</label>
+        <div class="form-group">
+            <select class="form-control"
+                ng-model="actor.appearance.weight"
+                ng-options="obj as obj for obj in weightOptions"
+                >
+                <option value="" disabled selected>Weight</option>
+            </select>
         </div>
     </div>
   </div>
 
-  <div class="col-sm-1">
-      <div class="form-group">
-      <label>Inches</label>
-      <!--  <input type="number" class="form-control" ng-model="actor.appearance.heightInches"/> -->
-       <div class="form-group">
-          <select class="form-control" ng-model="actor.appearance.heightInches">
-            <option ng-repeat="option in heightInchesOptions" value="{{option}}">{{option}}</option>
-          </select>
-        </div>
-      </div>
-  </div>
+    <div class="form-group col-sm-2 col-md-2">
+      <label>Height</label>
+        <select class="form-control"
+        ng-model="actor.appearance.heightFeet"
+        ng-options="obj as obj for obj in heightFeetOptions">
+          <option value="" disabled selected>Feet</option>
+        </select>
+    </div>
 
-
+    <div class="form-group col-sm-2 col-md-2">
+      <label style="visibility: hidden">.</label>
+        <select class="form-control"
+        ng-model="actor.appearance.heightInches"
+        ng-options="obj as obj for obj in heightInchesOptions">
+          <option value="" disabled selected>Inches</option>
+        </select>
+    </div>
 </div>
+
 <!--  end age portrayal, height, weight -->
 
-<!-- body type, complexion, eye color -->
+<!-- body type, complexion -->
 <div class="row">
 
   <div class="col-sm-4">
@@ -143,8 +123,8 @@
         </select>
     </div>
   </div>
- </div>
-<!-- end body type, complexion, eye color -->
+</div>
+<!-- end body type, complexion -->
 
 <!-- ethnic appearance and hair -->
 <div class="row">

@@ -1,17 +1,17 @@
 <div class="container actor-container">
-  <div class="actor-well">	
+  <div class="actor-well">
 	<!-- name and quote -->
 	<div class="row">
 		<div class="col-sm-2">
 			<a ui-sref="actor.edit.overview" class="edit-profile">
 				<h6><img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/edit.svg"> edit</h6>
 			</a>
-		</div>	
+		</div>
 		<div class="col-sm-8 text-center">
 			<h2>{{actor.legalFirstName | capitalize }} {{actor.legalLastName | capitalize}}</h2>
 			<h4><small>{{actor.info.movieQuote}}</small></h4>
 		</div>
-		<div class="col-sm-2"></div>	
+		<div class="col-sm-2"></div>
 	</div>
 	<!-- end name and quote -->
 	<br>
@@ -39,7 +39,7 @@
 		<!-- left, basic physical gender, age range, height and weight verified, sag and how long background -->
 		<div class="col-sm-6">
 			<div class="row">
-				<div class="col-sm-4 col-sm-offset-2">
+				<div class="col-sm-4">
 					<h6>Gender: {{actor.gender | capitalize}}</h6>
 					<h6>Age Range: {{actor.appearance.portrayAgeMin}} to {{actor.appearance.portrayAgeMax}}</h6>
 					<h6>Height: {{actor.appearance.heightFeet}}' {{actor.appearance.heightInches}}"</h6>
@@ -47,15 +47,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- end left -->
-		<!-- right, bio and professions -->
-		<div class="col-sm-6">
-			<h5 class="profile">About Me:</h5>
-			<h5 class="profile">{{actor.info.aboutMe}}</h5>
-	<!-- 		<h6>Professions:</h6>
-			<h6>{{actor.info.aboutMe}}</h6> -->
-		</div>
-		<!-- end right -->
 	</div>
 	<!-- end bottom info -->
 	<div class="row">
