@@ -25,7 +25,7 @@ describe('GET /api/actors', function() {
       }, function() {
           console.log('finished populating users');
           server.post('/auth/local')
-            .send({email:'test@admin.com', password:'admin'})
+            .send({email:'admin@admin.com', password:'admin'})
             .expect(302)
             .end(function(err, res){
               console.error('ERROR ' + JSON.stringify(err));
