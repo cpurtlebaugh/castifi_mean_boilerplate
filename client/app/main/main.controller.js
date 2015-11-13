@@ -7,4 +7,6 @@ angular.module('castifiApp')
       $anchorScroll();
       $location.hash(null);
    }
+
+   $scope.title = 'hellow guys';
  });

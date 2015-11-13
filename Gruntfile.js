@@ -4,7 +4,7 @@
 module.exports = function (grunt) {
   var localConfig;
   try {
-    localConfig = require('./server/config/local.env')
+    localConfig = require('./server/config/local.env');
   } catch(e) {
     localConfig = {};
   }
@@ -104,9 +104,9 @@ module.exports = function (grunt) {
         files: [
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
-          
+
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-          
+
           '!{.tmp,<%= yeoman.client %>}{app,components}/**/*.spec.js',
           '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
           '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -132,7 +132,8 @@ module.exports = function (grunt) {
       options: {
         jshintrc: '<%= yeoman.client %>/.jshintrc',
         reporter: require('jshint-stylish'),
-        node: true
+        node: true,
+        force: true
       },
       server: {
         options: {
@@ -151,8 +152,8 @@ module.exports = function (grunt) {
       },
       all: [
         '<%= yeoman.client %>/{app,components}/**/*.js',
-        '!<%= yeoman.client %>/{app,components}/**/*.spec.js',
-        '!<%= yeoman.client %>/{app,components}/**/*.mock.js',
+        '<%= yeoman.client %>/{app,components}/**/*.spec.js',
+        '<%= yeoman.client %>/{app,components}/**/*.mock.js',
         'Gruntfile.js'
       ],
       test: {
@@ -390,7 +391,7 @@ module.exports = function (grunt) {
       }
     },
 
-  
+
     buildcontrol: {
       options: {
         dir: 'dist', //send to dist folder
@@ -403,13 +404,13 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to 'heroku' 
+          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to 'heroku'
           branch: 'master', //branch to commit to
         }
       },
       herokuProd: {
         options: {
-          remote: 'git@heroku.com:castifi-app.git', //remote to push to 'heroku' 
+          remote: 'git@heroku.com:castifi-app.git', //remote to push to 'heroku'
           branch: 'master', //branch to commit to
         }
       },
@@ -447,7 +448,7 @@ module.exports = function (grunt) {
 
     // Test settings
     karma: {
-      unit: {
+      test: {
         configFile: 'karma.conf.js',
         // background: true,
         singleRun: true
@@ -520,12 +521,12 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.client %>/index.html': [
                [
-                 
+
                  '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-                 
-                 '!{.tmp,<%= yeoman.client %>}/app/app.js',               
+
+                 '!{.tmp,<%= yeoman.client %>}/app/app.js',
                  '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
-                 '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'               
+                 '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'
                ]
             ]
         }
@@ -595,7 +596,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:server',
         'injector',
         'wiredep',
@@ -607,7 +608,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'env:all',
-      'injector:sass', 
+      'injector:sass',
       'concurrent:server',
       'injector',
       'wiredep',
@@ -637,7 +638,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'autoprefixer',
@@ -650,7 +651,7 @@ module.exports = function (grunt) {
         'clean:server',
         'env:all',
         'env:test',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'wiredep',
@@ -669,7 +670,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'injector:sass', 
+    'injector:sass',
     'concurrent:dist',
     'injector',
     'wiredep',

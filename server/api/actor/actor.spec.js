@@ -64,7 +64,7 @@ describe('GET /api/actors', function() {
 // //     it('login', loginUser());
 // //     it('uri that requires user to be logged in', function(done){
 // //     server
-// //         .get('/api/getDir')                       
+// //         .get('/api/getDir')
 // //         .expect(200)
 // //         .end(function(err, res){
 // //             if (err) return done(err);
