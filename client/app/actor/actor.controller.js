@@ -12,6 +12,7 @@ angular.module('castifiApp')
        $scope.heightFeetOptions = _.range(0, 8);
        $scope.heightInchesOptions = _.range(0, 12);
        $scope.weightOptions = _.range(60, 301);
+       $scope.title = 'hellow guys';
 
        $scope.open = function($event) {
            $event.preventDefault();

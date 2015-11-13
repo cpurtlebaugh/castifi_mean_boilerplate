@@ -3,6 +3,14 @@
 
 module.exports = function(config) {
   config.set({
+
+    reporters: ['progress', 'notify'],
+
+   // Optional Settings
+    notifyReporter: {
+     reportEachFailure: true, // Default: false, Will notify on every failed sepc
+     reportSuccess: false, // Default: true, Will notify when a suite was successful
+   },
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
@@ -43,7 +51,7 @@ module.exports = function(config) {
       stripPrefix: 'client/'
     },
 
-    
+
 
     // list of files / patterns to exclude
     exclude: [],
