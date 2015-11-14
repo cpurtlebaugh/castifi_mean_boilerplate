@@ -35,7 +35,7 @@ var mockUsersSvc = {}
     ActorCtrl = $controller('ActorCtrl', {
       User: mockUsersSvc,
       $scope: scope,
-      // $User: User,
+      $User: User,
       Actor: Actor,
       currentUser: mockUsersSvc
     });
@@ -43,7 +43,17 @@ var mockUsersSvc = {}
 
   it('should ...', function () {
     expect(scope.title).toEqual('hellow guys');
-    console.log(currentUser)
-    console.log('herro')
   });
+
+  it('should return one user', function () {
+    scope.$digest();
+
+    expect(scope.email).to.have.length(1);
+  });
+
+  // it('should ...', function () {
+  //   expect(currentUser).toEqual({});
+  //   console.log(currentUser)
+  //   console.log('herro')
+  // });
 });

@@ -8,7 +8,7 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 var UserSchema = new Schema({
   email: {type: String, lowercase: true, required: true,
            unique: true, match: /.+\@.+\..+/},
-  active: Boolean,
+  active: {type: Boolean, default: true},
   actorId: {type: mongoose.Schema.Types.ObjectId,
                ref: 'Actor'
               },

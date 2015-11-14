@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('AdminCtrl', function ($scope, $http, Auth, User, currentUsers) {
+  .controller('AdminCtrl', function ($scope, $http, Auth, User, currentUsers, Actor) {
 
     // Use the User $resource to fetch all users
     $scope.users = User.query();
+    $scope.actors = Actor.query();
     // console.log(typeof($scope.users))
     // console.log(currentUsers)
     // console.log(currentUsers.length)
