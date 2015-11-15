@@ -29,7 +29,7 @@ describe('GET /api/actors', function() {
             .expect(302)
             .end(function(err, res){
               console.error('ERROR ' + JSON.stringify(err));
-              console.log('BODY ' + JSON.stringify(res.body));
+              // console.log('BODY ' + JSON.stringify(res.body));
               token = res.body.token;
               done();
             })
