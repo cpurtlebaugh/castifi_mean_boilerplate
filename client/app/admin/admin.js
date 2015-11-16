@@ -32,11 +32,15 @@ angular.module('castifiApp')
         url: '/:id',
         templateUrl: 'app/admin/admin-actor/admin-actors-detail.html',
         controller: 'AdminActorsDetailCtrl'
-    })
+      })
       .state('admin.actors.edit', {
         url: '/:id/edit',
-        templateUrl: 'app/actor/actor-edit-overview.html',
+        templateUrl: 'app/admin/admin-actor/admin-actors-edit.html',
         controller: 'AdminActorsEditCtrl'
-    })
-
+      })
+       .state('admin.actors.photos', {
+        url: '/:id/photos',
+        templateUrl: 'app/admin/admin-actor/admin-actors-photos.html',
+        controller: 'AdminActorsPhotosCtrl'
+      })
   });
