@@ -6,27 +6,17 @@ angular.module('castifiApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl',
-         resolve:{
-          currentUsers: function(User){
-            return User.query().$promise;
-          }
-        }
+        controller: 'AdminCtrl'
       })
-       .state('admin.dashboard', {
-      url: '/dashboard',
-      templateUrl: 'app/admin/admin-dashboard.html',
-      controller: 'AdminCtrl'
+      .state('admin.dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/admin/admin-dashboard.html',
+        controller: 'AdminCtrl'
       })
       .state('admin.users', {
         url: '/users',
         templateUrl: 'app/admin/admin-users.html',
-        controller: 'AdminCtrl',
-         resolve:{
-          currentUser: function(currentUsers){
-            return currentUsers;
-          }
-        }
+        controller: 'AdminCtrl'
       })
       .state('admin.actors', {
         url: '/actors',
@@ -44,20 +34,9 @@ angular.module('castifiApp')
         controller: 'AdminActorsDetailCtrl'
     })
       .state('admin.actors.edit', {
-        url: '/edit',
-        abstract: true,
-        template: '<ui-view></>',
-        controller: 'AdminActorsDetailCtrl'
-      })
-      .state('admin.actors.edit.detail', {
-        url: '/:id',
+        url: '/:id/edit',
         templateUrl: 'app/actor/actor-edit-overview.html',
-        controller: 'AdminActorsDetailCtrl'
-        // resolve:{
-        //   currentActor: function(Actor, $stateParams){
-        //     return Actor.get({id: $stateParams.id});
-        //   }
-        // }
+        controller: 'AdminActorsEditCtrl'
     })
 
   });

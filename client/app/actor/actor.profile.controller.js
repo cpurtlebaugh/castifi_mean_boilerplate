@@ -13,4 +13,10 @@ angular.module('castifiApp')
            if($scope.actor.appearance !== undefined){$scope.actor.appearance.pregnantDueDate = new Date($scope.actor.appearance.pregnantDueDate)}
        }
 
+      // console.log($scope.actor)
+      // angular.forEach($scope.actor, function(value, key){
+      //   console.log(value)
+      //   console.log(value.keys().length)
+      // })
+
   });

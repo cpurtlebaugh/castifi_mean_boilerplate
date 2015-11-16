@@ -8,14 +8,14 @@ angular.module('castifiApp')
                   method: 'PUT'
               },
 
-              get: {
-                  isArray: true,
-                  method: 'GET'
-              },
+             //  get: {
+             //      isArray: true,
+             //      method: 'GET'
+             //  },
 
-             query: {
-                  isArray: true,
-                  method: 'GET'
-             }
+             // query: {
+             //      isArray: true,
+             //      method: 'GET'
+             // }
    });
 });
