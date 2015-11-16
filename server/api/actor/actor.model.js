@@ -15,6 +15,7 @@ var ActorSchema = new Schema({
   dob: Date,
   overEighteen: Boolean,
   email: String,
+  active: {type: Boolean, default: true},
   contact: {
             cellNum: {type: String,
               validate: {

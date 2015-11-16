@@ -27,12 +27,19 @@
          <span><a class="col-sm-2" ui-sref="admin.actors.detail({id: actor._id})">
             <button class="btn btn-info">Details</button>
           </a> </span>
-        <!-- delete button  -->
+
         <span class="pull-right col-sm-2">
+          <a ng-click="deactive(actor)" class="trash">
+            <button ng-show="actor.active" class="btn btn-danger">De-activate</button>
+            <button ng-show="!actor.active" class="btn btn-primary">Activate</button>
+          </a>
+        </span>
+        <!-- delete button  -->
+<!--         <span class="pull-right col-sm-2">
           <a ng-click="delete(actor)" class="trash">
             <button class="btn btn-danger">Eternal Delete <span class="glyphicon glyphicon-trash"></span></button>
           </a>
-        </span>
+        </span> -->
         <!-- end delete button  -->
     </li>
   </ul>
