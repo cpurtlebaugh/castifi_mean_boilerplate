@@ -10,9 +10,9 @@ angular.module('castifiApp')
       if(form.$valid) {
         Auth.login({
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
         })
-        .then( function() {
+        .then( function(data) {
           // Logged in, redirect to home
           $location.path('/profile');
         })

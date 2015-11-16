@@ -6,7 +6,7 @@ angular.module('castifiApp')
     if($cookieStore.get('token')) {
       currentUser = User.get();
     }
- 
+
     return {
 
       /**
@@ -22,7 +22,7 @@ angular.module('castifiApp')
 
         $http.post('/auth/local', {
           email: user.email,
-          password: user.password
+          password: user.password,
         }).
         success(function(data) {
           $cookieStore.put('token', data.token);
