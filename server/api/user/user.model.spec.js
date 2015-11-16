@@ -51,6 +51,14 @@ describe('User Model', function() {
     });
   });
 
+  it('should fail when saving an invalid email format', function(done) {
+    user.email = 'fred';
+    user.save(function(err) {
+      should.exist(err);
+      done();
+    });
+  });
+
   // it('should validated that password and confirm_password match', function(done){
   //   //need to access confirm password
   //   // user.password 

@@ -78,7 +78,7 @@ module.exports = function (grunt) {
           '<%= yeoman.client %>/{app,components}/**/*.spec.js',
           '<%= yeoman.client %>/{app,components}/**/*.mock.js'
         ],
-        tasks: ['newer:jshint:all', 'karma']
+        tasks: ['newer:jshint:test', 'karma']
       },
        karma: {
         files: [
@@ -111,6 +111,7 @@ module.exports = function (grunt) {
           '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
           '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
+        tasks: ['jshint:all'],
         options: {
           livereload: true
         }
@@ -436,7 +437,7 @@ module.exports = function (grunt) {
           'node-inspector'
         ],
         options: {
-          logConcurrentOutput: false //true
+          logConcurrentOutput: true //false
         }
       },
       dist: [

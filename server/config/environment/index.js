@@ -57,8 +57,8 @@ var all = {
   },
 
   amazon: {
-  accessKey:  process.env.AMZ_ACCESS_KEY_ID || 'id',
-  accessSecret: process.env.AMZ_ACCESS_SECRET_KEY || 'secret'
+    accessKey:  process.env.AMZ_ACCESS_KEY_ID || 'id',
+    accessSecret: process.env.AMZ_ACCESS_SECRET_KEY || 'secret'
   },
 
 };

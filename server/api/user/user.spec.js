@@ -3,12 +3,11 @@
 var should = require('should');
 var app = require('../../app');
 var request = require('supertest');
-var User = require('../user/user.model');
-var Actor = require('./actor.model');
+var User = require('./user.model');
 var server = request.agent('http://localhost:9000');
 var token = null;
 
-describe('GET /api/actors', function() {
+describe('GET /api/users', function() {
 
   before(function(done){
     User.find({}).remove(function() {
@@ -19,7 +18,7 @@ describe('GET /api/actors', function() {
       }, function() {
           server.post('/auth/local')
             .send({email:'test@test.com', password:'test'})
-            .expect(302)
+            .expect(200)
             .end(function(err, res){
               token = res.body.token;
               done();
@@ -29,28 +28,38 @@ describe('GET /api/actors', function() {
       });
     });
 
-
   afterEach(function(done) {
     User.remove().exec().then(function() {
       done();
     });
   });
 
-  it('should respond with JSON array for authenticated user', function(done) {
-    server.get('/api/actors')
+  describe('GET /api/users/me', function() {
+  
+    // it('should respond with JSON object for authenticated current user', function(done) {
+    //   server.get('/api/users/me')
+    //     .set('Authorization', 'Bearer '  + token)
+    //     .expect(200)
+    //     .expect('Content-Type', /json/)
+    //     .end(function(err, res) {
+    //       if (err) return done(err);
+    //       res.body.should.be.instanceof(Object);
+    //       done();
+    //     });
+    // });
+  
+    it('returns the email of the current user', function(done) {
+      server.get('/api/users/me')
       .set('Authorization', 'Bearer '  + token)
       .expect(200)
       .expect('Content-Type', /json/)
-      .end(function(err, res) {
-        if (err) return done(err);
-        res.body.should.be.instanceof(Array);
-        done();
-      });
+      .expect(function(res) {
+        res.body.email.should.equal('test@test.com')
+      })
+      .end(done)
+    })
+
   });
+
+
 });
-
-
-
-
-
-
