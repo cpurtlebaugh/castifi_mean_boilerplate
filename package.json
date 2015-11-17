@@ -11,7 +11,6 @@
     "connect-mongo": "^0.8.1",
     "connect-multiparty": "^2.0.0",
     "cookie-parser": "~1.0.1",
-    "countryjs": "^1.4.5",
     "ejs": "~0.8.4",
     "errorhandler": "~1.0.0",
     "express": "~4.9.0",
