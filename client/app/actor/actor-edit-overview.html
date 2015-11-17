@@ -1,4 +1,4 @@
-	<div class="row">
+  <div class="row">
 		<div class="col-sm-2">
 			<br>
 			<img class="header-icon" src="assets/images/actor/document.svg" >
@@ -105,9 +105,31 @@
 		<div class="col-sm-4"></div>
 	</div>
 	<!-- end phone number -->
-	<!-- address apt num -->
-	<div class="row">
-		<div class="col-sm-9">
+
+  <!-- google address  -->
+    <div class="row">
+      <div class="col-sm-9">
+          <div class="form-group">
+            <label>Please fill out your current address</label>
+              <input type="text" name="city" class="form-control" ng-autocomplete ng-model="actor.contact.fullAddress" options="options" details="details"/> {{actor.contact.fullAddress}}, {{details.formatted_address}}
+         </div>
+      </div>
+
+      <div class="col-sm-3">
+         <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
+                                                    'has-error': form.apartment.$invalid && submitted }">
+                  <label>Apartment</label>
+                  <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
+                </
+        </div>
+      </div>
+    </div>
+
+  <!-- google address end -->
+
+<!-- address apt num -->
+<!-- <div class="row"> -->
+<!-- 		<div class="col-sm-9">
 
               <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
                                                   'has-error': form.address.$invalid && submitted }">
@@ -119,24 +141,27 @@
                 </p>
               </div>
 
-		</div>
-		<div class="col-sm-3">
+		</div> -->
+<!-- 		<div class="col-sm-3">
 			 <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
                                                   'has-error': form.apartment.$invalid && submitted }">
                 <label>Apartment</label>
                 <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
               </div>
 		</div>
-	</div>
+	</div> -->
 	<!-- end address apt num -->
 	<!-- city state zip country -->
-	<div class="row">
+<!-- 	<div class="row">
 		<div class="col-sm-4">
+
 			  <div class="form-group" ng-class="{ 'has-success': form.city.$valid && submitted,
                                              'has-error': form.city.$invalid && submitted }">
+
 		          <label>City <span class="glyphicon glyphicon-asterisk text-danger"></span></label>
+
 		          <input type="text" name="city" class="form-control" ng-model="actor.contact.city"
-		                 required/>
+		                 />
 		          <p class="help-block" ng-show="form.city.$error.required && submitted">
 		            A city is required
 		          </p>
@@ -177,11 +202,12 @@
         </div>
 
 		</div>
-	</div>
+	</div> -->
 	<!-- end city state zip country -->
 	<!-- union or non union -->
 	<div class="row">
 		<div class="col-sm-6">
+
 			<label>Non-Union or Union</label>
         	<br>
 	        <div class="btn-group">
@@ -189,6 +215,7 @@
 	          <label class="btn btn-primary" ng-model="actor.info.union" btn-radio="true">SAG-AFTRA</label>
 	        </div>
 		</div>
+
 		<div class="col-sm-6">
       <label>Are you SAG eligible?</label>
           <br>

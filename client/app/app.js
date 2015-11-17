@@ -9,7 +9,8 @@ angular.module('castifiApp', [
   'ui.bootstrap',
   'ngFileUpload',
   'ngImgCrop',
-  'validation.match'
+  'validation.match',
+  'ngAutocomplete'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
