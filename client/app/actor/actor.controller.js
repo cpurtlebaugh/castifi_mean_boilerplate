@@ -27,17 +27,14 @@ angular.module('castifiApp')
             var fullAddress   = valueNew.formatted_address;
             var addressArray  = fullAddress.split(',');
             var stateAndZip   = addressArray[addressArray.length - 2].split(' ');
-            var state         = stateAndZip[1];
-            var zip           = stateAndZip[2];
-            var address       = addressArray[0];
-            var city          = addressArray[1];
-            // console.log(zip)
-            // console.log(state)
-            console.log(city)
-            console.log(address)
-            console.log(addressArray)
-            // console.log(valueNew.formatted_address);
-      }
+            
+            $scope.actor.contact.address       = addressArray[0];
+            $scope.actor.contact.city          = addressArray[1];
+            $scope.actor.contact.state         = stateAndZip[1];
+            $scope.actor.contact.zipCode       = stateAndZip[2];
+            $scope.actor.contact.country       = addressArray[addressArray.length - 1]
+            console.log(valueNew.formatted_address)
+        }
       }, true);
 
        $scope.open = function($event) {
