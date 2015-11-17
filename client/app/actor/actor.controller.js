@@ -14,6 +14,29 @@ angular.module('castifiApp')
        $scope.weightOptions = _.range(60, 301);
        $scope.title = 'hellow guys';
 
+       $scope.options= {
+         country: 'usa',
+         type: 'establishment'
+      };
+
+
+
+      $scope.details;
+      $scope.$watch('details', function(valueNew, valueOld){
+        if(valueNew !== undefined){
+            var fullAddress   = valueNew.formatted_address;
+            var addressArray  = fullAddress.split(',');
+            var stateAndZip   = addressArray[addressArray.length - 2].split(' ');
+            
+            $scope.actor.contact.address       = addressArray[0];
+            $scope.actor.contact.city          = addressArray[1];
+            $scope.actor.contact.state         = stateAndZip[1];
+            $scope.actor.contact.zipCode       = stateAndZip[2];
+            $scope.actor.contact.country       = addressArray[addressArray.length - 1]
+            console.log(valueNew.formatted_address)
+        }
+      }, true);
+
        $scope.open = function($event) {
            $event.preventDefault();
            $event.stopPropagation();

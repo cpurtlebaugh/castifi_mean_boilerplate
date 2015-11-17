@@ -15,6 +15,7 @@ var ActorSchema = new Schema({
   dob: Date,
   overEighteen: Boolean,
   email: String,
+  active: {type: Boolean, default: true},
   contact: {
             cellNum: {type: String,
               validate: {
@@ -33,6 +34,7 @@ var ActorSchema = new Schema({
               message: 'phone number needs to be exactly 10 characters'
               }
              },
+            fullAddress: String,
             address: {type: String, lowercase: true},
             aptNum: Number,
             city: {type: String, lowercase: true},
