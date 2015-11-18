@@ -8,8 +8,8 @@ var multipartMiddleware = multipart();
 
 var router = express.Router();
 
-router.get('/', auth.isAuthenticated(), controller.index);
-router.get('/:id', auth.isAuthenticated(), controller.show);
+router.get('/', auth.hasRole('admin'), controller.index);
+router.get('/:id', auth.hasRole('admin'), controller.show);
 router.post('/', auth.isAuthenticated(), controller.create);
 router.post('/uploads', auth.isAuthenticated(), multipartMiddleware, controller.uploadFile);
 router.put('/:id', auth.isAuthenticated(), controller.update);
