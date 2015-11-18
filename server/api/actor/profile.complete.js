@@ -82,11 +82,6 @@ function checkOverview(actor){
   return overviewTotal;
 }
 
-<<<<<<< HEAD
-
-exports.checkProfile  = checkProfile;
-exports.checkWardrobe = checkWardrobe;
-=======
 // function checkPhysical(actor){
 
 //     var portrayTotal,
@@ -97,7 +92,7 @@ exports.checkWardrobe = checkWardrobe;
 //         tatPierceTotal,
 //         complexionTotal;
 
-//     //portrayAge    
+//     //portrayAge
 //     actor.appearance.portrayAgeMin && actor.appearance.portrayAgeMin ? portrayTotal = 5 : portrayTotal = 0;
 //     //height and weight
 //     (actor.appearance.heightFeet || actor.appearance.heightInches) && actor.appearance.weight ? heightWeightTotal = 5 : heightWeightTotal = 0;
@@ -119,10 +114,9 @@ exports.checkWardrobe = checkWardrobe;
 //     // console.log(heightWeightTotal)
 //     // console.log(actor.appearance.bodyType)
 //     // console.log(ethnicTotal)
-// } 
+// }
 
 // exports.checkProfile  = checkProfile;
 // exports.checkWardrobe = checkWardrobe;
->>>>>>> 6bdd98ba752fad876d6ee27316ad6642f8df42d0
 exports.checkOverview = checkOverview;
 // exports.checkPhysical = checkPhysical
