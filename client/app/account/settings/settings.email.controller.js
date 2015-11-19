@@ -19,7 +19,7 @@ angular.module('castifiApp')
           });
 
         Actor.update({id: $scope.user.actorId._id }, {email: $scope.user.newEmail});
-      } 
+      }
       else {
           form.newEmail.$setValidity('mongoose', false);
           $scope.errors.other = 'Please provide a valid email format.';

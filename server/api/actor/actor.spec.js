@@ -15,8 +15,8 @@ describe('GET /api/actors', function() {
       User.create({
         provider: 'local',
         email: 'test@test.com',
-        password: 'test',
-        role: 'admin'
+        role: 'admin',
+        password: 'test'
       }, function() {
           server.post('/auth/local')
             .send({email:'test@test.com', password:'test'})
