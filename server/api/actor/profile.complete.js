@@ -3,43 +3,38 @@
 var mongoose = require('mongoose');
 var Actor    = require('./actor.model');
 var _        = require('lodash');
+var async    = require('async');
 
 // function checkProfile(actor){
 // 	// console.log(actor)
 // 	// console.log("hello world")
 // 	return actor.email
 // }
-// function checkWardrobe(actor){
-//   var wardrobeTotal,
-//       basicTotal,
-//       uniformTotal,
-//       measureTotal;
+function checkWardrobe(actor){
+  var wardrobeTotal,
+      basicTotal,
+      uniformTotal,
+      measureTotal;
 
-//     _.forEach(actor.wardrobe, function(value, key){
-//       (value === true)? basicTotal = 8.5 : basicTotal = 0;
-//     })
+    _.some(actor.wardrobe, function(value, key){
+      (value === (true || false))? basicTotal = 8.5 : basicTotal = 0;
+    })
 
+    _.some(actor.costumes, function(value, key){
+      (value === (true || false))? uniformTotal = 8.25 : uniformTotal = 0;
+    })
 
-//     _.forEach(actor.costumes, function(value, key){
-//       (value === true)? uniformTotal = 8.25 : uniformTotal = 0;
-//     })
+    actor.clothingWomenSizes.present || actor.clothingMenSizes.present ?  measureTotal = 8.25 : measureTotal = 0;
 
+    wardrobeTotal = basicTotal + uniformTotal + measureTotal;
+    wardrobeTotal = Math.floor(wardrobeTotal);
 
-//     actor.clothingWomenSizes.present || actor.clothingMenSizes.present ?  measureTotal = 8.25 : measureTotal = 0;
-
-//     wardrobeTotal = basicTotal + uniformTotal + measureTotal;
-//     wardrobeTotal = Math.floor(wardrobeTotal);
-//     return wardrobeTotal;
-//   }
+    return wardrobeTotal;
+  }
 
 function checkOverview(actor){
-  console.log(typeof(actor))
-  _.forEach(actor, function(value, key){
-     console.log(value)
-  })
-  // var actorTest = JSON.parse(actor.willing)
-  // console.log(actorTest)
-  // total metric to equal 25 pts
+
+// total metric to equal 25 pts
   var requiredTotal,
       willingTotal,
       quoteTotal,
@@ -49,18 +44,26 @@ function checkOverview(actor){
       overviewTotal;
 
   // required: 6.25 pts
-  var requiredArray = [actor.legalFirstName, actor.legalLastName, actor.overEighteen, actor.contact.mainPhoneNum, actor.contact.fullAddress];
-  _.forEach(requiredArray, function(value){
-    (value === undefined)? requiredTotal = 0 : requiredTotal = 6.25;
-  })
+  // var requiredArray = [actor.legalFirstName, actor.legalLastName, actor.overEighteen, actor.contact.mainPhoneNum, actor.contact.fullAddress];
+  // _.forEach(requiredArray, function(value){
+  //   (value === undefined)? requiredTotal = 0 : requiredTotal = 6.25;
+  // })
 
   // willing: 12.5 pts
-  //starts empty object
-  // console.log(actor.willing);
-  _.forEach(actor.willing, function(value, key){
-    // console.log(key);
-    (value === true)? willingTotal = 3.125 : willingTotal = 0;
+  // starts empty object
+  _.some(actor.willing, function(value, key){
+    (value === (true || false))? willingTotal = 3.125 : willingTotal = 0;
+    console.log(value)
+    console.log(willingTotal)
   })
+    console.log(willingTotal);
+
+  // var test = _.some(actor.willing, key, true)
+
+  // test? willingTotal = 3.125 : willingTotal = 0;
+
+  // console.log(test);
+  // console.log(willingTotal);
 
   // Quote: 12.5pts
   actor.info.movieQuote !== undefined ? (actor.info.movieQuote.length < 1 ? quoteTotal = 0 : quoteTotal = 3.125) :  quoteTotal = 0;
@@ -74,11 +77,9 @@ function checkOverview(actor){
   // sagEligible: 17pts
   actor.info.sagEligible !== undefined ? eligibleTotal = 4.25 : eligibleTotal = 0;
 
-  // console.log(unionTotal)
-  // console.log(requiredArray);
-  console.log(willingTotal)
-  overviewTotal = requiredTotal + willingTotal + quoteTotal + unionTotal + newActorTotal + eligibleTotal;
+  overviewTotal = willingTotal + quoteTotal + unionTotal + newActorTotal + eligibleTotal;
   overviewTotal = Math.floor(overviewTotal);
+  console.log(overviewTotal)
   return overviewTotal;
 }
 
@@ -117,6 +118,6 @@ function checkOverview(actor){
 // }
 
 // exports.checkProfile  = checkProfile;
-// exports.checkWardrobe = checkWardrobe;
+exports.checkWardrobe = checkWardrobe;
 exports.checkOverview = checkOverview;
 // exports.checkPhysical = checkPhysical

@@ -244,7 +244,7 @@ ActorSchema
   // check.checkProfile(this);
   // this.profileComplete = check.checkProfile(this);
   // this.wardrobeComplete = check.checkWardrobe(this);
-  // this.overviewComplete = check.checkOverview(this);
+  this.overviewComplete = check.checkOverview(this);
   // this.physicalComplete = check.checkPhysical(this);
   // this.overviewComplete = check.checkOverview(this);
   this.updatedAt = new Date();
