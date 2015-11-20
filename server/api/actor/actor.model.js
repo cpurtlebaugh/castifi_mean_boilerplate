@@ -240,16 +240,18 @@ var ActorSchema = new Schema({
 /* Pre-save hook*/
 ActorSchema
   .pre('save', function(next) {
-  // console.log(this)
-  // check.checkProfile(this);
-  // this.profileComplete = check.checkProfile(this);
-  this.wardrobeComplete = check.checkWardrobe(this);
-  next();
-  // this.overviewComplete = check.checkOverview(this);
-  // this.physicalComplete = check.checkPhysical(this);
-  // this.overviewComplete = check.checkOverview(this);
-  this.updatedAt = new Date();
-  next();
+    this.overviewComplete = check.checkOverview(this);
+    next();
+    this.photosComplete = check.checkPhotos(this);
+    next();
+    this.physicalComplete = check.checkPhysical(this);
+    next();
+    this.wardrobeComplete = check.checkWardrobe(this);
+    next();
+    this.profileComplete = this.overviewComplete + this.photosComplete + this.physicalComplete + this.wardrobeComplete;
+    next()
+    this.updatedAt = new Date();
+    next();
 });
 
 module.exports = mongoose.model('Actor', ActorSchema);

@@ -6,125 +6,89 @@ var _        = require('lodash');
 var async    = require('async');
 
 
-function checkWardrobe(actor){
-  var wardrobeTotal,
-      uniformTotal,
-      measureTotal,
-      basicTotal,
-      testTotal;    
 
-   //basic wardrobe   
-   var wardrobe = [actor.wardrobe.tux, 
-    actor.wardrobe.fullSuit, actor.wardrobe.bathingSuit,
-    actor.wardrobe.businessSuit, actor.wardrobe.cocktailDress,
-    actor.wardrobe.lingerie]   
+function checkOverview(actor){
 
-   var basicWardrobe =  _.some(wardrobe, function(value){
-                            return value === true;
-                          })
-   
-    basicWardrobe ? basicTotal = 8.5 : basicTotal = 0;  
+// total metric to equal 25 pts
+  var requiredTotal,
+      willingTotal,
+      quoteTotal,
+      unionTotal,
+      newActorTotal,
+      eligibleTotal,
+      overviewTotal;
 
-    //costume/uniform wardrobe
-    var costumes = [actor.costumes.doctor, actor.costumes.emt, actor.costumes.fireDept,
-                    actor.costumes.nurse, actor.costumes.paramedic, actor.costumes.police,
-                    actor.costumes.dragQueen, actor.costumes.clownSuit ] 
+  // required: 
+  var requiredArray = [actor.legalFirstName, actor.legalLastName, actor.overEighteen, actor.contact.mainPhoneNum, actor.contact.fullAddress];
+  var required = _.every(requiredArray, function(value){
+     return value !== undefined;
+  })
+  required ? requiredTotal = 6.25 : requiredTotal = 0;
 
-     var costumeWardrobe =  _.some(costumes, function(value){
-                                return value === true;
-                            })
-
-    costumeWardrobe ? uniformTotal = 8.25 : uniformTotal = 0;
-
-    //clothingSizes wardrobe, need to add a check on individual clothing fields
-    actor.clothingWomenSizes.present || actor.clothingMenSizes.present ?  measureTotal = 8.25 : measureTotal = 0;
-
-
-    wardrobeTotal = basicTotal + measureTotal + uniformTotal;
-    wardrobeTotal = Math.floor(wardrobeTotal);
-    
-    //console logs
-    console.log("basicTotal");
-    console.log(basicTotal);  
-    console.log("uniformTotal")
-    console.log(uniformTotal)
-    console.log("measureTotal");
-    console.log(measureTotal);
-    console.log("wardrobeTotal");
-    console.log(wardrobeTotal);
-    
-    return wardrobeTotal;
-  }
-
-// function checkOverview(actor){
-
-// // total metric to equal 25 pts
-//   var requiredTotal,
-//       willingTotal,
-//       quoteTotal,
-//       unionTotal,
-//       newActorTotal,
-//       eligibleTotal,
-//       overviewTotal;
-
-//   // required: 6.25 pts
-//   // var requiredArray = [actor.legalFirstName, actor.legalLastName, actor.overEighteen, actor.contact.mainPhoneNum, actor.contact.fullAddress];
-//   // _.forEach(requiredArray, function(value){
-//   //   (value === undefined)? requiredTotal = 0 : requiredTotal = 6.25;
-//   // })
-
-//   // willing: 12.5 pts
-//   // starts empty object
-//   console.log(actor.willing)
-//   _.some(actor.willing, function(value){
-//     // console.log(value === true)
+  // willing: 
+  var willingArray = [actor.willing.partialNudity, actor.willing.fullNudity, actor.willing.kissing,
+                      actor.willing.kissingSameSex, actor.willing.drag, actor.willing.cutHair,
+                      actor.willing.colorHair,actor.willing.eatMeat, actor.willing.travel ]
   
-//     (value === (true || false))? willingTotal = 3.125 : willingTotal = 0;
-//   })
+  var willing = _.some(willingArray, function(value){
+                    return value === true;
+                  })
+  willing ? willingTotal = 3.125 : willingTotal = 0;
 
-// console.log( _.some([null, 0, 'yes'], Boolean));
-// var users = [
-//   { 'user': 'barney', 'active': true },
-//   { 'user': 'fred',   'active': false }
-// ];
+  // Quote: 
+  actor.info.movieQuote !== undefined ? (actor.info.movieQuote.length < 1 ? quoteTotal = 0 : quoteTotal = 3.125) :  quoteTotal = 0;
 
-// // using the `_.matches` callback shorthand
-// console.log("bip")
-// console.log(_.some([actor.willing], { 'colorHair': true }));
-// var tesssst = _.some([actor.willing], { 'colorHair': true });
-// console.log(tesssst)
-// // → false
-// // var test2 = _.some(actor.willing, t)
-// // console.log(test2)
-//   // var test = _.some(actor.willing, key, true)
+  // SAG or Non-Union:
+  actor.info.union !== undefined ? unionTotal = 4.25 : unionTotal = 0;
 
-//   // test? willingTotal = 3.125 : willingTotal = 0;
+  // newActor: 
+  actor.info.newActor !== undefined ? newActorTotal = 4 : newActorTotal = 0;
 
-//   // console.log(test);
-//   // console.log(willingTotal);
+  // sagEligible: 
+  actor.info.sagEligible !== undefined ? eligibleTotal = 4.25 : eligibleTotal = 0;
 
-//   // Quote: 12.5pts
-//   actor.info.movieQuote !== undefined ? (actor.info.movieQuote.length < 1 ? quoteTotal = 0 : quoteTotal = 3.125) :  quoteTotal = 0;
+  // console.log('requiredTotal')
+  // console.log(requiredTotal)
+  // console.log('willingTotal');
+  // console.log(willingTotal);
+  // console.log('quoteTotal')
+  // console.log(quoteTotal)
+  // console.log('unionTotal')
+  // console.log(unionTotal)
+  // console.log('newActorTotal')
+  // console.log(newActorTotal)
+  // console.log('eligibleTotal')
+  // console.log(eligibleTotal)
+  
+  overviewTotal = requiredTotal + willingTotal + quoteTotal + unionTotal + newActorTotal + eligibleTotal;
+  overviewTotal = Math.floor(overviewTotal);
+  
+  // console.log('overviewTotal')
+  // console.log(overviewTotal)
+  
+  return overviewTotal;
+}
 
-//   // SAG or Non-Union: 17 pts
-//   actor.info.union !== undefined ? unionTotal = 4.25 : unionTotal = 0;
+function checkPhotos(actor){
+    var headShotTotal,
+        headToToeTotal,
+        realLifeTotal,
+        photosTotal;
 
-//   // newActor: 16 pts
-//   actor.info.newActor !== undefined ? newActorTotal = 4 : newActorTotal = 0;
+        (typeof(actor.headShot) === "string") ? headShotTotal = 8.5 :  headShotTotal = 0;
+        (typeof(actor.headToToe) === "string") ? headToToeTotal = 8.5 :  headToToeTotal = 0;
+        (typeof(actor.realLife) === "string") ? realLifeTotal = 8.5 :  realLifeTotal = 0;
 
-//   // sagEligible: 17pts
-//   actor.info.sagEligible !== undefined ? eligibleTotal = 4.25 : eligibleTotal = 0;
+        // console.log(headShotTotal)
+        // console.log(headToToeTotal)
+        // console.log(realLifeTotal)
 
-//   console.log(willingTotal);
-//   console.log(quoteTotal)
-//    console.log(unionTotal)
-//     console.log(newActorTotal)
-//     console.log(eligibleTotal)
-//   overviewTotal = willingTotal + quoteTotal + unionTotal + newActorTotal + eligibleTotal;
-//   overviewTotal = Math.floor(overviewTotal);
-//   console.log(overviewTotal)
-//   return overviewTotal;
-// }
+        photosTotal = headShotTotal + headShotTotal + realLifeTotal;
+        photosTotal = Math.floor(photosTotal)
+        
+        // console.log(photosTotal)
+        return photosTotal;
+}
 
 function checkPhysical(actor){
 
@@ -157,19 +121,84 @@ function checkPhysical(actor){
     ethnicLook ? ethnicTotal = 5 : ethnicTotal = 0;
     
     //piercings, tattoos
-    actor.piercings.present || actor.tattoos.present ?  tatPierceTotal = 2.5 : tatPierceTotal = 0;
+    ((actor.tattoos.present || !actor.tattoos.present) && (actor.piercings.present || !actor.piercings.present)) ?  tatPierceTotal = 2.5 : tatPierceTotal = 0;
     //complexion
     actor.appearance.complexion ? complexionTotal = 2.5 : complexionTotal = 0
-    // console.log("working")
+   
+    //console
+    // console.log('portrayTotal')
+    // console.log(portrayTotal)
+    // console.log('heightWeightTotal')
     // console.log(heightWeightTotal)
-    // console.log(actor.appearance.bodyType)
+    // console.log('hairTotal')
+    // console.log(hairTotal)
+    // console.log('bodyTotal')
+    // console.log(bodyTotal)
+    // console.log('ethnicTotal')
     // console.log(ethnicTotal)
+    // console.log('tatPierceTotal')
+    // console.log( tatPierceTotal)
+    // console.log('complexionTotal')
+    // console.log(complexionTotal)
+    
     physicalTotal = portrayTotal + heightWeightTotal + hairTotal + bodyTotal + complexionTotal + tatPierceTotal + ethnicTotal;
     physicalTotal = Math.floor(physicalTotal);
+    // console.log('physicalTotal');
+    // console.log(physicalTotal);
     return physicalTotal;
 }
 
-// exports.checkProfile  = checkProfile;
+
+function checkWardrobe(actor){
+  var wardrobeTotal,
+      uniformTotal,
+      measureTotal,
+      basicTotal;    
+
+   //basic wardrobe   
+   var wardrobe = [actor.wardrobe.tux, 
+    actor.wardrobe.fullSuit, actor.wardrobe.bathingSuit,
+    actor.wardrobe.businessSuit, actor.wardrobe.cocktailDress,
+    actor.wardrobe.lingerie]   
+
+   var basicWardrobe =  _.some(wardrobe, function(value){
+                            return value === true;
+                          })
+   
+    basicWardrobe ? basicTotal = 8.5 : basicTotal = 0;  
+
+    //costume/uniform wardrobe
+    var costumes = [actor.costumes.doctor, actor.costumes.emt, actor.costumes.fireDept,
+                    actor.costumes.nurse, actor.costumes.paramedic, actor.costumes.police,
+                    actor.costumes.dragQueen, actor.costumes.clownSuit ] 
+
+     var costumeWardrobe =  _.some(costumes, function(value){
+                                return value === true;
+                            })
+
+    costumeWardrobe ? uniformTotal = 8.25 : uniformTotal = 0;
+
+    //clothingSizes wardrobe, need to add a check on individual clothing fields
+    actor.clothingWomenSizes.present || actor.clothingMenSizes.present ?  measureTotal = 8.25 : measureTotal = 0;
+
+    wardrobeTotal = basicTotal + measureTotal + uniformTotal;
+    wardrobeTotal = Math.floor(wardrobeTotal);
+    
+    //console logs
+    // console.log("basicTotal");
+    // console.log(basicTotal);  
+    // console.log("uniformTotal")
+    // console.log(uniformTotal)
+    // console.log("measureTotal");
+    // console.log(measureTotal);
+    // console.log("wardrobeTotal");
+    // console.log(wardrobeTotal);
+    
+    return wardrobeTotal;
+  }
+
+
+exports.checkOverview = checkOverview;
+exports.checkPhotos = checkPhotos;
+exports.checkPhysical = checkPhysical
 exports.checkWardrobe = checkWardrobe;
-// exports.checkOverview = checkOverview;
-// exports.checkPhysical = checkPhysical
