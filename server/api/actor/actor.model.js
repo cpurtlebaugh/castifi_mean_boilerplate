@@ -227,27 +227,26 @@ var ActorSchema = new Schema({
 
   standInExperience: {present: Boolean, pastExperience: String},
 
-  wardrobeComplete: Number,
-  overviewComplete: Number,
-  photosComplete: Number,
-  physicalComplete: Number,
-  profileComplete: Number,
+  profileMetrics: { wardrobeComplete: Number,
+                overviewComplete: Number,
+                photosComplete: Number,
+                physicalComplete: Number,
+                profileComplete: Number },
+  
   createdAt: {type: Date, default: Date.now()},
   updatedAt: {type: Date}
 });
 
 /* Pre-save hook*/
 ActorSchema
-  .pre('save', function(next) {
-    this.overviewComplete = check.checkOverview(this);
+  .pre('save', function(next){ 
+    var profileTotal = check.checkProfile(this);
     next();
-    this.photosComplete = check.checkPhotos(this);
-    next();
-    this.physicalComplete = check.checkPhysical(this);
-    next();
-    this.wardrobeComplete = check.checkWardrobe(this);
-    next();
-    this.profileComplete = this.overviewComplete + this.photosComplete + this.physicalComplete + this.wardrobeComplete;
+    this.profileMetrics.overviewComplete = profileTotal[0];
+    this.profileMetrics.photosComplete = profileTotal[1];
+    this.profileMetrics.physicalComplete = profileTotal[2];
+    this.profileMetrics.wardrobeComplete = profileTotal[3];
+    this.profileMetrics.profileComplete = profileTotal[4];;
     next()
     this.updatedAt = new Date();
     next();

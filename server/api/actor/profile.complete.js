@@ -82,7 +82,7 @@ function checkPhotos(actor){
         // console.log(headToToeTotal)
         // console.log(realLifeTotal)
 
-        photosTotal = headShotTotal + headShotTotal + realLifeTotal;
+        photosTotal = headShotTotal + headToToeTotal + realLifeTotal;
         photosTotal = Math.floor(photosTotal)
         
         // console.log(photosTotal)
@@ -200,8 +200,22 @@ function checkWardrobe(actor){
     return wardrobeTotal;
   }
 
+  function checkProfile(actor){
+     var finalArr = [];
+
+     var overviewTotal = checkOverview(actor);
+     var photosTotal = checkPhotos(actor);
+     var physicalTotal = checkPhysical(actor);
+     var wardrobeTotal = checkWardrobe(actor);
+     var profileTotal = overviewTotal + photosTotal + physicalTotal + wardrobeTotal;
+
+     finalArr = [overviewTotal, photosTotal, physicalTotal, wardrobeTotal, profileTotal]
+     return finalArr;
+  }
+
 
 exports.checkOverview = checkOverview;
 exports.checkPhotos = checkPhotos;
 exports.checkPhysical = checkPhysical
 exports.checkWardrobe = checkWardrobe;
+exports.checkProfile = checkProfile;
