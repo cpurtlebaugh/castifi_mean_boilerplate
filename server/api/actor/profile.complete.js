@@ -6,7 +6,6 @@ var _        = require('lodash');
 var async    = require('async');
 
 
-
 function checkOverview(actor){
 
 // total metric to equal 25 pts
@@ -90,6 +89,32 @@ function checkPhotos(actor){
         return photosTotal;
 }
 
+// function checkPhotos(actor){
+//   var headShotTotal,
+//       headToToeTotal,
+//       realLifeTotal,
+//       photoTotal;
+
+//   // console.log(actor.headShot)
+
+//   actor.headShot !== null ? headShotTotal = 8.75 : headShotTotal = 0;
+//   // console.log('head shot')
+//   // console.log(headShotTotal)
+
+//   actor.headToToe !== null ? headToToeTotal = 8.50 : headToToeTotal = 0;
+//   // console.log('head to toe')
+//   // console.log(headToToeTotal)
+
+//   actor.realLife !== null ? realLifeTotal = 8.50 : realLifeTotal = 0;
+//   // console.log('real life')
+//   // console.log(realLifeTotal)
+
+//   photoTotal = headShotTotal + headToToeTotal + realLifeTotal;
+//   photoTotal = Math.floor(photoTotal);
+
+//   return photoTotal;
+// }
+
 function checkPhysical(actor){
 
     var portrayTotal,
@@ -103,15 +128,19 @@ function checkPhysical(actor){
 
     //portrayAge
     actor.appearance.portrayAgeMin && actor.appearance.portrayAgeMin ? portrayTotal = 5 : portrayTotal = 0;
+
     //height and weight
     (actor.appearance.heightFeet || actor.appearance.heightInches) && actor.appearance.weight ? heightWeightTotal = 5 : heightWeightTotal = 0;
+
     //hair
     actor.appearance.hairColor && actor.appearance.hairLength ? hairTotal = 2.5 : hairTotal = 0;
+
     //body
     actor.appearance.bodyType !== undefined ? bodyTotal = 2.5 : bodyTotal = 0;
+
     //ethnicLook
     var ethnicLookArray = [actor.ethnicLook.caucasian, actor.ethnicLook.africanAmerican, actor.ethnicLook.nativeAmerican,
-                          actor.ethnicLook.pacificIslander, actor.ethnicLook.asian, actor.ethnicLook.easternIndian, 
+                          actor.ethnicLook.pacificIslander, actor.ethnicLook.asian, actor.ethnicLook.easternIndian,
                           actor.ethnicLook.middleEastern, actor.ethnicLook.hispanic]
 
     var ethnicLook =  _.some(ethnicLookArray, function(value){
@@ -119,7 +148,7 @@ function checkPhysical(actor){
                       })
 
     ethnicLook ? ethnicTotal = 5 : ethnicTotal = 0;
-    
+
     //piercings, tattoos
     ((actor.tattoos.present || !actor.tattoos.present) && (actor.piercings.present || !actor.piercings.present)) ?  tatPierceTotal = 2.5 : tatPierceTotal = 0;
     //complexion

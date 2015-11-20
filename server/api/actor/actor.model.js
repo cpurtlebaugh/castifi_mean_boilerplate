@@ -234,7 +234,6 @@ var ActorSchema = new Schema({
   profileComplete: Number,
   createdAt: {type: Date, default: Date.now()},
   updatedAt: {type: Date}
-
 });
 
 /* Pre-save hook*/
