@@ -89,32 +89,6 @@ function checkPhotos(actor){
         return photosTotal;
 }
 
-// function checkPhotos(actor){
-//   var headShotTotal,
-//       headToToeTotal,
-//       realLifeTotal,
-//       photoTotal;
-
-//   // console.log(actor.headShot)
-
-//   actor.headShot !== null ? headShotTotal = 8.75 : headShotTotal = 0;
-//   // console.log('head shot')
-//   // console.log(headShotTotal)
-
-//   actor.headToToe !== null ? headToToeTotal = 8.50 : headToToeTotal = 0;
-//   // console.log('head to toe')
-//   // console.log(headToToeTotal)
-
-//   actor.realLife !== null ? realLifeTotal = 8.50 : realLifeTotal = 0;
-//   // console.log('real life')
-//   // console.log(realLifeTotal)
-
-//   photoTotal = headShotTotal + headToToeTotal + realLifeTotal;
-//   photoTotal = Math.floor(photoTotal);
-
-//   return photoTotal;
-// }
-
 function checkPhysical(actor){
 
     var portrayTotal,
@@ -222,7 +196,7 @@ function checkWardrobe(actor){
     // console.log(measureTotal);
     // console.log("wardrobeTotal");
     // console.log(wardrobeTotal);
-    
+
     return wardrobeTotal;
   }
 
