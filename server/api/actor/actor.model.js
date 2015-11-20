@@ -234,7 +234,6 @@ var ActorSchema = new Schema({
   profileComplete: Number,
   createdAt: {type: Date, default: Date.now()},
   updatedAt: {type: Date}
-
 });
 
 /* Pre-save hook*/
@@ -243,11 +242,12 @@ ActorSchema
   // console.log(this)
   // check.checkProfile(this);
   // this.profileComplete = check.checkProfile(this);
+  this.photosComplete   = check.checkPhoto(this);
   this.wardrobeComplete = check.checkWardrobe(this);
-  next();
-  // this.overviewComplete = check.checkOverview(this);
-  // this.physicalComplete = check.checkPhysical(this);
-  // this.overviewComplete = check.checkOverview(this);
+  // next();
+  this.overviewComplete = check.checkOverview(this);
+  this.physicalComplete = check.checkPhysical(this);
+
   this.updatedAt = new Date();
   next();
 });
