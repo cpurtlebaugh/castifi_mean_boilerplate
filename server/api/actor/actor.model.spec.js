@@ -36,7 +36,7 @@ var actorAppearance = new Actor({
   appearance: {portrayAgeMin: 30, portrayAgeMax: 28, heightFeet: 6, heightInches: 2, weight: 140,
                bodyType: 'average', hairColor: 'brown', hairLength: 'short', complexion: 'fair'},
   ethnicLook: {asian: true},
-  piercings: {present: true}
+  piercings: {present: false}
 });
 
 var actorProfileComplete = new Actor({
@@ -56,7 +56,8 @@ var actorProfileComplete = new Actor({
   appearance: {portrayAgeMin: 30, portrayAgeMax: 28, heightFeet: 6, heightInches: 2, weight: 140,
                bodyType: 'average', hairColor: 'brown', hairLength: 'short', complexion: 'fair'},
   ethnicLook: {asian: true},
-  piercings: {present: true}
+  piercings: {present: false},
+  tattoos: {present: false}
 });
 
 

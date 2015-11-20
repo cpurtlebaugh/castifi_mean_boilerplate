@@ -128,32 +128,33 @@ function checkPhysical(actor){
     ethnicLook ? ethnicTotal = 5 : ethnicTotal = 0;
 
     //piercings, tattoos
-    actor.tattoos.present ?  tatTotal = 2.5 : tatTotal = 0;
-    actor.piercings.present ? pierceTotal = 2.5 : pierceTotal = 0;
-    tatTotal || pierceTotal ? tatPierceTotal = 2.5 : tatPierceTotal = 0;
+    actor.tattoos.present !== true ?  tatTotal = 0 : tatTotal = 2.5;
+    actor.piercings.present !==  true ? pierceTotal = 0 : pierceTotal = 2.5;
+    (typeof(tatTotal) === 'number') && (typeof(pierceTotal) === 'number') ? tatPierceTotal = 2.5 : tatPierceTotal = 0;
+
     //complexion
     actor.appearance.complexion ? complexionTotal = 2.5 : complexionTotal = 0
 
     //console
-    console.log('portrayTotal')
-    console.log(portrayTotal)
-    console.log('heightWeightTotal')
-    console.log(heightWeightTotal)
-    console.log('hairTotal')
-    console.log(hairTotal)
-    console.log('bodyTotal')
-    console.log(bodyTotal)
-    console.log('ethnicTotal')
-    console.log(ethnicTotal)
-    console.log('tatPierceTotal')
-    console.log( tatPierceTotal)
-    console.log('complexionTotal')
-    console.log(complexionTotal)
+    // console.log('portrayTotal')
+    // console.log(portrayTotal)
+    // console.log('heightWeightTotal')
+    // console.log(heightWeightTotal)
+    // console.log('hairTotal')
+    // console.log(hairTotal)
+    // console.log('bodyTotal')
+    // console.log(bodyTotal)
+    // console.log('ethnicTotal')
+    // console.log(ethnicTotal)
+    // console.log('tatPierceTotal')
+    // console.log( tatPierceTotal)
+    // console.log('complexionTotal')
+    // console.log(complexionTotal)
 
     physicalTotal = portrayTotal + heightWeightTotal + hairTotal + bodyTotal + complexionTotal + tatPierceTotal + ethnicTotal;
     physicalTotal = Math.floor(physicalTotal);
-    console.log('physicalTotal');
-    console.log(physicalTotal);
+    // console.log('physicalTotal');
+    // console.log(physicalTotal);
     return physicalTotal;
 }
 
