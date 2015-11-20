@@ -96,6 +96,8 @@ function checkPhysical(actor){
         hairTotal,
         bodyTotal,
         ethnicTotal,
+        tatTotal,
+        pierceTotal,
         tatPierceTotal,
         complexionTotal,
         physicalTotal;
@@ -110,7 +112,7 @@ function checkPhysical(actor){
     actor.appearance.hairColor && actor.appearance.hairLength ? hairTotal = 2.5 : hairTotal = 0;
 
     //body
-    actor.appearance.bodyType !== undefined ? bodyTotal = 2.5 : bodyTotal = 0;
+    actor.appearance.bodyType === true ? bodyTotal = 2.5 : bodyTotal = 0;
 
     //ethnicLook
     var ethnicLookArray = [actor.ethnicLook.caucasian, actor.ethnicLook.africanAmerican, actor.ethnicLook.nativeAmerican,
@@ -124,7 +126,9 @@ function checkPhysical(actor){
     ethnicLook ? ethnicTotal = 5 : ethnicTotal = 0;
 
     //piercings, tattoos
-    ((actor.tattoos.present || !actor.tattoos.present) && (actor.piercings.present || !actor.piercings.present)) ?  tatPierceTotal = 2.5 : tatPierceTotal = 0;
+    actor.tattoos.present !== undefined ?  tatTotal = 2.5 : tatTotal = 0;
+    actor.piercings.present !== undefined ? pierceTotal = 2.5 : pierceTotal = 0;
+    tatTotal || pierceTotal ? tatPierceTotal = 2.5 : tatPierceTotal = 0;
     //complexion
     actor.appearance.complexion ? complexionTotal = 2.5 : complexionTotal = 0
    

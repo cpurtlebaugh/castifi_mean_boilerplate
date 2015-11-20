@@ -227,11 +227,11 @@ var ActorSchema = new Schema({
 
   standInExperience: {present: Boolean, pastExperience: String},
 
-  profileMetrics: { wardrobeComplete: Number,
-                overviewComplete: Number,
-                photosComplete: Number,
-                physicalComplete: Number,
-                profileComplete: Number },
+  profileMetrics: { wardrobeComplete: {type: Number},
+                overviewComplete: {type: Number, default: 0},
+                photosComplete: {type: Number, default: 0},
+                physicalComplete: {type: Number, default: 0},
+                profileComplete: {type: Number, default: 0} },
   
   createdAt: {type: Date, default: Date.now()},
   updatedAt: {type: Date}
@@ -241,13 +241,11 @@ var ActorSchema = new Schema({
 ActorSchema
   .pre('save', function(next){ 
     var profileTotal = check.checkProfile(this);
-    next();
     this.profileMetrics.overviewComplete = profileTotal[0];
     this.profileMetrics.photosComplete = profileTotal[1];
     this.profileMetrics.physicalComplete = profileTotal[2];
     this.profileMetrics.wardrobeComplete = profileTotal[3];
     this.profileMetrics.profileComplete = profileTotal[4];;
-    next()
     this.updatedAt = new Date();
     next();
 });

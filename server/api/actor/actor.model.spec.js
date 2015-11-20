@@ -3,10 +3,19 @@
 var should = require('should');
 var app = require('../../app');
 var Actor = require('./actor.model');
+var check = require('./profile.complete.js');
 
 var actor = new Actor({
   email: 'test@test.com',
 });
+
+var actorWardrobe = new Actor({
+  email: 'test@test.com',
+  wardrobe: { tux: true},
+  costumes: { doctor: true},
+  clothingWomenSizes: { present: true}
+});
+
 
 describe('Actor Model', function() {
   
@@ -31,8 +40,29 @@ describe('Actor Model', function() {
          should.exist(err);
          done();
        })
-    });
+    });  
   
+  });
+
+  describe('Profile Completeness', function() {
+      
+    it('actor should return a 0 for profileComplete after saving', function(done){
+       actor.save(function(err){})
+       actor.profileMetrics.profileComplete.should.equal(0);   
+       done();   
+    });
+
+    it('actorWardrobe should return a 25 for profileComplete after saving', function(done){
+       actorWardrobe.profileMetrics.profileComplete = check.checkProfile(actorWardrobe)[4]
+       actorWardrobe.save(function(err){})
+       // console.log(check.checkProfile(actorWardrobe))
+       // console.log( actorWardrobe.profileMetrics.profileComplete)
+       // console.log( actorWardrobe.profileMetrics.wardrobeComplete)
+       actorWardrobe.profileMetrics.profileComplete.should.equal(25);   
+       done();   
+    });
+
+
   });
 
 
