@@ -9,29 +9,48 @@
 
   <ul class="row list-group">
     <li class="list-group-item col-sm-12" ng-repeat="actor in actors | orderBy: '-createdAt'">
-        <strong>{{actor.legalFirstName | capitalize }} {{ actor.legalLastName | capitalize}}<span ng-if="actor.legalFirstName">:</span> <em>{{actor.email}}</em></strong><br>
+        <span class="col-sm-1">
+          <div style="width: 100%; height: 100%; position: relative">
+            <div style="background-color: #f2c400; position: absolute" ng-if="actor.info.union">SAG</div>
+            <div style="background-color: #3db39e; position: absolute" ng-if="!actor.info.union">Non-Union</div>
+        </div>
+        </span>
 
-        <span class="text-muted col-sm-4">
+        <span class="col-sm-2">
+          <img ng-src="{{actor.headShot || 'assets/images/actor/picturebox.svg'}}">
+        </span>
+
+        <span class="col-sm-2">
+          <strong>{{(actor.legalFirstName | capitalize) || '[unfilled: #000001]'}} {{ actor.legalLastName | capitalize}}</strong>
+            <span style="word-wrap: break-word">{{actor.email}}</span><br>
+        </span>
+
+        <span class="col-sm-1">
+          {{actor.profileMetrics.profileComplete}}%
+        </span>
+
+        <span class="text-muted col-sm-3">
           <strong>Created:</strong> {{actor.createdAt | date: 'short' }} <br>
            <strong>Updated:</strong> {{actor.updatedAt | date: 'short' }}
         </span>
 
-        <span><a class="col-sm-2" ui-sref="admin.actors.edit({id: actor._id})">
-          <button class="btn btn-success">Edit Profile</button>
+        <span><a class="col-sm-1" ui-sref="admin.actors.edit({id: actor._id})">
+          <button class="btn-sm btn-success">Edit Profile</button>
         </a></span>
 
-          <span><a class="col-sm-2" ui-sref="admin.actors.photos({id: actor._id})">
-          <button class="btn btn-success">Edit Photos</button>
-        </a></span>
+        <span><a class="col-sm-1" ui-sref="admin.actors.photos({id: actor._id})">
+          <button class="btn-sm btn-success">Edit Photos</button>
+          </a>
+        </span>
 
-         <span><a class="col-sm-2" ui-sref="admin.actors.detail({id: actor._id})">
+<!--          <span><a class="col-sm-2" ui-sref="admin.actors.detail({id: actor._id})">
             <button class="btn btn-info">Details</button>
-          </a> </span>
+          </a> </span> -->
 
-        <span class="pull-right col-sm-2">
+        <span class="col-sm-1">
           <a ng-click="deactive(actor)" class="trash">
-            <button ng-show="actor.active" class="btn btn-danger">De-activate</button>
-            <button ng-show="!actor.active" class="btn btn-primary">Activate</button>
+            <button ng-show="actor.active" class="btn-sm btn-danger">De-activate</button>
+            <button ng-show="!actor.active" class="btn-sm btn-primary">Activate</button>
           </a>
         </span>
         <!-- delete button  -->
