@@ -5,6 +5,7 @@ angular.module('castifiApp')
 
     // Use the User $resource to fetch all users
     $scope.actors = Actor.query();
+    $scope.users  = User.query();
 
     $scope.delete = function(actor) {
         var confirm = $window.confirm("Are you sure you want to permanently delete " + actor.email + " ?")

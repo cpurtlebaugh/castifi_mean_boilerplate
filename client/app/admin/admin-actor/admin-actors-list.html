@@ -9,11 +9,10 @@
 
   <ul class="row list-group">
     <li class="list-group-item col-sm-12" ng-repeat="actor in actors | orderBy: '-createdAt'">
+
         <span class="col-sm-1">
-          <div style="width: 100%; height: 100%; position: relative">
-            <div style="background-color: #f2c400; position: absolute" ng-if="actor.info.union">SAG</div>
-            <div style="background-color: #3db39e; position: absolute" ng-if="!actor.info.union">Non-Union</div>
-        </div>
+            <div style="background-color: #f2c400; padding: 10px; border-radius: 50%; width: 50px; height: 50px; text-align: center" ng-if="actor.info.union">SAG</div>
+            <div style="background-color: #3db39e; padding: 10px; border-radius: 50%; width: 50px; height: 50px; text-align: center" ng-if="!actor.info.union">NON</div>
         </span>
 
         <span class="col-sm-2">
@@ -25,11 +24,18 @@
             <span style="word-wrap: break-word">{{actor.email}}</span><br>
         </span>
 
+        <!-- user login w/ facebook   -->
+ <!--        <span class="col-sm-1">
+          <i ng-if="user."class="fa fa-envelope"></i>
+          <i ng-if=""class="fa fa-facebook"></i>
+        </span> -->
+        <!-- end user login with facebook -->
+
         <span class="col-sm-1">
           {{actor.profileMetrics.profileComplete}}%
         </span>
 
-        <span class="text-muted col-sm-3">
+        <span class="text-muted col-sm-2">
           <strong>Created:</strong> {{actor.createdAt | date: 'short' }} <br>
            <strong>Updated:</strong> {{actor.updatedAt | date: 'short' }}
         </span>
