@@ -28,6 +28,11 @@
           </a>
         </span>
 
+        <span class="col-sm-2 nopad">
+          <strong ng-if="actor.gender">Gender: {{actor.gender | capitalize}}</strong><br>
+          <strong ng-if="actor.appearance.portrayAgeMin || actor.appearance.portrayAgeMax">Age: {{actor.appearance.portrayAgeMin}} -  {{actor.appearance.portrayAgeMax}}</strong><br>
+          <strong ng-if="actor.ethnicLook"><div ng-repeat="(key, value) in actor.ethnicLook">{{key}}</div></strong>
+        </span>
         <!-- user login w/ facebook   -->
  <!--        <span class="col-sm- nopad">
           <i ng-if="user."class="fa fa-envelope"></i>
@@ -63,13 +68,13 @@
           </a> </span> -->
 
         <span class="col-sm-1 nopad">
-        
-            <div ng-show="actor.active"> 
+
+            <div ng-show="actor.active">
               <a ng-click="deactive(actor)" class="trash">
                 <img class="admin-thumbnail" src="https://s3-us-west-1.amazonaws.com/castifistaticassets/admin/Deactivate.png">
               </a>
             </div>
-            
+
             <div ng-show="!actor.active">
                <a ng-click="deactive(actor)" class="trash">
                 <img class="admin-thumbnail" src="https://s3-us-west-1.amazonaws.com/castifistaticassets/admin/Activate.png">
