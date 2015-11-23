@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
+var Actor = require('../actor/actor.model');
+var _ = require('lodash');
 
 var UserSchema = new Schema({
   email: {type: String, lowercase: true, required: true,
@@ -26,7 +28,8 @@ var UserSchema = new Schema({
   google: {},
   github: {},
   createdAt: {type: Date, default: Date.now()},
-  updatedAt: {type: Date}
+  updatedAt: {type: Date},
+  lastLogin: {type: Date}
 });
 
 /**
@@ -117,12 +120,24 @@ UserSchema
 
 UserSchema
   .pre('save', function(next) {
-    //if there is no createdat then create
-    //if there is no initial login set to true
-    //if intitial login is true//set it back to false
   this.updatedAt = new Date();
   next();
 });
+
+UserSchema
+  .post('save', function(doc, next) {
+    Actor.findOne(
+      {ownedBy: doc._id},
+      function (err, actor) {
+        if (err) { return next(err); }
+        if(!actor) { return next(err)}
+        var updated = _.merge(actor, {lastLogin: doc.lastLogin});
+        updated.save(function (err) {
+          if (err) { return next(err); }
+          return next();
+        });
+    });
+});  
 
 /**
  * Methods

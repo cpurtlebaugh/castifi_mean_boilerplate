@@ -227,28 +227,28 @@ var ActorSchema = new Schema({
 
   standInExperience: {present: Boolean, pastExperience: String},
 
-  wardrobeComplete: Number,
-  overviewComplete: Number,
-  photosComplete: Number,
-  physicalComplete: Number,
-  profileComplete: Number,
+  profileMetrics: { wardrobeComplete: {type: Number},
+                overviewComplete: {type: Number, default: 0},
+                photosComplete: {type: Number, default: 0},
+                physicalComplete: {type: Number, default: 0},
+                profileComplete: {type: Number, default: 0} },
+  
   createdAt: {type: Date, default: Date.now()},
-  updatedAt: {type: Date}
-
+  updatedAt: {type: Date},
+  lastLogin: {type: Date}
 });
 
 /* Pre-save hook*/
 ActorSchema
-  .pre('save', function(next) {
-  // console.log(this)
-  // check.checkProfile(this);
-  // this.profileComplete = check.checkProfile(this);
-  // this.wardrobeComplete = check.checkWardrobe(this);
-  // this.overviewComplete = check.checkOverview(this);
-  // this.physicalComplete = check.checkPhysical(this);
-  // this.overviewComplete = check.checkOverview(this);
-  this.updatedAt = new Date();
-  next();
+  .pre('save', function(next){ 
+    var profileTotal = check.checkProfile(this);
+    this.profileMetrics.overviewComplete = profileTotal[0];
+    this.profileMetrics.photosComplete = profileTotal[1];
+    this.profileMetrics.physicalComplete = profileTotal[2];
+    this.profileMetrics.wardrobeComplete = profileTotal[3];
+    this.profileMetrics.profileComplete = profileTotal[4];;
+    this.updatedAt = new Date();
+    next();
 });
 
 module.exports = mongoose.model('Actor', ActorSchema);

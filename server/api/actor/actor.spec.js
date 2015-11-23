@@ -11,6 +11,7 @@ var token = null;
 describe('GET /api/actors', function() {
 
   before(function(done){
+
     User.find({}).remove(function() {
       User.create({
         provider: 'local',
@@ -28,6 +29,7 @@ describe('GET /api/actors', function() {
           }
         );
       });
+    
     });
 
 
