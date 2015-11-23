@@ -36,8 +36,9 @@
         </span>
 
         <span class="text-muted col-sm-2">
-          <strong>Created:</strong> {{actor.createdAt | date: 'short' }} <br>
-           <strong>Updated:</strong> {{actor.updatedAt | date: 'short' }}
+           <strong>Created:</strong> {{actor.createdAt | date: 'short' }} <br>
+           <strong>Updated:</strong> {{actor.updatedAt | date: 'short' }}<br>
+           <strong>Last Login:</strong> {{actor.lastLogin | date: 'short' }}
         </span>
 
         <span><a class="col-sm-1" ui-sref="admin.actors.edit({id: actor._id})">

@@ -39,7 +39,7 @@ exports.setup = function (User, config) {
         } else {
           //check for user.facebookSignUp true
           //if true update user facebookSignup to false
-           var updated = _.merge(user, {facebookSignup: false});
+           var updated = _.merge(user, {lastLogin: Date.now(), facebookSignup: false});
            updated.save(function (err) {})
 
           return done(err, user);
