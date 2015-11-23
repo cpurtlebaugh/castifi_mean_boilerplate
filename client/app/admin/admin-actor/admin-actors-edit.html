@@ -104,9 +104,45 @@
 		</div>
 		<div class="col-sm-4"></div>
 	</div>
+  <!-- address apt num -->
+  <div class="row">
+    <div class="col-sm-9">
+
+      <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
+                                             'has-error': form.address.$invalid && submitted }">
+              <label>Please fill out your full mailing address <span class="glyphicon glyphicon-asterisk text-danger"></span></label> 
+                <input type="text" name="address" class="form-control" 
+                placeholder="Mailing Address"
+                ng-autocomplete 
+                ng-model="actor.contact.fullAddress" 
+                options="options" 
+                details="details"
+                ng-minlength="18"
+                required/> 
+                <p class="help-block" ng-show="form.address.$error.required && submitted">
+                A full address is required.
+                </p>
+                 <p class="help-block"
+                 ng-show="form.address.$error.minlength && submitted">
+                 Please include full autocomplete address. 
+              </p>
+           </div>
+
+    </div>
+    <div class="col-sm-3">
+       
+       <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
+                                                  'has-error': form.apartment.$invalid && submitted }">
+                <label>Apartment or Suite</label>
+                <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
+              </div>
+    
+    </div>
+  </div>
+  <!-- end address apt num -->
 	<!-- end phone number -->
 	<!-- address apt num -->
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-sm-9">
 
               <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
@@ -127,10 +163,10 @@
                 <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
               </div>
 		</div>
-	</div>
+	</div> -->
 	<!-- end address apt num -->
 	<!-- city state zip country -->
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-sm-4">
 			  <div class="form-group" ng-class="{ 'has-success': form.city.$valid && submitted,
                                              'has-error': form.city.$invalid && submitted }">
@@ -177,7 +213,7 @@
         </div>
 
 		</div>
-	</div>
+	</div> -->
 	<!-- end city state zip country -->
 	<!-- union or non union -->
 	<div class="row">

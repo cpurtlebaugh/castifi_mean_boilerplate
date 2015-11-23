@@ -14,7 +14,7 @@ angular.module('castifiApp')
    $scope.register = function register(form) {
        $scope.submitted = true;
 
-       if(form.$valid){
+       // if(form.$valid){
             if($scope.actor){
                 Actor.update({id: $scope.actor._id }, $scope.actor,
                       function success(){
@@ -27,7 +27,7 @@ angular.module('castifiApp')
              }
 
 
-        }
+        // }
     };
 
 });

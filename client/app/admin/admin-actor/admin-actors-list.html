@@ -2,50 +2,58 @@
   <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
 
   <div class="row">
-    <div class="well col-sm-12">
+    <div class="well col-sm-12 admin-well">
       <h1>Admin Actors List</h1>
     </div>
   </div>
 
   <ul class="row list-group">
-    <li class="list-group-item col-sm-12" ng-repeat="actor in actors | orderBy: '-createdAt'">
+    <li class="list-group-item col-sm-12 nopad" ng-repeat="actor in actors | orderBy: '-createdAt'">
 
-        <span class="col-sm-1">
-            <div style="background-color: #f2c400; padding: 10px; border-radius: 50%; width: 50px; height: 50px; text-align: center" ng-if="actor.info.union">SAG</div>
-            <div style="background-color: #3db39e; padding: 10px; border-radius: 50%; width: 50px; height: 50px; text-align: center" ng-if="!actor.info.union">NON</div>
+        <span class="col-sm-1 nopad">
+            <div class="circle-sag" ng-if="actor.info.union">SAG</div>
+            <div class="circle-non" ng-if="!actor.info.union">NON</div>
         </span>
 
-        <span class="col-sm-2">
-          <img ng-src="{{actor.headShot || 'assets/images/actor/picturebox.svg'}}">
+        <span class="col-sm-1 nopad">
+          <a ui-sref="admin.actors.detail({id: actor._id})">
+            <img ng-src="{{actor.headShot || 'assets/images/actor/picturebox.svg'}}">
+          </a>
         </span>
 
-        <span class="col-sm-2">
-          <strong>{{(actor.legalFirstName | capitalize) || '[unfilled: #000001]'}} {{ actor.legalLastName | capitalize}}</strong>
+        <span class="col-sm-2 nopad">
+           <a ui-sref="admin.actors.detail({id: actor._id})">
+            <strong>{{(actor.legalFirstName | capitalize) || '[unfilled]'}} {{ actor.legalLastName | capitalize}}</strong>
             <span style="word-wrap: break-word">{{actor.email}}</span><br>
+          </a>
         </span>
 
         <!-- user login w/ facebook   -->
- <!--        <span class="col-sm-1">
+ <!--        <span class="col-sm- nopad">
           <i ng-if="user."class="fa fa-envelope"></i>
           <i ng-if=""class="fa fa-facebook"></i>
         </span> -->
         <!-- end user login with facebook -->
 
-        <span class="col-sm-1">
+        <span class="col-sm-1 nopad">
+          <div ng-class="{'circle-high-complete': (actor.profileMetrics.profileComplete >= 85),
+                          'circle-mid-complete': ((actor.profileMetrics.profileComplete <= 84) && (actor.profileMetrics.profileComplete >= 45)),
+                          'circle-low-complete' : ((actor.profileMetrics.profileComplete <= 44) && (actor.profileMetrics.profileComplete >= 0))}">
           {{actor.profileMetrics.profileComplete}}%
+         </div>
         </span>
 
-        <span class="text-muted col-sm-2">
+        <span class="text-muted col-sm-3 nopad">
            <strong>Created:</strong> {{actor.createdAt | date: 'short' }} <br>
            <strong>Updated:</strong> {{actor.updatedAt | date: 'short' }}<br>
            <strong>Last Login:</strong> {{actor.lastLogin | date: 'short' }}
         </span>
 
-        <span><a class="col-sm-1" ui-sref="admin.actors.edit({id: actor._id})">
-          <button class="btn-sm btn-success">Edit Profile</button>
+        <span><a class="col-sm-1 nopad" ui-sref="admin.actors.edit({id: actor._id})">
+          <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/admin/edit.png">
         </a></span>
 
-        <span><a class="col-sm-1" ui-sref="admin.actors.photos({id: actor._id})">
+        <span><a class="col-sm-1 nopad" ui-sref="admin.actors.photos({id: actor._id})">
           <button class="btn-sm btn-success">Edit Photos</button>
           </a>
         </span>
@@ -54,11 +62,19 @@
             <button class="btn btn-info">Details</button>
           </a> </span> -->
 
-        <span class="col-sm-1">
-          <a ng-click="deactive(actor)" class="trash">
-            <button ng-show="actor.active" class="btn-sm btn-danger">De-activate</button>
-            <button ng-show="!actor.active" class="btn-sm btn-primary">Activate</button>
-          </a>
+        <span class="col-sm-1 nopad">
+        
+            <div ng-show="actor.active"> 
+              <a ng-click="deactive(actor)" class="trash">
+                <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/admin/Deactivate.png">
+              </a>
+            </div>
+            
+            <div ng-show="!actor.active">
+               <a ng-click="deactive(actor)" class="trash">
+                <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/admin/Activate.png">
+              </a>
+            </div>
         </span>
         <!-- delete button  -->
 <!--         <span class="pull-right col-sm-2">
