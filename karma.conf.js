@@ -33,6 +33,7 @@ module.exports = function(config) {
       'client/bower_components/ng-img-crop/compile/minified/ng-img-crop.js',
       'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'client/bower_components/ngAutocomplete/src/ngAutocomplete.js',
+      'client/bower_components/angular-smart-table/dist/smart-table.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/components/**/*.js',

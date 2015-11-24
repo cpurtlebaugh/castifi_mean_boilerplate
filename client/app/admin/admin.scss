@@ -1,9 +1,17 @@
-.trash { 
-	color:rgb(209, 91, 71); 
+.trash {
+	color:rgb(209, 91, 71);
 }
 
+.st-sort-ascent:before{
+   content: '\25B2';
+ }
+
+.st-sort-descent:before{
+   content: '\25BC';
+ }
+
 .actor-well {
-	
+
 	a{
 		img.admin-thumbnail {
 			cursor:pointer;
@@ -12,44 +20,44 @@
 	}
 
 	.circle-sag{
-		background-color: #f2c400; 
-		padding: 28% 10% 10% 10%; 
-		border-radius: 50%; 
-		width: 60px; 
-		height: 60px; 
+		background-color: #f2c400;
+		padding: 28% 10% 10% 10%;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		vertical-align: middle;
 	}
 
 	.circle-non{
-		background-color: #3db39e; 
-		padding: 28% 10% 10% 10%; 
-		border-radius: 50%; 
-		width: 60px; 
-		height: 60px; 
+		background-color: #3db39e;
+		padding: 28% 10% 10% 10%;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		vertical-align: middle;
 	}
 
 	.circle-high-complete{
-		background-color: #3db39e; 
-		padding: 28% 10% 10% 10%; 
-		border-radius: 50%; 
-		width: 60px; 
-		height: 60px; 
+		background-color: #3db39e;
+		padding: 28% 10% 10% 10%;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		vertical-align: middle;
 	}
-	
+
 	.circle-mid-complete{
-		background-color: #3db39e; 
-		padding: 28% 10% 10% 10%; 
-		border-radius: 50%; 
-		width: 60px; 
-		height: 60px; 
+		background-color: #3db39e;
+		padding: 28% 10% 10% 10%;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		vertical-align: middle;
@@ -57,14 +65,15 @@
 	}
 
 	.circle-low-complete{
-		background-color: #3db39e; 
-		padding: 28% 10% 10% 10%; 
-		border-radius: 50%; 
-		width: 60px; 
-		height: 60px; 
+		background-color: #3db39e;
+		padding: 28% 10% 10% 10%;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		vertical-align: middle;
 		opacity: 0.4;
 	}
+
 }
