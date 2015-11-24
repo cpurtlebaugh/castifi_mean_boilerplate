@@ -12,6 +12,12 @@ angular.module('castifiApp')
          }
 	})
 
+   .filter('strictFilter', function($filter){
+          return function(input, predicate){
+              return $filter('filter')(input, predicate, true);
+          }
+   })
+
 	.filter('tel', function () {
          return function (tel) {
             if (!tel) { return ''; }

@@ -4,7 +4,7 @@
 module.exports = function(config) {
   config.set({
 
-    reporters: ['progress', 'notify'],
+    reporters: ['progress', 'notify'], //karma-coverage
 
    // Optional Settings
     notifyReporter: {

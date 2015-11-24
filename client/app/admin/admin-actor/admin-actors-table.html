@@ -1,30 +1,59 @@
-<table st-table="displayActors" st-safe-src="actors" class="table table-striped">
+<table st-set-filter="strictFilter" st-table="displayActors" st-safe-src="actors" class="table table-striped">
   <thead>
-  <tr>
-    <th st-sort="legalFirstName">First Name</th>
-    <th st-sort="legalLastName">Last Name</th>
-    <th st-sort="appearance.portrayAgeMin">Min. Port. Age</th>
-    <th st-sort="appearance.portrayAgeMax">Max. Port. Age</th>
-    <th st-sort="gender">Gender</th>
-    <th st-sort="info.union">Union</th>
-    <th st-sort="info.sagEligible">SAG-Eligible</th>
-<!--     <th st-sort="ethnicLook">Ethnicity 1</th>
-    <th st-sort="ethnicLook">Ethnicity 2</th>
-    <th st-sort="ethnicLook">Ethnicity 3</th> -->
-  </tr>
+    <tr>
+      <th st-sort="email">Email</th>
+      <th st-sort="legalFirstName">First Name</th>
+      <th st-sort="legalLastName">Last Name</th>
+      <th st-sort="appearance.portrayAgeMin">Min. Port. Age</th>
+      <th st-sort="appearance.portrayAgeMax">Max. Port. Age</th>
+      <th st-sort="gender">Gender</th>
+      <th st-sort="info.union">Union</th>
+      <th st-sort="info.sagEligible">SAG-Eligible</th>
+  <!--     <th st-sort="ethnicLook">Ethnicity 1</th>
+      <th st-sort="ethnicLook">Ethnicity 2</th>
+      <th st-sort="ethnicLook">Ethnicity 3</th> -->
+    </tr>
+     <tr>
+      <th>
+        <input st-search="email" placeholder="search email" class="input-sm form-control" type="search"/>
+      </th>
+      <th>
+       <input st-search="legalFirstName" placeholder="search first" class="input-sm form-control" type="search"/>
+     </th>
+      <th>
+       <input st-search="legalLastName" placeholder="search last" class="input-sm form-control" type="search"/>
+     </th>
+     <th></th>
+     <th></th>
+      <th>
+       <input st-search="gender" placeholder="search gender" class="input-sm form-control" type="search"/>
+     </th>
+     <th>
+        <select st-search="info.union">
+              <option value="">All</option>
+              <option value="true">Union</option>
+              <option value="false">Non-Union</option>
+        </select>
+     </th>
+     <th></th>
+    <!--  <th>
+      <st-number-range predicate="balance" lower="query.lower" higher="query.higher"></st-number-range>
+    </th> -->
+    </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="actor in displayActors | filter: {legalFirstName: '!!'}">
-    <td>{{actor.legalFirstName}}</td>
-    <td>{{actor.legalLastName}}</td>
-    <td>{{actor.appearance.portrayAgeMin}}</td>
-    <td>{{actor.appearance.portrayAgeMax}}</td>
-    <td>{{actor.gender}}</td>
-    <td>{{actor.info.union}}</td>
-    <td>{{actor.info.sagEligible}}</td>
-<!--     <td>{{actor.ethnicLook}}</td>
-    <td>{{actor.ethnicLook}}</td> -->
-  </tr>
+    <tr ng-repeat="actor in displayActors | filter: {legalFirstName: '!!'}">
+      <td><a ui-sref="admin.actors.detail({id: actor._id})">{{actor.email}}</a></td>
+      <td>{{actor.legalFirstName}}</td>
+      <td>{{actor.legalLastName}}</td>
+      <td>{{actor.appearance.portrayAgeMin}}</td>
+      <td>{{actor.appearance.portrayAgeMax}}</td>
+      <td>{{actor.gender}}</td>
+      <td>{{actor.info.union}}</td>
+      <td>{{actor.info.sagEligible}}</td>
+  <!--     <td>{{actor.ethnicLook}}</td>
+      <td>{{actor.ethnicLook}}</td> -->
+    </tr>
   </tbody>
 </table>
 
