@@ -10,7 +10,8 @@ angular.module('castifiApp', [
   'ngFileUpload',
   'ngImgCrop',
   'validation.match',
-  'ngAutocomplete'
+  'ngAutocomplete',
+  'smart-table'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
@@ -50,7 +51,7 @@ angular.module('castifiApp', [
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
-      
+
       //if user tries to access admin routes (as non admin) auth.IsAdmin
       //redirect to root
 

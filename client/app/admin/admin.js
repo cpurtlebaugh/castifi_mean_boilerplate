@@ -28,6 +28,12 @@ angular.module('castifiApp')
         templateUrl: 'app/admin/admin-actor/admin-actors-list.html',
         controller: 'AdminActorsCtrl'
       })
+      .state('admin.actors.table', {
+        url: '/table',
+        templateUrl: 'app/admin/admin-actor/admin-actors-table.html',
+        controller: 'AdminActorsCtrl'
+
+      })
       .state('admin.actors.detail', {
         url: '/:id',
         templateUrl: 'app/admin/admin-actor/admin-actors-detail.html',
@@ -43,4 +49,5 @@ angular.module('castifiApp')
         templateUrl: 'app/admin/admin-actor/admin-actors-photos.html',
         controller: 'AdminActorsPhotosCtrl'
       })
+
   });
