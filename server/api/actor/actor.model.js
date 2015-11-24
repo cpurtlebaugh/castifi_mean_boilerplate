@@ -232,15 +232,13 @@ var ActorSchema = new Schema({
                 photosComplete: {type: Number, default: 0},
                 physicalComplete: {type: Number, default: 0},
                 profileComplete: {type: Number, default: 0} },
-  
+
   createdAt: {type: Date, default: Date.now()},
   updatedAt: {type: Date},
   lastLogin: {type: Date}
 });
 
-/* Pre-save hook*/
-ActorSchema
-  .pre('save', function(next){ 
+var profileProgress = function(next){
     var profileTotal = check.checkProfile(this);
     this.profileMetrics.overviewComplete = profileTotal[0];
     this.profileMetrics.photosComplete = profileTotal[1];
@@ -249,6 +247,10 @@ ActorSchema
     this.profileMetrics.profileComplete = profileTotal[4];;
     this.updatedAt = new Date();
     next();
-});
+};
+/* Pre-save hook*/
+ActorSchema
+  .pre('save', profileProgress)
+  .pre('find', profileProgress);
 
 module.exports = mongoose.model('Actor', ActorSchema);
