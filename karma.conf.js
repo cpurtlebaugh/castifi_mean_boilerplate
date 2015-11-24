@@ -4,7 +4,7 @@
 module.exports = function(config) {
   config.set({
 
-    reporters: ['progress', 'notify'],
+    reporters: ['progress', 'notify', 'coverage'],
 
    // Optional Settings
     notifyReporter: {
@@ -42,7 +42,16 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      '**/*.html': 'html2js'
+      '**/*.html': 'html2js',
+      'client/app/**/*.js': 'coverage'
+    },
+
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+                  {tyle: 'html', subdir: 'angular'},
+                  {type: 'text-summary'}
+                 ]
     },
 
     ngHtml2JsPreprocessor: {

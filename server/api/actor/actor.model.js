@@ -251,6 +251,6 @@ var profileProgress = function(next){
 /* Pre-save hook*/
 ActorSchema
   .pre('save', profileProgress)
-  .pre('update', profileProgress);
+  .pre('find', profileProgress);
 
 module.exports = mongoose.model('Actor', ActorSchema);
