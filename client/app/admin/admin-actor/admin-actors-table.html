@@ -11,6 +11,8 @@
           <th st-sort="appearance.portrayAgeMin">Min. Port. Age</th>
           <th st-sort="appearance.portrayAgeMax">Max. Port. Age</th>
           <th st-sort="gender">Gender</th>
+          <th st-sort="city">City</th>
+          <th st-sort="state">State</th>
           <th td colspan="1" st-sort="info.union">Union</th>
           <th st-sort="info.sagEligible">SAG-Eligible</th>
           <th st-sort="ethnicLook">Ethnicity</th>
@@ -42,15 +44,26 @@
          </th>
 
 
-          <th>
-            <select st-search="gender" >
-            <option value="">All</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="neutral">Neutral</option>
-            </select>
-      <!--        <input st-search="gender" placeholder="search gender" class="input-sm form-control" type="search"/> -->
-         </th>
+        <th>
+          <select st-search="gender" >
+          <option value="">All</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="neutral">Neutral</option>
+          </select>
+    <!--        <input st-search="gender" placeholder="search gender" class="input-sm form-control" type="search"/> -->
+        </th>
+
+        <th>
+          <input st-search="city | " placeholder="city" class="input-sm form-control" type="search"></input>
+        </th>
+
+        <th>
+          <input st-search="state" placeholder="state" class="input-sm form-control" type="search"></input>
+        </th>
+
+
+
          <th>
             <select st-search="info.union">
               <option value="">All</option>
@@ -84,6 +97,8 @@
           <td>{{actor.appearance.portrayAgeMin}}</td>
           <td>{{actor.appearance.portrayAgeMax}}</td>
           <td>{{actor.gender}}</td>
+          <td>{{actor.city}}</td>
+          <td>{{actor.state}}</td>
           <td>{{actor.info.union}}</td>
           <td>{{actor.info.sagEligible}}</td>
           <!-- <td>{{actor.ethnicLook}}</td> -->
