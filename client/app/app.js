@@ -40,6 +40,9 @@ angular.module('castifiApp', [
           $cookieStore.remove('token');
           return $q.reject(response);
         }
+        if(response.status === 403){
+          $location.path('/profile');
+        }
         else {
           return $q.reject(response);
         }
