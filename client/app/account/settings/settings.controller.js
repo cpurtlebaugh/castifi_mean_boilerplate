@@ -5,6 +5,8 @@ angular.module('castifiApp')
     $scope.errors = {};
     $scope.spinner = false;
 
+    // test
+
     $scope.changePassword = function(form) {
       $scope.submitted = true;
       if(form.$valid) {
