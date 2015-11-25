@@ -20,9 +20,11 @@ function checkOverview(actor){
   // required:
   var requiredArray = [actor.legalFirstName, actor.legalLastName, actor.overEighteen,
                        actor.contact.mainPhoneNum, actor.contact.fullAddress];
+
   var required      = _.every(requiredArray, function(value){
      return value !== undefined;
   })
+
   required ? requiredTotal = 6.25 : requiredTotal = 0;
 
   // willing:

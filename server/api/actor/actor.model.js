@@ -85,6 +85,8 @@ var ActorSchema = new Schema({
                triplets: Boolean, pregnant: Boolean,
                pregnantDueDate: Date, smoker:Boolean
               },
+          ageHigh: Number,
+          ageLow: Number,
 
   piercings:  {present: Boolean, piercingCount: Number,
                ear:Boolean, nose:Boolean, eyebrow: Boolean,
@@ -250,7 +252,9 @@ var profileProgress = function(next){
 };
 /* Pre-save hook*/
 ActorSchema
-  .pre('save', profileProgress)
-  .pre('find', profileProgress);
+  .pre('save', profileProgress);
+
+ActorSchema
+  .pre('update', profileProgress);
 
 module.exports = mongoose.model('Actor', ActorSchema);
