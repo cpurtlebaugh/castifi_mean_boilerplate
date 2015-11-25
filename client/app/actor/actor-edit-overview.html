@@ -213,16 +213,17 @@
 	<!-- end union or non inion -->
 	<!-- same union legal name -->
 	<br>
-	<div class="row">
-		<div class="col-sm-10">
-			<label>My Union Name Is The Same As Legal Name</label>
-        	<br>
-	        <div class="btn-group">
-	          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="true">Yes</label>
-	          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="false">No</label>
-	        </div>
-		</div>
-		<div class="col-sm-2"></div>
+  <div ng-if="actor.info.union === true">
+	 <div class="row">
+  		<div class="col-sm-10 col-offset-sm-2">
+  		<label>My Union Name Is The Same As Legal Name</label>
+      	<br>
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="true">Yes</label>
+          <label class="btn btn-primary" ng-model="actor.info.unionSameLegalName" btn-radio="false">No</label>
+        </div>
+  		</div>
+    </div>
 	</div>
 	<!-- end same union legal name -->
 	<!-- union name -->
