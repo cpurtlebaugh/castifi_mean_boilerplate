@@ -28,7 +28,7 @@ angular.module('castifiApp')
         templateUrl: 'app/admin/admin-actor/admin-actors-list.html',
         controller: 'AdminActorsCtrl'
       })
-      .state('admin.actors.table', {
+      .state('admin.table', {
         url: '/table',
         templateUrl: 'app/admin/admin-actor/admin-actors-table.html',
         controller: 'AdminActorsCtrl'
