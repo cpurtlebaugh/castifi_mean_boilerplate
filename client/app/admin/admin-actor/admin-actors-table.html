@@ -4,16 +4,17 @@
       <table st-table="displayActors" st-safe-src="actors" st-set-filter="customFilter" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Photo</th>
-          <th st-sort="email">Email</th>
-          <th st-sort="legalFirstName">First Name</th>
-          <th st-sort="legalLastName">Last Name</th>
-          <th st-sort="appearance.portrayAgeMin">Min. Port. Age</th>
-          <th st-sort="appearance.portrayAgeMax">Max. Port. Age</th>
-          <th st-sort="gender">Gender</th>
-          <th td colspan="1" st-sort="info.union">Union</th>
-          <th st-sort="info.sagEligible">SAG-Eligible</th>
-          <th st-sort="ethnicLook">Ethnicity</th>
+          <th class="col-sm-1">Photo</th>
+          <th class="col-sm-1" st-sort="email">Email</th>
+          <th class="col-sm-1" st-sort="legalFirstName">First Name</th>
+          <th class="col-sm-1" st-sort="legalLastName">Last Name</th>
+          <th class="col-sm-1" st-sort="appearance.portrayAgeMin">Min. Port. Age</th>
+          <th class="col-sm-1" st-sort="appearance.portrayAgeMax">Max. Port. Age</th>
+          <th class="col-sm-1" st-sort="gender">Gender</th>
+          <th class="col-sm-1" st-sort="city">City</th>
+          <th class="col-sm-1" td colspan="1" st-sort="info.union">Union</th>
+          <th class="col-sm-1" st-sort="info.sagEligible">SAG-Eligible</th>
+          <th class="col-sm-1" st-sort="ethnicLook">Ethnicity</th>
       <!--     <th st-sort="ethnicLook">Ethnicity 1</th>
           <th st-sort="ethnicLook">Ethnicity 2</th>
           <th st-sort="ethnicLook">Ethnicity 3</th> -->
@@ -42,15 +43,20 @@
          </th>
 
 
-          <th>
-            <select st-search="gender" >
-            <option value="">All</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="neutral">Neutral</option>
-            </select>
-      <!--        <input st-search="gender" placeholder="search gender" class="input-sm form-control" type="search"/> -->
-         </th>
+        <th>
+          <select st-search="gender" >
+          <option value="">All</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="neutral">Neutral</option>
+          </select>
+    <!--        <input st-search="gender" placeholder="search gender" class="input-sm form-control" type="search"/> -->
+        </th>
+
+        <th>
+          <input st-search="city | " placeholder="city" class="input-sm form-control" type="search"></input>
+        </th>
+
          <th>
             <select st-search="info.union">
               <option value="">All</option>
@@ -77,13 +83,14 @@
       </thead>
       <tbody>
         <tr ng-repeat="actor in displayActors | filter: {legalFirstName: '!!'}">
-          <td><img style="width: 25%" ng-src="{{actor.headShot}}"></td>
+          <td><img style="width: 100%" ng-src="{{actor.headShot}}"></td>
           <td><a ui-sref="admin.actors.detail({id: actor._id})">{{actor.email}}</a></td>
           <td>{{actor.legalFirstName}}</td>
           <td>{{actor.legalLastName}}</td>
           <td>{{actor.appearance.portrayAgeMin}}</td>
           <td>{{actor.appearance.portrayAgeMax}}</td>
           <td>{{actor.gender}}</td>
+          <td>{{actor.city}}</td>
           <td>{{actor.info.union}}</td>
           <td>{{actor.info.sagEligible}}</td>
           <!-- <td>{{actor.ethnicLook}}</td> -->
