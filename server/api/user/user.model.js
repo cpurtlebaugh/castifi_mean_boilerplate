@@ -46,6 +46,16 @@ UserSchema
     return this._password;
   });
 
+//Password Confirmation
+UserSchema
+  .virtual('passwordConfirm')
+  .get(function() {
+    return this._passwordConfirm;
+  })
+  .set(function(value) {
+    this._passwordConfirm = value;
+  });  
+
 // Public profile information
 UserSchema
   .virtual('profile')
@@ -85,6 +95,29 @@ UserSchema
     if (authTypes.indexOf(this.provider) !== -1) return true;
     return hashedPassword.length;
   }, 'Password cannot be blank');
+
+// Validate password length and password confirmation must match
+
+UserSchema
+  .path('hashedPassword')
+  .validate(function(hashedPassword) {
+    // console.log("path hashedPassword password");
+    // console.log(this._password);
+    // console.log("path hashedPassword passwordConfirm");
+    // console.log(this._passwordConfirm);
+    if(this._password){
+      if(this._password.length < 8){
+          // console.log("password length pass");
+          this.invalidate('password', 'Password must be at least 8 characters.');
+      }
+    }
+    if (this._password !== this._passwordConfirm) {
+      // console.log("password confirm pass"); 
+      this.invalidate('passwordConfirm', 'Passwords must match.');
+    }
+  });
+
+// Validate password confirmation
 
 // Validate email is not taken
 UserSchema

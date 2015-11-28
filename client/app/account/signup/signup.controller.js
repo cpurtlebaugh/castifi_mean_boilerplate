@@ -7,12 +7,13 @@ angular.module('castifiApp')
 
     $scope.register = function(form) {
       $scope.submitted = true;
-
+      console.log(form)
       if(form.$valid) {
         Auth.createUser({
           // name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          passwordConfirm: $scope.user.passwordConfirm
         })
         .then( function() {
           // Account created, redirect to home

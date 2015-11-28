@@ -17,11 +17,12 @@ describe('GET /api/actors', function() {
         provider: 'local',
         email: 'test@test.com',
         role: 'admin',
-        password: 'test'
+        password: 'password',
+        passwordConfirm: 'password'
       }, function() {
           server.post('/auth/local')
-            .send({email:'test@test.com', password:'test'})
-            .expect(302)
+            .send({email:'test@test.com', password: 'password', passwordConfirm: 'password'})
+            .expect(200)
             .end(function(err, res){
               token = res.body.token;
               done();
@@ -39,7 +40,7 @@ describe('GET /api/actors', function() {
     });
   });
 
-  it('should respond with JSON array for authenticated user', function(done) {
+  it('should respond with JSON array for authenticated admin user', function(done) {
     server.get('/api/actors')
       .set('Authorization', 'Bearer '  + token)
       .expect(200)
