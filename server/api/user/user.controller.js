@@ -187,12 +187,14 @@ exports.acceptToken = function(req, res, next){
         }
         else{
           user.password = req.body.password;
+          user.passwordConfirm = req.body.passwordConfirm;
           user.resetPasswordToken = undefined;
           user.resetPasswordExpires = undefined;
 
             user.save(function(err) {
               if(user.authenticate(req.body.password)){
-                  done(err, user)
+                   if (err) return validationError(res, err);
+                   done(err, user)
                 }
             });
           }

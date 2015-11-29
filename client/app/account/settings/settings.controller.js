@@ -10,10 +10,10 @@ angular.module('castifiApp')
 
       if(form.$valid) {
         Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
-        .then( function(data) {
+        .then( function() {
           $scope.message = 'Password successfully changed.';
         })
-        .catch( function(err) {
+        .catch( function() {
           form.password.$setValidity('mongoose', false);
           $scope.errors.other = 'Incorrect password';
           $scope.message = '';
@@ -27,10 +27,8 @@ angular.module('castifiApp')
         var data = {email: $scope.user.email};
         if(form.$valid){
            $scope.spinner = true;
-          //start/reveal spinner//set ng-disabled to true
           $http.post('api/users/forgot', data)
             .success(function(data){
-              //stop/hide spinner//set ng-disabled to false
               $scope.successMessage = data;
               $scope.spinner = false;
             })
@@ -43,33 +41,24 @@ angular.module('castifiApp')
 
     $scope.newPasswordReset = function(form){
       $scope.submitted = true;
-      console.log(form)
-      // var data = {password: $scope.user.password};
+
       if(form.$valid){
+        var data = {password: $scope.user.password, passwordConfirm: $scope.user.passwordConfirm};
         $scope.spinner = true;
-        $http.post('/api/users/reset/' + $stateParams.token, {password: $scope.user.password})
+        $http.post('/api/users/reset/' + $stateParams.token, data)
             .success(function(data){
+              //on success send success message
               $scope.successMessage = data;
               $scope.spinner = false;
             })
             .error(function(err){
-                console.log(err)
-                // err = err.data;
-                // $scope.errors = {};
-
-              // Update validity of form fields that match the mongoose errors
-                // angular.forEach(err.errors, function(error, field) {
-                //   form[field].$setValidity('mongoose', false);
-                //   $scope.errors[field] = error.message;
-                // });
-             
-              // $scope.errors.other = err;
-              $scope.spinner = false;
-
+                console.log(err)             
+                $scope.errors.other = err;
+                $scope.spinner = false;
             })
       }
       else {
-        $scope.errors.other = 'Sorry, something went wrong, please try again';
+        // $scope.errors.other = 'Sorry, something went wrong, please try again';
         $scope.spinner = false;
       }
     };

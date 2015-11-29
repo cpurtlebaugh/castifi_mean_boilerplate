@@ -38,11 +38,12 @@
              ng-show="form.confirmPassword.$error.match && submitted">
             Passwords must match.
           </p>
-          <p class="text-danger">
+          <p class="text-danger" ng-show="errors.other">
             {{errors.other}}
           </p>
-          <p class="text-success">
-            {{successMessage}}
+          <p class="text-success" ng-show="successMessage">
+            {{successMessage}}<br>
+            <a ui-sref='login' class="text-primary">Login Now!</a>
           </p>
 
         </div>
