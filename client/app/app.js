@@ -74,10 +74,13 @@ angular.module('castifiApp', [
       //redirect logged in users away from signup/login
       //Waits for currentUser to resolve before checking if user is logged in
       Auth.isLoggedInAsync(function(loggedIn) {
+        if(next.loginPrevent && loggedIn){
+           event.preventDefault();
+           $location.path('/')
+        }
         //if state.authenticate is true and they are !loggedIn
         //if currentUser.role === (next.data.roles[0])
         if (next.authenticate && !loggedIn) {
-          //if user isn't authenticated //user permissions by role
           event.preventDefault();
           $location.path('/login');
         }
