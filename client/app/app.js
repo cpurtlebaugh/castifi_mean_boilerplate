@@ -40,9 +40,9 @@ angular.module('castifiApp', [
           $cookieStore.remove('token');
           return $q.reject(response);
         }
-        if(response.status === 403){
-          $location.path('/profile');
-        }
+        // if(response.status === 403){
+        //   $location.path('/profile');
+        // }
         else {
           return $q.reject(response);
         }
@@ -54,13 +54,16 @@ angular.module('castifiApp', [
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
-
+      // console.log(event)
+      // console.log(next.data.roles[0])
       //if user tries to access admin routes (as non admin) auth.IsAdmin
       //redirect to root
 
       //need to check role with each statechange and redirect accordingly
       //add data authorization roles to each route
       //can also check if they came from login or signup
+
+      //might need to add service for Auth checking
 
       //check signup and login, if user logged in
       //redirect to root
@@ -69,7 +72,10 @@ angular.module('castifiApp', [
       //bounce back to login
 
       //redirect logged in users away from signup/login
+      //Waits for currentUser to resolve before checking if user is logged in
       Auth.isLoggedInAsync(function(loggedIn) {
+        //if state.authenticate is true and they are !loggedIn
+        //if currentUser.role === (next.data.roles[0])
         if (next.authenticate && !loggedIn) {
           //if user isn't authenticated //user permissions by role
           event.preventDefault();

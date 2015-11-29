@@ -84,6 +84,7 @@ exports.changePassword = function(req, res, next) {
   User.findById(userId, function (err, user) {
     if(user.authenticate(oldPass)) {
       user.password = newPass;
+      user.passwordConfirm = newPass;
       user.save(function(err) {
         if (err) return validationError(res, err);
         res.status(200).send('OK');

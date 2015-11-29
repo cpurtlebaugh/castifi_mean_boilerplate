@@ -13,11 +13,6 @@ angular.module('castifiApp')
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupCtrl'
       })
-      .state('signuptest', {
-        url: '/signuptest',
-        templateUrl: 'app/account/signup/signup-test.html',
-        controller: 'SignupCtrl'
-      })
       .state('forgot', {
         url: '/forgot',
         templateUrl: 'app/account/settings/forgot-password.html',
@@ -28,18 +23,15 @@ angular.module('castifiApp')
         abstract: true,
         template: '<ui-view></>',
         controller: 'SettingsCtrl',
-        authenticate: true,
       })
       .state('reset.details', {
         url: '/:token',
         templateUrl: 'app/account/settings/reset.html',
         controller: 'SettingsCtrl'
-        // authenticate: true,
       })
       .state('settings', {
         url: '/settings',
-        templateUrl: 'app/account/settings/settings.html',
-        authenticate: true,
+        templateUrl: 'app/account/settings/settings.html'
       });
 
       $urlRouterProvider.otherwise('/');

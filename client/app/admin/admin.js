@@ -6,7 +6,10 @@ angular.module('castifiApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        // data: {
+        //   roles: ['Admin']
+        // }
       })
       .state('admin.dashboard', {
         url: '/dashboard',

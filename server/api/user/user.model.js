@@ -101,23 +101,15 @@ UserSchema
 UserSchema
   .path('hashedPassword')
   .validate(function(hashedPassword) {
-    // console.log("path hashedPassword password");
-    // console.log(this._password);
-    // console.log("path hashedPassword passwordConfirm");
-    // console.log(this._passwordConfirm);
     if(this._password){
       if(this._password.length < 8){
-          // console.log("password length pass");
-          this.invalidate('password', 'Password must be at least 8 characters.');
+        this.invalidate('password', 'Password must be at least 8 characters.');
       }
     }
-    if (this._password !== this._passwordConfirm) {
-      // console.log("password confirm pass"); 
+    if(this._password !== this._passwordConfirm) {
       this.invalidate('passwordConfirm', 'Passwords must match.');
     }
   });
-
-// Validate password confirmation
 
 // Validate email is not taken
 UserSchema

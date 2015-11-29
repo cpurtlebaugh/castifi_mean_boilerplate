@@ -7,7 +7,7 @@ angular.module('castifiApp')
 
     $scope.register = function(form) {
       $scope.submitted = true;
-      console.log(form)
+      
       if(form.$valid) {
         Auth.createUser({
           // name: $scope.user.name,
