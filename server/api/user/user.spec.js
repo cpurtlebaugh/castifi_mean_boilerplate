@@ -14,10 +14,11 @@ describe('GET /api/users', function() {
       User.create({
         provider: 'local',
         email: 'test@test.com',
-        password: 'test'
+        password: 'password',
+        passwordConfirm: 'password'
       }, function() {
           server.post('/auth/local')
-            .send({email:'test@test.com', password:'test'})
+            .send({email:'test@test.com', password:'password', passwordConfirm: 'password'})
             .expect(200)
             .end(function(err, res){
               token = res.body.token;

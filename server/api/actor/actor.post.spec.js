@@ -14,16 +14,19 @@ var actorOne = new Actor({
   email: 'test@test.com',
 });
 
+describe('POST /api/actors', function() {
+
 before(function(done){
 
 	User.find({}).remove(function() {
       User.create({
         provider: 'local',
         email: 'test@test.com',
-        password: 'test'
+        password: 'password',
+        passwordConfirm: 'password'
       }, function() {
           server.post('/auth/local')
-            .send({email:'test@test.com', password:'test'})
+            .send({email:'test@test.com', password:'password', passwordConfirm: 'password'})
             .expect(302)
             .end(function(err, res){
               token = res.body.token;
@@ -61,3 +64,5 @@ afterEach(function(done) {
 	        done();
 	    })
   })
+
+})

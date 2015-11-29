@@ -9,7 +9,7 @@ var user = new User({
   name: 'Fake User',
   email: 'test@test.com',
   password: 'password',
-  // confirmPassword: 'password'
+  passwordConfirm: 'password'
 });
 
 describe('User Model', function() {
@@ -59,10 +59,23 @@ describe('User Model', function() {
     });
   });
 
-  // it('should validated that password and confirm_password match', function(done){
-  //   //need to access confirm password
-  //   // user.password 
-  // });
+   it('should fail when password is less than 8 characters', function(done){
+      user.password = 'pass';
+      user.passwordConfirm = 'pass';
+      user.save(function(err) {
+        should.exist(err);
+      done();
+    });
+  });
+
+  it('should fail when password and passwordConfirm do not match', function(done){
+      user.password = 'password';
+      user.passwordConfirm = '';
+      user.save(function(err) {
+        should.exist(err);
+      done();
+    });
+  });
 
   it("should authenticate user if password is valid", function() {
     return user.authenticate('password').should.be.true;
