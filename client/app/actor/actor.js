@@ -7,6 +7,7 @@ angular.module('castifiApp')
         url: '/actor',
         templateUrl: 'app/actor/actor.html',
         controller: 'ActorCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(User){
             return User.get().$promise;
@@ -18,6 +19,7 @@ angular.module('castifiApp')
         url: '/profile',
         templateUrl: 'app/actor/actor-profile.html',
         controller: 'ActorProfileCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(User){
             return User.get().$promise;
@@ -29,6 +31,7 @@ angular.module('castifiApp')
         url: '/edit',
         templateUrl: 'app/actor/actor-edit.html',
         controller: 'ActorCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(currentUser){
             return currentUser;
@@ -40,6 +43,7 @@ angular.module('castifiApp')
         url: '/overview',
         templateUrl: 'app/actor/actor-edit-overview.html',
         controller: 'ActorCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(currentUser){
             return currentUser;
@@ -51,6 +55,7 @@ angular.module('castifiApp')
         url: '/photos',
         templateUrl: 'app/actor/actor-edit-photos.html',
         controller: 'ActorUploadCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(currentUser){
             return currentUser;
@@ -62,6 +67,7 @@ angular.module('castifiApp')
         url: '/physical',
         templateUrl: 'app/actor/actor-edit-physical.html',
         controller: 'ActorCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(currentUser){
             return currentUser;
@@ -73,6 +79,7 @@ angular.module('castifiApp')
         url: '/wardrobe',
         templateUrl: 'app/actor/actor-edit-wardrobe.html',
         controller: 'ActorCtrl',
+        authenticate: true,
         resolve:{
           currentUser: function(currentUser){
             return currentUser;
@@ -82,12 +89,14 @@ angular.module('castifiApp')
        //WELCOME
        .state('welcome', {
         url: '/welcome',
-        templateUrl: 'app/actor/actor-welcome.html'
+        templateUrl: 'app/actor/actor-welcome.html',
+        authenticate: true
       })
       //CONFIRMATION
       .state('confirmation', {
         url: '/confirmation',
-        templateUrl: 'app/actor/actor-confirmation.html'
+        templateUrl: 'app/actor/actor-confirmation.html',
+        authenticate: true,
       });
 
 

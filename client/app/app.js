@@ -54,6 +54,7 @@ angular.module('castifiApp', [
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
+
       // console.log(event)
       // console.log(next.data.roles[0])
       //if user tries to access admin routes (as non admin) auth.IsAdmin
@@ -74,14 +75,18 @@ angular.module('castifiApp', [
       //redirect logged in users away from signup/login
       //Waits for currentUser to resolve before checking if user is logged in
       Auth.isLoggedInAsync(function(loggedIn) {
+        var admin = Auth.isAdmin();
+
+        if(!admin && next.adminProtected && loggedIn){
+            event.preventDefault();
+           $location.path('/');
+        }  
         if(next.loginPrevent && loggedIn){
            event.preventDefault();
-           $location.path('/')
+           $location.path('/');
         }
-        //if state.authenticate is true and they are !loggedIn
-        //if currentUser.role === (next.data.roles[0])
         if (next.authenticate && !loggedIn) {
-          event.preventDefault();
+          // event.preventDefault();
           $location.path('/login');
         }
       });

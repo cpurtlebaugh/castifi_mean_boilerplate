@@ -36,7 +36,8 @@ angular.module('castifiApp')
       })
       .state('settings', {
         url: '/settings',
-        templateUrl: 'app/account/settings/settings.html'
+        templateUrl: 'app/account/settings/settings.html',
+        authenticate: true
       });
 
       $urlRouterProvider.otherwise('/');
