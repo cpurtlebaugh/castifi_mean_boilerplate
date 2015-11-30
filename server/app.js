@@ -10,6 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
+var enforce = require('express-sslify');
 
 
 // Connect to database
@@ -25,16 +26,12 @@ if(config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(enforce.HTTPS({trustProtoHeader: true}));
+};
+
 var server = require('http').createServer(app);
-
-var forceSsl = function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(['https://', req.get('Host'), req.url].join(''));
-    }
-    return next();
- };
-
-
 var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
