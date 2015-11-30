@@ -1,10 +1,12 @@
-<!-- <div class="container actor-container">
-  <div class="actor-well"> -->
-<h3>{{actor.legalFirstName | capitalize }} {{ actor.legalLastName | capitalize}} / {{actor.email}}</h3>    
+<div class="row">
+  <h3 class="col-sm-4">Profile Complete: &nbsp{{actor.profileMetrics.profileComplete}}%</h3>
+  <h3 class="col-sm-8">{{actor.legalFirstName | capitalize }} {{ actor.legalLastName | capitalize}}: &nbsp {{actor.email}}</h3>
+</div>
+
 <h3>Photos</h3>
 <!-- photos  -->
   <div class="row">
-    <div class="col-sm-4">
+    <div>
       <img ng-src="{{actor.headShot || '../assets/images/actor/mirrorbox.svg'}}">
     </div>
     <div class="col-sm-4">

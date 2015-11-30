@@ -13,13 +13,13 @@
                                             'has-error': form.password.$invalid && submitted }">
 
           <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="New Password"
-                 ng-minlength="3"
+                 ng-minlength="8"
                  required
                  mongoose-error
                  data-ng-class="{'ng-invalid':form.confirmPassword.$error.match}"/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
-            Password must be at least 3 characters.
+            Password must be at least 8 characters.
           </p>
           <p class="text-danger" ng-show="form.password.$error.mongoose">
             {{ errors.password }}
@@ -38,11 +38,12 @@
              ng-show="form.confirmPassword.$error.match && submitted">
             Passwords must match.
           </p>
-          <p class="text-danger">
+          <p class="text-danger" ng-show="errors.other">
             {{errors.other}}
           </p>
-          <p class="text-success">
-            {{successMessage}}
+          <p class="text-success" ng-show="successMessage">
+            {{successMessage}}<br>
+            <a ui-sref='login' class="text-primary">Login Now!</a>
           </p>
 
         </div>

@@ -235,9 +235,7 @@ var ActorSchema = new Schema({
                 physicalComplete: {type: Number, default: 0},
                 profileComplete: {type: Number, default: 0} },
 
-  createdAt: {type: Date, default: Date.now()},
-  updatedAt: {type: Date},
-  lastLogin: {type: Date}
+  createdAt: {type: Date, default: Date.now()}
 });
 
 var profileProgress = function(next){

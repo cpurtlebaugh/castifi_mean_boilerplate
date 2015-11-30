@@ -6,48 +6,65 @@ angular.module('castifiApp')
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/admin/admin-dashboard.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.users', {
         url: '/users',
         templateUrl: 'app/admin/admin-users.html',
-        controller: 'AdminCtrl'
+        controller: 'AdminCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.actors', {
         url: '/actors',
         templateUrl: 'app/admin/admin-actor/admin-actors.html',
-        controller: 'AdminActorsCtrl'
+        controller: 'AdminActorsCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.actors.list', {
         url: '/list',
         templateUrl: 'app/admin/admin-actor/admin-actors-list.html',
-        controller: 'AdminActorsCtrl'
+        controller: 'AdminActorsCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.table', {
         url: '/table',
         templateUrl: 'app/admin/admin-actor/admin-actors-table.html',
-        controller: 'AdminActorsCtrl'
-
+        controller: 'AdminActorsCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.actors.detail', {
         url: '/:id',
         templateUrl: 'app/admin/admin-actor/admin-actors-detail.html',
-        controller: 'AdminActorsDetailCtrl'
+        controller: 'AdminActorsDetailCtrl',
+        authenticate: true,
+        adminProtected: true
       })
       .state('admin.actors.edit', {
         url: '/:id/edit',
         templateUrl: 'app/admin/admin-actor/admin-actors-edit.html',
-        controller: 'AdminActorsEditCtrl'
+        controller: 'AdminActorsEditCtrl',
+        authenticate: true,
+        adminProtected: true
       })
        .state('admin.actors.photos', {
         url: '/:id/photos',
         templateUrl: 'app/admin/admin-actor/admin-actors-photos.html',
-        controller: 'AdminActorsPhotosCtrl'
-      })
+        controller: 'AdminActorsPhotosCtrl',
+        authenticate: true,
+        adminProtected: true
+      });
 
   });
