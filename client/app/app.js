@@ -79,11 +79,11 @@ angular.module('castifiApp', [
 
         if(!admin && next.adminProtected && loggedIn){
             event.preventDefault();
-           $location.path('/');
+           $location.path('/profile');
         }  
         if(next.loginPrevent && loggedIn){
            event.preventDefault();
-           $location.path('/');
+           $location.path('/profile');
         }
         if (next.authenticate && !loggedIn) {
           // event.preventDefault();
