@@ -27,9 +27,9 @@ if(config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(enforce.HTTPS({trustProtoHeader: true}));
-};
+// if(process.env.NODE_ENV === 'production'){
+//   app.use(enforce.HTTPS({trustProtoHeader: true}));
+// };
 
 var server = require('http').createServer(app);
 var socketio = require('socket.io')(server, {
