@@ -19,10 +19,10 @@
          <h5>Headshot</h5>
           <input type="file" ng-model="headShot" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
           </input>
-             <div class="text-danger" ng-show="headShow"> {{errMsg}}  
+             <div class="text-danger" ng-show="headShow"> {{errMsg}}
         <!--       <br>
            <progressbar animate="true" value="dynamic" type="success" ng-if="dynamic > 0"><b>{{dynamic}}%</b></progressbar> -->
-            </div>  
+            </div>
             <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('headShot')" ng-show="headShot || actor.headShot">Remove</button>
           <br>
     </div>
@@ -31,7 +31,7 @@
         <h5>Head to Toe</h5>
           <input type="file" ng-model="headToToe" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headToToe')" accept="jpg,.jpeg, .png">
           </input>
-           <div class="text-danger" ng-show="toeShow"> {{errMsg}} </div> 
+           <div class="text-danger" ng-show="toeShow"> {{errMsg}} </div>
           <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('headToToe')" ng-show="headToToe || actor.headToToe">Remove</button>
           <br>
     </div>
@@ -41,7 +41,7 @@
              <input type="file" ng-model="realLife" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'realLife')"
               accept="jpg,.jpeg, .png">
           </input>
-           <div class="text-danger" ng-show="realShow"> {{errMsg}}</div>   
+           <div class="text-danger" ng-show="realShow"> {{errMsg}}</div>
           <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('realLife')" ng-show="realLife || actor.realLife">Remove</button>
     </div>
 
@@ -160,33 +160,33 @@
 
       <div class="form-group" ng-class="{ 'has-success': form.address.$valid && submitted,
                                              'has-error': form.address.$invalid && submitted }">
-              <label>Please fill out your full mailing address <span class="glyphicon glyphicon-asterisk text-danger"></span></label> 
-                <input type="text" name="address" class="form-control" 
+              <label>Please fill out your full mailing address <span class="glyphicon glyphicon-asterisk text-danger"></span></label>
+                <input type="text" name="address" class="form-control"
                 placeholder="Mailing Address"
-                ng-autocomplete 
-                ng-model="actor.contact.fullAddress" 
-                options="options" 
+                ng-autocomplete
+                ng-model="actor.contact.fullAddress"
+                options="options"
                 details="details"
                 ng-minlength="18"
-                required/> 
+                required/>
                 <p class="help-block" ng-show="form.address.$error.required && submitted">
                 A full address is required.
                 </p>
                  <p class="help-block"
                  ng-show="form.address.$error.minlength && submitted">
-                 Please include full autocomplete address. 
+                 Please include full autocomplete address.
               </p>
            </div>
 
     </div>
     <div class="col-sm-3">
-       
+
        <div class="form-group" ng-class="{ 'has-success': form.apartment.$valid && submitted,
                                                   'has-error': form.apartment.$invalid && submitted }">
                 <label>Apartment or Suite</label>
                 <input type="text" name="apartment" class="form-control" ng-model="actor.contact.aptNum"/>
               </div>
-    
+
     </div>
   </div>
   <!-- end address apt num -->
@@ -326,34 +326,34 @@
 	<br>
 	<!-- end union name -->
 	<!-- acting since -->
-	<div class="row">
-		<div class="col-sm-10">
-			<label>Are you new to background acting?</label>
-        	<br>
-	        <div class="btn-group">
-	          <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="true">Yes</label>
-	          <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="false">No</label>
-	        </div>
-		</div>
-		<div class="col-sm-2"></div>
-	</div>
-	<!-- ng-if -->
-	<div ng-if="actor.info.newActor === false">
-	<br>
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="form-group">
-		      <label>Acting Since</label>
+  <div class="row">
+    <div class="col-sm-10">
+      <label>Are you new to background acting?</label>
+          <br>
+          <div class="btn-group">
+            <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="true">Yes</label>
+            <label class="btn btn-primary" ng-model="actor.info.newActor" btn-radio="false">No</label>
+          </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <!-- ng-if -->
+  <div ng-if="actor.info.newActor === false">
+  <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Acting Since</label>
             <p class="input-group">
               <input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="actor.info.actingSince" close-text="close" is-open="$parent.opened"/>
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
             </p>
-		    </div>
-			</div>
-		</div>
-	</div>
+        </div>
+      </div>
+    </div>
+  </div>
 	<!-- ng-if -->
 	<br>
 	<!-- end acting since -->
@@ -1285,7 +1285,7 @@
 	    <div class="col-sm-5"></div>
         <div class="col-sm-2 text-center">
 	            <button class="btn btn-lg btn-success" type="submit">
-	              Save 
+	              Save
 	            </button>
         </div>
     	<div class="col-sm-5"></div>

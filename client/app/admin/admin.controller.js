@@ -15,10 +15,12 @@ angular.module('castifiApp')
     $scope.sagEligibleCount = $filter('filter')(actorModel, {info :{sagEligible: false}})
 
 
+    // actorProfCompPercent =
+
     $scope.delete = function(user) {
       var confirm = $window.confirm("Are you sure you want to permanently delete " + user.email + " ?")
-  
-      if(confirm){ 
+
+      if(confirm){
         Actor.remove({ id: user.actorId});
         User.remove({ id: user._id });
         angular.forEach($scope.users, function(u, i) {
@@ -28,6 +30,6 @@ angular.module('castifiApp')
         });
       }
     };
-  
+
 
   });
