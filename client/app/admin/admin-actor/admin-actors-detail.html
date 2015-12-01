@@ -20,221 +20,254 @@
 <h3>Basic Information</h3>
       <!-- names -->
   <div class="row">
-        <div class="col-sm-4">
+    <div class="col-sm-4">
 
-          <label>First Name: </label>
-         {{actor.legalFirstName}}
+      <label>First Name: </label>
+      <br>
+     {{actor.legalFirstName}}
 
-        </div>
-        <div class="col-sm-4">
-          <label>Last Name</label>
-         {{actor.legalLastName}}
-        </div>
+    </div>
+    <div class="col-sm-4">
+      <label>Last Name: </label>
+      <br>
+     {{actor.legalLastName}}
+    </div>
 
-        <div class="col-sm-4">
+    <div class="col-sm-4">
 
-          <label>Middle Name</label>
-          {{actor.legalMiddleName}}
-        </div>
+      <label>Middle Name: </label>
+      <br>
+      {{actor.legalMiddleName}}
+    </div>
   </div>
   <!-- end names -->
 <br>
-  <!-- dob and gender -->
+
+  <!-- same union legal name -->
+<div ng-if="actor.info.unionSameLegalName === false">
   <div class="row">
     <div class="col-sm-4">
-        <label>Are you over 18?: {{actor.overEighteen}}</label>
+      <label>Union First Name: </label>
+      <br>
+      {{actor.info.unionFirstName}}
     </div>
     <div class="col-sm-4">
-    <label>Gender: {{actor.gender}}</label>
-
+      <label>Union Last Name: </label>
+      <br>
+      {{actor.info.unionLastName}}
+    </div>
+    <div class="col-sm-4">
+      <label>Union Middle Name: </label>
+      <br>
+      {{actor.info.unionMiddleName}}
     </div>
   </div>
+</div>
+  <!-- end union name -->
+
+<br>
+<!-- phone number -->
+<div class="row">
+  <div class="col-sm-4">
+        <label>Phone Number: </label>
+        <br>
+        {{actor.contact.mainPhoneNum | tel}}
+  </div>
+
+<!-- end phone number -->
+  <!-- dob and gender -->
+
+  <div class="col-sm-4">
+      <label>Are you over 18?:</label>
+      <br>
+       {{actor.overEighteen}}
+  </div>
+
+  <div class="col-sm-4">
+  <label>Gender: </label>
+  <br>
+  {{actor.gender}}
+
+  </div>
+</div>
   <!-- end dob and gender -->
 <br>
-  <!-- phone number -->
-  <div class="row">
-    <div class="col-sm-4">
-          <label>Phone Number: {{actor.contact.mainPhoneNum | tel}} </label>
-    </div>
-  </div>
-  <!-- end phone number -->
-<br>
+
   <!-- address apt num -->
   <div class="row">
-    <div class="col-sm-6">
-      <label>Address: {{actor.contact.address}} </label>
-    </div>
-
-    <div class="col-sm-6">
-       <label>Apartment: {{actor.contact.aptNum}}</label>
-    </div>
-  </div>
-<br>
-  <!-- end address apt num -->
-  <!-- city state zip country -->
-  <div class="row">
-    <div class="col-sm-4">
-        <label>City: {{actor.contact.city}} </label>
+    <div class="col-sm-8">
+      <label>Address: </label>
+      <br>
+      {{actor.contact.fullAddress}}
     </div>
 
     <div class="col-sm-2">
-        <label>State: {{actor.contact.state}} </label>
+       <label>Apartment: </label>
+       <br>
+       {{actor.contact.aptNum}}
     </div>
-    <div class="col-sm-3">
-        <label>Zipcode: {{actor.contact.zipCode}} </label>
-    </div>
-    <div class="col-sm-3">
-          <label>Country: {{actor.contact.country}}</label>
-    </div>
-  </div>
-  <!-- end city state zip country -->
-<br>
-  <!-- union or non union -->
-  <div class="row">
-    <div class="col-sm-4">
-      <label>Non-Union or Union: {{actor.info.union}}</label>
-    </div>
-    <div class="col-sm-4">
-      <label>Are you SAG eligible?: {{actor.info.sagEligible}}</label>
-    </div>
-  </div>
-  <!-- end union or non inion -->
-<br>
-  <!-- same union legal name -->
-  <div class="row">
-    <div class="col-sm-4">
-      <label>Union First Name: {{actor.info.unionFirstName}}</label>
-    </div>
-    <div class="col-sm-4">
-      <label>Union Last Name: {{actor.info.unionLastName}}</label>
-    </div>
-    <div class="col-sm-4">
-      <label>Union Middle Name: {{actor.info.unionMiddleName}}</label>
-    </div>
-  </div>
-  <!-- end union name -->
-<br>
-  <!-- acting since -->
-  <div class="row">
-    <div class="col-sm-10">
-      <label>New To BG Acting: {{actor.info.newActor}} </label>
-    </div>
-    <div class="col-sm-4">
-      <label>Acting Since: {{actor.info.actingSince}}</label>
-    </div>
-  </div>
-  <!-- are you comfortable with  -->
-<br>
-  <div class="row">
-    <div class="col-sm-12">
-      <label>Comfortable with...</label>
-    </div>
-    <!-- nudity -->
-            <div class="col-sm-3 col-md-3">
-              <label>Kissing: {{actor.willing.kissing}}</label><br>
-              <label>Same-Sex Kissing: {{actor.willing.kissingSameSex}}</label><br>
-              <label>Partial Nudity: {{actor.willing.partialNudity}}</label><br>
-            </div>
-    <!-- end nudity -->
-    <!-- change hair -->
-            <div class="col-sm-3 col-md-3">
-              <label>Full Nudity: {{actor.willing.fullNudity}}</label><br>
-              <label>Cutting Hair: {{actor.willing.cutHair}}</label><br>
-            </div>
-    <!-- end hair -->
-          <div class="col-sm-3 col-md-3">
-             <label>Coloring Hair: {{actor.willing.colorHair}}</label><br>
-             <label>Cross-Dressing: {{actor.willing.drag}}</label><br>
-          </div>
 
-          <div class="col-sm-3 col-md-3">
-             <label>Eating Meat: {{actor.willing.eatMeat}}</label><br>
-             <label>Traveling: {{actor.willing.travel}}</label><br>
-          </div>
+    <div class="col-sm-2">
+      <label>Zipcode: </label>
+      <br>
+      {{actor.contact.zipCode}}
+    </div>
+  </div>
+<br>
+
+<!-- union or non union -->
+  <div class="row">
+    <div class="col-sm-4">
+      <label>Union: </label>
+      <br>
+      {{actor.info.union}}
+    </div>
+    <div class="col-sm-4">
+      <label>Are you SAG eligible?: </label>
+      <br>
+      {{actor.info.sagEligible}}
+    </div>
+
+  <div ng-if="actor.info.union === false">
+    <div class="col-sm-4">
+      <label>New To BG Acting: </label>
+      <br>
+      {{actor.info.newActor}}
+    </div>
+  </div>
+
+  <div ng-if="actor.info.newActor === false">
+      <div class="col-sm-4">
+        <label>Acting Since: </label>
+        <br>
+        {{actor.info.actingSince}}
+      </div>
+    </div>
+ </div>
+<!-- end union or non uinion -->
+
+  <!-- movie quote -->
+  <div class="row">
+    <div class="col-sm-12"> <br>
+        <label>Favorite Movie Quote/Line</label>
+        <br>
+        {{actor.info.movieQuote}}
+    </div>
+  </div>
+  <!-- end movieqoute -->
+
+
+<h3>Comfortable With</h3>
+<!-- are you comfortable with  -->
+  <div class="row">
+<!-- nudity -->
+    <div class="col-sm-3 col-md-3">
+      <label>Kissing: {{actor.willing.kissing}}</label><br>
+      <label>Same-Sex Kissing: {{actor.willing.kissingSameSex}}</label><br>
+      <label>Partial Nudity: {{actor.willing.partialNudity}}</label><br>
+    </div>
+<!-- end nudity -->
+<!-- change hair -->
+    <div class="col-sm-3 col-md-3">
+      <label>Full Nudity: {{actor.willing.fullNudity}}</label><br>
+      <label>Cutting Hair: {{actor.willing.cutHair}}</label><br>
+    </div>
+<!-- end hair -->
+    <div class="col-sm-3 col-md-3">
+       <label>Coloring Hair: {{actor.willing.colorHair}}</label><br>
+       <label>Cross-Dressing: {{actor.willing.drag}}</label><br>
+    </div>
+
+    <div class="col-sm-3 col-md-3">
+       <label>Eating Meat: {{actor.willing.eatMeat}}</label><br>
+       <label>Traveling: {{actor.willing.travel}}</label><br>
+    </div>
   </div>
   <!-- end are you comfortable with -->
-<br>
-  <!-- aboutme and movie quote -->
-  <div class="row">
-    <div class="col-sm-6"> <br>
-        <label>About Me: </label>
-        <div class="col-sm-12">{{actor.info.aboutMe}}</div>
-    </div>
-    <div class="col-sm-6"> <br>
-        <label>Favorite Movie Quote/Line</label>
-        <div class="col-sm-12">{{actor.info.movieQuote}}</div>
-    </div>
-  </div>
-  <!-- end aboutme and movieqoute -->
+
 <br>
 
 <h3>Physical Appearance</h3>
 
 <!--  age portrayal, height, weight -->
 <div class="row">
-  <div class="col-sm-3">
-    <label>Min. Portrayable Age: {{actor.appearance.portrayAgeMin}}</label>
-  </div>
-
-  <div class="col-sm-3">
-    <label>Max Portrayable Age: {{actor.appearance.portrayAgeMax}}</label>
+  <div class="col-sm-2">
+    <label>Min. Port. Age: </label>
+    <br>
+    {{actor.appearance.portrayAgeMin}}
   </div>
 
   <div class="col-sm-2">
-    <label>Height Feet: {{actor.appearance.heightFeet}}</label>
+    <label>Max Port. Age: </label>
+    <br>
+    {{actor.appearance.portrayAgeMax}}
   </div>
 
   <div class="col-sm-2">
-    <label>Height Inches: {{actor.appearance.heightInches}}</label>
+    <label>Height: </label>
+    <br>
+    {{actor.appearance.heightFeet}}'{{actor.appearance.heightInches}}"
   </div>
 
   <div class="col-sm-2">
-    <label>Weight: {{actor.appearance.weight}}</label>
+    <label>Weight: </label>
+    <br>
+    {{actor.appearance.weight}}
+  </div>
+
+  <div class="col-sm-2">
+    <label>Body Type: </label>
+    <br>
+    {{actor.appearance.bodyType}}
+  </div>
+
+  <div class="col-sm-2">
+    <label>Complexion: </label>
+    <br>
+    {{actor.appearance.complexion}}
   </div>
 </div>
 <!--  end age portrayal, height, weight -->
 <br>
 <!-- body type, complexion, eye color -->
 <div class="row">
-  <div class="col-sm-4">
-    <label>Body Type: {{actor.appearance.bodyType}}</label>
+  <div class="col-sm-2">
+    <label>Eye Color: </label>
+    <br>
+    {{actor.appearance.eyeColor}}
   </div>
 
-  <div class="col-sm-4">
-    <label>Complexion: {{actor.appearance.complexion}}</label>
+  <div class="col-sm-2">
+    <label>Hair Length: </label>
+    <br>
+    {{actor.appearance.hairLength}}
   </div>
 
-  <div class="col-sm-4">
-    <label>Eye Color: {{actor.appearance.eyeColor}}</label>
+  <div class="col-sm-2">
+    <label>Hair Color: </label>
+    <br>
+    {{actor.appearance.hairColor}}
   </div>
-</div>
-<!-- end body type, complexion, eye color -->
-<br>
-<!-- hair -->
-<div class="row">
-  <div class="col-sm-6">
-    <label>Hair Length: {{actor.appearance.hairLength}}</label>
-  </div>
-
-  <div class="col-sm-6">
-    <label>Hair Color: {{actor.appearance.hairColor}}</label>
-  </div>
-</div>
 <!-- end hair -->
-
-<br>
 <!-- facial hair, facial hair color, facial hair style -->
-<div class="row">
-  <div class="col-sm-4">
-    <label>Do You Have Facial Hair?: {{actor.appearance.facialHairPresent}}</label>
+  <div class="col-sm-2">
+      <label>Facial Hair: </label>
+      <br>
+      {{actor.appearance.facialHairPresent}}
   </div>
 
-  <div class="col-sm-4">
-    <label>Facial Hair Color: {{actor.appearance.facialHairColor}}</label>
-  </div>
+  <div ng-if="actor.appearance.facialHairPresent === true">
+    <div class="col-sm-2">
+      <label>Facial Hair Color: </label>
+      <br>
+      {{actor.appearance.facialHairColor}}
+    </div>
 
-  <div class="col-sm-4">
-    <label>Facial Hair Style: {{actor.appearance.facialHairStyle}}</label>
+    <div class="col-sm-2">
+      <label>Facial Hair Style: </label>
+      <br>
+      {{actor.appearance.facialHairStyle}}
+    </div>
   </div>
 </div>
 <!-- end facial hair, facial hair color, facial hair style -->
@@ -260,74 +293,89 @@
 <!-- end ethnic appearance -->
 <br>
 <h3>Miscellaneous</h3>
-<!-- twin or triplet-->
+<!-- twin, triplet, pregnant, due date-->
 <div class="row">
-  <div class="col-sm-6 col-md-6">
-    <label>Are You a Twin?: {{actor.appearance.twins}}</label><br>
+  <div class="col-sm-2 col-md-2">
+    <label>Twin: {{actor.appearance.twins}}</label><br>
   </div>
 
-  <div class="col-sm-6 col-md-6">
-    <label>Are You a Triplet?: {{actor.appearance.triplet}}</label><br>
-  </div>
-</div>
-<!-- end twin or triplet-->
-<br>
-<!-- are you pregnant, due date -->
-<div class="row">
-  <div class="col-sm-6 col-md-6">
-    <label>Are You Pregnant?: {{actor.appearance.pregnant}}</label><br>
+  <div class="col-sm-2 col-md-2">
+    <label>Triplet: {{actor.appearance.triplet}}</label><br>
   </div>
 
-  <div class="col-sm-6 col-md-6">
-      <label>Due Date{{actor.appearance.pregnantDueDate}}</label>
+  <div class="col-sm-3 col-md-3">
+    <label>Pregnant: {{actor.appearance.pregnant}}</label><br>
+  </div>
+
+  <div ng-if="actor.appearance.pregnant === true">
+    <div class="col-sm-3 col-md-3">
+        <label>Due Date{{actor.appearance.pregnantDueDate}}</label>
+    </div>
   </div>
 </div>
-<!-- end are you pregnant, due date -->
+<!-- twin, triplet, end are you pregnant, due date -->
 <br>
 <!-- tattoos and piercings -->
 <div class="row">
   <div class="col-sm-12">
-      <label>Do you have tattoos?: {{actor.tattoos.present}}</label><br>
+      <label>Tattoos: {{actor.tattoos.present}}</label><br>
   </div>
 </div>
-<br>
+
+<div ng-if="actor.tattoos.present === true">
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
         <label>Forearm: {{actor.tattoos.forearm}}</label><br>
         <label>Upper Arm: {{actor.tattoos.upperArm}}</label><br>
-        <label>Neck: {{actor.tattoos.neck}}</label><br>
-        <label>Face: {{actor.tattoos.face}}</label><br>
-        <label>Chest: {{actor.tattoos.chest}}</label><br>
     </div>
 
-    <div class="col-sm-6">
-      <label>Stomach: {{actor.tattoos.stomach}}</label><br>
+    <div class="col-sm-2">
+        <label>Neck: {{actor.tattoos.neck}}</label><br>
+        <label>Face: {{actor.tattoos.face}}</label><br>
+    </div>
+
+    <div class="col-sm-2">
+        <label>Chest: {{actor.tattoos.chest}}</label><br>
+        <label>Stomach: {{actor.tattoos.stomach}}</label><br>
+    </div>
+
+    <div class="col-sm-2">
       <label>Back: {{actor.tattoos.back}}</label><br>
       <label>Hand: {{actor.tattoos.hand}}</label><br>
+    </div>
+
+    <div class="col-sm-2">
       <label>Leg: {{actor.tattoos.leg}}</label><br>
       <label>Foot: {{actor.tattoos.foot}}</label><br>
     </div>
+  </div>
 </div>
 <br>
 
 <div class="row">
     <div class="col-sm-12">
-      <label>Do you have piercings?: {{actor.piercings.present}}</label><br>
+      <label>Piercings: {{actor.piercings.present}}</label><br>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6">
+<div ng-if="actor.piercings.present === true">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
       <label>Ears: {{actor.piercings.ear}}</label><br>
       <label>Nose: {{actor.piercings.nose}}</label><br>
+    </div>
+    <div class="col-sm-2">
       <label>Eyebrow: {{actor.piercings.eyebrow}}</label><br>
+      <label>Lip: {{actor.piercings.lip}}</label><br>
     </div>
 
-    <div class="col-sm-6">
-      <label>Lip: {{actor.piercings.lip}}</label><br>
+    <div class="col-sm-2">
       <label>Tongue: {{actor.piercings.tongue}}</label><br>
       <label>Navel: {{actor.piercings.navel}}</label><br>
     </div>
+  </div>
 </div>
 <br>
     <!-- end ng-if piercings -->
@@ -337,20 +385,22 @@
 <!-- amputee and disabilities -->
 <div class="row">
   <div class="col-sm-6">
-    <label>Do You Have Any Disabilities?: {{actor.disabled.present}}</label> <br>
+    <label>Disabilities: {{actor.disabled.present}}</label> <br>
   </div>
 </div>
 
-<div class="row">
-  <!-- if disabled present-->
-  <div class="col-sm-6">
-    <label>Blind: {{actor.disabled.blind}}</label><br>
-    <label>Hearing Impaired: {{actor.disabled.impairedHearing}}</label><br>
-    <label>Deaf: {{actor.disabled.deaf}}</label><br>
-  </div>
-  <div class="col-sm-6">
-    <label>Mute: {{actor.disabled.mute}}</label><br>
-    <label>Wheelchair: {{actor.disabled.usesWheelchair}}</label><br>
+<div ng-if="actor.disabled.present === true">
+  <div class="row">
+    <!-- if disabled present-->
+    <div class="col-sm-6">
+      <label>Blind: {{actor.disabled.blind}}</label><br>
+      <label>Hearing Impaired: {{actor.disabled.impairedHearing}}</label><br>
+      <label>Deaf: {{actor.disabled.deaf}}</label><br>
+    </div>
+    <div class="col-sm-6">
+      <label>Mute: {{actor.disabled.mute}}</label><br>
+      <label>Wheelchair: {{actor.disabled.usesWheelchair}}</label><br>
+    </div>
   </div>
 </div>
   <!-- end if disabled end-->
@@ -359,23 +409,25 @@
     <!-- start amputee -->
 <div class="row">
   <div class="col-sm-6">
-    <label>Are you an amputee?: {{actor.amputee.present}}</label><br>
+    <label>Amputee: {{actor.amputee.present}}</label><br>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <label>Arm: {{actor.amputee.arm}}</label><br>
-    <label>Hand: {{actor.amputee.hand}}</label><br>
-    <label>Finger: {{actor.amputee.finger}}</label><br>
-  </div>
+<div ng-if="actor.amputee.present === true">
+  <div class="row">
+    <div class="col-sm-6">
+      <label>Arm: {{actor.amputee.arm}}</label><br>
+      <label>Hand: {{actor.amputee.hand}}</label><br>
+      <label>Finger: {{actor.amputee.finger}}</label><br>
+    </div>
 
-  <div class="col-sm-6">
-    <label>Leg: {{actor.amputee.leg}}</label><br>
-    <label>Foot: {{actor.amputee.foot}}</label><br>
+    <div class="col-sm-6">
+      <label>Leg: {{actor.amputee.leg}}</label><br>
+      <label>Foot: {{actor.amputee.foot}}</label><br>
+    </div>
+      <!-- end ng-if -->
+      <!-- end amputee -->
   </div>
-    <!-- end ng-if -->
-    <!-- end amputee -->
 </div>
 <!-- end amputee and disabilities -->
 <br>
