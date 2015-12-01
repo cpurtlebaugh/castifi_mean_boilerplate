@@ -4,7 +4,7 @@ angular.module('castifiApp')
   .controller('AdminActorsEditCtrl', function(  $scope, $http, socket, Auth, User, $state,
     Actor, Upload, $timeout, $rootScope, $stateParams) {
 
-  $scope.actor = Actor.get({id: $stateParams.id});
+   $scope.actor = Actor.get({id: $stateParams.id});
    $scope.errMsg = null;
    $scope.dynamic = 0; 
   

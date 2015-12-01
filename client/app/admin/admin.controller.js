@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('AdminCtrl', function ($scope, $http, Auth, User, Actor, $window) {
+  .controller('AdminCtrl', function ($scope, $http, Auth, User, Actor, $window, $filter, actorModel, userModel) {
 
     // Use the User $resource to fetch all users
-    $scope.users = User.query();
-    $scope.actors = Actor.query();
+    $scope.users = userModel;
+    $scope.actors = actorModel;
+
+    $scope.maleCount = $filter('filter')(actorModel, {gender: "male"})
+    $scope.femaleCount = $filter('filter')(actorModel, {gender: "female"})
+    $scope.neutralCount = $filter('filter')(actorModel, {gender: "neutral"})
+    $scope.unionCount = $filter('filter')(actorModel, {info :{union: true}})
+    $scope.nonUnionCount = $filter('filter')(actorModel, {info :{union: false}})
+    $scope.sagEligibleCount = $filter('filter')(actorModel, {info :{sagEligible: false}})
+
 
     $scope.delete = function(user) {
       var confirm = $window.confirm("Are you sure you want to permanently delete " + user.email + " ?")

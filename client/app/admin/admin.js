@@ -8,14 +8,30 @@ angular.module('castifiApp')
         templateUrl: 'app/admin/admin.html',
         controller: 'AdminCtrl',
         authenticate: true,
-        adminProtected: true
+        adminProtected: true,
+         resolve:{
+          actorModel: function(Actor){
+            return Actor.query().$promise;
+          },
+          userModel: function(User){
+            return User.query().$promise;
+          }
+        }
       })
       .state('admin.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/admin/admin-dashboard.html',
         controller: 'AdminCtrl',
         authenticate: true,
-        adminProtected: true
+        adminProtected: true,
+         resolve:{
+          actorModel: function(actorModel){
+            return actorModel;
+          },
+          userModel: function(userModel){
+            return userModel;
+          }
+        }
       })
       .state('admin.users', {
         url: '/users',
@@ -29,21 +45,45 @@ angular.module('castifiApp')
         templateUrl: 'app/admin/admin-actor/admin-actors.html',
         controller: 'AdminActorsCtrl',
         authenticate: true,
-        adminProtected: true
+        adminProtected: true,
+        resolve:{
+          actorModel: function(actorModel){
+            return actorModel;
+          },
+          userModel: function(userModel){
+            return userModel;
+          }
+        }
       })
       .state('admin.actors.list', {
         url: '/list',
         templateUrl: 'app/admin/admin-actor/admin-actors-list.html',
         controller: 'AdminActorsCtrl',
         authenticate: true,
-        adminProtected: true
+        adminProtected: true,
+        resolve:{
+          actorModel: function(actorModel){
+            return actorModel;
+          },
+          userModel: function(userModel){
+            return userModel;
+          }
+        }
       })
       .state('admin.table', {
         url: '/table',
         templateUrl: 'app/admin/admin-actor/admin-actors-table.html',
         controller: 'AdminActorsCtrl',
         authenticate: true,
-        adminProtected: true
+        adminProtected: true,
+        resolve:{
+          actorModel: function(actorModel){
+            return actorModel;
+          },
+          userModel: function(userModel){
+            return userModel;
+          }
+        }
       })
       .state('admin.actors.detail', {
         url: '/:id',

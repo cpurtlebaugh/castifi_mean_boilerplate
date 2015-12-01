@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('AdminActorsCtrl', function ($scope, $http, Auth, User, Actor, $window, $state, $filter) {
+  .controller('AdminActorsCtrl', function ($scope, $http, Auth, User, Actor, $window, $state, $filter, actorModel, userModel) {
 
     // Use the User $resource to fetch all users
-    $scope.actors = Actor.query();
-    $scope.users  = User.query();
+    $scope.actors = actorModel;
+    $scope.users  = userModel;
 
     //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
     $scope.displayActors = [].concat($scope.actors);
