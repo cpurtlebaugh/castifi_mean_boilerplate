@@ -11,7 +11,8 @@ angular.module('castifiApp', [
   'ngImgCrop',
   'validation.match',
   'ngAutocomplete',
-  'smart-table'
+  'smart-table',
+  'ui.mask'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

@@ -84,21 +84,19 @@
                                              'has-error': form.phone.$invalid && submitted }">
           <label>Phone Number <span class="glyphicon glyphicon-asterisk text-danger"></span></label>
           <input type="text" name="phone" class="form-control" ng-model="actor.contact.mainPhoneNum"
-                 required
-                 ng-pattern="onlyNumbers"
-                 ng-minlength="10"
-                 ng-maxlength="10"/>
+          		 ui-mask="(999) 999-9999"  	
+                 required>
           <p class="help-block" ng-show="form.phone.$error.required && submitted">
-            A phone number is required
+            A phone number of exactly 10 is required
           </p>
-            <p class="help-block"
+          <!--   <p class="help-block"
              ng-show="(form.phone.$error.minlength || form.phone.$error.maxlength) && submitted">
             A phone number must be exactly 10 numbers.
-          </p>
-           <p class="help-block"
+          </p> -->
+     <!--       <p class="help-block"
              ng-show="form.phone.$error.pattern && submitted">
             A phone number cannot contain any special characters.
-          </p>
+          </p> -->
         </div>
 
 		</div>
