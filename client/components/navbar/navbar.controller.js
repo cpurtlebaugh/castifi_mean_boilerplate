@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, panels) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, panels, $state) {
+    
+
     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
@@ -18,9 +20,8 @@ angular.module('castifiApp')
     //   });
 
     $scope.leftOpen = function () {
-        // $scope.$broadcast('leftHello', {message : $scope.message});
-        panels.open("test01");
-      };
+         panels.open("test01");   
+    };
 
 
 
@@ -30,10 +31,10 @@ angular.module('castifiApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-
-
     $scope.user = $scope.getCurrentUser();
     $scope.actor = $scope.user.actorId
+
+ 
 
     $scope.logout = function() {
       Auth.logout();
