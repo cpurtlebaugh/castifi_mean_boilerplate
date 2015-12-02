@@ -3,13 +3,21 @@
   <div class="container">
     <div class="navbar-header">
       <ul class="mobile-nav-bar nav navbar-nav">
-        <li ng-class="{active: isActive('/signup')}"><a href="/signup">Signup</a></li>
+        <li ng-class="{active: isActive('/signup')}"><a href="/signup">
+          <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/Join.svg">
+          Signup</a></li>
         <li class="nav-divider"></li>
-        <li ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+        <li ng-class="{active: isActive('/login')}"><a href="/login">
+          <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/login.svg">
+          Login</a></li>
         <li class="nav-divider"></li>
-        <li ng-class="{active: isActive('/about')}"><a href="/about">About</a></li>
+        <li ng-class="{active: isActive('/about')}"><a href="/about">
+          <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/tree-palm.svg">
+          About</a></li>
         <li class="nav-divider"></li>
-        <li ng-class="{active: isActive('/contact')}"><a href="/contact">Contact</a></li>
+        <li ng-class="{active: isActive('/contact')}"><a href="/contact">
+          <img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/contactus.svg">
+          Contact</a></li>
         <li class="nav-divider"><a href="#"></a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin/dashboard">Admin</a></li>
       </ul>
