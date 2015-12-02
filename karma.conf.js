@@ -35,6 +35,7 @@ module.exports = function(config) {
       'client/bower_components/ngAutocomplete/src/ngAutocomplete.js',
       'client/bower_components/angular-smart-table/dist/smart-table.js',
       'client/bower_components/angular-ui-mask/dist/mask.js',
+      'client/bower_components/angular.panels/dist/angular.panels.min.js',
       'client/app/app.js',
       'client/app/**/*.js',
       'client/components/**/*.js',
