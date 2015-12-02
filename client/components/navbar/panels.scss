@@ -1,5 +1,6 @@
 .navbar-mobile {
   font-family: 'Montserrat Light', sans-serif;
+  height: 100%;
 }
 
 .dimming {
@@ -39,6 +40,18 @@
 .navbar-mobile-header{
     padding-top: 30px;
     // padding-left: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.mobile-nav-footer {
+    a {
+    color: white;
+  }
+  bottom: 0;
+  position: absolute;
 }
 
 // .navbar-default {
