@@ -6,7 +6,10 @@ angular.module('castifiApp')
     // Use the User $resource to fetch all users
     $scope.users = userModel;
     $scope.actors = actorModel;
+    var averageProfile = 0;
 
+    $scope.facebookSignups = $filter('filter')(userModel, {facebookSignup: false})
+    $scope.emailSignups = ($filter('filter')(userModel, {facebookSignup: undefined}));
     $scope.maleCount = $filter('filter')(actorModel, {gender: "male"})
     $scope.femaleCount = $filter('filter')(actorModel, {gender: "female"})
     $scope.neutralCount = $filter('filter')(actorModel, {gender: "neutral"})
@@ -14,8 +17,12 @@ angular.module('castifiApp')
     $scope.nonUnionCount = $filter('filter')(actorModel, {info :{union: false}})
     $scope.sagEligibleCount = $filter('filter')(actorModel, {info :{sagEligible: false}})
 
+    angular.forEach( $scope.actors, function(value){
+      averageProfile += value.profileMetrics.profileComplete
+      return averageProfile
+    })
 
-    // actorProfCompPercent =
+    $scope.averageProfile = Math.floor(averageProfile / $scope.actors.length)
 
     $scope.delete = function(user) {
       var confirm = $window.confirm("Are you sure you want to permanently delete " + user.email + " ?")

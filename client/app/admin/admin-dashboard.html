@@ -12,11 +12,16 @@
       </div>
     </div>
 
+    <hr>
+
     <div class="row">
       <div class="col-sm-3">
         <h4>Total Actors: {{actors.length}}</h4>
         <h4>Male: {{maleCount.length}}, Female: {{femaleCount.length}}, Neutral: {{neutralCount.length}}</h4>
         <h4>SAG: {{unionCount.length}}, Non: {{nonUnionCount.length}}, Eligible: {{sagEligibleCount.length}}</h4>
+        <h4>Average Profile:<br> {{averageProfile}}% completed</h4>
+        <h4>Facebook Signups: {{facebookSignups.length}}</h4>
+        <h4>Email Signups: {{emailSignups.length - facebookSignups.length}}</h4>
       </div>
 
       <div class="col-sm-2">
