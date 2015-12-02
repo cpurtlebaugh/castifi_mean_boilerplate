@@ -1,0 +1,53 @@
+.dimming {
+  display:none;
+}
+
+.dimming.open {
+  background: none;
+  bottom:0;
+  display:block;
+  left:0;
+  opacity:0.8;
+  position:fixed;
+  right:0;
+  top:0;
+  z-index:1031;
+}
+
+.overflow-hidden {
+  overflow:hidden;
+}
+
+.mobile-nav-bar {
+  a {
+    color: white;
+  }
+}
+
+.nav .nav-divider {
+  background-color: #3bbfa7;
+}
+
+
+
+.panels {
+  // -ms-scrollbar-face-color: #EEE;
+  // -ms-scrollbar-highlight-color: #555;
+  // -ms-scrollbar-shadow-color: #EEE;
+  // -ms-scrollbar-3dlight-color: #EEE;
+  // -ms-scrollbar-arrow-color: #EEE;
+  // -ms-scrollbar-track-color: #FFF;
+  // -ms-scrollbar-darkshadow-color: #EEE;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  background:#3bbfa7;
+  display:block;
+  overflow-x:auto;
+  overflow-y:auto;
+  pointer-events:all;
+  position:fixed;
+  transition:.2s ease-in-out;
+  z-index:1032;
+}
+

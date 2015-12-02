@@ -15,6 +15,7 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
+      <link rel="stylesheet" href="bower_components/angular.panels/dist/angular.panels.min.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -73,6 +74,7 @@
     <!-- Add your site or application content here -->
     <div ng-include="'components/navbar/navbar.html'"></div>
     <div ui-view=""></div>
+    <div data-panels="true"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -122,6 +124,7 @@
       <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
       <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
       <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+      <script src="bower_components/angular.panels/dist/angular.panels.min.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -156,6 +159,7 @@
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/actor.navbar.controller.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
+          <script src="components/navbar/panels.js"></script>
           <script src="components/resources/actor.resource.js"></script>
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->

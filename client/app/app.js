@@ -12,7 +12,8 @@ angular.module('castifiApp', [
   'validation.match',
   'ngAutocomplete',
   'smart-table',
-  'ui.mask'
+  'ui.mask',
+  'angular.panels'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
@@ -81,7 +82,7 @@ angular.module('castifiApp', [
         if(!admin && next.adminProtected && loggedIn){
             event.preventDefault();
            $location.path('/profile');
-        }  
+        }
         if(next.loginPrevent && loggedIn){
            event.preventDefault();
            $location.path('/profile');

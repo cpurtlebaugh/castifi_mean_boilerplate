@@ -1,0 +1,17 @@
+<!-- not logged in -->
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <ul class="mobile-nav-bar nav navbar-nav">
+        <li ng-class="{active: isActive('/about')}"><a href="/about">About</a></li>
+        <li class="nav-divider"></li>
+        <li ng-class="{active: isActive('/contact')}"><a href="/contact">Contact</a></li>
+        <li class="nav-divider"><a href="#"></a></li>
+        <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin/dashboard">Admin</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+

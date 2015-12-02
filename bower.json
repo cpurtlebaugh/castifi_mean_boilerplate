@@ -21,7 +21,8 @@
     "lodash": "~2.4.1",
     "ng-file-upload": "~9.0.9",
     "ng-img-crop": "ngImgCrop#~0.3.2",
-    "ngAutocomplete": "~1.0.0"
+    "ngAutocomplete": "~1.0.0",
+    "angular.panels": "~1.0.3"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
