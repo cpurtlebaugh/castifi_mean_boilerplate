@@ -2,7 +2,7 @@
 
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, panels, $state) {
-    
+
 
     $scope.menu = [{
       'title': 'Edit Profile',
@@ -20,7 +20,12 @@ angular.module('castifiApp')
     //   });
 
     $scope.leftOpen = function () {
-         panels.open("test01");   
+         panels.open("test01");
+    };
+
+    $scope.close = function(state){
+      $state.go(state);
+      panels.close("test01");
     };
 
 
@@ -34,7 +39,7 @@ angular.module('castifiApp')
     $scope.user = $scope.getCurrentUser();
     $scope.actor = $scope.user.actorId
 
- 
+
 
     $scope.logout = function() {
       Auth.logout();
