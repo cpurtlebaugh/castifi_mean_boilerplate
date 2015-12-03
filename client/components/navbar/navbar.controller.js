@@ -22,8 +22,8 @@ angular.module('castifiApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    // $scope.user = $scope.getCurrentUser();
-    // $scope.actor = $scope.user.actorId
+    $scope.user = $scope.getCurrentUser();
+    $scope.actor = $scope.user.actorId
 
 
     $scope.logout = function() {
