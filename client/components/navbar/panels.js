@@ -8,7 +8,7 @@ angular.module('castifiApp')
             id: 'test01',
             position: 'left',
             size: '80%',
-            templateUrl: 'app/components/navbar/navbar-mobile.html',
+            templateUrl: 'components/navbar/navbar-mobile.html',
             controller: 'NavbarCtrl'
         });
   });

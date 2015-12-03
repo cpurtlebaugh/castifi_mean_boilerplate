@@ -3,21 +3,11 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, panels, $state) {
 
-
     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
        }
     ];
-
-    // $scope.message = 'i am opening yay!'
-
-    //     $scope.$on('leftHello', function(event, args) {
-
-    //     // $scope.message = args.message;
-
-    //     panels.open("test01");
-    //   });
 
     $scope.leftOpen = function () {
          panels.open("test01");
@@ -28,16 +18,12 @@ angular.module('castifiApp')
       panels.close("test01");
     };
 
-
-
-
-
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.user = $scope.getCurrentUser();
-    $scope.actor = $scope.user.actorId
+    // $scope.user = $scope.getCurrentUser();
+    // $scope.actor = $scope.user.actorId
 
 
 
