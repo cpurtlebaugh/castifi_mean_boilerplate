@@ -23,6 +23,18 @@ angular.module('castifiApp', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
+  .config(function (panelsProvider){
+
+  panelsProvider
+      .add({
+          id: 'test01',
+          position: 'left',
+          size: '80%',
+          templateUrl: 'components/navbar/navbar-mobile.html',
+          controller: 'NavbarCtrl'
+      })
+    })
+
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
