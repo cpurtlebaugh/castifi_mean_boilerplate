@@ -26,7 +26,6 @@ angular.module('castifiApp')
     // $scope.actor = $scope.user.actorId
 
 
-
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');
