@@ -15,25 +15,26 @@ angular.module('castifiApp', [
   'ui.mask',
   'angular.panels'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, panelsProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
+    panelsProvider
+        .add({
+            id: 'test01',
+            position: 'left',
+            size: '80%',
+            templateUrl: 'components/navbar/navbar-mobile.html',
+            controller: 'NavbarCtrl'
+        })
   })
 
-  .config(function (panelsProvider){
+  // .config(function (panelsProvider){
 
-  panelsProvider
-      .add({
-          id: 'test01',
-          position: 'left',
-          size: '80%',
-          templateUrl: 'components/navbar/navbar-mobile.html',
-          controller: 'NavbarCtrl'
-      })
-    })
+  //   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
