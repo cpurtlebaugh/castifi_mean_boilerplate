@@ -10,7 +10,7 @@ angular.module('castifiApp')
     ];
 
     $scope.leftOpen = function() {
-        console.log("working");
+        console.log("working here yo");
         panels.open("test01");
     };
 
