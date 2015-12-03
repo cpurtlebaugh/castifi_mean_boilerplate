@@ -3,19 +3,9 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
 
-    $scope.hideNav = true;
-
     $scope.toggleNav = function(){
-        $scope.hideNav = !$scope.hideNav;
-        $('.row-offcanvas').toggleClass('active');
+        $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     }
-
-     // $(document).ready(function () {
-    //   $('[data-toggle="offcanvas"]').click(function () {
-    //       console.log("firing?");
-    //     $('.row-offcanvas').toggleClass('active')
-    //   });
-    // // });
 
     $scope.menu = [{
       'title': 'Edit Profile',
@@ -24,8 +14,7 @@ angular.module('castifiApp')
     ];
     $scope.close = function(state){
       $state.go(state);
-      $scope.hideNav = !$scope.hideNav;
-      $('.row-offcanvas').toggleClass('active');
+      $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     };
 
     $scope.isCollapsed = true;
