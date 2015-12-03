@@ -32,9 +32,6 @@ angular.module('castifiApp', [
         })
   })
 
-  // .config(function (panelsProvider){
-
-  //   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {

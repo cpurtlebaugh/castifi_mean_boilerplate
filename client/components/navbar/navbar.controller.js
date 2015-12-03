@@ -3,20 +3,29 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, panels, $state) {
 
+    $scope.hideNav = true;
+
+    $scope.toggleNav = function(){
+        $scope.hideNav = !$scope.hideNav;
+        $('.row-offcanvas').toggleClass('active');
+    }
+
+     // $(document).ready(function () {
+    //   $('[data-toggle="offcanvas"]').click(function () {
+    //       console.log("firing?");
+    //     $('.row-offcanvas').toggleClass('active')
+    //   });
+    // // });
+
     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
        }
     ];
-
-    $scope.leftOpen = function() {
-        console.log("working here yo");
-        panels.open("test01");
-    };
-
     $scope.close = function(state){
       $state.go(state);
-      panels.close("test01");
+      $scope.hideNav = !$scope.hideNav;
+      $('.row-offcanvas').toggleClass('active');
     };
 
     $scope.isCollapsed = true;

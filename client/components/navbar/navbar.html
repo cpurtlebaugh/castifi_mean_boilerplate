@@ -1,10 +1,13 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+<div ng-controller="NavbarCtrl">
+<div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
 
     <!-- hamburger dropdown button -->
       <!-- <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed"> -->
-      <button class="navbar-toggle" type="button" ng-click="leftOpen()">
+      <button class="navbar-toggle" type="button" ng-click="toggleNav()">
+    <!--   <button class="navbar-toggle" type="button" data-toggle="offcanvas"> -->
+      <!-- <button class="navbar-toggle offcanvas-toggle" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas"> -->
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -52,6 +55,11 @@
   </div>
 </div>
 
- <div data-panels="true"></div>
+      <div class="row-offcanvas row-offcanvas-left hidden-sm hidden-md hidden-lg" ng-hide="hideNav">
+        <div class="sidebar-offcanvas" id="sidebar">
+           <div ng-include="'components/navbar/navbar-mobile.html'"></div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
 
+</div>
 

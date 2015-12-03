@@ -1,6 +1,6 @@
 <!-- not logged in -->
 
-<div class="navbar navbar-mobile navbar-static-top">
+<div class="navbar navbar-mobile navbar-static-top panels" ng-controller="NavbarCtrl">
   <div class="container">
     <div class="navbar-header navbar-mobile-header">
       <ul class="mobile-nav-bar nav navbar-nav">
@@ -16,10 +16,10 @@
         <!-- loggedIn user -->
         <li ng-show="isLoggedIn()" class="row">
           <a ng-click="close('profile')">
-        <!--     <span class="col-xs-2"> -->
-            <!--   <img style="width:150%" ng-src="{{getCurrentUser().actorId.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/avatar-placeholder.svg'}}"></span> -->
-          <!--  <span class="col-xs-10">{{ (getCurrentUser().actorId.legalFirstName | capitalize) 
-            || getCurrentUser().email }} {{ (getCurrentUser().actorId.legalLastName | capitalize) }}</span> -->
+            <span class="col-xs-2">
+              <img style="width:150%" ng-src="{{getCurrentUser().actorId.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/avatar-placeholder.svg'}}"></span>
+           <span class="col-xs-10">{{ (getCurrentUser().actorId.legalFirstName | capitalize) 
+            || getCurrentUser().email }} {{ (getCurrentUser().actorId.legalLastName | capitalize) }}</span>
           </a>
         </li>
         <!-- end loggedIn user -->
