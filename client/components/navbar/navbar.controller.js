@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, panels, $state) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
 
     $scope.hideNav = true;
 

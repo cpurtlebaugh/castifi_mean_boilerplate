@@ -12,24 +12,15 @@ angular.module('castifiApp', [
   'validation.match',
   'ngAutocomplete',
   'smart-table',
-  'ui.mask',
-  'angular.panels'
+  'ui.mask'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, panelsProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
 
-    panelsProvider
-        .add({
-            id: 'test01',
-            position: 'left',
-            size: '80%',
-            templateUrl: '../components/navbar/navbar-mobile.html',
-            controller: 'NavbarCtrl'
-        })
   })
 
 
