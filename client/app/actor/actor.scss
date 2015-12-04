@@ -47,9 +47,9 @@
     }
   }
 
-.navbar-actor .navbar-nav > .active > a, 
-.navbar-actor .navbar-nav > .active > a:hover, 
-.navbar-actor .navbar-nav > a:hover, 
+.navbar-actor .navbar-nav > .active > a,
+.navbar-actor .navbar-nav > .active > a:hover,
+.navbar-actor .navbar-nav > a:hover,
 .navbar-actor .navbar-nav > .active > a:focus {
     color: white;
     background-color: $brand-info;
@@ -191,7 +191,7 @@ h5.profile{
 
 .max-age{
 	padding-left: 2px;
-	padding-right: 0px; 
+	padding-right: 0px;
 }
 
 .btn-gender{
@@ -241,11 +241,18 @@ h5.profile{
 	.basic-number{
 		color: white;
 	}
+	&:hover, &:focus {
+		color: white;
+	}
 }
 
 .basic-submit-text{
 	padding-top:12px;
 	font-size:18px;
+}
+
+.basic-submit-div {
+	padding: 0px;
 }
 
 /* End Basic Profile */
@@ -278,7 +285,7 @@ h5.profile{
 	    	width: 100%;
 	    }
 	}
-		
+
 	.navbar-actor-small{
 		.nav > li > a {
 		    padding: 15px 25px;
@@ -313,7 +320,7 @@ h5.profile{
 			margin-top:0px;
 		}
 	}
-	
+
 
 }
 
