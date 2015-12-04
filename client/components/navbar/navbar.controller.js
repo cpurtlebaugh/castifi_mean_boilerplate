@@ -5,13 +5,13 @@ angular.module('castifiApp')
 
 
     $scope.toggleNav = function(){
-       angular.element('.row-offcanvas').toggleClass('active')
+       angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
        angular.element('.navbar-toggle').toggleClass('hide')
     }
 
     $scope.close = function(state){
       $state.go(state);
-      angular.element('.row-offcanvas').toggleClass('active')
+      angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
       angular.element('.navbar-toggle').toggleClass('hide')
     };
 
@@ -31,7 +31,7 @@ angular.module('castifiApp')
 
     $scope.logout = function() {
       Auth.logout();
-      angular.element('.row-offcanvas').toggleClass('active')
+      angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
       angular.element('.navbar-toggle').toggleClass('hide')
       $location.path('/login');
     };

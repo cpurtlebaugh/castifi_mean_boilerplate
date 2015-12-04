@@ -70,6 +70,7 @@ ul.mobile-nav-footer {
   z-index:1032;
   width: 80%;
   top: 0;
+  left:0;
 }
 
 .hide{
@@ -102,17 +103,17 @@ ul.mobile-nav-footer {
     left: 0;
   }
 
-  .row-offcanvas-left
-  .sidebar-offcanvas {
-    left: -80%; /* 6 columns */
-  }
+  // .row-offcanvas-left
+  // .sidebar-offcanvas {
+  //   left: -80%; /* 6 columns */
+  // }
 
   .row-offcanvas-left.active {
     left: 80%; /* 6 columns */
   }
 
   .sidebar-offcanvas {
-    position: absolute;
+    position: absolute; //
     top: 0;
     width: 80%; /* 6 columns */
   }
