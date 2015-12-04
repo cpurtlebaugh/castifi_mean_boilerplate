@@ -158,6 +158,98 @@ h5.profile{
 	}
 }
 
+/* Basic Profile */
+
+.basic-number{
+	font-size:36px;
+	color:#f2c400;
+}
+
+.upload{
+	margin-top:10px;
+}
+
+.basic-upload-button{
+	font-size:12px;
+	background-color: #ff8577;
+	color:white;
+	border-radius:4.5px;
+}
+
+.basic-button-image{
+	width: 10%;
+}
+
+.basic-form .form-control{
+  border-radius:2.5px;
+}
+
+.min-age{
+	padding-right: 2px;
+	padding-left: 0px;
+}
+
+.max-age{
+	padding-left: 2px;
+	padding-right: 0px; 
+}
+
+.btn-gender{
+	width: 100%;
+	background-color: transparent;
+	border-radius: 2.5px;
+}
+
+.gender{
+	padding-right:2px;
+	padding-left: 2px;
+}
+
+.gender-container{
+	background-color: white;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	border: 1px solid #ccc;
+	padding: 0px 12px;
+	border-radius: 2.5px;
+	// height: 34px;
+}
+
+.gender-active{
+	background-color: #f2c400;
+	color: white;
+	border-radius: 2.5px;
+}
+
+
+.gender-active:hover, .gender-active:active, .gender-active:focus{
+	color: white;
+}
+
+.zipcode{
+	margin-top: 15px;
+}
+
+.zipcode .form-control{
+	border-radius: 2.5px;
+}
+
+.btn-basic-submit{
+	background-color: #f2c400;
+	color: white;
+	border-radius: 2.5px;
+	width: 100%;
+	.basic-number{
+		color: white;
+	}
+}
+
+.basic-submit-text{
+	padding-top:12px;
+	font-size:18px;
+}
+
+/* End Basic Profile */
+
 /* Media Breakpoints */
 
 /* Actor Custom Media Breakpoints */

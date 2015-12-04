@@ -1,0 +1,145 @@
+<div class="container actor-container">
+  <div class="actor-well">
+	<!-- intro title -->
+	<div class="row">
+		<div class="col-sm-6">
+			<h2>Let's get your profile going!</h2>
+		</div>
+		<div class="col-sm-6">
+		</div>
+	</div>
+	<!-- end intro title -->
+	<div class="row">
+		<!-- headshot -->
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-1">
+					<span class="basic-number">1.</span> 
+				</div>
+				<div class="col-sm-11 upload">
+					<strong><p>Upload a headshot</p></strong>
+					<p>We’ll need a headshot to start with. Uploading a headshot is the best way to get booked for background acting gigs.</p>
+					<div class="row">
+						<div class="col-sm-2"></div>
+						<div class="col-sm-8 text-center upload">
+							<img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/Headshot.svg">
+						</div>
+						<div class="col-sm-2"></div>
+					</div>
+				<!-- 	<div class="row"> -->
+						<div class="col-sm-2"></div>
+						<div class="col-sm-8 text-center upload">
+							<button class="btn btn-lg basic-upload-button"><img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/headshotupload.svg" style="width:10%"> upload a headshot</button>
+						</div>
+						<div class="col-sm-2"></div>
+					<!-- </div>	 -->		
+				</div>
+			</div>	
+
+		</div>
+		<!-- end headshot -->
+		<!-- basic information -->
+		<div class="col-sm-6 well" style="padding-top:0px;border-radius:4.5px">
+			<div class="row">
+				<div class="col-sm-1">
+					<span class="basic-number">2.</span> 
+				</div>
+				<div class="col-sm-11 upload">
+					<strong><p>Basic Information</p></strong>
+					<small><p>(Don't worry. You can change this later.)</p></small>	
+				</div>
+		    </div>
+		     <!-- first name last name -->
+		     <div class="row basic-form upload">
+				<div class="col-sm-12">
+				    <div class="form-group" ng-class="{ 'has-success': form.firstname.$valid && submitted,
+		                                               'has-error': form.firstname.$invalid && submitted }">
+		            <input type="text" placeholder="First name" name="firstname" class="form-control" ng-model="actor.legalFirstName"
+			                 required/>
+		            <p class="help-block" ng-show="form.firstname.$error.required && submitted">
+		              A first name is required
+		            </p>
+		          </div>
+				</div>
+
+				<div class="col-sm-12">
+
+			         <div class="form-group" ng-class="{ 'has-success': form.lastname.$valid && submitted,
+			                                            'has-error': form.lastname.$invalid && submitted }">
+			          <input type="text" placeholder="Last name" name="lastname" class="form-control" ng-model="actor.legalLastName"
+			                 required/>
+			          <p class="help-block" ng-show="form.lastname.$error.required && submitted">
+			            A last name is required
+			          </p>
+			        </div>
+
+				</div>
+			</div>
+		     <!-- end first name last name -->
+		     <!-- min max age -->
+		      <div class="col-sm-6 min-age">
+			        <div class="form-group">
+			          <select class="form-control"
+			              ng-model="actor.appearance.portrayAgeMin"
+			              ng-options="obj as obj for obj in minAgeOptions"
+			              >
+			            <option value="" disabled selected>Min Portrayable Age</option>
+			          </select>
+			        </div>
+			  </div>
+
+			  <div class="col-sm-6 max-age">
+			        <div class="form-group">
+			          <select class="form-control"
+			          ng-model="actor.appearance.portrayAgeMax"
+			          ng-options="obj as obj for obj in maxAgeOptions">
+			            <option value="" disabled selected>Max Portrayable Age</option>
+			          </select>
+			        </div>
+			   </div>
+		     <!-- end min maxage -->
+		     <!-- gender -->
+		     <div class="col-sm-12 gender-container">
+		     	<div class="row">
+				     <div class="col-sm-4 gender">
+				      <button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'male'}"
+				      ng-click="actor.gender = 'male'">Male</button>
+					</div>
+					 <div class="col-sm-4 gender">
+				      	<button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'female'}"
+				      	ng-click="actor.gender = 'female'">Female</button>
+					</div>
+					 <div class="col-sm-4 gender">
+				      	<button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'neutral'}"
+				      	ng-click="actor.gender = 'neutral'">Neutral</button>
+					</div>
+				</div>
+			</div>
+		     <!-- end gender -->
+		     <!-- zipcode -->
+		     <div class="row">
+		     <div class="col-sm-12 zipcode">
+				 <div class="form-group" ng-class="{ 'has-success': form.zipcode.$valid && submitted,
+	                                               'has-error': form.zipcode.$invalid && submitted }">
+		            <input type="number" placeholder="Zipcode" name="zipcode" class="form-control" ng-model="actor.contact.zipCode"
+		                   required/>
+		            <p class="help-block" ng-show="form.zipcode.$error.required && submitted">
+		              A zipcode is required
+		            </p>
+	          	</div>
+			</div>
+			</div>
+		     <!-- end zipcode -->
+		     <!-- submit button -->
+
+		     <div class="col-sm-12 text-center">
+		     	<button class="btn btn-basic-submit row">
+		     		<span class="basic-number col-sm-2">3.</span>     
+		     		<span class="col-sm-8 text-left basic-submit-text">Send casting calls my way!</span>
+		     	</button>
+		     </div>
+		     <!-- end submit button -->
+		<!-- end basic information -->
+	</div>
+  </div>
+</div>

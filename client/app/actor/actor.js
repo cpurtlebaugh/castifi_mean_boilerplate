@@ -27,6 +27,18 @@ angular.module('castifiApp')
         }
       })
       //EDIT NESTED VIEW WITH ACTOR NAVBAR
+        .state('actor.basic', {
+        url: '/basic',
+        templateUrl: 'app/actor/actor-basic.html',
+        controller: 'ActorCtrl',
+        authenticate: true,
+        resolve:{
+          currentUser: function(currentUser){
+            return currentUser;
+          }
+        }
+      })  
+      //EDIT NESTED VIEW WITH ACTOR NAVBAR
         .state('actor.edit', {
         url: '/edit',
         templateUrl: 'app/actor/actor-edit.html',
