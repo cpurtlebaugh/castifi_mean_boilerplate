@@ -3,7 +3,15 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
 
+    $scope.menuIcon = false;
+    $scope.closeIcon = false;
+    console.log('start menu icon');
+    console.log($scope.menuIcon);
+
     $scope.toggleNav = function(){
+        console.log('toggle menu icon');
+        $scope.menuIcon = !$scope.menuIcon;
+        console.log($scope.menuIcon);
         $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     }
 
@@ -12,10 +20,23 @@ angular.module('castifiApp')
       'link': '/actor/overview'
        }
     ];
+
     $scope.close = function(state){
-      $state.go(state);
-      $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
+      console.log('close menu icon');
+      console.log($scope.menuIcon);
+      // $state.go(state);
+      $scope.toggleNav();
+      // $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     };
+
+    // $scope.menuClose = function(){
+    //   if ($scope.menuIcon) {
+    //     return true;
+    //   } else{
+    //     return false;
+    //   }
+
+    // };
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -34,3 +55,6 @@ angular.module('castifiApp')
       return route === $location.path();
     };
   });
+
+
+
