@@ -3,11 +3,11 @@
 angular.module('castifiApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
 
-    $scope.hideNav = true;
+    // $scope.hideNav = true;
 
     $scope.toggleNav = function(){
-        $scope.hideNav = !$scope.hideNav;
-        $('.row-offcanvas').toggleClass('active');
+        // $scope.hideNav = !$scope.hideNav;
+        $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     }
 
      // $(document).ready(function () {
@@ -24,8 +24,8 @@ angular.module('castifiApp')
     ];
     $scope.close = function(state){
       $state.go(state);
-      $scope.hideNav = !$scope.hideNav;
-      $('.row-offcanvas').toggleClass('active');
+      // $scope.hideNav = !$scope.hideNav;
+      $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     };
 
     $scope.isCollapsed = true;
