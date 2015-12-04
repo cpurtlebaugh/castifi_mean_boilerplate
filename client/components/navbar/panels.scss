@@ -5,6 +5,7 @@
 
 .navbar-nav > li > a {
   padding-left: 30px;
+  z-index: 2000;
 }
 
 .overflow-hidden {
@@ -72,6 +73,20 @@ ul.mobile-nav-footer {
   top: 0;
 }
 
+.hide{
+  visibility: hidden;
+  -webkit-transition: all .55s ease-out;
+  -o-transition: all .55s ease-out;
+  transition: all .55s ease-out;
+}
+
+.show{
+  visibility: visible;
+  -webkit-transition: all .55s ease-out;
+  -o-transition: all .55s ease-out;
+  transition: all .55s ease-out;
+}
+
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -84,36 +99,23 @@ ul.mobile-nav-footer {
             transition: all .25s ease-out;
   }
 
-  .row-offcanvas-right {
-    right: 0;
-  }
-
   .row-offcanvas-left {
     left: 0;
   }
 
-  .row-offcanvas-right
+  .row-offcanvas-left
   .sidebar-offcanvas {
-    right: -50%; /* 6 columns */
-  }
-
-  // .row-offcanvas-left
-  // .sidebar-offcanvas {
-  //   left: -50%; /* 6 columns */
-  // }
-
-  .row-offcanvas-right.active {
-    right: 50%; /* 6 columns */
+    left: -80%; /* 6 columns */
   }
 
   .row-offcanvas-left.active {
-    left: 50%; /* 6 columns */
+    left: 80%; /* 6 columns */
   }
 
   .sidebar-offcanvas {
     position: absolute;
     top: 0;
-    width: 50%; /* 6 columns */
+    width: 80%; /* 6 columns */
   }
 }
 

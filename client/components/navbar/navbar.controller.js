@@ -1,38 +1,25 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $state, $timeout) {
 
-    // $scope.hideNav = true;
 
     $scope.toggleNav = function(){
-    $scope.menuIcon = false;
-    $scope.closeIcon = false;
-    console.log('start menu icon');
-    console.log($scope.menuIcon);
-    $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
+       angular.element('.row-offcanvas').toggleClass('active')
+       angular.element('.navbar-toggle').toggleClass('hide')
     }
 
-    $scope.menu = [{
+    $scope.close = function(state){
+      $state.go(state);
+      angular.element('.row-offcanvas').toggleClass('active')
+      angular.element('.navbar-toggle').toggleClass('hide')
+    };
+
+     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
        }
     ];
-
-    $scope.close = function(state){
-      $state.go(state);
-      // $scope.hideNav = !$scope.hideNav;
-      $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
-    };
-
-    // $scope.menuClose = function(){
-    //   if ($scope.menuIcon) {
-    //     return true;
-    //   } else{
-    //     return false;
-    //   }
-
-    // };
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -44,6 +31,8 @@ angular.module('castifiApp')
 
     $scope.logout = function() {
       Auth.logout();
+      angular.element('.row-offcanvas').toggleClass('active')
+      angular.element('.navbar-toggle').toggleClass('hide')
       $location.path('/login');
     };
 
