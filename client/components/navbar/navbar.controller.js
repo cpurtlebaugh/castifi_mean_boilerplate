@@ -6,27 +6,33 @@ angular.module('castifiApp')
     // $scope.hideNav = true;
 
     $scope.toggleNav = function(){
-        // $scope.hideNav = !$scope.hideNav;
-        $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
+    $scope.menuIcon = false;
+    $scope.closeIcon = false;
+    console.log('start menu icon');
+    console.log($scope.menuIcon);
+    $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     }
-
-     // $(document).ready(function () {
-    //   $('[data-toggle="offcanvas"]').click(function () {
-    //       console.log("firing?");
-    //     $('.row-offcanvas').toggleClass('active')
-    //   });
-    // // });
 
     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
        }
     ];
+
     $scope.close = function(state){
       $state.go(state);
       // $scope.hideNav = !$scope.hideNav;
       $('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs');
     };
+
+    // $scope.menuClose = function(){
+    //   if ($scope.menuIcon) {
+    //     return true;
+    //   } else{
+    //     return false;
+    //   }
+
+    // };
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -45,3 +51,6 @@ angular.module('castifiApp')
       return route === $location.path();
     };
   });
+
+
+
