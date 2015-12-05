@@ -1,8 +1,21 @@
 'use strict';
 
 angular.module('castifiApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $state, $timeout) {
+
+
+    $scope.toggleNav = function(){
+       angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
+       angular.element('.navbar-toggle').toggleClass('hide')
+    }
+
+    $scope.close = function(state){
+      $state.go(state);
+      angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
+      angular.element('.navbar-toggle').toggleClass('hide')
+    };
+
+     $scope.menu = [{
       'title': 'Edit Profile',
       'link': '/actor/overview'
        }
@@ -12,13 +25,14 @@ angular.module('castifiApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-
-
     $scope.user = $scope.getCurrentUser();
     $scope.actor = $scope.user.actorId
 
+
     $scope.logout = function() {
       Auth.logout();
+      angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
+      angular.element('.navbar-toggle').toggleClass('hide')
       $location.path('/login');
     };
 
@@ -26,3 +40,6 @@ angular.module('castifiApp')
       return route === $location.path();
     };
   });
+
+
+

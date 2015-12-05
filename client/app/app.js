@@ -20,7 +20,9 @@ angular.module('castifiApp', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
   })
+
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
@@ -81,7 +83,7 @@ angular.module('castifiApp', [
         if(!admin && next.adminProtected && loggedIn){
             event.preventDefault();
            $location.path('/profile');
-        }  
+        }
         if(next.loginPrevent && loggedIn){
            event.preventDefault();
            $location.path('/profile');
