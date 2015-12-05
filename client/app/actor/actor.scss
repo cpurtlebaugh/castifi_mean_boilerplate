@@ -234,6 +234,9 @@ h5.profile{
 	background-color: #ff8577;
 	color:white;
 	border-radius:4.5px;
+	&:hover, &:focus {
+		color: white;
+	}
 }
 
 .basic-button-image{
