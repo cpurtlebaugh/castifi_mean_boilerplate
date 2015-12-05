@@ -338,6 +338,12 @@ h5.profile{
 		padding-right: 15px;
 	}
 
+	.basic-container {
+		.well {
+			margin-top: 20px;
+		}
+	}
+
 	.actor-well {
 	    padding: 20px;
 
@@ -345,6 +351,18 @@ h5.profile{
 	    	width: 100%;
 	    }
 	}
+
+	.confirmation-well {
+		padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0;
+	}
+
+	.basic-submit-text{
+		padding-top:12px;
+		font-size:14px;
+	}
+
 
 	.navbar-actor-small{
 		.nav > li > a {
