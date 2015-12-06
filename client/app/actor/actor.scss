@@ -97,7 +97,17 @@
 	height: 100%;
 	margin-top: -20px;
 	padding-bottom: 50%;
-	padding-top: 5%;
+	padding-top: 2%;
+}
+
+.gender-container.gender-error{
+	border-color: #a94442;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.gender-container.gender-success{
+	border-color: #3c763d;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .actor-well{
@@ -227,6 +237,14 @@ h5.profile{
 
 .upload{
 	margin-top:10px;
+}
+
+.basic-lead{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.basic-hairline{
+	font-family: 'Montserrat Hairline', sans-serif;
 }
 
 .basic-upload-button{

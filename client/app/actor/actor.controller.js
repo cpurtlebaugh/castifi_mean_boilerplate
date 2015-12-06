@@ -46,10 +46,6 @@ angular.module('castifiApp')
 
          $scope.register = function register(form) {
                $scope.submitted = true;
-               console.log(form)
-               console.log(form.$valid)
-               console.log($scope.actor.contact.mainPhoneNum)
-               console.log(($scope.actor.contact.mainPhoneNum).length)
                if(form.$valid){
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,

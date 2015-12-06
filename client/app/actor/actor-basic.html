@@ -1,5 +1,7 @@
 <div class="container actor-container basic-container">
   <div class="actor-well">
+  	<!-- start form -->
+  	<form class="form" name="form" ng-submit="register(form)" novalidate>
 	<!-- intro title -->
 	<div class="row">
 		<div class="col-sm-6">
@@ -17,7 +19,7 @@
 					<span class="basic-number">1.</span>
 				</div>
 				<div class="col-sm-11 col-xs-10 upload">
-					<strong><p>Upload a headshot</p></strong>
+					<strong><p class="basic-lead">Upload a headshot</p></strong>
 					<p>We’ll need a headshot to start with. Uploading a headshot is the best way to get booked for background acting gigs.</p>
 					<div class="row">
 						<div class="col-sm-2"></div>
@@ -45,8 +47,8 @@
 					<span class="basic-number">2.</span>
 				</div>
 				<div class="col-sm-11 upload">
-					<strong><p>Basic Information</p></strong>
-					<small><p>(Don't worry. You can change this later.)</p></small>
+					<strong><p class="basic-lead">Basic Information</p></strong>
+					<p class="basic-hairline">(Don't worry. You can change this later.)</p>
 				</div>
 		    </div>
 		     <!-- first name last name -->
@@ -78,28 +80,41 @@
 		     <!-- end first name last name -->
 		     <!-- min max age -->
 		      <div class="col-sm-6 min-age">
-			        <div class="form-group">
-			          <select class="form-control"
+			        <div class="form-group" ng-class="{ 'has-success': form.lastname.$valid && submitted,
+			                                            'has-error': form.lastname.$invalid && submitted }">
+			          <select class="form-control" 
 			              ng-model="actor.appearance.portrayAgeMin"
 			              ng-options="obj as obj for obj in minAgeOptions"
+			              required
+			              name="minAge"
 			              >
 			            <option value="" disabled selected>Min Portrayable Age</option>
 			          </select>
+			          <p class="help-block" ng-show="form.minAge.$error.required && submitted">
+		               A minimum age is required
+		              </p>
 			        </div>
 			  </div>
 
 			  <div class="col-sm-6 max-age">
-			        <div class="form-group">
+			        <div class="form-group" ng-class="{ 'has-success': form.lastname.$valid && submitted,
+			                                            'has-error': form.lastname.$invalid && submitted }">
 			          <select class="form-control"
 			          ng-model="actor.appearance.portrayAgeMax"
-			          ng-options="obj as obj for obj in maxAgeOptions">
+			          ng-options="obj as obj for obj in maxAgeOptions"
+			          required
+			          name="maxAge">
 			            <option value="" disabled selected>Max Portrayable Age</option>
 			          </select>
+			            <p class="help-block" ng-show="form.maxAge.$error.required && submitted">
+		                A maximum age is required
+		               </p>
 			        </div>
 			   </div>
 		     <!-- end min maxage -->
 		     <!-- gender -->
-		     <div class="col-sm-12 gender-container">
+		     <div class="col-sm-12 gender-container" ng-class="{ 'gender-success': (actor.gender) && submitted, 
+		     													 'gender-error': (!actor.gender) && submitted }">
 		     	<div class="row">
 				     <div class="col-sm-4 gender">
 				      <button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'male'}"
@@ -115,14 +130,20 @@
 					</div>
 				</div>
 			</div>
+			<div class="upload">
+			   <p class="text-danger" ng-show="(!actor.gender) && submitted">
+		           A gender is required.
+		      </p>
+		  	</div>
 		     <!-- end gender -->
 		     <!-- zipcode -->
 		     <div class="row">
 		     <div class="col-sm-12 zipcode">
 				 <div class="form-group" ng-class="{ 'has-success': form.zipcode.$valid && submitted,
-	                                               'has-error': form.zipcode.$invalid && submitted }">
-		            <input type="number" placeholder="Zipcode" name="zipcode" class="form-control" ng-model="actor.contact.zipCode"
-		                   required/>
+	                                               	 'has-error': form.zipcode.$invalid && submitted }">
+		            <input type="text" placeholder="Zipcode" clearOnBlur="true" name="zipcode" class="form-control" ng-model="actor.contact.zipCode"
+		            ui-mask="99999"  	
+		            required/>
 		            <p class="help-block" ng-show="form.zipcode.$error.required && submitted">
 		              A zipcode is required
 		            </p>
@@ -133,7 +154,7 @@
 		     <!-- submit button -->
 
 		     <div class="col-sm-12 text-center basic-submit-div">
-		     	<button class="btn btn-basic-submit row">
+		     	<button class="btn btn-basic-submit row" type="submit">
 		     		<span class="basic-number col-xs-2 col-sm-2 col-md-2">3.</span>
 		     		<span class=" col-xs-8 col-sm-8 col-md-2 text-left basic-submit-text">Send casting calls my way!</span>
 		     	</button>
@@ -141,5 +162,7 @@
 		     <!-- end submit button -->
 		<!-- end basic information -->
 	</div>
+	<!-- end form -->
+	</form>
   </div>
 </div>
