@@ -16,8 +16,8 @@ angular.module('castifiApp')
           passwordConfirm: $scope.user.passwordConfirm
         })
         .then( function() {
-          // Account created, redirect to home
-          $location.path('/welcome');
+          // Account created, redirect to actor/basic
+          $location.path('/actor/basic');
         })
         .catch( function(err) {
           err = err.data;

@@ -49,6 +49,7 @@ angular.module('castifiApp')
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,
                                 function success(){
+                                   if($state.is('actor.basic')){ $state.go('confirmation')}
                                    if($state.is('actor.edit.overview')){ $state.go('actor.edit.photos')}
                                    if($state.is('actor.edit.photos')){ $state.go('actor.edit.physical')}
                                    if($state.is('actor.edit.physical')){ $state.go('actor.edit.wardrobe')}
@@ -61,6 +62,9 @@ angular.module('castifiApp')
                        }
 
 
+                }
+                else{
+                    document.body.scrollTop = document.documentElement.scrollTop = 0;
                 }
             };
 
