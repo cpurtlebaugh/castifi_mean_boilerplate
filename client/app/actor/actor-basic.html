@@ -1,7 +1,6 @@
 <div class="container actor-container basic-container">
   <div class="actor-well">
-  	<!-- start form -->
-  	<form class="form" name="form" ng-submit="register(form)" novalidate>
+  <form class="form" name="form" ng-submit="register(form)" novalidate>
 	<!-- intro title -->
 	<div class="row">
 		<div class="col-sm-6">
@@ -22,15 +21,6 @@
 					<strong><p class="basic-lead">Upload a headshot</p></strong>
 					<p>We’ll need a headshot to start with. Uploading a headshot is the best way to get booked for background acting gigs.</p>
 					
-				<!-- 	 <div class="col-sm-4">
-				     <img ngf-thumbnail="headShot || actor.headShot || 'assets/images/actor/picturebox.svg'">
-				         <h5>Headshot</h5>
-				          <input type="file" ng-model="headShot" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
-				          </input>
-				             <div class="text-danger" ng-show="headShow"> {{errMsg}}  
-				            </div>  
-				            <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('headShot')" ng-show="headShot || actor.headShot">Remove</button>
-				          <br> -->
 
 					<div class="row">
 						<div class="col-sm-2"></div>
@@ -39,30 +29,35 @@
 						</div>
 						<div class="col-sm-2"></div>
 					</div>
-				<!-- 	<div class="row"> -->
 						<div class="col-sm-2"></div>
 						<div class="col-sm-8 text-center upload">
-							<div class="fileUpload btn btn-lg basic-upload-button">
+							<!-- upload button -->
+							<div class="fileUpload btn btn-lg basic-upload-button" ng-show="!actor.headShot">
 							    <span><img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/headshotupload.svg" style="width:10%"> 
 							   	upload a headshot</span>
-							    <input type="file" class="upload-button" ng-model="actor.headShot" name="headShot" 
-							    required/>
+							    <input type="file" class="upload-button" 
+							    ng-model="headShot" name="headShot" 
+							    ngf-select="uploadFiles($file, $invalidFiles, 'headShot')"
+							    ngf-max-size="4MB" accept="jpg,.jpeg, .png"/>
 							</div>
-							 <p class="text-danger" ng-show="form.headShot.$error.required && submitted">
-			            		A headshot is required
+							<!-- end upload button -->
+							<!-- remove photo button -->
+						     <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('headShot')" ng-show="headShot || actor.headShot">Remove</button>
+						     <!-- end remove photo button -->
+							 <p class="text-danger" ng-show="photoErr && submitted">
+			            		{{photoErr}}
 			          		</p>
-							<!-- <input type="file">
-							<br>
-							<button class="btn btn-lg basic-upload-button"><img src="https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/headshotupload.svg" style="width:10%"> upload a headshot</button> -->
+			          		 <p class="text-danger" ng-show="form.headShot.$error.maxSize">
+			          		 	Sorry, file exceeds 4MB limit</p>
 						</div>
 						<div class="col-sm-2"></div>
-					<!-- </div>	 -->
 				</div>
 			</div>
 
 		</div>
 		<!-- end headshot -->
 		<!-- basic information -->
+		<!-- start form -->
 		<div class="col-sm-6 well" style="padding-top:0px;border-radius:4.5px">
 			<div class="row">
 				<div class="col-sm-1">

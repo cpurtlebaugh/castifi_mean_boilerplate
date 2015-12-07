@@ -30,7 +30,7 @@ angular.module('castifiApp')
         .state('actor.basic', {
         url: '/basic',
         templateUrl: 'app/actor/actor-basic.html',
-        controller: 'ActorCtrl',
+        controller: 'ActorBasicCtrl',
         authenticate: true,
         resolve:{
           currentUser: function(currentUser){
