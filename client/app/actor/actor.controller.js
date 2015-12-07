@@ -20,7 +20,6 @@ angular.module('castifiApp')
       };
 
 
-
       $scope.details;
       $scope.$watch('details', function(valueNew, valueOld){
         if(valueNew !== undefined){
