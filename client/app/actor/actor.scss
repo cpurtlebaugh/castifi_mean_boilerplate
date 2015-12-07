@@ -47,9 +47,9 @@
     }
   }
 
-.navbar-actor .navbar-nav > .active > a, 
-.navbar-actor .navbar-nav > .active > a:hover, 
-.navbar-actor .navbar-nav > a:hover, 
+.navbar-actor .navbar-nav > .active > a,
+.navbar-actor .navbar-nav > .active > a:hover,
+.navbar-actor .navbar-nav > a:hover,
 .navbar-actor .navbar-nav > .active > a:focus {
     color: white;
     background-color: $brand-info;
@@ -70,16 +70,88 @@
 	}
 }
 
+	.confirmation-well {
+		background-color: $brand-info;
+		width: 100%;
+		height: 100%;
+		margin-top: -20px;
+		padding-bottom: 50%;
+		padding-top: 2%;
+		border-radius: 2.5px;
+		padding-left: 90px;
+		padding-right: 90px;
+		font-family: 'Montserrat Light', sans-serif;
+		h3{
+			font-family: 'Montserrat Light', sans-serif;
+			line-height: 1.5;
+		}
+		h5{
+			font-family: 'Montserrat Hairline', sans-serif;
+			font-size: 16px;
+		}
+	}
+
+.basic-container {
+	background-color: $brand-info;
+	width: 100%;
+	height: 100%;
+	margin-top: -20px;
+	padding-bottom: 50%;
+	padding-top: 2%;
+	padding-left: 190px;
+    padding-right: 190px;
+}
+
+.gender-container.gender-error{
+	border-color: #a94442;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.gender-container.gender-success{
+	border-color: #3c763d;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
 .actor-well{
 	background-color: white;
 	border-radius: 11.5px;
 	padding: 20px 50px;
 	position: relative;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	border: 1px solid #ccc;
 	img{
 		width: 80%;
 	}
 	.help-img {
     	width: 20px;
+	}
+	.confirm-icon {
+		width: 25%;
+		margin-top: 15px;
+	}
+	.confirm-h3 {
+		color: $brand-success;
+	}
+	.confirm-button {
+		width: 100%;
+		margin-bottom: 15px;
+		&:hover, &:focus {
+			color: white;
+		}
+	}
+}
+
+.congrats-well {
+	color: white;
+	border-radius: 11.5px;
+	padding: 20px 50px;
+	position: relative;
+	margin-top: 60px;
+	img{
+		width: 35%;
+	}
+	.help-img {
+    width: 20px;
 	}
 }
 
@@ -158,6 +230,133 @@ h5.profile{
 	}
 }
 
+/* Basic Profile */
+
+.basic-number{
+	font-size:36px;
+	color:#f2c400;
+}
+
+.upload{
+	margin-top:10px;
+}
+
+.basic-lead{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.basic-hairline{
+	font-family: 'Montserrat Hairline', sans-serif;
+}
+
+.basic-upload-button{
+	font-size:12px;
+	background-color: #ff8577;
+	color:white;
+	border-radius:4.5px;
+	&:hover, &:focus {
+		color: white;
+	}
+}
+
+.basic-button-image{
+	width: 10%;
+}
+
+.basic-form .form-control{
+  border-radius:2.5px;
+}
+
+.min-age{
+	padding-right: 2px;
+	padding-left: 0px;
+}
+
+.max-age{
+	padding-left: 2px;
+	padding-right: 0px;
+}
+
+.btn-gender{
+	width: 100%;
+	background-color: transparent;
+	border-radius: 2.5px;
+}
+
+.gender{
+	padding-right:2px;
+	padding-left: 2px;
+}
+
+.gender-container{
+	background-color: white;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	border: 1px solid #ccc;
+	padding: 0px 12px;
+	border-radius: 2.5px;
+	// height: 34px;
+}
+
+.gender-active{
+	background-color: #f2c400;
+	color: white;
+	border-radius: 2.5px;
+}
+
+
+.gender-active:hover, .gender-active:active, .gender-active:focus{
+	color: white;
+}
+
+.zipcode{
+	margin-top: 15px;
+}
+
+.zipcode .form-control{
+	border-radius: 2.5px;
+}
+
+.btn-basic-submit{
+	background-color: #f2c400;
+	color: white;
+	border-radius: 2.5px;
+	width: 100%;
+	.basic-number{
+		color: white;
+	}
+	&:hover, &:focus {
+		color: white;
+	}
+}
+
+.basic-submit-text{
+	padding-top:12px;
+	font-size:18px;
+}
+
+.basic-submit-div {
+	padding: 0px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* End Basic Profile */
+
 /* Media Breakpoints */
 
 /* Actor Custom Media Breakpoints */
@@ -179,6 +378,12 @@ h5.profile{
 		padding-right: 15px;
 	}
 
+	.basic-container {
+		.well {
+			margin-top: 20px;
+		}
+	}
+
 	.actor-well {
 	    padding: 20px;
 
@@ -186,7 +391,19 @@ h5.profile{
 	    	width: 100%;
 	    }
 	}
-		
+
+	.confirmation-well {
+		padding-left: 15px;
+	    padding-right: 15px;
+	    padding-top: 0;
+	}
+
+	.basic-submit-text{
+		padding-top:12px;
+		font-size:14px;
+	}
+
+
 	.navbar-actor-small{
 		.nav > li > a {
 		    padding: 15px 25px;
@@ -221,7 +438,7 @@ h5.profile{
 			margin-top:0px;
 		}
 	}
-	
+
 
 }
 

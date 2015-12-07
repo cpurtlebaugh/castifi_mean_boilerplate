@@ -70,7 +70,7 @@ function setTokenCookie(req, res) {
   res.cookie('token', JSON.stringify(token));
 
   if(req.user.facebookSignup){
-        res.redirect('/welcome');
+        res.redirect('/actor/basic');
     }
   else{
        res.redirect('/profile')
