@@ -25,7 +25,7 @@
 					<div class="row">
 						<div class="col-sm-2"></div>
 						<div class="col-sm-8 col-sm-off text-center upload">
-							<img ngf-thumbnail="headShot || actor.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/Headshot.svg'">
+							<img ngf-thumbnail="headShot || actor.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/signup/Headshot.png'">
 						</div>
 						<div class="col-sm-2"></div>
 					</div>
@@ -134,17 +134,21 @@
 		     													 'gender-error': (!actor.gender) && submitted }">
 		     	<div class="row">
 				     <div class="col-sm-4 gender">
-				      <button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'male'}"
-				      ng-click="actor.gender = 'male'">Male</button>
+				     	<input type="radio" ng-model="actor.gender" value="male" ng-required="!actor.gender">Male
+				     <!--  <button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'male'}"
+				      ng-model="actor.gender" >Male</button> -->
 					</div>
 					 <div class="col-sm-4 gender">
-				      	<button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'female'}"
-				      	ng-click="actor.gender = 'female'">Female</button>
+					 		<input type="radio" ng-model="actor.gender" value="female" ng-required="!actor.gender">Female
+				      	<!-- <button type="button" class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'female'}"
+				      	ng-model="actor.gender" value="female">Female</button> -->
 					</div>
 					 <div class="col-sm-4 gender">
-				      	<button class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'neutral'}"
-				      	ng-click="actor.gender = 'neutral'">Neutral</button>
+					 	<input type="radio" ng-model="actor.gender" value="neutral" ng-required="!actor.gender">Neutral
+				      	<!-- <button type="button" class="btn btn-gender" ng-class="{'gender-active': actor.gender === 'neutral'}"
+				      	ng-click="actor.gender" value="neutral">Neutral</button> -->
 					</div>
+					<!--  <input type="radio" ng-model="color" value="blue" ng-required="!color"> Blue <br/> -->
 				</div>
 			</div>
 			<div class="upload">

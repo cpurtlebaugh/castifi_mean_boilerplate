@@ -12,6 +12,12 @@ angular.module('castifiApp')
        $scope.dynamic = 0;
        $scope.photoErr = null;
 
+       $scope.pickGender = function(value){
+          console.log(value)
+          // $event.stopPropagation;
+          // $event.preventDefault;
+       }
+
          $scope.register = function register(form) {
                $scope.submitted = true;
                 if($scope.actor.headShot){
