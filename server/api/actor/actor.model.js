@@ -235,7 +235,9 @@ var ActorSchema = new Schema({
                 physicalComplete: {type: Number, default: 0},
                 profileComplete: {type: Number, default: 0} },
 
-  createdAt: {type: Date, default: Date.now()}
+  createdAt: {type: Date, default: Date.now()},
+  updatedAt: Date,
+  lastLogin: Date
 });
 
 var profileProgress = function(next){
@@ -245,14 +247,20 @@ var profileProgress = function(next){
     this.profileMetrics.physicalComplete = profileTotal[2];
     this.profileMetrics.wardrobeComplete = profileTotal[3];
     this.profileMetrics.profileComplete = profileTotal[4];;
-    this.updatedAt = new Date();
     next();
 };
 /* Pre-save hook*/
+ActorSchema
+  .pre('save', function(next) {
+  this.updatedAt = new Date();
+  next();
+}); 
+
 ActorSchema
   .pre('save', profileProgress);
 
 ActorSchema
   .pre('update', profileProgress);
+ 
 
 module.exports = mongoose.model('Actor', ActorSchema);

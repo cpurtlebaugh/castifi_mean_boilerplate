@@ -57,23 +57,26 @@ exports.update = function(req, res) {
 exports.uploadFile = function(req, res) {
   var file = req.files.file;
   var unique = req.body.unique;
-
+  // console.log(req.files.file.size)
+  // if(req.files.file.size < 4000000){
+  //   console.log("yo")
+  // }
   fs.readFile(file.path, function (err, data) {
-    console.log(data);
-    var compressFile = gm(data).compress('JPEG').quality(60).toBuffer('JPEG', function(err, buffer){
-      if(err) return err;
-
     if (err) throw err;
+    // gm(data).compress('JPEG').quality(60)
+    //   .resizeExact(225)
+    //   .autoOrient()
+    //   .toBuffer('JPEG', function(err, buffer){
+    //   if(err) return err;
        AWS.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
        AWS.config.region = 'us-west-1';
        var s3 = new AWS.S3();
        var params = {
            Key: unique + file.originalFilename,
            Bucket: AWS_S3_BUCKET,
-           Body: buffer,
+           Body: data, //buffer
            ContentType: file.type
        };
-       console.log(params);
        s3.putObject(params, function(err, data) {
          if(err) {
            console.log(err.message,err.code);
@@ -83,9 +86,7 @@ exports.uploadFile = function(req, res) {
            console.log('File Uploaded Successfully', 'Done');
          }
        })
-
-    console.log(compressFile);
-    });
+    // });
 
   })
 }
