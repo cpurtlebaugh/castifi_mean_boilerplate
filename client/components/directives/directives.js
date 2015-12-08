@@ -19,6 +19,18 @@ angular.module('castifiApp')
   };
 })
 
+.directive('stopEvent', function () {
+    function stopEvent(e) {
+      e.stopPropagation();
+    }
+    return {
+      restrict: 'A',
+      link: function (scope, element, attr) {
+        element.bind(attr.stopEvent, stopEvent);
+      }
+    };
+  })
+
 .directive('stNumberRange', ['$timeout', function ($timeout) {
           return {
               restrict: 'E',
