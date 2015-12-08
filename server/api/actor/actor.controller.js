@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var path = require('path');
 var fs = require('fs');
+var gm = require('gm');
 
 var Actor = require('./actor.model');
 var AWS = require('aws-sdk');
@@ -55,9 +56,13 @@ exports.update = function(req, res) {
 //upload file
 exports.uploadFile = function(req, res) {
   var file = req.files.file;
-  var unique = req.body.unique
+  var unique = req.body.unique;
 
   fs.readFile(file.path, function (err, data) {
+    console.log(data);
+    var compressFile = gm(data).compress('JPEG').quality(60).toBuffer('JPEG', function(err, buffer){
+      if(err) return err;
+
     if (err) throw err;
        AWS.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
        AWS.config.region = 'us-west-1';
@@ -65,10 +70,10 @@ exports.uploadFile = function(req, res) {
        var params = {
            Key: unique + file.originalFilename,
            Bucket: AWS_S3_BUCKET,
-           Body: data,
+           Body: buffer,
            ContentType: file.type
        };
-
+       console.log(params);
        s3.putObject(params, function(err, data) {
          if(err) {
            console.log(err.message,err.code);
@@ -78,6 +83,9 @@ exports.uploadFile = function(req, res) {
            console.log('File Uploaded Successfully', 'Done');
          }
        })
+
+    console.log(compressFile);
+    });
 
   })
 }
