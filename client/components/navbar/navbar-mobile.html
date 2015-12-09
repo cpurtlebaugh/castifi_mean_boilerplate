@@ -17,7 +17,7 @@
         <li ng-show="isLoggedIn()" class="row">
           <a ng-click="close('profile')">
             <span class="col-xs-2">
-              <img style="width:150%" ng-src="{{getCurrentUser().actorId.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/avatar-placeholder.png'}}"></span>
+              <img class="profile-image" ng-src="{{getCurrentUser().actorId.headShot || 'https://s3-us-west-1.amazonaws.com/castifistaticassets/navbar/avatar-placeholder.png'}}"></span>
            <span class="col-xs-10">{{ (getCurrentUser().actorId.legalFirstName | capitalize)
             || getCurrentUser().email }} {{ (getCurrentUser().actorId.legalLastName | capitalize) }}</span>
           </a>

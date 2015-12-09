@@ -42,6 +42,10 @@ ul.mobile-nav-footer {
   width: 100%;
 }
 
+img.profile-image{
+  width:150%;
+}
+
 .nav{
   img {
     width: 150%;
@@ -92,7 +96,30 @@ ul.mobile-nav-footer {
  * Off Canvas
  * --------------------------------------------------
  */
+
+@media (min-width: 620px) and (max-width: $screen-md) { 
+  .mobile-nav-footer {
+    bottom: initial;
+    position: absolute;
+    width: 100%;
+  }
+
+  ul.mobile-nav-footer {
+    padding-left:90px;
+    padding-right:90px;
+  }
+
+  .nav img {
+    width: 70%;
+  }
+
+  img.profile-image{
+    width:70%;
+  }
+} 
+
 @media only screen and (max-width: $screen-md) {
+
   .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
   }
@@ -121,10 +148,6 @@ ul.mobile-nav-footer {
     overflow-y: hidden;
     overflow-x: hidden;
   }
-  // .row-offcanvas-left
-  // .sidebar-offcanvas {
-  //   left: -80%; /* 6 columns */
-  // }
 
   .row-offcanvas-left.active {
     left: 80%; /* 6 columns */
