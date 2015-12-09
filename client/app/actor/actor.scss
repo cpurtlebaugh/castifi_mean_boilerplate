@@ -351,7 +351,7 @@ h5.profile{
 
 .basic-submit-text{
 	padding-top:12px;
-	font-size:18px;
+	font-size:100%;
 }
 
 .basic-submit-div {
@@ -381,7 +381,7 @@ h5.profile{
 
 /* Actor Custom Media Breakpoints */
 
-@media only screen and (max-width: $screen-xs) {
+@media only screen and (max-width: $screen-md) {
 
 	.btn-remove{
 		margin: 15px 0px 30px 0px;
@@ -393,15 +393,16 @@ h5.profile{
 		}
 	}
 
+	.congrats-well {
+		margin-top: 30px;
+	}
+
 	.actor-container{
 		padding-left: 15px;
 		padding-right: 15px;
 	}
 
 	.basic-container {
-		padding-left: 0px;
-    padding-right: 0px;
-
 		.well {
 			margin-top: 20px;
 		}
@@ -411,7 +412,7 @@ h5.profile{
 	    padding: 20px;
 
 	    img{
-	    	width: 100%;
+	    	width: 80%;
 	    }
 	}
 
@@ -423,7 +424,7 @@ h5.profile{
 
 	.basic-submit-text{
 		padding-top:12px;
-		font-size:14px;
+		font-size:100%;
 	}
 
 

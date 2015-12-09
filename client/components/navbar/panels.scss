@@ -92,13 +92,18 @@ ul.mobile-nav-footer {
  * Off Canvas
  * --------------------------------------------------
  */
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: $screen-md) {
   .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
   }
 
   .navbar-toggle {
     border-style: none;
+  }
+
+  .basic-container {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .row-offcanvas {
