@@ -6,7 +6,7 @@
     <div class="col-sm-10">
       <h3>Show Us What You Look Like</h3>
       <h5>Upload your most up to date headshot, full body shot, and casual real life shot (Selfies are ok too!)</h5>
-      <h4 class="text-danger">2MB maximum file size allowed</h4>
+      <h4 class="text-danger">4MB maximum file size allowed</h4>
       <br>
     </div>
   </div>
@@ -16,7 +16,7 @@
     <div class="col-sm-4">
      <img ngf-thumbnail="headShot || actor.headShot || 'assets/images/actor/picturebox.svg'">
          <h5>Headshot</h5>
-          <input type="file" ng-model="headShot" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
+          <input type="file" ng-model="headShot" ngf-max-size="4MB" ngf-select="uploadFiles($file, $invalidFiles, 'headShot')" accept="jpg,.jpeg, .png">
           </input>
              <div class="text-danger" ng-show="headShow"> {{errMsg}}  
         <!--       <br>
@@ -28,7 +28,7 @@
     <div class="col-sm-4">
      <img ngf-thumbnail="headToToe || actor.headToToe || 'assets/images/actor/picturebox.svg'">
         <h5>Head to Toe</h5>
-          <input type="file" ng-model="headToToe" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'headToToe')" accept="jpg,.jpeg, .png">
+          <input type="file" ng-model="headToToe" ngf-max-size="4MB" ngf-select="uploadFiles($file, $invalidFiles, 'headToToe')" accept="jpg,.jpeg, .png">
           </input>
            <div class="text-danger" ng-show="toeShow"> {{errMsg}} </div> 
           <button class="btn btn-sm btn-primary btn-remove" ng-click="removePhoto('headToToe')" ng-show="headToToe || actor.headToToe">Remove</button>
@@ -37,7 +37,7 @@
     <div class="col-sm-4">
         <img ngf-thumbnail="realLife || actor.realLife || 'assets/images/actor/picturebox.svg'">
            <h5>Real Life</h5>
-             <input type="file" ng-model="realLife" ngf-max-size="2MB" ngf-select="uploadFiles($file, $invalidFiles, 'realLife')"
+             <input type="file" ng-model="realLife" ngf-max-size="4MB" ngf-select="uploadFiles($file, $invalidFiles, 'realLife')"
               accept="jpg,.jpeg, .png">
           </input>
            <div class="text-danger" ng-show="realShow"> {{errMsg}}</div>   

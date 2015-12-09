@@ -7,12 +7,15 @@ angular.module('castifiApp')
     $scope.toggleNav = function(){
        angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
        angular.element('.navbar-toggle').toggleClass('hide')
+       angular.element('body').toggleClass('no-scroll')
     }
 
     $scope.close = function(state){
       $state.go(state);
       angular.element('.row-offcanvas').toggleClass('active').toggleClass('hidden-xs')
       angular.element('.navbar-toggle').toggleClass('hide')
+      angular.element('body').toggleClass('no-scroll')
+
     };
 
      $scope.menu = [{

@@ -58,25 +58,6 @@ angular.module('castifiApp', [
     $rootScope.$on('$stateChangeStart', function (event, next) {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
 
-      // console.log(event)
-      // console.log(next.data.roles[0])
-      //if user tries to access admin routes (as non admin) auth.IsAdmin
-      //redirect to root
-
-      //need to check role with each statechange and redirect accordingly
-      //add data authorization roles to each route
-      //can also check if they came from login or signup
-
-      //might need to add service for Auth checking
-
-      //check signup and login, if user logged in
-      //redirect to root
-
-      //change state data, if user next.data.role doesn't match currentUser.role
-      //bounce back to login
-
-      //redirect logged in users away from signup/login
-      //Waits for currentUser to resolve before checking if user is logged in
       Auth.isLoggedInAsync(function(loggedIn) {
         var admin = Auth.isAdmin();
 

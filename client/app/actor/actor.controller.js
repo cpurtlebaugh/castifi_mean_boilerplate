@@ -20,7 +20,6 @@ angular.module('castifiApp')
       };
 
 
-
       $scope.details;
       $scope.$watch('details', function(valueNew, valueOld){
         if(valueNew !== undefined){
@@ -46,14 +45,11 @@ angular.module('castifiApp')
 
          $scope.register = function register(form) {
                $scope.submitted = true;
-               console.log(form)
-               console.log(form.$valid)
-               console.log($scope.actor.contact.mainPhoneNum)
-               console.log(($scope.actor.contact.mainPhoneNum).length)
                if(form.$valid){
                     if($scope.actor){
                           Actor.update({id: $scope.actor._id }, $scope.actor,
                                 function success(){
+                                   if($state.is('actor.basic')){ $state.go('confirmation')}
                                    if($state.is('actor.edit.overview')){ $state.go('actor.edit.photos')}
                                    if($state.is('actor.edit.photos')){ $state.go('actor.edit.physical')}
                                    if($state.is('actor.edit.physical')){ $state.go('actor.edit.wardrobe')}
@@ -66,6 +62,9 @@ angular.module('castifiApp')
                        }
 
 
+                }
+                else{
+                    document.body.scrollTop = document.documentElement.scrollTop = 0;
                 }
             };
 
