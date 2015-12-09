@@ -19,6 +19,7 @@ angular.module('castifiApp')
   };
 })
 
+
 .directive('stNumberRange', ['$timeout', function ($timeout) {
           return {
               restrict: 'E',

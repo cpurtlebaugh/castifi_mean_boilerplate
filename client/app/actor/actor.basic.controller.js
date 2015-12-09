@@ -26,7 +26,7 @@ angular.module('castifiApp')
                             Actor.update({id: $scope.actor._id }, $scope.actor,
                               function success(){
                                  if($state.is('actor.basic')){ $state.go('confirmation')}
-                              
+
                                 }),
                                 function error(){
                                   $state.go('actor.basic')
