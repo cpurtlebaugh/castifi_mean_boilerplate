@@ -13,3 +13,6 @@ dist
 npm-debug.log
 castifi.pem
 /coverage/
+server.csr
+server.key
+server.pass.key

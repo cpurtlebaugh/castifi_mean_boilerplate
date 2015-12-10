@@ -97,9 +97,10 @@ img.profile-image{
  * --------------------------------------------------
  */
 
-@media (min-width: 620px) and (max-width: $screen-md) { 
+@media (min-width: 470px) and (max-width: $screen-md) { 
   .mobile-nav-footer {
     bottom: initial;
+    color:blue;
     position: absolute;
     width: 100%;
   }
@@ -115,6 +116,13 @@ img.profile-image{
 
   img.profile-image{
     width:70%;
+  }
+
+ .navbar {
+    .container{
+        padding-left: 70px;
+        padding-right:70px;
+    }
   }
 } 
 
