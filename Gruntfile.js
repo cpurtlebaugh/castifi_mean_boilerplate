@@ -405,22 +405,10 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:castifi-app-staging.git', //remote to push to 'heroku'
+          remote: 'heroku'
           branch: 'master', //branch to commit to
         }
-      },
-      herokuProd: {
-        options: {
-          remote: 'git@heroku.com:castifi-app.git', //remote to push to 'heroku'
-          branch: 'master', //branch to commit to
-        }
-      },
-      // openshift: {
-      //   options: {
-      //     remote: 'openshift',
-      //     branch: 'master'
-      //   }
-      // }
+      }
     },
 
     // Run some tasks in parallel to speed up the build process
